@@ -1,4 +1,4 @@
-# Python course for Upgrade Academy
+# Python course
 
 # 4 Oylik Python Kursi (Backend uchun tayyorlov)
 
