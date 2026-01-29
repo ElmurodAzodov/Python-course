@@ -26,17 +26,47 @@
 #     print(f"Siz {son} manfiy sonini kiritdingiz, uni 2ga kamaytirganda {son-2} ga teng")
 
 # if4
-son1 = int(input("1-butun sonni kiriting: "))
-son2 = int(input("2-butun sonni kiriting: "))
-son3 = int(input("3-butun sonni kiriting: "))
+# son1 = int(input("1-butun sonni kiriting: "))
+# son2 = int(input("2-butun sonni kiriting: "))
+# son3 = int(input("3-butun sonni kiriting: "))
 
-musbat_sonlar = 0
+# musbat_sonlar = 0
 
-if son1 > 0:
-    musbat_sonlar += 1
-if son2 > 0:
-    musbat_sonlar += 1
-if son3 > 0:
-    musbat_sonlar += 1
+# if son1 > 0:
+#     musbat_sonlar += 1
+# if son2 > 0:
+#     musbat_sonlar += 1
+# if son3 > 0:
+#     musbat_sonlar += 1
 
-print(f"Jami {musbat_sonlar} ta son!")
+# print(f"Jami {musbat_sonlar} ta son!")
+
+# if 5
+a = int(input("1-sonni kiriting: "))
+b = int(input("2-sonni kiriting: "))
+c = int(input("3-sonni kiriting: "))
+
+musbat = 0
+manfiy = 0
+
+
+if a > 0:
+    musbat += 1
+else:
+    if a < 0:
+        manfiy += 1
+
+if b > 0:
+    musbat += 1
+else:
+    if b < 0:
+        manfiy += 1
+
+if c > 0:
+    musbat += 1
+else:
+    if c < 0:
+        manfiy += 1
+
+print("Musbat sonlar:", musbat)
+print("Manfiy sonlar:", manfiy)
