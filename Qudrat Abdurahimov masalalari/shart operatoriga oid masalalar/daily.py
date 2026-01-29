@@ -42,31 +42,40 @@
 # print(f"Jami {musbat_sonlar} ta son!")
 
 # if 5
-a = int(input("1-sonni kiriting: "))
-b = int(input("2-sonni kiriting: "))
-c = int(input("3-sonni kiriting: "))
+# a = int(input("1-sonni kiriting: "))
+# b = int(input("2-sonni kiriting: "))
+# c = int(input("3-sonni kiriting: "))
 
-musbat = 0
-manfiy = 0
+# musbat = 0
+# manfiy = 0
 
 
-if a > 0:
-    musbat += 1
-else:
-    if a < 0:
-        manfiy += 1
+# if a > 0:
+#     musbat += 1
+# else:
+#     if a < 0:
+#         manfiy += 1
 
-if b > 0:
-    musbat += 1
-else:
-    if b < 0:
-        manfiy += 1
+# if b > 0:
+#     musbat += 1
+# else:
+#     if b < 0:
+#         manfiy += 1
 
-if c > 0:
-    musbat += 1
-else:
-    if c < 0:
-        manfiy += 1
+# if c > 0:
+#     musbat += 1
+# else:
+#     if c < 0:
+#         manfiy += 1
 
-print("Musbat sonlar:", musbat)
-print("Manfiy sonlar:", manfiy)
+# print("Musbat sonlar:", musbat)
+# print("Manfiy sonlar:", manfiy)
+
+# if6
+# son1 = int(input("Birinchi sonni kiriting: "))
+# son2 = int(input("Ikkinchi sonni kiriting: "))
+
+# if son1 > son2:
+#     print("Birinchi son ikkinchi sondan katta")
+# else:
+#     print("Ikkinchi son birinchi sondan katta")
