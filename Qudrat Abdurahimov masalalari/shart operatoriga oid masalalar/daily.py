@@ -8,9 +8,20 @@
 #     print("Manfiy son kiritdingiz!")
 
 # if2
-son = int(input("Butun son kiriting: "))
+# son = int(input("Butun son kiriting: "))
 
-if son > 0:
-    print(f"Siz {son} musbat sonini kiritdingiz, uni 1ga oshirganda {son+1} ga teng")
-else:
-    print(f"Siz {son} manfiy sonini kiritdingiz, uni 2ga kamaytirganda {son-2} ga teng")
+# if son > 0:
+#     print(f"Siz {son} musbat sonini kiritdingiz, uni 1ga oshirganda {son+1} ga teng")
+# else:
+#     print(f"Siz {son} manfiy sonini kiritdingiz, uni 2ga kamaytirganda {son-2} ga teng")
+
+# if3
+# son = int(input("Butun son kiriting: "))
+
+# if son > 0:
+#     print(f"Siz {son} musbat sonini kiritdingiz, uni 1ga oshirganda {son+1} ga teng")
+# elif son == 0:
+#     print(f"Siz {son} sonini kiritdingiz, uni 10ga o'zlashtirganda {son+10} ga teng")
+# else:
+#     print(f"Siz {son} manfiy sonini kiritdingiz, uni 2ga kamaytirganda {son-2} ga teng")
+
