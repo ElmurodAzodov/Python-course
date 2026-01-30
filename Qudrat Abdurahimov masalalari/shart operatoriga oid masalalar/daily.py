@@ -90,12 +90,21 @@
 #     print("Kichik son:", b)
 
 # if8
-a = int(input("Birinchi son: "))
-b = int(input("Ikkinchi son: "))
+# a = int(input("Birinchi son: "))
+# b = int(input("Ikkinchi son: "))
 
-if a > b:
-    print("Katta son:", a)
-    print("Kichik son:", b)
-else:
-    print("Katta son:", b)
-    print("Kichik son:", a)
+# if a > b:
+#     print("Katta son:", a)
+#     print("Kichik son:", b)
+# else:
+#     print("Katta son:", b)
+#     print("Kichik son:", a)
+
+# if9
+A = float(input("A sonini kiriting: "))
+B = float(input("B sonini kiriting: "))
+
+if A > B:
+    A, B = B, A
+
+print("A:", A, "B:", B)
