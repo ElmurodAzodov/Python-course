@@ -81,10 +81,21 @@
 #     print("Ikkinchi son birinchi sondan katta")
 
 # if7
-a = int(input("Birinchi sonni kiriting: "))
-b = int(input("Ikkinchi sonni kiriting: "))
+# a = int(input("Birinchi sonni kiriting: "))
+# b = int(input("Ikkinchi sonni kiriting: "))
 
-if a < b:
-    print("Kichik son:", a)
-else:
+# if a < b:
+#     print("Kichik son:", a)
+# else:
+#     print("Kichik son:", b)
+
+# if8
+a = int(input("Birinchi son: "))
+b = int(input("Ikkinchi son: "))
+
+if a > b:
+    print("Katta son:", a)
     print("Kichik son:", b)
+else:
+    print("Katta son:", b)
+    print("Kichik son:", a)
