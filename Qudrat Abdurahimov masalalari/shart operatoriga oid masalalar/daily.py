@@ -79,3 +79,12 @@
 #     print("Birinchi son ikkinchi sondan katta")
 # else:
 #     print("Ikkinchi son birinchi sondan katta")
+
+# if7
+a = int(input("Birinchi sonni kiriting: "))
+b = int(input("Ikkinchi sonni kiriting: "))
+
+if a < b:
+    print("Kichik son:", a)
+else:
+    print("Kichik son:", b)
