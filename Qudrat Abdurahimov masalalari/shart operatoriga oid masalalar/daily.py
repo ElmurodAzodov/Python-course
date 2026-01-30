@@ -101,10 +101,35 @@
 #     print("Kichik son:", a)
 
 # if9
-A = float(input("A sonini kiriting: "))
-B = float(input("B sonini kiriting: "))
+# A = float(input("A sonini kiriting: "))
+# B = float(input("B sonini kiriting: "))
 
-if A > B:
-    A, B = B, A
+# if A > B:
+#     A, B = B, A
+
+# print("A:", A, "B:", B)
+
+# if10
+# A = int(input("A son: "))
+# B = int(input("B son: "))
+
+# if A != B:
+#     A = B = A + B
+# else:
+#     A = B = 0
+
+# print("A:", A, "B:", B)
+
+# if11
+A = int(input("A son: "))
+B = int(input("B son: "))
+
+if A != B:
+    if A > B:
+        B = A
+    else:
+        A = B
+else:
+    A = B = 0
 
 print("A:", A, "B:", B)
