@@ -121,15 +121,29 @@
 # print("A:", A, "B:", B)
 
 # if11
-A = int(input("A son: "))
-B = int(input("B son: "))
+# A = int(input("A son: "))
+# B = int(input("B son: "))
 
-if A != B:
-    if A > B:
-        B = A
-    else:
-        A = B
+# if A != B:
+#     if A > B:
+#         B = A
+#     else:
+#         A = B
+# else:
+#     A = B = 0
+
+# print("A:", A, "B:", B)
+
+# if12
+a = int(input("Birinchi sonni kiriting: "))
+b = int(input("Ikkinchi sonni kiriting: "))
+c = int(input("Uchinchi sonni kiriting: "))
+
+if a <= b and a <= c:
+    min_son = a
+elif b <= a and b <= c:
+    min_son = b
 else:
-    A = B = 0
+    min_son = c
 
-print("A:", A, "B:", B)
+print("Eng kichik son:", min_son)
