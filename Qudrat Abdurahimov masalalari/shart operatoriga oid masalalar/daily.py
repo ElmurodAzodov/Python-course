@@ -150,13 +150,14 @@
 
 # if13
 
-a = int(input("Birinchi sonni kiriting: \n"))
-b = int(input("Ikkinchi sonni kiriting: \n"))
-c = int(input("Uchinchi sonni kiriting: \n"))
+# a = int(input("Birinchi sonni kiriting: \n"))
+# b = int(input("Ikkinchi sonni kiriting: \n"))
+# c = int(input("Uchinchi sonni kiriting: \n"))
 
-if a > b and b > c:
-    print(f"{b} soni {a} va {c} sonlari orasida yotadi")
-elif b > a and a > c:
-    print(f"{a} soni {b} va {c} sonlari orasida yotadi")
-else:
-    print(f"{c} soni {a} va {b} sonlari orasida yotadi")
+# if a > b and b > c:
+#     print(f"{b} soni {a} va {c} sonlari orasida yotadi")
+# elif b > a and a > c:
+#     print(f"{a} soni {b} va {c} sonlari orasida yotadi")
+# else:
+#     print(f"{c} soni {a} va {b} sonlari orasida yotadi")
+
