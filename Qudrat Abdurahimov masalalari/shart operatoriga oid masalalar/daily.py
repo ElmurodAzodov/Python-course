@@ -135,15 +135,28 @@
 # print("A:", A, "B:", B)
 
 # if12
-a = int(input("Birinchi sonni kiriting: "))
-b = int(input("Ikkinchi sonni kiriting: "))
-c = int(input("Uchinchi sonni kiriting: "))
+# a = int(input("Birinchi sonni kiriting: "))
+# b = int(input("Ikkinchi sonni kiriting: "))
+# c = int(input("Uchinchi sonni kiriting: "))
 
-if a <= b and a <= c:
-    min_son = a
-elif b <= a and b <= c:
-    min_son = b
+# if a <= b and a <= c:
+#     min_son = a
+# elif b <= a and b <= c:
+#     min_son = b
+# else:
+#     min_son = c
+
+# print("Eng kichik son:", min_son)
+
+# if13
+
+a = int(input("Birinchi sonni kiriting: \n"))
+b = int(input("Ikkinchi sonni kiriting: \n"))
+c = int(input("Uchinchi sonni kiriting: \n"))
+
+if a > b and b > c:
+    print(f"{b} soni {a} va {c} sonlari orasida yotadi")
+elif b > a and a > c:
+    print(f"{a} soni {b} va {c} sonlari orasida yotadi")
 else:
-    min_son = c
-
-print("Eng kichik son:", min_son)
+    print(f"{c} soni {a} va {b} sonlari orasida yotadi")
