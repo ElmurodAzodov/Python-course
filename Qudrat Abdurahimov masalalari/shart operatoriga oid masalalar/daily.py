@@ -198,11 +198,28 @@
 
 # if16
 
+# a = float(input())
+# b = float(input())
+# c = float(input())
+
+# if a <= b and b <= c:
+#     a *= 2
+#     b *= 2
+#     c *= 2
+# else:
+#     a = -a
+#     b = -b
+#     c = -c
+
+# print(a, b, c)
+
+# if17
+
 a = float(input())
 b = float(input())
 c = float(input())
 
-if a <= b and b <= c:
+if (a <= b and b <= c) or (a >= b and b >= c):
     a *= 2
     b *= 2
     c *= 2
