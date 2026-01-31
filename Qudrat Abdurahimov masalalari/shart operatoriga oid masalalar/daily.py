@@ -185,14 +185,30 @@
 # print(max_son, min_son)
 
 # if15
+# a = float(input())
+# b = float(input())
+# c = float(input())
+
+# if a + b >= a + c and a + b >= b + c:
+#     print(a, b)
+# elif a + c >= a + b and a + c >= b + c:
+#     print(a, c)
+# else:
+#     print(b, c)
+
+# if16
+
 a = float(input())
 b = float(input())
 c = float(input())
 
-if a + b >= a + c and a + b >= b + c:
-    print(a, b)
-elif a + c >= a + b and a + c >= b + c:
-    print(a, c)
+if a <= b and b <= c:
+    a *= 2
+    b *= 2
+    c *= 2
 else:
-    print(b, c)
+    a = -a
+    b = -b
+    c = -c
 
+print(a, b, c)
