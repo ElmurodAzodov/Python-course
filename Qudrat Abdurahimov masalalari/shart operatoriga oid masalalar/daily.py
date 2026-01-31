@@ -162,24 +162,37 @@
 #     print(f"{c} soni {a} va {b} sonlari orasida yotadi")
 
 # if14
+# a = float(input())
+# b = float(input())
+# c = float(input())
+
+# # eng katta
+# if a >= b and a >= c:
+#     max_son = a
+# elif b >= a and b >= c:
+#     max_son = b
+# else:
+#     max_son = c
+
+# # eng kichik
+# if a <= b and a <= c:
+#     min_son = a
+# elif b <= a and b <= c:
+#     min_son = b
+# else:
+#     min_son = c
+
+# print(max_son, min_son)
+
+# if15
 a = float(input())
 b = float(input())
 c = float(input())
 
-# eng katta
-if a >= b and a >= c:
-    max_son = a
-elif b >= a and b >= c:
-    max_son = b
+if a + b >= a + c and a + b >= b + c:
+    print(a, b)
+elif a + c >= a + b and a + c >= b + c:
+    print(a, c)
 else:
-    max_son = c
+    print(b, c)
 
-# eng kichik
-if a <= b and a <= c:
-    min_son = a
-elif b <= a and b <= c:
-    min_son = b
-else:
-    min_son = c
-
-print(max_son, min_son)
