@@ -261,13 +261,28 @@
 
 # if20
 
-A = float(input("A = "))
-B = float(input("B = "))
-C = float(input("C = "))
+# A = float(input("A = "))
+# B = float(input("B = "))
+# C = float(input("C = "))
 
-if abs(A - B) < abs(A - C):
-    print("Eng yaqin nuqta: B")
-    print("Masofa:", abs(A - B))
+# if abs(A - B) < abs(A - C):
+#     print("Eng yaqin nuqta: B")
+#     print("Masofa:", abs(A - B))
+# else:
+#     print("Eng yaqin nuqta: C")
+#     print("Masofa:", abs(A - C))
+
+# if21
+
+x = int(input("x = "))
+y = int(input("y = "))
+
+if x == 0 and y == 0:
+    print(0)
+elif x != 0 and y == 0:
+    print(1)
+elif x == 0 and y != 0:
+    print(2)
 else:
-    print("Eng yaqin nuqta: C")
-    print("Masofa:", abs(A - C))
+    print(3)
+
