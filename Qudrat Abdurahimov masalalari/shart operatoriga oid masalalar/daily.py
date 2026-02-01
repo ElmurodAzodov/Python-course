@@ -245,16 +245,29 @@
 
 # if19
 
-a = int(input("a = "))
-b = int(input("b = "))
-c = int(input("c = "))
-d = int(input("d = "))
+# a = int(input("a = "))
+# b = int(input("b = "))
+# c = int(input("c = "))
+# d = int(input("d = "))
 
-if b == c == d:
-    print(1)
-elif a == c == d:
-    print(2)
-elif a == b == d:
-    print(3)
+# if b == c == d:
+#     print(1)
+# elif a == c == d:
+#     print(2)
+# elif a == b == d:
+#     print(3)
+# else:
+#     print(4)
+
+# if20
+
+A = float(input("A = "))
+B = float(input("B = "))
+C = float(input("C = "))
+
+if abs(A - B) < abs(A - C):
+    print("Eng yaqin nuqta: B")
+    print("Masofa:", abs(A - B))
 else:
-    print(4)
+    print("Eng yaqin nuqta: C")
+    print("Masofa:", abs(A - C))
