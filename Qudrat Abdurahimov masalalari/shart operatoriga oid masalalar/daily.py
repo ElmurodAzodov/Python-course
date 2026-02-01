@@ -232,13 +232,29 @@
 
 # if18
 
+# a = int(input("a = "))
+# b = int(input("b = "))
+# c = int(input("c = "))
+
+# if a == b:
+#     print(3)
+# elif a == c:
+#     print(2)
+# else:
+#     print(1)
+
+# if19
+
 a = int(input("a = "))
 b = int(input("b = "))
 c = int(input("c = "))
+d = int(input("d = "))
 
-if a == b:
-    print(3)
-elif a == c:
-    print(2)
-else:
+if b == c == d:
     print(1)
+elif a == c == d:
+    print(2)
+elif a == b == d:
+    print(3)
+else:
+    print(4)
