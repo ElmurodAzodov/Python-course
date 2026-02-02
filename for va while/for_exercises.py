@@ -14,7 +14,10 @@ for i in range(1, 11):
         print(i)
 # 4. 
 #* Foydalanuvchi son kiritadi. 
-#* 1 dan shu songacha bo‘lgan sonlarni chiqaring. 
+#* 1 dan shu songacha bo‘lgan sonlarni chiqaring.
+son = int(input("Son kiriting: ")) 
+for i in range(1, son+1):
+    print(i)
 # 5. 
 #* 1 dan 20 gacha bo‘lgan sonlardan 5 ga karrali bo‘lganlarini chiqaring. 
 # 6. 
