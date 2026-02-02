@@ -1,32 +1,42 @@
 # 1. 
 #* 1 dan 10 gacha bo‘lgan sonlarni for yordamida ekranga chiqaring. 
-for i in range(1, 11):
-    print(i)
+# for i in range(1, 11):
+#     print(i)
 # 2. 
 #* 1 dan 10 gacha bo‘lgan juft sonlarni chiqaring (if ishlating). 
-for i in range(1, 11):
-    if i % 2 == 0:
-        print(i)
+# for i in range(1, 11):
+#     if i % 2 == 0:
+#         print(i)
 # 3. 
 #* 1 dan 10 gacha bo‘lgan toq sonlarni chiqaring.
-for i in range(1, 11):
-    if i % 2 != 0:
-        print(i)
+# for i in range(1, 11):
+#     if i % 2 != 0:
+#         print(i)
 # 4. 
 #* Foydalanuvchi son kiritadi. 
 #* 1 dan shu songacha bo‘lgan sonlarni chiqaring.
-son = int(input("Son kiriting: ")) 
-for i in range(1, son+1):
-    print(i)
+# son = int(input("Son kiriting: ")) 
+# for i in range(1, son+1):
+#     print(i)
 # 5. 
-#* 1 dan 20 gacha bo‘lgan sonlardan 5 ga karrali bo‘lganlarini chiqaring. 
+#* 1 dan 20 gacha bo‘lgan sonlardan 5 ga karrali bo‘lganlarini chiqaring.
+# for i in range(1, 21):
+#     if i % 5 == 0:
+#         print(i)
 # 6. 
-#* 1 dan 10 gacha bo‘lgan sonlarning yig‘indisini hisoblang. 
+#* 1 dan 10 gacha bo‘lgan sonlarning yig‘indisini hisoblang.
+# natija = 0
+# for i in range(1, 11):
+#      natija += i
+# print(natija)
 # 7. 
 #* 1 dan 20 gacha bo‘lgan sonlardan juftlarning yig‘indisini toping. 
+# for i in range(1, 21):
+    
 # 8. 
 #* Foydalanuvchi son kiritadi. 
 #* Shu son tub (prime) yoki yo‘qligini for va if else yordamida aniqlang. 
+
 # 9. 
 #* Berilgan ro‘yxat: 
 #* sonlar = [3, 7, 2, 9, 12, 5] 
