@@ -8,7 +8,10 @@ for i in range(1, 11):
     if i % 2 == 0:
         print(i)
 # 3. 
-#* 1 dan 10 gacha bo‘lgan toq sonlarni chiqaring. 
+#* 1 dan 10 gacha bo‘lgan toq sonlarni chiqaring.
+for i in range(1, 11):
+    if i % 2 != 0:
+        print(i)
 # 4. 
 #* Foydalanuvchi son kiritadi. 
 #* 1 dan shu songacha bo‘lgan sonlarni chiqaring. 
