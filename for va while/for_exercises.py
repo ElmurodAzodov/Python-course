@@ -36,23 +36,27 @@
 # 8. 
 #* Foydalanuvchi son kiritadi. 
 #* Shu son tub (prime) yoki yo‘qligini for va if else yordamida aniqlang. 
-son = int(input("Son kiriting: "))
-tub = True
+# son = int(input("Son kiriting: "))
+# tub = True
 
-if son < 2:
-    tub = False
-for i in range(2, son):
-    if son % i == 0:
-        tub = False
-        break
-if tub:
-    print("Tub son")
-else:
-    print("Tub emas")
+# if son < 2:
+#     tub = False
+# for i in range(2, son):
+#     if son % i == 0:
+#         tub = False
+#         break
+# if tub:
+#     print("Tub son")
+# else:
+#     print("Tub emas")
 # 9. 
 #* Berilgan ro‘yxat: 
 #* sonlar = [3, 7, 2, 9, 12, 5] 
-#* Faqat 5 dan katta sonlarni ekranga chiqaring. 
+#* Faqat 5 dan katta sonlarni ekranga chiqaring.
+sonlar = [3, 7, 2, 9, 12, 5]
+for i in sonlar:
+    if i > 5:
+        print(i)
 # 10. 
 #* 1 dan 50 gacha bo‘lgan sonlardan 3 ga ham, 5 ga ham bo‘linadigan sonlarni 
 #* chiqaring. 
