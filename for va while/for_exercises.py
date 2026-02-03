@@ -60,11 +60,21 @@
 # 10. 
 #* 1 dan 50 gacha bo‘lgan sonlardan 3 ga ham, 5 ga ham bo‘linadigan sonlarni 
 #* chiqaring. 
-for i in range(1, 51):
-    if i % 3 == 0 and i % 5 == 0:
-        print(i)
+# for i in range(1, 51):
+#     if i % 3 == 0 and i % 5 == 0:
+#         print(i)
 # 11. 
 #* 1 dan 100 gacha bo‘lgan sonlardan tub sonlarni chiqaring. 
+for son in range(2, 101):
+    tub = True
+    for i in range(2, son):
+        if son % i == 0:
+            tub = False
+            break
+
+    if tub:
+        print(son)
+
 # 12. 
 #* Berilgan ro‘yxatdagi eng katta sonni for yordamida toping. 
 #* (max() ishlatish mumkin emas) 
