@@ -102,16 +102,16 @@
 # 14. 
 #* Berilgan matndagi unli harflar sonini hisoblang. 
 #* (Masalan: a, e, i, o, u)
-matn = input("Matn kiriting: ")
+# matn = input("Matn kiriting: ")
 
-unlilar = "aeiouAEIOU"
-sanoq = 0
+# unlilar = "aeiouAEIOU"
+# sanoq = 0
 
-for harf in matn:
-    if harf in unlilar:
-        sanoq += 1
+# for harf in matn:
+#     if harf in unlilar:
+#         sanoq += 1
 
-print("Unli harflar soni:", sanoq)
+# print("Unli harflar soni:", sanoq)
 
 # 15. 
 #* 1 dan 50 gacha bo‘lgan sonlar uchun: 
@@ -120,3 +120,12 @@ print("Unli harflar soni:", sanoq)
 #* - agar 3 va 5 ga bo‘linsa → "FizzBuzz" 
 #* - aks holda sonning o‘zini chiqaring 
 #* (for + if elif else)
+for son in range(1, 51):
+    if son % 3 == 0 and son % 5 == 0:
+        print("FizzBuzz")
+    elif son % 3 == 0:
+        print("Fizz")
+    elif son % 5 == 0:
+        print("Buzz")
+    else:
+        print(son)
