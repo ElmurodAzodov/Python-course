@@ -78,18 +78,27 @@
 # 12. 
 #* Berilgan ro‘yxatdagi eng katta sonni for yordamida toping. 
 #* (max() ishlatish mumkin emas)
-sonlar = [4, 7, 2, 9, 1, 5]
+# sonlar = [4, 7, 2, 9, 1, 5]
 
-eng_katta = sonlar[0]
+# eng_katta = sonlar[0]
 
-for son in sonlar:
-    if son > eng_katta:
-        eng_katta = son
+# for son in sonlar:
+#     if son > eng_katta:
+#         eng_katta = son
 
-print("Eng katta son:", eng_katta)
+# print("Eng katta son:", eng_katta)
 
 # 13. 
 #* Foydalanuvchi kiritgan sonning faktorialini for yordamida hisoblang. 
+n = int(input("Son kiriting: "))
+
+faktorial = 1
+
+for i in range(1, n + 1):
+    faktorial *= i
+
+print("Faktorial:", faktorial)
+
 # 14. 
 #* Berilgan matndagi unli harflar sonini hisoblang. 
 #* (Masalan: a, e, i, o, u) 
