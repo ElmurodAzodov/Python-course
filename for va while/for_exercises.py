@@ -36,7 +36,19 @@
 # 8. 
 #* Foydalanuvchi son kiritadi. 
 #* Shu son tub (prime) yoki yo‘qligini for va if else yordamida aniqlang. 
+son = int(input("Son kiriting: "))
+tub = True
 
+if son < 2:
+    tub = False
+for i in range(2, son):
+    if son % i == 0:
+        tub = False
+        break
+if tub:
+    print("Tub son")
+else:
+    print("Tub emas")
 # 9. 
 #* Berilgan ro‘yxat: 
 #* sonlar = [3, 7, 2, 9, 12, 5] 
