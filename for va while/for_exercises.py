@@ -53,13 +53,16 @@
 #* Berilgan ro‘yxat: 
 #* sonlar = [3, 7, 2, 9, 12, 5] 
 #* Faqat 5 dan katta sonlarni ekranga chiqaring.
-sonlar = [3, 7, 2, 9, 12, 5]
-for i in sonlar:
-    if i > 5:
-        print(i)
+# sonlar = [3, 7, 2, 9, 12, 5]
+# for i in sonlar:
+#     if i > 5:
+#         print(i)
 # 10. 
 #* 1 dan 50 gacha bo‘lgan sonlardan 3 ga ham, 5 ga ham bo‘linadigan sonlarni 
 #* chiqaring. 
+for i in range(1, 51):
+    if i % 3 == 0 and i % 5 == 0:
+        print(i)
 # 11. 
 #* 1 dan 100 gacha bo‘lgan sonlardan tub sonlarni chiqaring. 
 # 12. 
