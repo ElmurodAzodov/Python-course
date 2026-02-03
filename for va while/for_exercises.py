@@ -90,18 +90,29 @@
 
 # 13. 
 #* Foydalanuvchi kiritgan sonning faktorialini for yordamida hisoblang. 
-n = int(input("Son kiriting: "))
+# n = int(input("Son kiriting: "))
 
-faktorial = 1
+# faktorial = 1
 
-for i in range(1, n + 1):
-    faktorial *= i
+# for i in range(1, n + 1):
+#     faktorial *= i
 
-print("Faktorial:", faktorial)
+# print("Faktorial:", faktorial)
 
 # 14. 
 #* Berilgan matndagi unli harflar sonini hisoblang. 
-#* (Masalan: a, e, i, o, u) 
+#* (Masalan: a, e, i, o, u)
+matn = input("Matn kiriting: ")
+
+unlilar = "aeiouAEIOU"
+sanoq = 0
+
+for harf in matn:
+    if harf in unlilar:
+        sanoq += 1
+
+print("Unli harflar soni:", sanoq)
+
 # 15. 
 #* 1 dan 50 gacha bo‘lgan sonlar uchun: 
 #* - agar son 3 ga bo‘linsa → "Fizz" 
