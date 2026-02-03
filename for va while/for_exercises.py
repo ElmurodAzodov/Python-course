@@ -65,19 +65,29 @@
 #         print(i)
 # 11. 
 #* 1 dan 100 gacha bo‘lgan sonlardan tub sonlarni chiqaring. 
-for son in range(2, 101):
-    tub = True
-    for i in range(2, son):
-        if son % i == 0:
-            tub = False
-            break
+# for son in range(2, 101):
+#     tub = True
+#     for i in range(2, son):
+#         if son % i == 0:
+#             tub = False
+#             break
 
-    if tub:
-        print(son)
+#     if tub:
+#         print(son)
 
 # 12. 
 #* Berilgan ro‘yxatdagi eng katta sonni for yordamida toping. 
-#* (max() ishlatish mumkin emas) 
+#* (max() ishlatish mumkin emas)
+sonlar = [4, 7, 2, 9, 1, 5]
+
+eng_katta = sonlar[0]
+
+for son in sonlar:
+    if son > eng_katta:
+        eng_katta = son
+
+print("Eng katta son:", eng_katta)
+
 # 13. 
 #* Foydalanuvchi kiritgan sonning faktorialini for yordamida hisoblang. 
 # 14. 
