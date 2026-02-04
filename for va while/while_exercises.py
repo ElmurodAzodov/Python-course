@@ -53,16 +53,24 @@
     
 #^ 7. Berilgan sonni teskari yozuvda chiqar (masalan: 123 → 321). 
 
-n = int(input("Son kiriting: "))
-rev = 0
+# n = int(input("Son kiriting: "))
+# rev = 0
 
-while n > 0:
-    rev = rev * 10 + n % 10
-    n //= 10
+# while n > 0:
+#     rev = rev * 10 + n % 10
+#     n //= 10
 
-print("Teskari son:", rev)
+# print("Teskari son:", rev)
 
 #^ 8. 1 dan 100 gacha bo‘lgan 3 ga bo‘linadigan sonlarni chiqar. 
+
+i = 1
+
+while i <= 100:
+    if i % 3 == 0:
+        print(i, end=" ")
+    i += 1
+
 #^ 9. Foydalanuvchi manfiy son kiritmaguncha sonlar kiritadi, oxirida eng 
 #^ katta sonni chiqar. 
 #^ 10. Berilgan sonning faktorialini while yordamida hisobla. 
