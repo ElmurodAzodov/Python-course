@@ -6,14 +6,19 @@
 #     i += 1
 #^ 1. 1 dan n gacha bo‘lgan sonlar yig‘indisini hisobla (n foydalanuvchidan 
 #^ olinadi).
-n = int(input("Son kiriting: "))
-i = 1
-y = 0
-while i <= n:
-    y += i
-    i += 1
-print(y)
+# n = int(input("Son kiriting: "))
+# i = 1
+# y = 0
+# while i <= n:
+#     y += i
+#     i += 1
+# print(y)
 #^ 2. Juft sonlarni 1 dan 20 gacha ekranga chiqar. 
+i = 1
+while i <= 20:
+    if i % 2 == 0:
+        print(i)
+    i += 1
 #^ 3. Foydalanuvchi 0 kiritmaguncha son kiritishni davom ettir, oxirida nechta 
 #^ son kiritilganini chiqar. 
 #^ 4. Berilgan sonning kvadratini 5 marta ekranga chiqar. 
