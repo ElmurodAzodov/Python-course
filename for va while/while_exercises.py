@@ -14,13 +14,23 @@
 #     i += 1
 # print(y)
 #^ 2. Juft sonlarni 1 dan 20 gacha ekranga chiqar. 
-i = 1
-while i <= 20:
-    if i % 2 == 0:
-        print(i)
-    i += 1
+# i = 1
+# while i <= 20:
+#     if i % 2 == 0:
+#         print(i)
+#     i += 1
 #^ 3. Foydalanuvchi 0 kiritmaguncha son kiritishni davom ettir, oxirida nechta 
 #^ son kiritilganini chiqar. 
+
+count = 1
+while True:
+    x = int(input("Son kiriting (0 to‘xtatadi): "))
+    if x == 0:
+        break
+    count += 1
+
+print("Kiritilgan sonlar soni:", count)
+
 #^ 4. Berilgan sonning kvadratini 5 marta ekranga chiqar. 
 #^ 6. Berilgan sonning raqamlari yig‘indisini top. 
 #^ 7. Berilgan sonni teskari yozuvda chiqar (masalan: 123 → 321). 
