@@ -42,16 +42,26 @@
 
 #^ 6. Berilgan sonning raqamlari yig‘indisini top. 
 
-n = int(input("Son kiriting: "))
-s = 0
+# n = int(input("Son kiriting: "))
+# s = 0
 
-while n > 0:
-    s += n % 10
-    n //= 10
+# while n > 0:
+#     s += n % 10
+#     n //= 10
 
-print("Raqamlar yig‘indisi:", s)
+# print("Raqamlar yig‘indisi:", s)
     
 #^ 7. Berilgan sonni teskari yozuvda chiqar (masalan: 123 → 321). 
+
+n = int(input("Son kiriting: "))
+rev = 0
+
+while n > 0:
+    rev = rev * 10 + n % 10
+    n //= 10
+
+print("Teskari son:", rev)
+
 #^ 8. 1 dan 100 gacha bo‘lgan 3 ga bo‘linadigan sonlarni chiqar. 
 #^ 9. Foydalanuvchi manfiy son kiritmaguncha sonlar kiritadi, oxirida eng 
 #^ katta sonni chiqar. 
