@@ -33,14 +33,24 @@
 
 #^ 4. Berilgan sonning kvadratini 5 marta ekranga chiqar. 
 
-i = 0
-son = int(input("Son kiriting: "))
-while i < 5:
-    print(son ** 2)
-    i += 1
+# i = 0
+# son = int(input("Son kiriting: "))
+# while i < 5:
+#     print(son ** 2)
+#     i += 1
     
 
 #^ 6. Berilgan sonning raqamlari yig‘indisini top. 
+
+n = int(input("Son kiriting: "))
+s = 0
+
+while n > 0:
+    s += n % 10
+    n //= 10
+
+print("Raqamlar yig‘indisi:", s)
+    
 #^ 7. Berilgan sonni teskari yozuvda chiqar (masalan: 123 → 321). 
 #^ 8. 1 dan 100 gacha bo‘lgan 3 ga bo‘linadigan sonlarni chiqar. 
 #^ 9. Foydalanuvchi manfiy son kiritmaguncha sonlar kiritadi, oxirida eng 
