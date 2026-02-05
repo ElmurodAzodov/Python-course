@@ -91,17 +91,38 @@
 
 #^ 10. Berilgan sonning faktorialini while yordamida hisobla. 
 
-son = int(input("Son kiriting: "))
-faktorial = 1
-i = 1
+# son = int(input("Son kiriting: "))
+# faktorial = 1
+# i = 1
 
-while i <= son:
-    faktorial = faktorial * i
-    i = i + 1
+# while i <= son:
+#     faktorial = faktorial * i
+#     i = i + 1
 
-print("Faktorial:", faktorial)
+# print("Faktorial:", faktorial)
 
 #^ 11. Berilgan son tub (prime) yoki yo‘qligini while yordamida aniqla. 
+
+n = int(input("Son kiriting: "))
+
+if n <= 1:
+    print("Tub emas")
+else:
+    i = 2
+    tub = True
+
+    while i < n:
+        if n % i == 0:
+            tub = False
+            break
+        i += 1
+
+    if tub:
+        print("Tub son")
+    else:
+        print("Tub emas")
+
+
 #^ 12. Foydalanuvchi son kiritadi, dastur faqat juft son kiritilmaguncha davom 
 #^ etadi. 
 #^ 13. Berilgan son palindrom ekanligini aniqla (masalan: 1221). 
