@@ -126,16 +126,32 @@
 #^ 12. Foydalanuvchi son kiritadi, dastur faqat juft son kiritilmaguncha davom 
 #^ etadi.
 
-while True:
-    son = int(input("Son kiriting: "))
-    if son % 2 == 0:
-        print("Juft son kiritildi")
-        break
-    else:
-        print("Juft emas")
+# while True:
+#     son = int(input("Son kiriting: "))
+#     if son % 2 == 0:
+#         print("Juft son kiritildi")
+#         break
+#     else:
+#         print("Juft emas")
     
 
 #^ 13. Berilgan son palindrom ekanligini aniqla (masalan: 1221). 
+
+n = int(input("Son kiriting: "))
+
+temp = n
+rev = 0
+
+while temp > 0:
+    rev = rev * 10 + temp % 10
+    temp //= 10
+
+if n == rev:
+    print("Palindrom son")
+else:
+    print("Palindrom emas")
+
+
 #^ 14. Foydalanuvchi sonlar kiritadi, 0 kiritilganda to‘xtaydi, oxirida o‘rtacha 
 #^ qiymatni chiqar. 
 #^ 15. while yordamida Fibonacci ketma-ketligining dastlabki n ta hadini 
