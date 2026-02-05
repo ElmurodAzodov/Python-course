@@ -103,28 +103,38 @@
 
 #^ 11. Berilgan son tub (prime) yoki yo‘qligini while yordamida aniqla. 
 
-n = int(input("Son kiriting: "))
+# n = int(input("Son kiriting: "))
 
-if n <= 1:
-    print("Tub emas")
-else:
-    i = 2
-    tub = True
+# if n <= 1:
+#     print("Tub emas")
+# else:
+#     i = 2
+#     tub = True
 
-    while i < n:
-        if n % i == 0:
-            tub = False
-            break
-        i += 1
+#     while i < n:
+#         if n % i == 0:
+#             tub = False
+#             break
+#         i += 1
 
-    if tub:
-        print("Tub son")
-    else:
-        print("Tub emas")
+#     if tub:
+#         print("Tub son")
+#     else:
+#         print("Tub emas")
 
 
 #^ 12. Foydalanuvchi son kiritadi, dastur faqat juft son kiritilmaguncha davom 
-#^ etadi. 
+#^ etadi.
+
+while True:
+    son = int(input("Son kiriting: "))
+    if son % 2 == 0:
+        print("Juft son kiritildi")
+        break
+    else:
+        print("Juft emas")
+    
+
 #^ 13. Berilgan son palindrom ekanligini aniqla (masalan: 1221). 
 #^ 14. Foydalanuvchi sonlar kiritadi, 0 kiritilganda to‘xtaydi, oxirida o‘rtacha 
 #^ qiymatni chiqar. 
