@@ -64,15 +64,31 @@
 
 #^ 8. 1 dan 100 gacha bo‘lgan 3 ga bo‘linadigan sonlarni chiqar. 
 
-i = 1
+# i = 1
 
-while i <= 100:
-    if i % 3 == 0:
-        print(i, end=" ")
-    i += 1
+# while i <= 100:
+#     if i % 3 == 0:
+#         print(i, end=" ")
+#     i += 1
 
 #^ 9. Foydalanuvchi manfiy son kiritmaguncha sonlar kiritadi, oxirida eng 
-#^ katta sonni chiqar. 
+#^ katta sonni chiqar.
+
+eng_katta = None
+
+while True:
+    son = int(input("Son kiriting: "))
+    
+    if son < 0:
+        break
+    
+    if eng_katta == None or son > eng_katta:
+        eng_katta = son
+
+print("Eng katta son:", eng_katta)
+
+
+
 #^ 10. Berilgan sonning faktorialini while yordamida hisobla. 
 #^ 11. Berilgan son tub (prime) yoki yo‘qligini while yordamida aniqla. 
 #^ 12. Foydalanuvchi son kiritadi, dastur faqat juft son kiritilmaguncha davom 
