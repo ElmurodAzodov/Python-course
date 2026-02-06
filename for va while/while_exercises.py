@@ -155,21 +155,32 @@
 #^ 14. Foydalanuvchi sonlar kiritadi, 0 kiritilganda to‘xtaydi, oxirida o‘rtacha 
 #^ qiymatni chiqar.
 
-yigindi = 0
-soni = 0
+# yigindi = 0
+# soni = 0
 
-while True:
-    x = float(input("Son kiriting (to'xtash uchun 0): "))
-    if x == 0:
-        break
-    yigindi += x
-    soni += 1
+# while True:
+#     x = float(input("Son kiriting (to'xtash uchun 0): "))
+#     if x == 0:
+#         break
+#     yigindi += x
+#     soni += 1
 
-if soni > 0:
-    ortacha = yigindi / soni
-    print("O‘rtacha qiymat:", ortacha)
-else:
-    print("Hech qanday son kiritilmadi.")
+# if soni > 0:
+#     ortacha = yigindi / soni
+#     print("O‘rtacha qiymat:", ortacha)
+# else:
+#     print("Hech qanday son kiritilmadi.")
 
 #^ 15. while yordamida Fibonacci ketma-ketligining dastlabki n ta hadini 
 #^ chiqar.
+
+n = int(input("n ni kiriting: "))
+
+a = 0
+b = 1
+i = 0
+
+while i < n:
+    print(a, end=" ")
+    a, b = b, a + b
+    i += 1
