@@ -137,22 +137,39 @@
 
 #^ 13. Berilgan son palindrom ekanligini aniqla (masalan: 1221). 
 
-n = int(input("Son kiriting: "))
+# n = int(input("Son kiriting: "))
 
-temp = n
-rev = 0
+# temp = n
+# rev = 0
 
-while temp > 0:
-    rev = rev * 10 + temp % 10
-    temp //= 10
+# while temp > 0:
+#     rev = rev * 10 + temp % 10
+#     temp //= 10
 
-if n == rev:
-    print("Palindrom son")
-else:
-    print("Palindrom emas")
+# if n == rev:
+#     print("Palindrom son")
+# else:
+#     print("Palindrom emas")
 
 
 #^ 14. Foydalanuvchi sonlar kiritadi, 0 kiritilganda to‘xtaydi, oxirida o‘rtacha 
-#^ qiymatni chiqar. 
+#^ qiymatni chiqar.
+
+yigindi = 0
+soni = 0
+
+while True:
+    x = float(input("Son kiriting (to'xtash uchun 0): "))
+    if x == 0:
+        break
+    yigindi += x
+    soni += 1
+
+if soni > 0:
+    ortacha = yigindi / soni
+    print("O‘rtacha qiymat:", ortacha)
+else:
+    print("Hech qanday son kiritilmadi.")
+
 #^ 15. while yordamida Fibonacci ketma-ketligining dastlabki n ta hadini 
 #^ chiqar.
