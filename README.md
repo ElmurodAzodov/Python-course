@@ -434,7 +434,7 @@
 
 ---
 
-## **🇺🇿 uzb: Python dasturlash tili**
+## **uzb: Python dasturlash tili**
 
 ---
 
