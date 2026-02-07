@@ -465,3 +465,490 @@ print(word[5:0:-1]) # argorP
 ```
 
 ---
+
+# **Python’da String Immutability (O‘zgarmasligi)**
+
+## **1. String immutable nima?**
+
+Python’da **stringlar immutable** turga ega, ya’ni:
+
+* **Yaratilgan stringni bevosita o‘zgartirish mumkin emas.**
+* Agar stringni “o‘zgartirmoqchi” bo‘lsak, aslida **yangi string** yaratiladi.
+
+---
+
+## **2. Misol**
+
+```python
+text = "Python"
+
+# text[0] = "p"  # Xato! TypeError
+```
+
+**Natija:**
+
+```
+TypeError: 'str' object does not support item assignment
+```
+
+> 🔑 Eslatma: Python bu xatoni beradi, chunki stringlar o‘zgarmas.
+
+---
+
+## **3. Stringni o‘zgartirish usullari**
+
+Immutable bo‘lsa-da, stringni “o‘zgartirish” uchun quyidagi usullar ishlatiladi:
+
+### **3.1. Slicing bilan yangi string yaratish**
+
+```python
+text = "Python"
+new_text = "p" + text[1:]
+print(new_text)
+```
+
+**Natija:**
+
+```
+python
+```
+
+> Izoh: asl `text` o‘zgarmadi, yangi `new_text` yaratildi.
+
+---
+
+### **3.2. String Methods bilan yangi string yaratish**
+
+Ko‘p string metodlari **asl stringni o‘zgartirmaydi**, balki **yangi string qaytaradi**:
+
+```python
+text = "python"
+upper_text = text.upper()  # yangi string
+print(text)        # python
+print(upper_text)  # PYTHON
+```
+
+**Natija:**
+
+```
+python
+PYTHON
+```
+
+---
+
+### **3.3. Concatenation bilan yangi string**
+
+```python
+text = "Hello"
+text = text + " World"
+print(text)
+```
+
+**Natija:**
+
+```
+Hello World
+```
+
+> Izoh: asl “Hello” stringi o‘chmaydi, Python yangi string yaratadi va `text`ga beradi.
+
+---
+
+### **3.4. Repetition bilan yangi string**
+
+```python
+text = "Ha! "
+text = text * 3
+print(text)
+```
+
+**Natija:**
+
+```
+Ha! Ha! Ha! 
+```
+
+---
+
+## **4. Nega string immutable?**
+
+1. **Xotira samaradorligi** – bir xil stringlar bir nechta o‘zgaruvchilarda ishlatilsa, Python ularni qayta ishlatadi.
+2. **Xatolikdan himoya** – stringlarni noto‘g‘ri o‘zgartirishdan saqlaydi.
+3. **Thread-safe** – bir vaqtning o‘zida bir nechta jarayonlar stringni xavfsiz ishlata oladi.
+
+---
+
+## **5. Amaliy misol: Immutable vs Mutable**
+
+```python
+# Immutable string
+text = "Hello"
+new_text = text.replace("H", "h")
+print(text)      # Hello
+print(new_text)  # hello
+
+# Mutable list
+lst = [1, 2, 3]
+lst[0] = 9
+print(lst)  # [9, 2, 3]
+```
+
+> Izoh: `text.replace()` asl stringni o‘zgartirmadi, `new_text` yaratildi.
+> `list` esa mutable bo‘lgani uchun bevosita o‘zgardi.
+
+---
+
+## **6. Xulosa**
+
+1. Python stringlari **immutable** — bevosita o‘zgartirib bo‘lmaydi.
+2. O‘zgartirish kerak bo‘lsa, **yangi string** yaratish kerak:
+
+   * **Slicing + concatenation**
+   * **String metodlari** (`upper()`, `replace()`, `strip()` va hokazo)
+3. Immutable bo‘lishi **xotira samaradorligi va xavfsizlik** uchun foydalidir.
+
+---
+# **Python’da Common String Methods**
+
+Python stringlari **immutable**, shuning uchun ko‘plab metodlar asl stringni o‘zgartirmaydi, balki **yangi string** qaytaradi.
+
+---
+
+## **1. Case-related methods (Kichik/katta harflar bilan ishlash)**
+
+| Method         | Ta’rif                                | Misol                                     |
+| -------------- | ------------------------------------- | ----------------------------------------- |
+| `upper()`      | Hamma harflarni katta qiladi          | `"python".upper()` → `"PYTHON"`           |
+| `lower()`      | Hamma harflarni kichik qiladi         | `"PYTHON".lower()` → `"python"`           |
+| `capitalize()` | Faqat birinchi harfni katta qiladi    | `"python".capitalize()` → `"Python"`      |
+| `title()`      | Har bir so‘zni katta qiladi           | `"hello world".title()` → `"Hello World"` |
+| `swapcase()`   | Katta ↔ kichik harflarni almashtiradi | `"PyThOn".swapcase()` → `"pYtHoN"`        |
+
+**Misol:**
+
+```python
+text = "python programming"
+print(text.upper())
+print(text.title())
+print(text.capitalize())
+print(text.swapcase())
+```
+
+**Natija:**
+
+```
+PYTHON PROGRAMMING
+Python Programming
+Python programming
+PYTHON PROGRAMMING
+```
+
+---
+
+## **2. Search / Replace methods (Qidirish va o‘zgartirish)**
+
+| Method              | Ta’rif                                                            | Misol                                       |
+| ------------------- | ----------------------------------------------------------------- | ------------------------------------------- |
+| `find(sub)`         | `sub` substring qayerda ekanini qaytaradi (-1 agar yo‘q bo‘lsa)   | `"Python".find("t")` → 2                    |
+| `index(sub)`        | `sub` substring qayerda ekanini qaytaradi (xato agar yo‘q bo‘lsa) | `"Python".index("t")` → 2                   |
+| `replace(old, new)` | `old` substringni `new` bilan almashtiradi                        | `"Python".replace("Py", "Ja")` → `"Jathon"` |
+
+**Misol:**
+
+```python
+text = "I love Python"
+print(text.find("Python"))
+print(text.replace("Python", "Java"))
+```
+
+**Natija:**
+
+```
+7
+I love Java
+```
+
+---
+
+## **3. Strip / Split / Join methods (Bo‘shliq va bo‘lish)**
+
+| Method           | Ta’rif                                     | Misol                                  |
+| ---------------- | ------------------------------------------ | -------------------------------------- |
+| `strip()`        | Boshi va oxiridagi bo‘shliqlarni o‘chiradi | `"  hello  ".strip()` → `"hello"`      |
+| `lstrip()`       | Boshi bo‘shliqni o‘chiradi                 | `"  hello".lstrip()` → `"hello"`       |
+| `rstrip()`       | Oxiri bo‘shliqni o‘chiradi                 | `"hello  ".rstrip()` → `"hello"`       |
+| `split(sep)`     | Stringni `sep` bo‘yicha bo‘ladi            | `"a,b,c".split(",")` → `['a','b','c']` |
+| `join(iterable)` | Ro‘yxatni stringga birlashtiradi           | `"-".join(["a","b","c"])` → `"a-b-c"`  |
+
+**Misol:**
+
+```python
+text = "   Python   "
+print(text.strip())
+words = "I,love,Python".split(",")
+print(words)
+joined = " ".join(words)
+print(joined)
+```
+
+**Natija:**
+
+```
+Python
+['I', 'love', 'Python']
+I love Python
+```
+
+---
+
+## **4. Check Methods (Tekshirish)**
+
+| Method            | Ta’rif                               | Misol                              |
+| ----------------- | ------------------------------------ | ---------------------------------- |
+| `isalpha()`       | Faqat harflardan iborat bo‘lsa True  | `"Python".isalpha()` → True        |
+| `isdigit()`       | Faqat raqamlardan iborat bo‘lsa True | `"123".isdigit()` → True           |
+| `isalnum()`       | Harf yoki raqam bo‘lsa True          | `"Python123".isalnum()` → True     |
+| `isspace()`       | Faqat bo‘shliq bo‘lsa True           | `"   ".isspace()` → True           |
+| `startswith(sub)` | Substring bilan boshlansa True       | `"Python".startswith("Py")` → True |
+| `endswith(sub)`   | Substring bilan tugasa True          | `"Python".endswith("on")` → True   |
+
+**Misol:**
+
+```python
+print("Python".isalpha())
+print("123".isdigit())
+print("Python123".isalnum())
+print("   ".isspace())
+print("Python".startswith("Py"))
+print("Python".endswith("on"))
+```
+
+**Natija:**
+
+```
+True
+True
+True
+True
+True
+True
+```
+
+---
+
+## **5. Formatting Methods (Matnni shakllantirish)**
+
+| Method     | Ta’rif                        | Misol                                               |
+| ---------- | ----------------------------- | --------------------------------------------------- |
+| `format()` | String ichiga qiymat kiritish | `"Hello {}".format("Python")` → `"Hello Python"`    |
+| f-string   | `f""` bilan formatlash        | `name="Python"; f"Hello {name}"` → `"Hello Python"` |
+
+**Misol:**
+
+```python
+name = "Python"
+version = 3.11
+print("Hello {} version {}".format(name, version))
+print(f"Hello {name} version {version}")
+```
+
+**Natija:**
+
+```
+Hello Python version 3.11
+Hello Python version 3.11
+```
+
+---
+
+## **6. Amaliy misol: String methodsni birlashtirish**
+
+```python
+text = "   hello python world   "
+# 1. Boshi va oxiridagi bo‘shliqni olib tashlash
+clean = text.strip()
+# 2. Katta harflar
+upper_text = clean.upper()
+# 3. So‘zlarni ajratish
+words = upper_text.split()
+# 4. Birinchi so‘zni almashtirish
+words[0] = "HI"
+# 5. Ro‘yxatni stringga birlashtirish
+final_text = " ".join(words)
+print(final_text)
+```
+
+**Natija:**
+
+```
+HI PYTHON WORLD
+```
+---
+# **Python’da Searching and Replacing**
+
+Stringlarni qidirish va o‘zgartirish — text processingning eng asosiy vazifalaridan biridir. Pythonda bu **string metodlari** orqali amalga oshiriladi.
+
+---
+
+## **1. Searching (Qidirish)**
+
+Python stringlarida substring yoki belgi qayerda joylashganini aniqlash uchun bir nechta metodlar mavjud:
+
+### **1.1. `find()`**
+
+* Qidirilgan substringning **birinchi uchrashgan indeksini** qaytaradi.
+* Agar substring topilmasa, **-1** qaytaradi.
+
+```python
+text = "I love Python programming"
+print(text.find("Python"))  # 7
+print(text.find("Java"))    # -1
+```
+
+---
+
+### **1.2. `rfind()`**
+
+* **Oxirgi uchrashgan indeksni** qaytaradi.
+
+```python
+text = "I love Python and Python is fun"
+print(text.rfind("Python"))  # 14
+```
+
+---
+
+### **1.3. `index()`**
+
+* `find()`ga o‘xshaydi, lekin substring topilmasa **ValueError** beradi.
+
+```python
+text = "I love Python"
+print(text.index("Python"))  # 7
+# print(text.index("Java"))  # ValueError
+```
+
+---
+
+### **1.4. `rindex()`**
+
+* `rfind()` kabi, oxirgi uchrashgan joyni beradi, topilmasa **ValueError**.
+
+```python
+text = "Python is fun. Python is powerful."
+print(text.rindex("Python"))  # 17
+```
+
+---
+
+### **1.5. `count()`**
+
+* Substring nechta marta uchrashganini hisoblaydi.
+
+```python
+text = "Python is fun. Python is powerful."
+print(text.count("Python"))  # 2
+print(text.count("Java"))    # 0
+```
+
+---
+
+## **2. Replacing (O‘zgartirish)**
+
+Stringlarni o‘zgartirish uchun eng ko‘p ishlatiladigan metod — **`replace()`**.
+
+### **2.1. `replace(old, new, count=-1)`**
+
+* `old` substringni `new` bilan almashtiradi.
+* `count` optional, nechta substringni almashtirishni belgilaydi (default -1, barcha substringlar).
+
+```python
+text = "I love Python. Python is powerful."
+# Barcha "Python" so‘zlarini "Java" bilan almashtirish
+new_text = text.replace("Python", "Java")
+print(new_text)
+```
+
+**Natija:**
+
+```
+I love Java. Java is powerful.
+```
+
+```python
+# Faqat birinchi uchrashuvni almashtirish
+new_text = text.replace("Python", "Java", 1)
+print(new_text)
+```
+
+**Natija:**
+
+```
+I love Java. Python is powerful.
+```
+
+---
+
+## **3. Qidirish + almashtirish kombinatsiyasi**
+
+Ko‘pincha dasturda qidirish va almashtirishni birlashtirib ishlatamiz:
+
+```python
+text = "Python is fun. Python is powerful."
+
+if text.find("Python") != -1:
+    new_text = text.replace("Python", "Java")
+    print("Almashtirilgan matn:", new_text)
+else:
+    print("Python topilmadi.")
+```
+
+**Natija:**
+
+```
+Almashtirilgan matn: Java is fun. Java is powerful.
+```
+
+---
+
+## **4. Case-insensitive qidirish va almashtirish**
+
+Stringlarni katta/kichik harf farqini inobatga olmasdan qidirish uchun `.lower()` yoki `.upper()` bilan birga ishlatish mumkin:
+
+```python
+text = "Python is fun. python is powerful."
+search_word = "python"
+
+if search_word.lower() in text.lower():
+    new_text = text.replace("Python", "Java").replace("python", "Java")
+    print(new_text)
+```
+
+**Natija:**
+
+```
+Java is fun. Java is powerful.
+```
+
+---
+
+## **5. Amaliy misol: matnni tozalash va o‘zgartirish**
+
+```python
+text = "  I love Python. Python is fun.  "
+# 1. Bo‘shliqni olib tashlash
+clean_text = text.strip()
+# 2. "Python" ni "Java" bilan almashtirish
+final_text = clean_text.replace("Python", "Java")
+# 3. Natijani chiqarish
+print(final_text)
+```
+
+**Natija:**
+
+```
+I love Java. Java is fun.
+```
+
+---
