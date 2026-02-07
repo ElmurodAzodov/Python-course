@@ -174,13 +174,30 @@
 #^ 15. while yordamida Fibonacci ketma-ketligining dastlabki n ta hadini 
 #^ chiqar.
 
-n = int(input("n ni kiriting: "))
+# n = int(input("n ni kiriting: "))
 
-a = 0
-b = 1
-i = 0
+# a = 0
+# b = 1
+# i = 0
 
-while i < n:
-    print(a, end=" ")
-    a, b = b, a + b
-    i += 1
+# while i < n:
+#     print(a, end=" ")
+#     a, b = b, a + b
+#     i += 1
+
+#! SENIOR
+# Topshiriq 1. Online o‘rtacha qiymat
+
+# Foydalanuvchi ketma-ket haqiqiy sonlar kiritadi. -1 kiritilganda dastur to‘xtaydi.
+# Har bir kiritilgan sondan so‘ng, hozirgacha kiritilgan sonlarning o‘rtacha qiymatini chiqarib boring.
+
+# Talablar:
+
+# Faqat while siklidan foydalanilsin
+
+# list, tuple, set ishlatish taqiqlanadi
+
+# Qo‘shimcha xotira O(1)
+
+# Nolga bo‘lish holati to‘g‘ri qayta ishlansin
+
