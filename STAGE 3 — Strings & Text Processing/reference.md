@@ -952,3 +952,768 @@ I love Java. Java is fun.
 ```
 
 ---
+# **Python’da String Formatting**
+
+String Formatting — bu matnga **o‘zgaruvchilar yoki qiymatlarni joylashtirish** usulidir.
+Python’da eng ko‘p ishlatiladigan ikki usul mavjud:
+
+1. **f-string (Python 3.6+)**
+2. **`format()` metodi**
+
+---
+
+## **1. f-string (Formated String Literals)**
+
+* Sintaksis: `f"matn {o'zgaruvchi} matn"`
+* Python 3.6+ versiyalarda ishlaydi.
+* **Imkoniyatlari:**
+
+  * O‘zgaruvchilarni bevosita qo‘shish
+  * Ifodalardan foydalanish
+  * Formatlash: raqamlar, o‘nlik, foiz va hokazo
+
+---
+
+### **1.1. Oddiy f-string**
+
+```python
+name = "Python"
+version = 3.11
+print(f"Hello {name}, version {version}")
+```
+
+**Natija:**
+
+```
+Hello Python, version 3.11
+```
+
+---
+
+### **1.2. Ifodalarni ishlatish**
+
+```python
+a = 5
+b = 3
+print(f"{a} + {b} = {a+b}")
+```
+
+**Natija:**
+
+```
+5 + 3 = 8
+```
+
+---
+
+### **1.3. Formatlash**
+
+* **O‘nliklar bilan:** `{:.2f}` — 2 ta o‘nlik
+* **Raqamlar joylashuvi:** `{num:10}` — 10 belgili joy
+
+```python
+pi = 3.1415926
+print(f"Pi: {pi:.2f}")       # 2 o'nlik
+print(f"Number: {42:10}")    # 10 belgi kengligi
+```
+
+**Natija:**
+
+```
+Pi: 3.14
+Number:         42
+```
+
+---
+
+### **1.4. Foydali misol**
+
+```python
+name = "Alice"
+score = 92.4567
+print(f"{name} scored {score:.1f} points in the exam")
+```
+
+**Natija:**
+
+```
+Alice scored 92.5 points in the exam
+```
+
+---
+
+## **2. `format()` metodi**
+
+* Sintaksis: `"matn {}".format(qiymat)`
+* Python 2.7+ va 3.x versiyalarda ishlaydi.
+
+---
+
+### **2.1. Oddiy format()**
+
+```python
+name = "Python"
+version = 3.11
+print("Hello {}, version {}".format(name, version))
+```
+
+**Natija:**
+
+```
+Hello Python, version 3.11
+```
+
+---
+
+### **2.2. Indeks bilan**
+
+```python
+print("{1} is better than {0}".format("Java", "Python"))
+```
+
+**Natija:**
+
+```
+Python is better than Java
+```
+
+---
+
+### **2.3. Kalit so‘zlar bilan**
+
+```python
+print("Hello {n}, version {v}".format(n="Python", v=3.11))
+```
+
+**Natija:**
+
+```
+Hello Python, version 3.11
+```
+
+---
+
+### **2.4. Formatlash**
+
+```python
+pi = 3.1415926
+print("Pi: {:.2f}".format(pi))   # 2 ta o'nlik
+print("Number: {:10}".format(42)) # 10 belgili kenglik
+```
+
+**Natija:**
+
+```
+Pi: 3.14
+Number:         42
+```
+
+---
+
+### **2.5. Foydali misol**
+
+```python
+name = "Bob"
+score = 87.654
+print("{n} scored {s:.1f} points".format(n=name, s=score))
+```
+
+**Natija:**
+
+```
+Bob scored 87.7 points
+```
+
+---
+
+## **3. f-string vs format()**
+
+| Xususiyat            | f-string                | format()           |
+| -------------------- | ----------------------- | ------------------ |
+| Sintaksis            | `f"{var}"`              | `"{}".format(var)` |
+| Ifodalarni ishlatish | Ha                      | Cheklangan         |
+| Python versiyasi     | 3.6+                    | 2.7+ va 3.x        |
+| Qulaylik             | Ko‘proq o‘qishli va tez | Biroz uzunroq      |
+
+---
+
+## **4. Amaliy misol: Hisob-kitob + Formatlash**
+
+```python
+product = "Apple"
+price = 4.567
+quantity = 3
+
+# f-string
+print(f"{quantity} {product}s cost ${price*quantity:.2f}")
+
+# format()
+print("{} {}s cost ${:.2f}".format(quantity, product, price*quantity))
+```
+
+**Natija:**
+
+```
+3 Apples cost $13.70
+3 Apples cost $13.70
+```
+
+---
+# **Python’da Escape Characters (Qochirish belgilar)**
+
+## **1. Escape character nima?**
+
+**Escape character** — bu **maxsus belgi** bo‘lib, string ichida o‘ziga xos vazifani bajaradi.
+Python’da escape character **`\` (backslash)** bilan boshlanadi.
+
+---
+
+## **2. Eng ko‘p ishlatiladigan escape characters**
+
+| Escape | Ta’rif                                  | Misol                 |
+| ------ | --------------------------------------- | --------------------- |
+| `\n`   | Yangi qatordan boshlash                 | `"Hello\nWorld"`      |
+| `\t`   | Tab (4 yoki 8 bo‘shliq)                 | `"Hello\tWorld"`      |
+| `\\`   | Backslash (`\`)                         | `"C:\\Users\\Name"`   |
+| `\'`   | Single quote (`'`)                      | `'It\'s Python'`      |
+| `\"`   | Double quote (`"`)                      | `"He said \"Hello\""` |
+| `\r`   | Carriage return (qator boshiga qaytish) | `"123\rABC"`          |
+| `\b`   | Backspace (oxirgi belgini o‘chiradi)    | `"Hello\bWorld"`      |
+| `\f`   | Form feed                               | `"Hello\fWorld"`      |
+| `\v`   | Vertical tab                            | `"Hello\vWorld"`      |
+| `\ooo` | Oktal kod                               | `\101` → `A`          |
+| `\xhh` | Hex kod                                 | `\x41` → `A`          |
+
+---
+
+## **3. Misollar bilan tushuntirish**
+
+### **3.1. Yangi qator va tab**
+
+```python
+print("Hello\nWorld")
+print("Name:\tAlice")
+```
+
+**Natija:**
+
+```
+Hello
+World
+Name:   Alice
+```
+
+---
+
+### **3.2. Qavs ichida tirnoq ishlatish**
+
+```python
+print('It\'s Python')
+print("He said \"Hello\"")
+```
+
+**Natija:**
+
+```
+It's Python
+He said "Hello"
+```
+
+---
+
+### **3.3. Backslash ishlatish**
+
+```python
+print("C:\\Users\\Name\\Documents")
+```
+
+**Natija:**
+
+```
+C:\Users\Name\Documents
+```
+
+---
+
+### **3.4. Carriage return va backspace**
+
+```python
+print("12345\rABC")   # Carriage return
+print("Hello\bWorld") # Backspace
+```
+
+**Natija:**
+
+```
+ABC45
+HellWorld
+```
+
+> 🔑 `\r` — qator boshiga qaytaradi, eski belgilar ustiga yozadi.
+> 🔑 `\b` — oxirgi belgini o‘chiradi.
+
+---
+
+### **3.5. Raw strings bilan escape characterdan qochish**
+
+* `r""` yoki `r''` ishlatilsagina `\` maxsus belgini bajarishdan saqlanadi.
+
+```python
+path = r"C:\Users\Alice\Documents"
+print(path)
+```
+
+**Natija:**
+
+```
+C:\Users\Alice\Documents
+```
+
+---
+
+## **4. Amaliy misol: matnni formatlash**
+
+```python
+text = "Hello\tWorld!\nWelcome to Python.\nPath: C:\\Users\\Alice"
+print(text)
+```
+
+**Natija:**
+
+```
+Hello   World!
+Welcome to Python.
+Path: C:\Users\Alice
+```
+
+---
+# **Python’da Unicode**
+
+## **1. Unicode nima?**
+
+**Unicode** — bu **har bir belgiga unikal raqamli kod** beruvchi standart.
+
+* Maqsadi: **barcha tillardagi belgilarni bir xil usulda saqlash va ishlatish**.
+* Python 3-da **stringlar (`str`) Unicode bo‘ladi**, ya’ni ular **global belgilarni** qo‘llab-quvvatlaydi.
+
+```python
+text = "Привет, 你好, Hello"
+print(text)
+```
+
+**Natija:**
+
+```
+Привет, 你好, Hello
+```
+
+> 🔑 Python 3’da `str` har doim Unicode, `bytes` esa raw byte ma’lumot.
+
+---
+
+## **2. Unicode kodlarini olish va ishlatish**
+
+### **2.1. `ord()` — belgini Unicode kodiga o‘zgartirish**
+
+```python
+print(ord("A"))  # 65
+print(ord("Ж"))  # 1046
+print(ord("你"))  # 20320
+```
+
+---
+
+### **2.2. `chr()` — Unicode kodidan belgi yaratish**
+
+```python
+print(chr(65))     # A
+print(chr(1046))   # Ж
+print(chr(20320))  # 你
+```
+
+---
+
+### **2.3. Unicode escape bilan yozish**
+
+```python
+print("\u0416")   # Ж
+print("\u4F60")   # 你
+```
+
+* `\uXXXX` — 4-hex belgili Unicode
+* `\UXXXXXXXX` — 8-hex belgili Unicode
+
+```python
+print("\U0001F600")  # 😀 (emoji)
+```
+
+---
+
+## **3. Stringlarni kodlash va dekodlash (Encoding / Decoding)**
+
+### **3.1. `encode()`**
+
+* Stringni `bytes` turiga o‘zgartiradi.
+* Encoding misol: `utf-8`, `utf-16`, `ascii`
+
+```python
+text = "Hello, Привет, 你好"
+encoded = text.encode("utf-8")
+print(encoded)
+```
+
+**Natija (UTF-8 byte ko‘rinishi):**
+
+```
+b'Hello, \xd0\x9f\xd1\x80\xd0\xb8\xd0\xb2\xd0\xb5\xd1\x82, \xe4\xbd\xa0\xe5\xa5\xbd'
+```
+
+---
+
+### **3.2. `decode()`**
+
+* Bytesni stringga qaytaradi.
+
+```python
+decoded = encoded.decode("utf-8")
+print(decoded)
+```
+
+**Natija:**
+
+```
+Hello, Привет, 你好
+```
+
+---
+
+### **3.3. ASCII bilan ehtiyot bo‘lish**
+
+* `ascii` encoding faqat **ingliz alifbosi va raqamlar** bilan ishlaydi.
+
+```python
+text = "Привет"
+# text.encode("ascii")  # UnicodeEncodeError
+```
+
+> 🔑 Xalqaro matnlar bilan ishlashda **UTF-8** standart hisoblanadi.
+
+---
+
+## **4. Emoji va maxsus belgilar bilan ishlash**
+
+```python
+smile = "😀"
+print(ord(smile))      # 128512
+print(chr(128512))     # 😀
+```
+
+* Python 3 Unicode yordamida **emoji, maxsus belgilar va boshqa tillar bilan bemalol ishlaydi**.
+
+---
+
+## **5. Amaliy misol: Unicode va encoding**
+
+```python
+text = "Привет, Python! 👋"
+
+# 1. Unicode kodlarini ko‘rsatish
+codes = [ord(c) for c in text]
+print(codes)
+
+# 2. UTF-8 ga encode qilish
+encoded = text.encode("utf-8")
+print(encoded)
+
+# 3. UTF-8 dan decode qilish
+decoded = encoded.decode("utf-8")
+print(decoded)
+```
+
+**Natija:**
+
+```
+[1055, 1088, 1080, 1074, 1077, 1090, 44, 32, 80, 121, 116, 104, 111, 110, 33, 32, 128075]
+b'\xd0\x9f\xd1\x80\xd0\xb8\xd0\xb2\xd0\xb5\xd1\x82, Python! \xf0\x9f\x91\x8b'
+Привет, Python! 👋
+```
+
+---
+# **Python’da Encoding va Decoding**
+
+## **1. Encoding va Decoding nima?**
+
+1. **Encoding** — string (`str`)ni **bytes**ga o‘zgartirish jarayoni.
+2. **Decoding** — bytesni (`bytes`) **string**ga o‘zgartirish jarayoni.
+
+> 🔑 Python 3-da **`str` = Unicode**, **`bytes` = raw byte ma’lumot**.
+
+---
+
+## **2. Syntax**
+
+```python
+# Encoding
+bytes_data = text.encode(encoding="utf-8")  # str → bytes
+
+# Decoding
+decoded_text = bytes_data.decode(encoding="utf-8")  # bytes → str
+```
+
+* `encoding` parametri: `"utf-8"`, `"utf-16"`, `"ascii"`, `"latin1"` va boshqalar.
+* Default encoding Python 3-da `"utf-8"` hisoblanadi.
+
+---
+
+## **3. Encoding misollari**
+
+```python
+text = "Hello, Привет, 你好"
+
+# UTF-8 encoding
+utf8_bytes = text.encode("utf-8")
+print(utf8_bytes)
+
+# UTF-16 encoding
+utf16_bytes = text.encode("utf-16")
+print(utf16_bytes)
+```
+
+**Natija (UTF-8 va UTF-16 bytes):**
+
+```
+b'Hello, \xd0\x9f\xd1\x80\xd0\xb8\xd0\xb2\xd0\xb5\xd1\x82, \xe4\xbd\xa0\xe5\xa5\xbd'
+b'\xff\xfeH\x00e\x00l\x00l\x00o\x00,\x00 \x00\x1f\x04@\x04B\x04B\x04E\x04\x12\x04, \x00\xa0Ni?'
+```
+
+> 🔑 UTF-16 har bir belgi uchun 2 yoki 4 bayt ishlatadi, UTF-8 esa o‘zgaruvchan uzunlikda.
+
+---
+
+## **4. Decoding misollari**
+
+```python
+# UTF-8 bytesni str ga o‘tkazish
+decoded_text = utf8_bytes.decode("utf-8")
+print(decoded_text)
+```
+
+**Natija:**
+
+```
+Hello, Привет, 你好
+```
+
+> 🔑 Encoding → bytes, Decoding → str
+
+---
+
+## **5. ASCII bilan ehtiyot bo‘lish**
+
+```python
+text = "Привет"
+
+# text.encode("ascii")  # UnicodeEncodeError
+```
+
+* ASCII faqat **ingliz alifbosi va raqamlar** bilan ishlaydi.
+* Global matnlar uchun **UTF-8** ishlatiladi.
+
+---
+
+## **6. Amaliy misol: faylga yozish va o‘qish**
+
+```python
+text = "Hello, Привет, 你好"
+
+# 1. UTF-8 bilan faylga yozish
+with open("example.txt", "w", encoding="utf-8") as f:
+    f.write(text)
+
+# 2. UTF-8 bilan fayldan o‘qish
+with open("example.txt", "r", encoding="utf-8") as f:
+    content = f.read()
+
+print(content)
+```
+
+**Natija:**
+
+```
+Hello, Привет, 你好
+```
+
+> 🔑 Encoding va decoding fayllarda yoki tarmoqqa uzatishda juda muhim.
+
+---
+
+## **7. Bytes va string bilan ishlash misoli**
+
+```python
+text = "Python 🐍"
+
+# str → bytes
+b = text.encode("utf-8")
+print(b)  # b'Python \xf0\x9f\x90\x8d'
+
+# bytes → str
+s = b.decode("utf-8")
+print(s)  # Python 🐍
+```
+
+---
+# **Python’da Text Normalization**
+
+## **1. Text Normalization nima?**
+
+**Text Normalization** — bu matnni **standart, bir hil shaklga keltirish** jarayoni.
+
+* Maqsad: turli variantdagi matnlarni **bir xil formatga keltirish**, masalan:
+
+  * Katta/ kichik harflar farqini yo‘qotish
+  * Diakritik belgilarni olib tashlash (`é → e`)
+  * Bo‘shliqlar va maxsus belgilarni tozalash
+
+* Bu **NLP (Natural Language Processing)**, matn qidirish, tahlil va mashina o‘rganish uchun zarur.
+
+---
+
+## **2. Katta/kichik harf bilan normalizatsiya**
+
+```python
+text = "PyTHon Is FuN"
+normalized = text.lower()  # yoki .upper()
+print(normalized)
+```
+
+**Natija:**
+
+```
+python is fun
+```
+
+> 🔑 `lower()` va `upper()` — eng oddiy normalizatsiya usuli.
+
+---
+
+## **3. Bo‘shliqlarni tozalash**
+
+```python
+text = "   Hello   World  "
+normalized = text.strip()        # boshi va oxiridagi bo‘shliq
+normalized2 = " ".join(text.split())  # ortiqcha bo‘shliqlarni olib tashlash
+print(f"'{normalized}'")
+print(f"'{normalized2}'")
+```
+
+**Natija:**
+
+```
+'Hello   World'
+'Hello World'
+```
+
+> 🔑 `.split()` va `.join()` yordamida **ortiqcha bo‘shliqlarni** olib tashlash mumkin.
+
+---
+
+## **4. Diakritik belgilarni olib tashlash**
+
+Masalan, `café → cafe`.
+Buning uchun **`unicodedata`** modulidan foydalanamiz.
+
+```python
+import unicodedata
+
+text = "Café naïve fiancé"
+normalized = ''.join(
+    c for c in unicodedata.normalize('NFD', text)
+    if unicodedata.category(c) != 'Mn'
+)
+print(normalized)
+```
+
+**Natija:**
+
+```
+Cafe naive fiance
+```
+
+> 🔑 `NFD` — decomposed form, har bir diakritik belgini alohida ajratadi.
+> `Mn` — diakritik belgilar (Nonspacing Mark).
+
+---
+
+## **5. Maxsus belgilar va belgilarni tozalash**
+
+* Faqat **alifbo va raqamlarni qoldirish** uchun `re` modulidan foydalanish mumkin:
+
+```python
+import re
+
+text = "Hello!!! Welcome to Python 3.11 😃"
+normalized = re.sub(r'[^A-Za-z0-9 ]+', '', text)
+print(normalized)
+```
+
+**Natija:**
+
+```
+Hello Welcome to Python 311
+```
+
+---
+
+## **6. Unicode normalizatsiyasi (NFC, NFD, NFKC, NFKD)**
+
+| Form | Ta’rif                                                                                          |
+| ---- | ----------------------------------------------------------------------------------------------- |
+| NFC  | Canonical Composition — belgilar birlashtiriladi                                                |
+| NFD  | Canonical Decomposition — belgilar va diakritiklar ajratiladi                                   |
+| NFKC | Compatibility Composition — belgilar birlashtiriladi va simvol variantlari standartlashtiriladi |
+| NFKD | Compatibility Decomposition — diakritiklar va simvol variantlari ajratiladi                     |
+
+```python
+import unicodedata
+
+text = "ﬁ"  # ligature fi
+print(unicodedata.normalize('NFKC', text))  # fi
+```
+
+---
+
+## **7. Amaliy misol: matnni normalizatsiya qilish**
+
+```python
+import unicodedata
+import re
+
+text = "  Héllò Wörld!!! Welcome to Café Python 3.11 😃  "
+
+# 1. Katta/kichik harf
+text = text.lower()
+
+# 2. Bo‘shliqlarni tozalash
+text = " ".join(text.split())
+
+# 3. Diakritik belgilarni olib tashlash
+text = ''.join(
+    c for c in unicodedata.normalize('NFD', text)
+    if unicodedata.category(c) != 'Mn'
+)
+
+# 4. Maxsus belgilarni olib tashlash
+text = re.sub(r'[^a-z0-9 ]+', '', text)
+
+print(text)
+```
+
+**Natija:**
+
+```
+hello world welcome to cafe python 311
+```
+
+> 🔑 Natija: **standart, bir hil, tozalangan matn**.
+
+---
