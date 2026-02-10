@@ -1,8 +1,14 @@
 # List
+# list creation, indexing, slicing, list comprehension, nested list
 # [...]
 # (...) , {...}
+l = []
+l1 = list()
+
 # my_list = []
-# # print(bool(my_list))
+# print(type(my_list))
+# print(bool(my_list))
+
 # numbers = [1, 2, 3, 4, 5]
 # fruits = ["apple", "banana", "cherry"]
 # mixed = [1, "apple", 3.14, True]
@@ -18,11 +24,11 @@
 # l = [ozgaruvchi for ozgaruvchi in range(10)]
 # print(l)
 
-# l = list()
+# l = []
 # for i in range(10):
 #     if i % 2 == 0:
 #         l.append(i)
-
+# print(l)
 
 # evens = [i for i in range(10) if i % 2 == 0]
 # print(evens)
@@ -44,6 +50,7 @@
 #     a.append(i)
 # print(a)
 
-matrix = [[1, 2, 3], [4, 5, 6, 34, 45, 57], [7, 8, 9, 12, 13]]
 
-print(matrix[2][3])
+# matrix = [[1, 2, 3], [4, 5, 6, 34, 45, 57], [7, 8, 9, 12, 13]]
+
+# print(matrix[2][3])
