@@ -51,6 +51,12 @@ l1 = list()
 # print(a)
 
 
+
+fruits = ["apple", "banana", "cherry", "date"]
+
+print(fruits[0:2])
+
+
 # matrix = [[1, 2, 3], [4, 5, 6, 34, 45, 57], [7, 8, 9, 12, 13]]
 
 # print(matrix[2][3])
