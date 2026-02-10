@@ -46,6 +46,25 @@ print(mixed)
 # print(evens)
 
 
+# List comprehension 
+# 0 dan 9 gacha sonlar ro'yxati
+numbers = [i for i in range(10)]
+print(numbers)  # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+# Faqat juft sonlar
+evens = [i for i in range(10) if i % 2 == 0]
+print(evens)  # [0, 2, 4, 6, 8]
+
+# Har bir elementni kvadratga ko‘tarish
+squares = [i**2 for i in range(5)]
+print(squares)  # [0, 1, 4, 9, 16]
+
+# String elementlardan katta harfni olish
+words = ["apple", "banana", "cherry"]
+upper_words = [w.upper() for w in words]
+print(upper_words)
+
+
 # l = [2] * 4
 # print(l)
 
