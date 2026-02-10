@@ -3,19 +3,21 @@
 # [...]
 # (...) , {...}
 
-l = []
-l1 = list()
+# l = []
+# l1 = list()
 # Bo'sh list
-my_list = []
+# my_list = []
 
 # Elementlar bilan list
-numbers = [1, 2, 3, 4, 5]
-fruits = ["apple", "banana", "cherry"]
-mixed = [1, "apple", 3.14, True]
+# numbers = [1, 2, 3, 4, 5]
+# fruits = ["apple", "banana", "cherry"]
+# mixed = [1, "apple", 3.14, True]
 
-print(numbers)
-print(mixed)
+# print(numbers)
+# print(mixed)
 
+my_list = [1, 3.14, "Python", True, [1, 2], (3, 4), {5, 6}, {"key": "value"}]
+print(my_list)
 
 # my_list = []
 # print(type(my_list))
