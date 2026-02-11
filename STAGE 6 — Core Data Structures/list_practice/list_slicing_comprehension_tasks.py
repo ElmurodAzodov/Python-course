@@ -7,6 +7,9 @@
 # 0 dan 10 gacha bo‘lgan juft sonlardan iborat list yarating. 
 # List comprehension ishlating. 
 
+nums1 = [x for x in range(11) if x % 2 == 0]
+print("1:", nums1)
+
 # 2.
 # Quyidagi listdan: 
 # • birinchi elementni 
