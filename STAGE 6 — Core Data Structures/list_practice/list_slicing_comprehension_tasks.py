@@ -7,8 +7,8 @@
 # 0 dan 10 gacha bo‘lgan juft sonlardan iborat list yarating. 
 # List comprehension ishlating. 
 
-nums1 = [x for x in range(11) if x % 2 == 0]
-print("1:", nums1)
+# nums1 = [x for x in range(11) if x % 2 == 0]
+# print(nums1)
 
 # 2.
 # Quyidagi listdan: 
@@ -17,13 +17,24 @@ print("1:", nums1)
 # index yordamida ekranga chiqaring. 
 # colors = ["red", "green", "blue", "yellow"] 
 
+# colors = ["red", "green", "blue", "yellow"]
+# print(colors[0], colors[-1])
+
 # 3.
+# Berilgan listdan faqat o‘rtadagi 3 ta elementni slicing yordamida ajratib oling. 
 # numbers = [10, 20, 30, 40, 50, 60, 70] 
 
+# numbers = [10, 20, 30, 40, 50, 60, 70]
+# middle = numbers[2:5]
+# print(middle)
+
 # 4.
-# Berilgan listdan faqat o‘rtadagi 3 ta elementni slicing yordamida ajratib oling. 
 # Quyidagi listdagi barcha sonlarni 2 baravar oshirib, yangi list yarating. 
 # nums = [1, 2, 3, 4, 5] 
+
+nums = [1, 2, 3, 4, 5]
+double = [x * 2 for x in nums]
+print("5:", double)
 
 # 5.
 # Berilgan stringni listga aylantiring va: 
