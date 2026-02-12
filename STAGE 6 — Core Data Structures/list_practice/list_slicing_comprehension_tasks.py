@@ -91,23 +91,45 @@
 # Quyidagi listda har 3-elementni olib, yangi list yarating:
 # numbers = list(range(1, 31))
 
+# numbers = list(range(1, 31))
+# new_list = numbers[::3]
+# print(new_list)
+
 # 12.
 # Stringlardan iborat list berilgan. Har bir so‘zning faqat oxirgi harfidan iborat list
 # yarating.
 # words = ["python", "java", "golang", "rust"]
 
+# words = ["python", "java", "golang", "rust"]
+# l = [i[-1] for i in words]
+# print(l)
+
 # 13.
 # List ichidagi ichki listlarning faqat birinchi elementlarini ajratib oling:
 # data = [[1,2,3],[4,5,6],[7,8,9]]
 
+# data = [[1,2,3],[4,5,6],[7,8,9]]
+# l = [i[0] for i in data]
+# print(l)
+
 # 14.
 # Berilgan listdan slicing yordamida:
 # • birinchi 3 elementni o‘chiring
+# • oxirgi 2 elementni qoldiring
+
+# data = [10, 20, 30, 40, 50, 60, 70]
+# new_list = data[3:]
+# print(new_list)
+
+# last_two = data[-2:]
+# print(last_two)
 
 # 15.
-# • oxirgi 2 elementni qoldiring
 # 0 dan 50 gacha bo‘lgan sonlardan palindrom bo‘lgan sonlar ro‘yxatini tuzing
 # (masalan: 11, 22, 33).
+
+# l = [i for i in range(50) if str(i) == str(i)[::-1]]
+# print(l)
 
 # 16.
 # Nested list yarating (5×5), faqat diagonal elementlari 1, qolganlari 0 bo‘lsin.
@@ -119,6 +141,24 @@
 # [0,0,0,1,0],
 # [0,0,0,0,1]
 # ]
+
+# matrix = [[1 if i == j else 0 for j in range(5)] for i in range(5)]
+
+# for row in matrix:
+#     print(row)
+
+# tushunish uchun
+# matrix = []
+
+# for i in range(5):
+#     row = []
+#     for j in range(5):
+#         if i == j:
+#             row.append(1)
+#         else:
+#             row.append(0)
+#     matrix.append(row)
+# print(matrix)
 
 # 17.
 # Quyidagi listdan:
