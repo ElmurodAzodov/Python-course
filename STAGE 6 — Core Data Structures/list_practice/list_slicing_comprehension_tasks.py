@@ -1,151 +1,169 @@
-
-#^ Python dasturlash tilida 
-#^ list creation, indexing, slicing, list comprehension, nested list mavzulariga 
-#^ TOPSHIRIQ
+# ^ Python dasturlash tilida
+# ^ list creation, indexing, slicing, list comprehension, nested list mavzulariga
+# ^ TOPSHIRIQ
 
 # 1.
-# 0 dan 10 gacha bo‘lgan juft sonlardan iborat list yarating. 
-# List comprehension ishlating. 
+# 0 dan 10 gacha bo‘lgan juft sonlardan iborat list yarating.
+# List comprehension ishlating.
 
 # nums1 = [x for x in range(11) if x % 2 == 0]
 # print(nums1)
 
 # 2.
-# Quyidagi listdan: 
-# • birinchi elementni 
-# • oxirgi elementni 
-# index yordamida ekranga chiqaring. 
-# colors = ["red", "green", "blue", "yellow"] 
+# Quyidagi listdan:
+# • birinchi elementni
+# • oxirgi elementni
+# index yordamida ekranga chiqaring.
+# colors = ["red", "green", "blue", "yellow"]
 
 # colors = ["red", "green", "blue", "yellow"]
 # print(colors[0], colors[-1])
 
 # 3.
-# Berilgan listdan faqat o‘rtadagi 3 ta elementni slicing yordamida ajratib oling. 
-# numbers = [10, 20, 30, 40, 50, 60, 70] 
+# Berilgan listdan faqat o‘rtadagi 3 ta elementni slicing yordamida ajratib oling.
+# numbers = [10, 20, 30, 40, 50, 60, 70]
 
 # numbers = [10, 20, 30, 40, 50, 60, 70]
 # middle = numbers[2:5]
 # print(middle)
 
 # 4.
-# Quyidagi listdagi barcha sonlarni 2 baravar oshirib, yangi list yarating. 
-# nums = [1, 2, 3, 4, 5] 
+# Quyidagi listdagi barcha sonlarni 2 baravar oshirib, yangi list yarating.
+# nums = [1, 2, 3, 4, 5]
 
-nums = [1, 2, 3, 4, 5]
-double = [x * 2 for x in nums]
-print("5:", double)
+# nums = [1, 2, 3, 4, 5]
+# double = [x * 2 for x in nums]
+# print(double)
 
 # 5.
-# Berilgan stringni listga aylantiring va: 
-# • faqat birinchi 4 ta harfni 
-# slicing yordamida oling. 
-# word = "Python" 
+# Berilgan stringni listga aylantiring va faqat birinchi 4 ta harfni slicing yordamida oling.
+# word = "Python"
+
+# word = "Python"
+# l = list(word)[0:4]
+# print(l)
 
 # 6.
-# 0 dan 100 gacha bo‘lgan sonlardan 3 ga ham, 5 ga ham bo‘linadigan sonlardan 
-# iborat list yarating (list comprehension bilan). 
+# 0 dan 100 gacha bo‘lgan sonlardan 3 ga ham, 5 ga ham bo‘linadigan sonlardan iborat list yarating (list comprehension bilan).
+
+# l = [i for i in range(100) if i % 3 == 0 and i % 5 == 0]
+# print(l)
 
 # 7.
-# Berilgan listdan faqat string elementlarni olib, katta harfga o‘girib, yangi list 
-# yarating. 
-# data = [1, "python", True, "list", 3.14, "code"] 
+# Berilgan listdan faqat string elementlarni olib, katta harfga o‘girib, yangi list
+# yarating.
+# data = [1, "python", True, "list", 3.14, "code"]
 
 # 8.
-# 0 dan 20 gacha bo‘lgan sonlardan: 
-# • juft sonlar → kvadratga 
-# • toq sonlar → kubga 
-# o‘zgartirilgan list yarating. 
+# 0 dan 20 gacha bo‘lgan sonlardan:
+# • juft sonlar → kvadratga
+# • toq sonlar → kubga
+# o‘zgartirilgan list yarating.
+
+# l = []
+# for i in range(21):
+#     if i % 2 != 0:
+#         l.append(i ** 3)
+#     else:
+#         l.append(i ** 2)
+# print(l)
+
 
 # 9.
-# matrix = [ 
-# [1,2,3,4], 
-# [5,6,7,8], 
-# Quyidagi nested listdan faqat markazdagi 2×2 qismni slicing orqali ajratib oling: 
-# [9,10,11,12], 
-# [13,14,15,16] 
+# Quyidagi nested listdan faqat markazdagi 2×2 qismni slicing orqali ajratib oling:
+# matrix = [
+# [1,2,3,4],
+# [5,6,7,8],
+# [9,10,11,12],
+# [13,14,15,16]
 # ]
 
+# matrix = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]]
+# print(matrix[1:3])
+
 # 10.
-# Listni slicing yordamida teskari aylantiring, lekin reverse() ishlatmang. 
+# Listni slicing yordamida teskari aylantiring, lekin reverse() ishlatmang.
+
+# matrix = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+# print(matrix[::-1])
 
 # 11.
-# Quyidagi listda har 3-elementni olib, yangi list yarating: 
-# numbers = list(range(1, 31)) 
+# Quyidagi listda har 3-elementni olib, yangi list yarating:
+# numbers = list(range(1, 31))
 
 # 12.
-# Stringlardan iborat list berilgan. Har bir so‘zning faqat oxirgi harfidan iborat list 
-# yarating. 
-# words = ["python", "java", "golang", "rust"] 
+# Stringlardan iborat list berilgan. Har bir so‘zning faqat oxirgi harfidan iborat list
+# yarating.
+# words = ["python", "java", "golang", "rust"]
 
 # 13.
-# List ichidagi ichki listlarning faqat birinchi elementlarini ajratib oling: 
-# data = [[1,2,3],[4,5,6],[7,8,9]] 
+# List ichidagi ichki listlarning faqat birinchi elementlarini ajratib oling:
+# data = [[1,2,3],[4,5,6],[7,8,9]]
 
 # 14.
-# Berilgan listdan slicing yordamida: 
-# • birinchi 3 elementni o‘chiring 
+# Berilgan listdan slicing yordamida:
+# • birinchi 3 elementni o‘chiring
 
 # 15.
-# • oxirgi 2 elementni qoldiring 
-# 0 dan 50 gacha bo‘lgan sonlardan palindrom bo‘lgan sonlar ro‘yxatini tuzing 
-# (masalan: 11, 22, 33). 
+# • oxirgi 2 elementni qoldiring
+# 0 dan 50 gacha bo‘lgan sonlardan palindrom bo‘lgan sonlar ro‘yxatini tuzing
+# (masalan: 11, 22, 33).
 
 # 16.
-# Nested list yarating (5×5), faqat diagonal elementlari 1, qolganlari 0 bo‘lsin. 
-# Natija: 
-# [ 
-# [1,0,0,0,0], 
-# [0,1,0,0,0], 
-# [0,0,1,0,0], 
-# [0,0,0,1,0], 
-# [0,0,0,0,1] 
+# Nested list yarating (5×5), faqat diagonal elementlari 1, qolganlari 0 bo‘lsin.
+# Natija:
+# [
+# [1,0,0,0,0],
+# [0,1,0,0,0],
+# [0,0,1,0,0],
+# [0,0,0,1,0],
+# [0,0,0,0,1]
 # ]
 
 # 17.
-# Quyidagi listdan: 
-# • juft indexdagi elementlar → bitta list 
-# • toq indexdagi elementlar → boshqa list 
-# data = [10, 20, 30, 40, 50, 60, 70] 
+# Quyidagi listdan:
+# • juft indexdagi elementlar → bitta list
+# • toq indexdagi elementlar → boshqa list
+# data = [10, 20, 30, 40, 50, 60, 70]
 
 # 18.
-# Stringlardan iborat listdan har bir so‘zning o‘rtadagi harfini ajratib oling 
-# (so‘z uzunligi doim toq deb hisoblang). 
+# Stringlardan iborat listdan har bir so‘zning o‘rtadagi harfini ajratib oling
+# (so‘z uzunligi doim toq deb hisoblang).
 
 # 19.
-# 0–100 oralig‘ida: 
-# • faqat raqamlari yig‘indisi 10 dan katta bo‘lgan sonlar listini tuzing. 
+# 0–100 oralig‘ida:
+# • faqat raqamlari yig‘indisi 10 dan katta bo‘lgan sonlar listini tuzing.
 
 # 20.
-# Berilgan nested listni tekis (flat) listga aylantiring (list comprehension bilan): 
-# matrix = [[1,2],[3,4],[5,6]] 
+# Berilgan nested listni tekis (flat) listga aylantiring (list comprehension bilan):
+# matrix = [[1,2],[3,4],[5,6]]
 
 # 21.
-# Quyidagi listni slicing yordamida: 
-# • birinchi yarmini 
-# • ikkinchi yarmini 
-# ikki alohida listga ajrating. 
-# nums = [1,2,3,4,5,6,7,8] 
+# Quyidagi listni slicing yordamida:
+# • birinchi yarmini
+# • ikkinchi yarmini
+# ikki alohida listga ajrating.
+# nums = [1,2,3,4,5,6,7,8]
 
 # 22.
-# Stringdan list yarating va: 
-# • faqat har ikkinchi harfni 
-# • teskari tartibda chiqaring. 
-# text = "programming" 
+# Stringdan list yarating va:
+# • faqat har ikkinchi harfni
+# • teskari tartibda chiqaring.
+# text = "programming"
 
 # 23.
-# Nested list ichidan: 
-# • faqat juft sonlarni 
-# • tekis list ko‘rinishida ajrating. 
+# Nested list ichidan:
+# • faqat juft sonlarni
+# • tekis list ko‘rinishida ajrating.
 
 # 24.
-# 0 dan 100 gacha bo‘lgan sonlardan: 
-# • faqat tub sonlar listini tuzing 
-# (oddiy for + list comprehension kombinatsiyasi bilan). 
+# 0 dan 100 gacha bo‘lgan sonlardan:
+# • faqat tub sonlar listini tuzing
+# (oddiy for + list comprehension kombinatsiyasi bilan).
 
 # 25.
-# Quyidagi listdan: 
-# • ichki listlar mustaqil object bo‘ladigan qilib 
-# • 3×3 nol matritsa yarating 
-# taqiqlanadi: 
+# Quyidagi listdan:
+# • ichki listlar mustaqil object bo‘ladigan qilib
+# • 3×3 nol matritsa yarating
+# taqiqlanadi:
 # [[0]*3]*3
