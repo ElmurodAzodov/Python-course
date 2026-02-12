@@ -66,14 +66,8 @@
 # • toq sonlar → kubga
 # o‘zgartirilgan list yarating.
 
-# l = []
-# for i in range(21):
-#     if i % 2 != 0:
-#         l.append(i ** 3)
-#     else:
-#         l.append(i ** 2)
-# print(l)
-
+# numbers = [x**2 if x % 2 == 0 else x**3 for x in range(21)]
+# print(numbers)
 
 # 9.
 # Quyidagi nested listdan faqat markazdagi 2×2 qismni slicing orqali ajratib oling:
