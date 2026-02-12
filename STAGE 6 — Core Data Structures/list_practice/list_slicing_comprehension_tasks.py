@@ -54,6 +54,12 @@
 # yarating.
 # data = [1, "python", True, "list", 3.14, "code"]
 
+# data = [1, "python", True, "list", 3.14, "code"]
+
+# new_list = [item.upper() for item in data if isinstance(item, str)]
+
+# print(new_list)
+
 # 8.
 # 0 dan 20 gacha bo‘lgan sonlardan:
 # • juft sonlar → kvadratga
