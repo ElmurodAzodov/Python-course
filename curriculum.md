@@ -1,11 +1,8 @@
-# 🐍 **PYTHON CORE MASTER ROADMAP 2026**
+# 🐍 **PYTHON CORE MASTER ROADMAP**
 ## *From Zero to Senior — Complete Reference*
 
 <div align="center">
   <img src="./py.png" width="120" alt="Python Logo">
-  <br>
-  <h1>🔥 100% TO'LIQ — 0 DAN SENIOR GACHA</h1>
-  <p><em>Barcha mavzular, hech nima qoldirilmagan</em></p>
 </div>
 
 <br>
@@ -5235,19 +5232,6 @@ STRATEGIES FOR LARGE CODEBASES
 - **Kuniga 4 soat** → 6 oy
 - **Intensiv (haftada 20 soat)** → 3.5 oy
 
----
-
-<br>
-<br>
-
-# **🇺🇿 O'ZBEKCHA VERSIYA — TO'LIQ**
-
-*Uzbek translation of all stages above, maintaining the same structure and completeness.*
-
-*(Sizning roadma pingizdagi o'zbekcha versiya to'liq saqlanadi va yuqoridagi barcha yangi mavzular bilan to'ldiriladi)*
-
----
-
 <br>
 <br>
 <br>
@@ -5259,8 +5243,8 @@ STRATEGIES FOR LARGE CODEBASES
 <br>
 
 <div align="center">
-  <h1>🐍 PYTHON CORE — 0 DAN SENIOR GACHA</h1>
-  <h3>To'liq ma'lumotnoma — 2026 Edition</h3>
+  <h1>🐍 Python core — 0 dan senior gacha</h1>
+  <h3>To'liq ma'lumotnoma</h3>
   <p><em>280 soat, 23 bosqich, 500+ mavzu</em></p>
 </div>
 
@@ -5283,10 +5267,6 @@ STRATEGIES FOR LARGE CODEBASES
     <tr>
       <td align="center"><strong>Python</strong></td>
       <td align="center">3.13+ / 2026</td>
-    </tr>
-    <tr>
-      <td align="center"><strong>Status</strong></td>
-      <td align="center">✅ 100% TO'LIQ — Hech nima qolmadi</td>
     </tr>
   </table>
 </div>
