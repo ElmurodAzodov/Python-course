@@ -178,7 +178,9 @@
 # 0–100 oralig‘ida:
 # • faqat raqamlari yig‘indisi 10 dan katta bo‘lgan sonlar listini tuzing.
 
-numbers = [i for i in range(100) if (i // 10 + i % 10) > 10]
+# numbers = [i for i in range(100) if (i // 10 + i % 10) > 10]
+numbers = [i for i in range(101) if sum(int(d) for d in str(i)) > 10]
+
 print(numbers)
 
 # 20.
