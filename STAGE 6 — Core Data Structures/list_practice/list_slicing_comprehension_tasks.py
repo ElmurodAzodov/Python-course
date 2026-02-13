@@ -199,21 +199,25 @@
 # ikki alohida listga ajrating.
 # nums = [1,2,3,4,5,6,7,8]
 
-nums = [1,2,3,4,5,6,7,8]
+# nums = [1,2,3,4,5,6,7,8]
 
-mid = len(nums) // 2
+# mid = len(nums) // 2
 
-first_half = nums[:mid]
-second_half = nums[mid:]
+# first_half = nums[:mid]
+# second_half = nums[mid:]
 
-print(first_half)
-print(second_half)
+# print(first_half)
+# print(second_half)
 
 # 22.
 # Stringdan list yarating va:
 # • faqat har ikkinchi harfni
 # • teskari tartibda chiqaring.
 # text = "programming"
+
+text = "programming"
+result = list(text)[1::2][::-1]
+print(result)
 
 # 23.
 # Nested list ichidan:
