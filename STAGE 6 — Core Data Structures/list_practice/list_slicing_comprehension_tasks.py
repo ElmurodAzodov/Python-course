@@ -178,14 +178,20 @@
 # 0–100 oralig‘ida:
 # • faqat raqamlari yig‘indisi 10 dan katta bo‘lgan sonlar listini tuzing.
 
-# numbers = [i for i in range(100) if (i // 10 + i % 10) > 10]
-numbers = [i for i in range(101) if sum(int(d) for d in str(i)) > 10]
+# # numbers = [i for i in range(100) if (i // 10 + i % 10) > 10]
+# numbers = [i for i in range(101) if sum(int(d) for d in str(i)) > 10]
 
-print(numbers)
+# print(numbers)
 
 # 20.
 # Berilgan nested listni tekis (flat) listga aylantiring (list comprehension bilan):
 # matrix = [[1,2],[3,4],[5,6]]
+
+matrix = [[1,2],[3,4],[5,6]]
+flat_list = [element for row in matrix for element in row]
+
+print(flat_list)
+
 
 # 21.
 # Quyidagi listni slicing yordamida:
