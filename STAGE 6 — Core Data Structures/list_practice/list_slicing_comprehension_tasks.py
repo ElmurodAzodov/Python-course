@@ -170,13 +170,16 @@
 # Stringlardan iborat listdan har bir so‘zning o‘rtadagi harfini ajratib oling
 # (so‘z uzunligi doim toq deb hisoblang).
 
-words = ["python", "level", "world", "radar"]
-middle_letters = [word[len(word)//2] for word in words]
-print(middle_letters)
+# words = ["python", "level", "world", "radar"]
+# middle_letters = [word[len(word)//2] for word in words]
+# print(middle_letters)
 
 # 19.
 # 0–100 oralig‘ida:
 # • faqat raqamlari yig‘indisi 10 dan katta bo‘lgan sonlar listini tuzing.
+
+numbers = [i for i in range(100) if (i // 10 + i % 10) > 10]
+print(numbers)
 
 # 20.
 # Berilgan nested listni tekis (flat) listga aylantiring (list comprehension bilan):
