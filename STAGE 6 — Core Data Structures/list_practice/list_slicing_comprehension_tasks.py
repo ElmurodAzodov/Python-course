@@ -187,11 +187,10 @@
 # Berilgan nested listni tekis (flat) listga aylantiring (list comprehension bilan):
 # matrix = [[1,2],[3,4],[5,6]]
 
-matrix = [[1,2],[3,4],[5,6]]
-flat_list = [element for row in matrix for element in row]
+# matrix = [[1,2],[3,4],[5,6]]
+# flat_list = [element for row in matrix for element in row]
 
-print(flat_list)
-
+# print(flat_list)
 
 # 21.
 # Quyidagi listni slicing yordamida:
@@ -199,6 +198,16 @@ print(flat_list)
 # • ikkinchi yarmini
 # ikki alohida listga ajrating.
 # nums = [1,2,3,4,5,6,7,8]
+
+nums = [1,2,3,4,5,6,7,8]
+
+mid = len(nums) // 2
+
+first_half = nums[:mid]
+second_half = nums[mid:]
+
+print(first_half)
+print(second_half)
 
 # 22.
 # Stringdan list yarating va:
