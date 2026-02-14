@@ -224,7 +224,7 @@
 # • faqat juft sonlarni
 # • tekis list ko‘rinishida ajrating.
 
-nested_list = [[1, 2, 3, 4], 5, 6, [7, 8, [9, 10, 11], 12], 13, 14, [15, [16, [17, [18, 19], 20]]]]
+# nested_list = [[1, 2, 3, 4], 5, 6, [7, 8, [9, 10, 11], 12], 13, 14, [15, [16, [17, [18, 19], 20]]]]
 
 # def extract_even(lst):
 #     result = []
@@ -240,25 +240,27 @@ nested_list = [[1, 2, 3, 4], 5, 6, [7, 8, [9, 10, 11], 12], 13, 14, [15, [16, [1
 
 # print(extract_even(nested_list))
 # ----------------------------------------------
-stack = nested_list[:]
-evens = []
+# stack = nested_list[:]
+# evens = []
 
-while stack:
-    item = stack.pop()
+# while stack:
+#     item = stack.pop()
     
-    if isinstance(item, list):
-        stack.extend(item)
-    else:
-        if item % 2 == 0:
-            evens.append(item)
+#     if isinstance(item, list):
+#         stack.extend(item)
+#     else:
+#         if item % 2 == 0:
+#             evens.append(item)
 
-evens.reverse()
-print(evens)
+# evens.reverse()
+# print(evens)
 
 # 24.
 # 0 dan 100 gacha bo‘lgan sonlardan:
 # • faqat tub sonlar listini tuzing
 # (oddiy for + list comprehension kombinatsiyasi bilan).
+
+
 
 # 25.
 # Quyidagi listdan:

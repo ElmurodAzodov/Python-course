@@ -7,6 +7,10 @@
 # List yarating: [10, 20, 30] 
 # Oxiriga 40 ni append() bilan qo‘shing va ekranga chiqaring. 
 
+l = [10, 20, 30]
+l.append(40)
+print(l)
+
 # 2. 
 # Bo‘sh list yarating. 
 # Foydalanuvchidan 3 ta son olib append() bilan listga qo‘shing. 
