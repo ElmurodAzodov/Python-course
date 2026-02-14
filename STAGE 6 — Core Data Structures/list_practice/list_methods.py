@@ -15,16 +15,22 @@
 # Bo‘sh list yarating. 
 # Foydalanuvchidan 3 ta son olib append() bilan listga qo‘shing. 
 
-numbers = []
+# numbers = []
 
-for i in range(3):
-    num = int(input(f"{i+1}-sonni kiriting: "))
-    numbers.append(num)
+# for i in range(3):
+#     num = int(input(f"{i+1}-sonni kiriting: "))
+#     numbers.append(num)
 
-print("List:", numbers)
+# print("List:", numbers)
 
 # 3. 
 # ["apple", "banana", "cherry"] listidan "banana" ni remove() bilan o‘chiring. 
+
+fruits = ["apple", "banana", "cherry"]
+
+fruits.remove("banana")
+
+print(fruits)
 
 # 4. 
 # Berilgan list: [1, 2, 3, 4, 5] 
