@@ -7,13 +7,21 @@
 # List yarating: [10, 20, 30] 
 # Oxiriga 40 ni append() bilan qo‘shing va ekranga chiqaring. 
 
-l = [10, 20, 30]
-l.append(40)
-print(l)
+# l = [10, 20, 30]
+# l.append(40)
+# print(l)
 
 # 2. 
 # Bo‘sh list yarating. 
 # Foydalanuvchidan 3 ta son olib append() bilan listga qo‘shing. 
+
+numbers = []
+
+for i in range(3):
+    num = int(input(f"{i+1}-sonni kiriting: "))
+    numbers.append(num)
+
+print("List:", numbers)
 
 # 3. 
 # ["apple", "banana", "cherry"] listidan "banana" ni remove() bilan o‘chiring. 
