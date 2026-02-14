@@ -215,14 +215,45 @@
 # • teskari tartibda chiqaring.
 # text = "programming"
 
-text = "programming"
-result = list(text)[1::2][::-1]
-print(result)
+# text = "programming"
+# result = list(text)[1::2][::-1]
+# print(result)
 
 # 23.
 # Nested list ichidan:
 # • faqat juft sonlarni
 # • tekis list ko‘rinishida ajrating.
+
+nested_list = [[1, 2, 3, 4], 5, 6, [7, 8, [9, 10, 11], 12], 13, 14, [15, [16, [17, [18, 19], 20]]]]
+
+# def extract_even(lst):
+#     result = []
+    
+#     for item in lst:
+#         if isinstance(item, list):
+#             result.extend(extract_even(item))  # agar list bo‘lsa ichiga kiradi
+#         else:
+#             if item % 2 == 0:
+#                 result.append(item)  # juft sonni qo‘shadi
+                
+#     return result
+
+# print(extract_even(nested_list))
+# ----------------------------------------------
+stack = nested_list[:]
+evens = []
+
+while stack:
+    item = stack.pop()
+    
+    if isinstance(item, list):
+        stack.extend(item)
+    else:
+        if item % 2 == 0:
+            evens.append(item)
+
+evens.reverse()
+print(evens)
 
 # 24.
 # 0 dan 100 gacha bo‘lgan sonlardan:
