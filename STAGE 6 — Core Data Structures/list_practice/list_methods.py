@@ -26,15 +26,19 @@
 # 3. 
 # ["apple", "banana", "cherry"] listidan "banana" ni remove() bilan o‘chiring. 
 
-fruits = ["apple", "banana", "cherry"]
+# fruits = ["apple", "banana", "cherry"]
 
-fruits.remove("banana")
+# fruits.remove("banana")
 
-print(fruits)
+# print(fruits)
 
 # 4. 
 # Berilgan list: [1, 2, 3, 4, 5] 
 # 3-indexga 99 ni insert() bilan qo‘shing. 
+
+numbers = [1, 2, 3, 4, 5]
+numbers.insert(3, 99)
+print(numbers)
 
 # 5. 
 # Foydalanuvchidan 5 ta so‘z olib listga joylang. 
