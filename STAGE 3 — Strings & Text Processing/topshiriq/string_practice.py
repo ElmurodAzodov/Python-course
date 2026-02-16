@@ -54,6 +54,10 @@ String Methods • Searching • Replacing
 
 # 7. Sonni str() yordamida stringga aylantir va "Yosh: <son>" ko‘rinishida chiqar.
 
+# son = 12
+# son = str(son)
+# print(f"Yosh: {son}")
+
 
 # -----------------------
 # INDEXING & BASIC TASKS
