@@ -17,8 +17,23 @@ String Methods • Searching • Replacing
 # -----------------------
 
 # 1. Foydalanuvchidan ism so‘ra va "Salom, <ism>!" ko‘rinishida chiqar.
+
+# name = input("Ismingizni kiriting: ")
+# print(f"Assalomu alaykum, {name}!")
+
 # 2. Single quotes va double quotes yordamida 2 xil string yarat va chiqar.
+
+# str1 = 'string 1'
+# str2 = "string 2"
+# print(str1, str2)
+
 # 3. Triple quotes yordamida 3 qatorli matn yarat.
+
+triple = """This is a
+multi-line
+string"""
+print(triple)
+
 # 4. Ikki stringni + operatori yordamida birlashtir.
 # 5. Berilgan stringni 5 marta takrorlab chiqar.
 # 6. Raw string yordamida path chiqar:
