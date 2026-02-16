@@ -29,12 +29,18 @@ String Methods • Searching • Replacing
 
 # 3. Triple quotes yordamida 3 qatorli matn yarat.
 
-triple = """This is a
-multi-line
-string"""
-print(triple)
+# triple = """This is a
+# multi-line
+# string"""
+# print(triple)
 
 # 4. Ikki stringni + operatori yordamida birlashtir.
+
+# str1 = "Salom"
+# str2 = "Dunyo"
+# result = str1 + " " + str2
+# print(result)
+
 # 5. Berilgan stringni 5 marta takrorlab chiqar.
 # 6. Raw string yordamida path chiqar:
 #    C:\Users\Admin\Desktop
