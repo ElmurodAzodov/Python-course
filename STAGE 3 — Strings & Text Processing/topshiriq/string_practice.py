@@ -42,8 +42,16 @@ String Methods • Searching • Replacing
 # print(result)
 
 # 5. Berilgan stringni 5 marta takrorlab chiqar.
+
+# str = "Text"
+# print(str * 5)
+
 # 6. Raw string yordamida path chiqar:
 #    C:\Users\Admin\Desktop
+
+# path = r"C:\Users\Admin\Desktop"
+# print(path)
+
 # 7. Sonni str() yordamida stringga aylantir va "Yosh: <son>" ko‘rinishida chiqar.
 
 
