@@ -79,10 +79,16 @@ String Methods • Searching • Replacing
 
 # 10. Stringni teskari qilib chiqar.
 
-s = "Python"
-print("10. Teskari string:", s[::-1])
+# s = "Python"
+# print("10. Teskari string:", s[::-1])
 
 # 11. So‘z olib, har bir belgini indekslari bilan chiqar.
+
+s = "Python"
+print("11. Belgilar indekslari bilan:")
+for i, char in enumerate(s):
+    print(f"   Indeks {i}: {char}")
+
 # 12. Faqat juft indeksdagi belgilarni chiqar.
 # 13. Faqat toq indeksdagi belgilarni chiqar.
 # 14. Oxirgi 4 ta belgini ajratib ol.
