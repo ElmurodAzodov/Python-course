@@ -66,7 +66,7 @@ String Methods • Searching • Replacing
 # 8. Berilgan stringning birinchi va oxirgi belgisini chiqar.
 
 # s = "Python"
-# print("8. Birinchi belgi:", s[0])
+# print("Birinchi belgi:", s[0])
 # print("   Oxirgi belgi:", s[-1])
 
 # 9. String uzunligini chiqar va o‘rtadagi belgini aniqlang.
@@ -74,22 +74,26 @@ String Methods • Searching • Replacing
 # s = "Python"
 # length = len(s)
 # middle_index = length // 2
-# print("9. String uzunligi:", length)
+# print("String uzunligi:", length)
 # print("   O'rtadagi belgi:", s[middle_index])
 
 # 10. Stringni teskari qilib chiqar.
 
 # s = "Python"
-# print("10. Teskari string:", s[::-1])
+# print("Teskari string:", s[::-1])
 
 # 11. So‘z olib, har bir belgini indekslari bilan chiqar.
 
-s = "Python"
-print("11. Belgilar indekslari bilan:")
-for i, char in enumerate(s):
-    print(f"   Indeks {i}: {char}")
+# s = "Python"
+# print("Belgilar indekslari bilan:")
+# for i, char in enumerate(s):
+#     print(f"   Indeks {i}: {char}")
 
 # 12. Faqat juft indeksdagi belgilarni chiqar.
+
+s = "Python"
+print("Juft indeksdagi belgilar:", s[0::2])
+
 # 13. Faqat toq indeksdagi belgilarni chiqar.
 # 14. Oxirgi 4 ta belgini ajratib ol.
 # 15. O‘rtadagi 3 ta belgini chiqar.
