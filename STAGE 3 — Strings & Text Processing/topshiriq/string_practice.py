@@ -65,11 +65,18 @@ String Methods • Searching • Replacing
 
 # 8. Berilgan stringning birinchi va oxirgi belgisini chiqar.
 
-s = "Python"
-print("8. Birinchi belgi:", s[0])
-print("   Oxirgi belgi:", s[-1])
+# s = "Python"
+# print("8. Birinchi belgi:", s[0])
+# print("   Oxirgi belgi:", s[-1])
 
 # 9. String uzunligini chiqar va o‘rtadagi belgini aniqlang.
+
+s = "Python"
+length = len(s)
+middle_index = length // 2
+print("9. String uzunligi:", length)
+print("   O'rtadagi belgi:", s[middle_index])
+
 # 10. Stringni teskari qilib chiqar.
 # 11. So‘z olib, har bir belgini indekslari bilan chiqar.
 # 12. Faqat juft indeksdagi belgilarni chiqar.
