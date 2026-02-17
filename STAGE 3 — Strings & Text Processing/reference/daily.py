@@ -48,18 +48,21 @@ text = "f123 qWe, HelLo g,' woRld!@123"
 # 20
 # print(f"Chaqirildi {text}")
 # print("Chaqirildi {}".format(text))
-text = "   hello python world   "
-# 1. Boshi va oxiridagi bo‘shliqni olib tashlash
-clean = text.strip()
-print(clean)
-# 2. Katta harflar
-upper_text = clean.upper()
-print(upper_text)
-# 3. So‘zlarni ajratish
-words = upper_text.split()
-print(words)
-# 4. Birinchi so‘zni almashtirish
-words[0] = "HI"
-# 5. Ro‘yxatni stringga birlashtirish
-final_text = " ".join(words)
-print(final_text)
+# text = "   hello python world   "
+# # 1. Boshi va oxiridagi bo‘shliqni olib tashlash
+# clean = text.strip()
+# print(clean)
+# # 2. Katta harflar
+# upper_text = clean.upper()
+# print(upper_text)
+# # 3. So‘zlarni ajratish
+# words = upper_text.split()
+# print(words)
+# # 4. Birinchi so‘zni almashtirish
+# words[0] = "HI"
+# # 5. Ro‘yxatni stringga birlashtirish
+# final_text = " ".join(words)
+# print(final_text)
+
+
+print(ord("A"))
