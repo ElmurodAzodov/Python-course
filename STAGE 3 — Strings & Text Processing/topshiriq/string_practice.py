@@ -71,13 +71,17 @@ String Methods • Searching • Replacing
 
 # 9. String uzunligini chiqar va o‘rtadagi belgini aniqlang.
 
-s = "Python"
-length = len(s)
-middle_index = length // 2
-print("9. String uzunligi:", length)
-print("   O'rtadagi belgi:", s[middle_index])
+# s = "Python"
+# length = len(s)
+# middle_index = length // 2
+# print("9. String uzunligi:", length)
+# print("   O'rtadagi belgi:", s[middle_index])
 
 # 10. Stringni teskari qilib chiqar.
+
+s = "Python"
+print("10. Teskari string:", s[::-1])
+
 # 11. So‘z olib, har bir belgini indekslari bilan chiqar.
 # 12. Faqat juft indeksdagi belgilarni chiqar.
 # 13. Faqat toq indeksdagi belgilarni chiqar.
