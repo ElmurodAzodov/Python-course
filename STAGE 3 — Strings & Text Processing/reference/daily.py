@@ -1,6 +1,6 @@
 
 text = "f123 qWe, HelLo g,' woRld!@123"
-# # print(text[:2]) # [start:stop-1:step]
+# print(text[0:2])
 # # print(text[2:8])
 # # print(text[2:10:2])
 # # print(text[::2])
@@ -65,4 +65,12 @@ text = "f123 qWe, HelLo g,' woRld!@123"
 # print(final_text)
 
 
+
+#* ASCII
+ 
 print(ord("A"))
+print(chr(76))
+print(chr(43))
+print(chr(53))
+print(chr(64))
+print(chr(124))
