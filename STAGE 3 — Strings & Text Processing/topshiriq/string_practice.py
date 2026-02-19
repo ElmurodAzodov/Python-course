@@ -112,11 +112,16 @@ String Methods • Searching • Replacing
 
 # 16. Birinchi yarmini ajratib ol.
 
-s = "Python"
-first_half = s[:len(s)//2]
-print(first_half)
+# s = "Python"
+# first_half = s[:len(s)//2]
+# print(first_half)
 
 # 17. Ikkinchi yarmini ajratib ol.
+
+s = "Python"
+second_half = s[len(s)//2:]
+print(second_half)
+
 # 18. Stringni 3 xil usulda teskariga o‘gir:
 #     slicing, loop, reversed()
 
