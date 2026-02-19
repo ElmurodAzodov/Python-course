@@ -96,10 +96,14 @@ String Methods • Searching • Replacing
 
 # 13. Faqat toq indeksdagi belgilarni chiqar.
 
-s = "Python"
-print("Toq indeksdagi belgilar: ", s[1::2])
+# s = "Python"
+# print("Toq indeksdagi belgilar: ", s[1::2])
 
 # 14. Oxirgi 4 ta belgini ajratib ol.
+
+s = "Python programming language"
+print("Oxirgi 4ta belgi: ", s[-4:])
+
 # 15. O‘rtadagi 3 ta belgini chiqar.
 # 16. Birinchi yarmini ajratib ol.
 # 17. Ikkinchi yarmini ajratib ol.
