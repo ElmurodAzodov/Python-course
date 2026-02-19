@@ -101,10 +101,15 @@ String Methods • Searching • Replacing
 
 # 14. Oxirgi 4 ta belgini ajratib ol.
 
-s = "Python programming language"
-print("Oxirgi 4ta belgi: ", s[-4:])
+# s = "Python programming language"
+# print("Oxirgi 4ta belgi: ", s[-4:])
 
 # 15. O‘rtadagi 3 ta belgini chiqar.
+
+s = "Python"
+mid = len(s) // 2
+print(s[mid-1:mid+2])
+
 # 16. Birinchi yarmini ajratib ol.
 # 17. Ikkinchi yarmini ajratib ol.
 # 18. Stringni 3 xil usulda teskariga o‘gir:
