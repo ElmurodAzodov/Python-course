@@ -106,11 +106,16 @@ String Methods • Searching • Replacing
 
 # 15. O‘rtadagi 3 ta belgini chiqar.
 
-s = "Python"
-mid = len(s) // 2
-print(s[mid-1:mid+2])
+# s = "Python"
+# mid = len(s) // 2
+# print(s[mid-1:mid+2])
 
 # 16. Birinchi yarmini ajratib ol.
+
+s = "Python"
+first_half = s[:len(s)//2]
+print(first_half)
+
 # 17. Ikkinchi yarmini ajratib ol.
 # 18. Stringni 3 xil usulda teskariga o‘gir:
 #     slicing, loop, reversed()
