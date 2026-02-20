@@ -148,11 +148,16 @@ String Methods • Searching • Replacing
 
 # 20. Barcha "a" harflarini "@" ga almashtir.
 
-matn = "  salom dunyo, python dasturlash tili  "
-a_almashtir = matn.replace('a', '@')
-print("a harflari @ ga almashtirildi:", a_almashtir)
+# matn = "  salom dunyo, python dasturlash tili  "
+# a_almashtir = matn.replace('a', '@')
+# print("a harflari @ ga almashtirildi:", a_almashtir)
 
 # 21. Matnda nechta "a" borligini hisobla.
+
+matn = "  salom dunyo, python dasturlash tili  "
+a_soni = matn.count('a')
+print(f"Matnda {a_soni} ta 'a' harfi bor")
+
 # 22. Bosh va oxiridagi bo‘sh joylarni olib tashla.
 # 23. Vergul bilan ajratilgan matnni listga ajrat.
 # 24. Listdagi so‘zlarni "-" bilan birlashtir.
