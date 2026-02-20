@@ -125,21 +125,27 @@ String Methods • Searching • Replacing
 # 18. Stringni 3 xil usulda teskariga o‘gir:
 #     slicing, loop, reversed()
 
-s = "Python programming language"
-print(s[::-1])
+# s = "Python programming language"
+# print(s[::-1])
 
-rev = ""
-for harf in s:
-    rev = harf + rev
-print(rev)
+# rev = ""
+# for harf in s:
+#     rev = harf + rev
+# print(rev)
 
-print("".join(reversed(s)))
+# print("".join(reversed(s)))
 
 # -----------------------
 # STRING METHODS
 # -----------------------
 
 # 19. Matnni upper(), lower(), title() ko‘rinishida chiqar.
+
+matn = "  salom dunyo, python dasturlash tili  "
+print("Upper:", matn.upper())
+print("Lower:", matn.lower())
+print("Title:", matn.title())
+
 # 20. Barcha "a" harflarini "@" ga almashtir.
 # 21. Matnda nechta "a" borligini hisobla.
 # 22. Bosh va oxiridagi bo‘sh joylarni olib tashla.
