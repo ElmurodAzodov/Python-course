@@ -160,11 +160,16 @@ String Methods • Searching • Replacing
 
 # 22. Bosh va oxiridagi bo‘sh joylarni olib tashla.
 
-matn = "  salom dunyo, python dasturlash tili  "
-tozalangan = matn.strip()
-print("Bo'sh joylardan tozalangan matn:", tozalangan)
+# matn = "  salom dunyo, python dasturlash tili  "
+# tozalangan = matn.strip()
+# print("Bo'sh joylardan tozalangan matn:", tozalangan)
 
 # 23. Vergul bilan ajratilgan matnni listga ajrat.
+
+vergulli_matn = "olma,anor,banan,uzum"
+list_holat = vergulli_matn.split(',')
+print("List holati:", list_holat)
+
 # 24. Listdagi so‘zlarni "-" bilan birlashtir.
 # 25. Matn faqat harflardan iboratmi tekshir.
 # 26. Matn faqat raqamlardan iboratmi tekshir.
