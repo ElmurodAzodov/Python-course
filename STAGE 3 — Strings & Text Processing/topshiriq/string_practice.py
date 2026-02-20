@@ -141,12 +141,17 @@ String Methods • Searching • Replacing
 
 # 19. Matnni upper(), lower(), title() ko‘rinishida chiqar.
 
-matn = "  salom dunyo, python dasturlash tili  "
-print("Upper:", matn.upper())
-print("Lower:", matn.lower())
-print("Title:", matn.title())
+# matn = "  salom dunyo, python dasturlash tili  "
+# print("Upper:", matn.upper())
+# print("Lower:", matn.lower())
+# print("Title:", matn.title())
 
 # 20. Barcha "a" harflarini "@" ga almashtir.
+
+matn = "  salom dunyo, python dasturlash tili  "
+a_almashtir = matn.replace('a', '@')
+print("a harflari @ ga almashtirildi:", a_almashtir)
+
 # 21. Matnda nechta "a" borligini hisobla.
 # 22. Bosh va oxiridagi bo‘sh joylarni olib tashla.
 # 23. Vergul bilan ajratilgan matnni listga ajrat.
