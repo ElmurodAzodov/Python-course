@@ -154,11 +154,16 @@ String Methods • Searching • Replacing
 
 # 21. Matnda nechta "a" borligini hisobla.
 
-matn = "  salom dunyo, python dasturlash tili  "
-a_soni = matn.count('a')
-print(f"Matnda {a_soni} ta 'a' harfi bor")
+# matn = "  salom dunyo, python dasturlash tili  "
+# a_soni = matn.count('a')
+# print(f"Matnda {a_soni} ta 'a' harfi bor")
 
 # 22. Bosh va oxiridagi bo‘sh joylarni olib tashla.
+
+matn = "  salom dunyo, python dasturlash tili  "
+tozalangan = matn.strip()
+print("Bo'sh joylardan tozalangan matn:", tozalangan)
+
 # 23. Vergul bilan ajratilgan matnni listga ajrat.
 # 24. Listdagi so‘zlarni "-" bilan birlashtir.
 # 25. Matn faqat harflardan iboratmi tekshir.
