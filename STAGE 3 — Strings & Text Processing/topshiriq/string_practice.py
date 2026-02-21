@@ -178,10 +178,14 @@ String Methods • Searching • Replacing
 
 # 25. Matn faqat harflardan iboratmi tekshir.
 
-text1 = "HelloWorld"
-print(text1.isalpha())
+# text1 = "HelloWorld"
+# print(text1.isalpha())
 
 # 26. Matn faqat raqamlardan iboratmi tekshir.
+
+text2 = "123456"
+print(text2.isdigit())
+
 # 27. Email @gmail.com bilan tugaydimi tekshir.
 # 28. Matn "Hello" bilan boshlanadimi tekshir.
 
