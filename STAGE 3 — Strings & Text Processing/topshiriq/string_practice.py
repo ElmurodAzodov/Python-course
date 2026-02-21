@@ -172,11 +172,15 @@ String Methods • Searching • Replacing
 
 # 24. Listdagi so‘zlarni "-" bilan birlashtir.
 
-words = ["python", "is", "fun"]
-joined = "-".join(words)
-print(joined)
+# words = ["python", "is", "fun"]
+# joined = "-".join(words)
+# print(joined)
 
 # 25. Matn faqat harflardan iboratmi tekshir.
+
+text1 = "HelloWorld"
+print(text1.isalpha())
+
 # 26. Matn faqat raqamlardan iboratmi tekshir.
 # 27. Email @gmail.com bilan tugaydimi tekshir.
 # 28. Matn "Hello" bilan boshlanadimi tekshir.
