@@ -166,11 +166,16 @@ String Methods • Searching • Replacing
 
 # 23. Vergul bilan ajratilgan matnni listga ajrat.
 
-vergulli_matn = "olma,anor,banan,uzum"
-list_holat = vergulli_matn.split(',')
-print("List holati:", list_holat)
+# vergulli_matn = "olma,anor,banan,uzum"
+# list_holat = vergulli_matn.split(',')
+# print("List holati:", list_holat)
 
 # 24. Listdagi so‘zlarni "-" bilan birlashtir.
+
+words = ["python", "is", "fun"]
+joined = "-".join(words)
+print(joined)
+
 # 25. Matn faqat harflardan iboratmi tekshir.
 # 26. Matn faqat raqamlardan iboratmi tekshir.
 # 27. Email @gmail.com bilan tugaydimi tekshir.
