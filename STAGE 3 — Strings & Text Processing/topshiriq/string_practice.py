@@ -183,10 +183,14 @@ String Methods • Searching • Replacing
 
 # 26. Matn faqat raqamlardan iboratmi tekshir.
 
-text2 = "123456"
-print(text2.isdigit())
+# text2 = "123456"
+# print(text2.isdigit())
 
 # 27. Email @gmail.com bilan tugaydimi tekshir.
+
+email = "user@gmail.com"
+print(email.endswith("@gmail.com"))
+
 # 28. Matn "Hello" bilan boshlanadimi tekshir.
 
 
