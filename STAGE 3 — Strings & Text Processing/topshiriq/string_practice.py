@@ -193,14 +193,22 @@ String Methods • Searching • Replacing
 
 # 28. Matn "Hello" bilan boshlanadimi tekshir.
 
-text = "Hello world"
-print(text.startswith("Hello"))
+# text = "Hello world"
+# print(text.startswith("Hello"))
 
 # -----------------------
 # ANALYSIS TASKS
 # -----------------------
 
 # 29. Palindrom ekanligini tekshir.
+
+word = "radar"
+if word == word[::-1]:
+    print(True)
+else:
+    print(False)
+
+
 # 30. Matndagi so‘zlar sonini aniqlang.
 # 31. Eng uzun so‘zni top.
 # 32. Eng qisqa so‘zni top.
