@@ -335,3 +335,121 @@ else:
     print("Xato: Parollar kiritilmadi!")
 
 #=======================================================================================================
+
+# 3 - MATNLARNI QAYTA ISHLASH GENERATORI
+# Berilgan matnlar ro'yxatini turli usullarda qayta ishlovchi dastur
+
+print("=" * 70)
+print("MATNLARNI QAYTA ISHLASH GENERATORI".center(70))
+print("=" * 70)
+
+# Matnlar ro'yxati
+matnlar = [
+    "  python dasturlash tili  ",
+    "2024 YIL DASTURLASH YILI",
+    "string metodlari: upper(), lower()",
+    "telefon: +998901234567"
+]
+
+print("\n📄 BERILGAN MATNLAR:")
+print("-" * 70)
+for i, matn in enumerate(matnlar, 1):
+    print(f"{i}. '{matn}'")
+
+print("\n" + "=" * 70)
+print("QAYTA ISHLASH NATIJALARI".center(70))
+print("=" * 70)
+
+# 1. Katta harflarga o'tkazish
+print("\n1. KATTA HARFLARGA O'TKAZISH:")
+print("-" * 70)
+for i, matn in enumerate(matnlar, 1):
+    print(f"{i}. {matn.upper()}")
+
+# 2. Kichik harflarga o'tkazish
+print("\n2. KICHIK HARFLARGA O'TKAZISH:")
+print("-" * 70)
+for i, matn in enumerate(matnlar, 1):
+    print(f"{i}. {matn.lower()}")
+
+# 3. Birinchi harfni katta qilish
+print("\n3. BIRINCHI HARFNI KATTA QILISH:")
+print("-" * 70)
+for i, matn in enumerate(matnlar, 1):
+    print(f"{i}. {matn.strip().capitalize()}")
+
+# 4. Har bir so'zning birinchi harfini katta qilish
+print("\n4. HAR SO'ZNING BIRINCHI HARFINI KATTA QILISH:")
+print("-" * 70)
+for i, matn in enumerate(matnlar, 1):
+    print(f"{i}. {matn.title()}")
+
+# 5. Ortibcha bo'shliqlarni tozalash
+print("\n5. ORTIQCHA BO'SHLIQLARNI TOZALASH:")
+print("-" * 70)
+for i, matn in enumerate(matnlar, 1):
+    print(f"{i}. '{matn.strip()}'")
+
+# 6. Markazlashtirilgan holda chiqarish
+print("\n6. MARKAZLASHTIRILGAN HOLDА CHIQARISH:")
+print("-" * 70)
+max_uzunlik = max(len(matn) for matn in matnlar)
+for i, matn in enumerate(matnlar, 1):
+    print(f"{i}. {matn.center(max_uzunlik + 10)}")
+
+# 7. Matnlarni uzunligi bo'yicha saralash
+print("\n7. MATNLARNI UZUNLIGI BO'YICHA SARALASH:")
+print("-" * 70)
+saralangan = sorted(matnlar, key=len)
+for i, matn in enumerate(saralangan, 1):
+    print(f"{i}. '{matn}' - {len(matn)} belgi")
+
+# 8. Matnlardan faqat raqamlarni ajratib olish
+print("\n8. FAQAT RAQAMLARNI AJRATIB OLISH:")
+print("-" * 70)
+for i, matn in enumerate(matnlar, 1):
+    raqamlar = ''
+    for belgi in matn:
+        if belgi.isdigit():
+            raqamlar += belgi
+    print(f"{i}. {raqamlar if raqamlar else 'Raqam topilmadi'}")
+
+# 9. Matnlardan faqat harflarni ajratib olish
+print("\n9. FAQAT HARFLARNI AJRATIB OLISH:")
+print("-" * 70)
+for i, matn in enumerate(matnlar, 1):
+    harflar = ''
+    for belgi in matn:
+        if belgi.isalpha():
+            harflar += belgi
+    print(f"{i}. {harflar if harflar else 'Harf topilmadi'}")
+
+# 10. Matnlarni berilgan kalit so'z bo'yicha filtrlash
+print("\n10. KALIT SO'Z BO'YICHA FILTRLASH:")
+print("-" * 70)
+kalit_soz = input("Kalit so'zni kiriting: ").strip().lower()
+
+if kalit_soz:
+    print(f"\n'{kalit_soz}' so'zi qatnashgan matnlar:")
+    topildi = False
+    for i, matn in enumerate(matnlar, 1):
+        if kalit_soz in matn.lower():
+            print(f"{i}. {matn}")
+            topildi = True
+    if not topildi:
+        print("Hech qanday matn topilmadi")
+
+# Qo'shimcha: O'zingiz matn qo'shish
+print("\n" + "=" * 70)
+print("O'ZINGIZ MATN QO'SHISH".center(70))
+print("=" * 70)
+
+yangi_matn = input("\nYangi matn kiriting: ").strip()
+if yangi_matn:
+    matnlar.append(yangi_matn)
+    print(f"\n✅ Matn qo'shildi! Jami matnlar soni: {len(matnlar)}")
+    
+    print("\nYANGILANGAN MATNLAR RO'YXATI:")
+    print("-" * 70)
+    for i, matn in enumerate(matnlar, 1):
+        print(f"{i}. '{matn}'")
