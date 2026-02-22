@@ -453,3 +453,147 @@ if yangi_matn:
     print("-" * 70)
     for i, matn in enumerate(matnlar, 1):
         print(f"{i}. '{matn}'")
+
+#=====================================================================================
+
+# 4 - SHAXSIY MA'LUMOTLARNI ANONIMLASHTIRISH
+# Matn tarkibidagi shaxsiy ma'lumotlarni topib, ularni maxfiylashtiruvchi dastur
+
+print("=" * 70)
+print("SHAXSIY MA'LUMOTLARNI ANONIMLASHTIRISH".center(70))
+print("=" * 70)
+
+# Misol matn
+original = "Mening ishim Ali Valiyev. Email: ali@mail.com, tel: +998901234567, Kredit karta: 1234-5678-9012-3456, IP: 192.168.1.1:8000"
+
+print("\n📄 ASL MATN:")
+print("-" * 70)
+print(original)
+
+# Anonimlashtirilgan matn
+anonim = original
+topilganlar = []
+
+print("\n" + "=" * 70)
+print("ANIMLASHTIRISH JARAYONI".center(70))
+print("=" * 70)
+
+# 1. Email manzillarni aniqlash va anonimlashtirish
+print("\n1. EMAIL MANZILLAR:")
+print("-" * 70)
+
+# Email qidirish
+email_boshlanishi = original.find('@')
+if email_boshlanishi != -1:
+    # Email boshlanishini topish
+    email_oxiri = email_boshlanishi
+    while email_oxiri < len(original) and original[email_oxiri] not in ' .,;:':
+        email_oxiri += 1
+    
+    # Email boshini topish
+    email_boshi = email_boshlanishi
+    while email_boshi > 0 and original[email_boshi-1] not in ' .,;:@':
+        email_boshi -= 1
+    
+    email = original[email_boshi:email_oxiri]
+    print(f"   • Topildi: {email}")
+    topilganlar.append(f"Email: {email}")
+    
+    # Anonimlashtirish
+    anonim = anonim.replace(email, "***@***.***")
+
+# 2. Telefon raqamlarini aniqlash va anonimlashtirish
+print("\n2. TELEFON RAQAMLARI:")
+print("-" * 70)
+
+# Telefon qidirish (oddiy usul)
+telefon_index = original.find('+998')
+if telefon_index != -1:
+    telefon_oxiri = telefon_index
+    while telefon_oxiri < len(original) and original[telefon_oxiri].isdigit() or original[telefon_oxiri] == '+':
+        telefon_oxiri += 1
+    
+    telefon = original[telefon_index:telefon_oxiri]
+    print(f"   • Topildi: {telefon}")
+    topilganlar.append(f"Telefon: {telefon}")
+    
+    # Anonimlashtirish
+    anonim = anonim.replace(telefon, "+998*********")
+
+# 3. Ism-familyalarni aniqlash va anonimlashtirish
+print("\n3. ISM-FAMILYALAR:")
+print("-" * 70)
+
+# Ism-familya qidirish (katta harf bilan boshlangan so'zlar)
+words = original.split()
+ism_familya = ""
+for i in range(len(words) - 1):
+    if words[i][0].isupper() and words[i+1][0].isupper():
+        ism_familya = words[i] + " " + words[i+1]
+        break
+
+if ism_familya:
+    print(f"   • Topildi: {ism_familya}")
+    topilganlar.append(f"Ism-familya: {ism_familya}")
+    
+    # Anonimlashtirish (bosh harflar)
+    ism_bosh = ism_familya[0] + "."
+    familya_bosh = ism_familya.split()[1][0] + "."
+    anonim = anonim.replace(ism_familya, ism_bosh + familya_bosh)
+
+# 4. Kredit karta raqamlarini aniqlash va anonimlashtirish
+print("\n4. KREDIT KARTA RAQAMLARI:")
+print("-" * 70)
+
+# Kredit karta qidirish (xxxx-xxxx-xxxx-xxxx formati)
+karta_index = original.find('1234-5678-9012-3456')
+if karta_index != -1:
+    karta = "1234-5678-9012-3456"
+    print(f"   • Topildi: {karta}")
+    topilganlar.append(f"Kredit karta: {karta}")
+    
+    # Anonimlashtirish (oxirgi 4 ta raqam qoldiriladi)
+    anonim = anonim.replace(karta, "****-****-****-3456")
+
+# 5. IP manzillarni aniqlash va anonimlashtirish
+print("\n5. IP MANZILLAR:")
+print("-" * 70)
+
+# IP qidirish (oddiy usul)
+ip_index = original.find('192.168.1.1:8000')
+if ip_index != -1:
+    ip = "192.168.1.1:8000"
+    print(f"   • Topildi: {ip}")
+    topilganlar.append(f"IP manzil: {ip}")
+    
+    # Anonimlashtirish
+    anonim = anonim.replace(ip, "***.***.*.*:***")
+
+print("\n" + "=" * 70)
+print("ANIMLASHTIRILGAN MATN".center(70))
+print("=" * 70)
+print(f"\n{anonim}")
+
+print("\n" + "=" * 70)
+print("ANIMLASHTIRISH HISOBOTI".center(70))
+print("=" * 70)
+
+print(f"\n📊 TOPILGAN MAXFIY MA'LUMOTLAR:")
+print("-" * 70)
+for i, malumot in enumerate(topilganlar, 1):
+    print(f"{i}. {malumot}")
+
+print(f"\n📈 STATISTIKA:")
+print(f"   • Jami topilgan ma'lumotlar: {len(topilganlar)} ta")
+print(f"   • Anonimlashtirilgan matn uzunligi: {len(anonim)} belgi")
+print(f"   • Asl matn uzunligi: {len(original)} belgi")
+
+# Qo'shimcha: O'zingiz matn kiritish
+print("\n" + "=" * 70)
+print("O'ZINGIZ MATN KIRITISH".center(70))
+print("=" * 70)
+
+oz_matn = input("\nMatn kiriting: ").strip()
+if oz_matn:
+    print(f"\nSiz kiritgan matn: {oz_matn}")
+    print("(Hozircha faqat misol matn anonimlashtirildi)")
