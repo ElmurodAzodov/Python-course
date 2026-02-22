@@ -597,3 +597,193 @@ oz_matn = input("\nMatn kiriting: ").strip()
 if oz_matn:
     print(f"\nSiz kiritgan matn: {oz_matn}")
     print("(Hozircha faqat misol matn anonimlashtirildi)")
+
+#=========================================================================================
+
+# 5 - PALINDROM VA ANAGRAMMA ANALIZATORI
+# Matnlar to'plamida palindrom va anagrammalarni topuvchi dastur
+
+print("=" * 70)
+print("PALINDROM VA ANAGRAMMA ANALIZATORI".center(70))
+print("=" * 70)
+
+# Matn kiritish
+text = input("\nMatnni kiriting: ").strip()
+
+if text:
+    # Matnni so'zlarga ajratish
+    words = text.split()
+    
+    # So'zlarni tozalash (tinish belgilaridan)
+    clean_words = []
+    for word in words:
+        clean_word = ''
+        for char in word:
+            if char.isalnum():  # Harf yoki raqam bo'lsa
+                clean_word += char
+        if clean_word:
+            clean_words.append(clean_word)
+    
+    print("\n" + "=" * 70)
+    print("TAHLIL NATIJALARI".center(70))
+    print("=" * 70)
+    
+    # 1. Palindromlarni tekshirish
+    print("\n1. PALINDROM SO'ZLAR:")
+    print("-" * 70)
+    
+    palindromes = []
+    for word in clean_words:
+        word_lower = word.lower()
+        if word_lower == word_lower[::-1] and len(word) > 1:
+            palindromes.append(word)
+    
+    if palindromes:
+        print(f"   • Topilgan palindromlar ({len(palindromes)} ta):")
+        for p in palindromes:
+            print(f"     - {p}")
+    else:
+        print("   • Palindrom so'z topilmadi")
+    
+    # 2. Anagrammalarni tekshirish
+    print("\n2. ANAGRAMMA JUFTLIKLAR:")
+    print("-" * 70)
+    
+    # Har bir so'z uchun tartiblangan harflar
+    sorted_words = []
+    for word in clean_words:
+        word_lower = word.lower()
+        sorted_word = ''.join(sorted(word_lower))
+        sorted_words.append((word, sorted_word))
+    
+    # Anagramma juftliklarni topish
+    anagram_pairs = []
+    used = set()
+    
+    for i in range(len(sorted_words)):
+        for j in range(i + 1, len(sorted_words)):
+            if i != j and sorted_words[i][1] == sorted_words[j][1]:
+                pair = (sorted_words[i][0], sorted_words[j][0])
+                if pair not in anagram_pairs and (pair[1], pair[0]) not in anagram_pairs:
+                    anagram_pairs.append(pair)
+    
+    if anagram_pairs:
+        print(f"   • Topilgan anagramma juftliklar ({len(anagram_pairs)} ta):")
+        for a1, a2 in anagram_pairs:
+            print(f"     - '{a1}'  ↔  '{a2}'")
+    else:
+        print("   • Anagramma juftlik topilmadi")
+    
+    # 3. Eng uzun palindrom
+    print("\n3. ENG UZUN PALINDROM:")
+    print("-" * 70)
+    
+    if palindromes:
+        longest = max(palindromes, key=len)
+        print(f"   • '{longest}' - {len(longest)} harf")
+    else:
+        print("   • Palindrom topilmadi")
+    
+    # 4. Eng ko'p anagrammasi bo'lgan so'z
+    print("\n4. ENG KO'P ANAGRAMMASI BO'LGAN SO'Z:")
+    print("-" * 70)
+    
+    # Anagramma guruhlarini yaratish
+    anagram_groups = {}
+    for word, sorted_word in sorted_words:
+        if sorted_word in anagram_groups:
+            if word not in anagram_groups[sorted_word]:
+                anagram_groups[sorted_word].append(word)
+        else:
+            anagram_groups[sorted_word] = [word]
+    
+    # Eng katta guruhni topish
+    max_group = []
+    for group in anagram_groups.values():
+        if len(group) > len(max_group):
+            max_group = group
+    
+    if len(max_group) > 1:
+        print(f"   • So'zlar: {', '.join(max_group)}")
+        print(f"   • {len(max_group)} ta anagramma")
+    else:
+        print("   • Anagramma guruhlari topilmadi")
+    
+    # 5. Harf chastotasi bo'yicha guruhlash
+    print("\n5. HARF CHASTOTASI BO'YICHA GURUHLASH:")
+    print("-" * 70)
+    
+    letter_groups = {}
+    for word in clean_words:
+        word_lower = word.lower()
+        # Harflarni sanash
+        letter_count = {}
+        for letter in word_lower:
+            if letter.isalpha():
+                letter_count[letter] = letter_count.get(letter, 0) + 1
+        
+        # Chastota kalitini yaratish
+        freq_key = ''
+        for letter in sorted(letter_count.keys()):
+            freq_key += f"{letter}{letter_count[letter]}"
+        
+        if freq_key in letter_groups:
+            if word not in letter_groups[freq_key]:
+                letter_groups[freq_key].append(word)
+        else:
+            letter_groups[freq_key] = [word]
+    
+    # Bir xil harf chastotasiga ega so'zlar
+    similar_freq = []
+    for group in letter_groups.values():
+        if len(group) > 1:
+            similar_freq.append(group)
+    
+    if similar_freq:
+        print(f"   • Bir xil harf chastotasiga ega so'zlar ({len(similar_freq)} guruh):")
+        for i, group in enumerate(similar_freq[:3], 1):
+            print(f"     {i}. {', '.join(group)}")
+        if len(similar_freq) > 3:
+            print(f"     ... va yana {len(similar_freq) - 3} ta guruh")
+    else:
+        print("   • Bir xil harf chastotasiga ega so'zlar topilmadi")
+    
+    # 6. Vizual ko'rinish
+    print("\n6. VIZUAL KO'RINISH:")
+    print("-" * 70)
+    
+    # Palindromlar uchun
+    print("\n   PALINDROMLAR:")
+    for word in clean_words:
+        word_lower = word.lower()
+        if word_lower == word_lower[::-1] and len(word) > 1:
+            print(f"   🔴 {word}  ←→  {word[::-1]}")
+    
+    # Bir nechta so'zlar uchun palindrom tekshirish
+    print("\n   TEKSHIRISH UCHUN:")
+    for word in clean_words[:5]:  # Faqat birinchi 5 ta so'z
+        word_lower = word.lower()
+        if len(word) > 1:
+            if word_lower == word_lower[::-1]:
+                print(f"   ✅ {word} - palindrom")
+            else:
+                print(f"   ❌ {word} - palindrom emas")
+
+else:
+    print("Xato: Matn kiritilmadi!")
+
+# Qo'shimcha: Alohida so'z tekshirish
+print("\n" + "=" * 70)
+print("ALOHIDA SO'Z TEKSHIRISH".center(70))
+print("=" * 70)
+
+word = input("\nSo'zni kiriting: ").strip().lower()
+if word:
+    # Palindrom tekshirish
+    if word == word[::-1]:
+        print(f"✅ '{word}' - PALINDROM")
+    else:
+        print(f"❌ '{word}' - palindrom EMAS")
+    
+    # So'zning teskari ko'rinishi
+    print(f"🔄 Teskari ko'rinishi: '{word[::-1]}'")
