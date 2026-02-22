@@ -8,6 +8,7 @@
 #    Natijani ekranga chiqaring.
 
 
+
 # 2. String, float va boolean qiymatlardan iborat tuple yarating
 #    va uning type() ni tekshiring.
 

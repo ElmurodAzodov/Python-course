@@ -210,9 +210,9 @@ print(email.endswith("@gmail.com"))
 # 38. Har bir so‘zning birinchi harfini katta qil (title() ishlatmasdan).
 # 39. So‘zlar tartibini teskariga o‘gir (harflarni emas).
 
-text = "Python is great"
-reversed = " ".join(text.split(" ")[::-1])
-print(reversed)
+# text = "Python is great"
+# reversed = " ".join(text.split(" ")[::-1])
+# print(reversed)
 
 # -----------------------
 # ADVANCED TASKS
