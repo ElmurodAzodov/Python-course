@@ -188,11 +188,13 @@ String Methods • Searching • Replacing
 
 # 27. Email @gmail.com bilan tugaydimi tekshir.
 
-email = "user@gmail.com"
-print(email.endswith("@gmail.com"))
+# email = "user@gmail.com"
+# print(email.endswith("@gmail.com"))
 
 # 28. Matn "Hello" bilan boshlanadimi tekshir.
 
+text = "Hello world"
+print(text.startswith("Hello"))
 
 # -----------------------
 # ANALYSIS TASKS
