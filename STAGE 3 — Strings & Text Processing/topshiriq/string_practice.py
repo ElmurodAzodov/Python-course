@@ -225,22 +225,33 @@ String Methods • Searching • Replacing
 
 # 32. Eng qisqa so‘zni top.
 
-gap = input("Gap kiriting: ")
-sozlar = gap.split()
+# gap = input("Gap kiriting: ")
+# sozlar = gap.split()
 
-if len(sozlar) > 0:
-    eng_qisqa = sozlar[0]
+# if len(sozlar) > 0:
+#     eng_qisqa = sozlar[0]
 
-    for soz in sozlar:
-        if len(soz) < len(eng_qisqa):
-            eng_qisqa = soz
+#     for soz in sozlar:
+#         if len(soz) < len(eng_qisqa):
+#             eng_qisqa = soz
 
-    print("Eng qisqa so'z:", eng_qisqa)
-    print("Uzunligi:", len(eng_qisqa))
-else:
-    print("Gap kiritilmadi.")
+#     print("Eng qisqa so'z:", eng_qisqa)
+#     print("Uzunligi:", len(eng_qisqa))
+# else:
+#     print("Gap kiritilmadi.")
 
 # 33. Katta harflar sonini aniqlang.
+
+gap = input("Gap kiriting: ")
+
+katta_soni = 0
+
+for belgi in gap:
+    if belgi.isupper():
+        katta_soni += 1
+
+print("Katta harflar soni:", katta_soni)
+
 # 34. Kichik harflar sonini aniqlang.
 # 35. Raqamlar sonini aniqlang.
 # 36. Barcha raqamlarni ajratib yangi string yarat.
