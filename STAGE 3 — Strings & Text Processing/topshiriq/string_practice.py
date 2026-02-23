@@ -254,17 +254,28 @@ String Methods • Searching • Replacing
 
 # 34. Kichik harflar sonini aniqlang.
 
-gap = input("Gap kiriting: ")
+# gap = input("Gap kiriting: ")
 
-kichik_soni = 0
+# kichik_soni = 0
 
-for belgi in gap:
-    if belgi.islower():
-        kichik_soni += 1
+# for belgi in gap:
+#     if belgi.islower():
+#         kichik_soni += 1
 
-print("Kichik harflar soni:", kichik_soni)
+# print("Kichik harflar soni:", kichik_soni)
 
 # 35. Raqamlar sonini aniqlang.
+
+gap = input("Gap kiriting: ")
+
+raqam_soni = 0
+
+for belgi in gap:
+    if belgi.isdigit():
+        raqam_soni += 1
+
+print("Raqamlar soni:", raqam_soni)
+
 # 36. Barcha raqamlarni ajratib yangi string yarat.
 # 37. Barcha bo‘shliqlarni olib tashla.
 # 38. Har bir so‘zning birinchi harfini katta qil (title() ishlatmasdan).
