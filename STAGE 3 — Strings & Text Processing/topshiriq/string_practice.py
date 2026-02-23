@@ -215,15 +215,31 @@ String Methods • Searching • Replacing
 
 # 31. Eng uzun so‘zni top.
 
-text = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna. Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci. Aenean nec lorem."
-words = text.split()
-eng_uzun = ""
-for i in words:
-    if len(i) > len(eng_uzun):
-        eng_uzun = i
-print(eng_uzun)
+# text = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna. Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci. Aenean nec lorem."
+# words = text.split()
+# eng_uzun = ""
+# for i in words:
+#     if len(i) > len(eng_uzun):
+#         eng_uzun = i
+# print(eng_uzun)
 
 # 32. Eng qisqa so‘zni top.
+
+gap = input("Gap kiriting: ")
+sozlar = gap.split()
+
+if len(sozlar) > 0:
+    eng_qisqa = sozlar[0]
+
+    for soz in sozlar:
+        if len(soz) < len(eng_qisqa):
+            eng_qisqa = soz
+
+    print("Eng qisqa so'z:", eng_qisqa)
+    print("Uzunligi:", len(eng_qisqa))
+else:
+    print("Gap kiritilmadi.")
+
 # 33. Katta harflar sonini aniqlang.
 # 34. Kichik harflar sonini aniqlang.
 # 35. Raqamlar sonini aniqlang.
