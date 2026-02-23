@@ -12,6 +12,8 @@
 # 2. String, float va boolean qiymatlardan iborat tuple yarating
 #    va uning type() ni tekshiring.
 
+mixin = (str, float, bool)
+print(type(mixin))
 
 # 3. Bitta elementli tuple yarating.
 #    Vergul bo‘lmasa nima bo‘lishini kod orqali isbotlang.
