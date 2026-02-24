@@ -312,15 +312,15 @@ String Methods • Searching • Replacing
 
 # 40. Substring necha marta uchrashini hisobla (count ishlatmasdan).
 
-matn = "salom salom dunyo salom"
-sub = "salom"
+# matn = "salom salom dunyo salom"
+# sub = "salom"
 
-soni = 0
-for i in range(len(matn) - len(sub) + 1):
-    if matn[i:i+len(sub)] == sub:
-        soni += 1
+# soni = 0
+# for i in range(len(matn) - len(sub) + 1):
+#     if matn[i:i+len(sub)] == sub:
+#         soni += 1
 
-print("Substring soni:", soni)
+# print("Substring soni:", soni)
 
 # 41. Oddiy password validator:
 #     - kamida 8 belgi
@@ -328,6 +328,16 @@ print("Substring soni:", soni)
 #     - 1 ta kichik harf
 #     - 1 ta raqam
 # 42. Maxsus belgilarni olib tashla (faqat harf va raqam qolsin).
+
+matn2 = "Salom! Dunyo@2026#"
+tozalangan = ""
+
+for belgi in matn2:
+    if belgi.isalnum():
+        tozalangan += belgi
+
+print("Tozalangan:", tozalangan)
+
 # 43. Matnni snake_case ga o‘zgartir.
 # 44. CamelCase formatga o‘zgartir.
 # 45. Eng ko‘p takrorlangan harfni top.
