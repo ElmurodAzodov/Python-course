@@ -293,12 +293,12 @@ String Methods • Searching • Replacing
 
 # 38. Har bir so‘zning birinchi harfini katta qil (title() ishlatmasdan).
 
-text = "Lorem 12ipsum 5set, dolor set1"
-list = text.split()
-text_update = ""
-for i in list:
-    text_update += i[0].upper() + i[1:] + " "
-print(text_update)
+# text = "Lorem 12ipsum 5set, dolor set1"
+# list = text.split()
+# text_update = ""
+# for i in list:
+#     text_update += i[0].upper() + i[1:] + " "
+# print(text_update)
     
 # 39. So‘zlar tartibini teskariga o‘gir (harflarni emas).
 
@@ -311,6 +311,17 @@ print(text_update)
 # -----------------------
 
 # 40. Substring necha marta uchrashini hisobla (count ishlatmasdan).
+
+matn = "salom salom dunyo salom"
+sub = "salom"
+
+soni = 0
+for i in range(len(matn) - len(sub) + 1):
+    if matn[i:i+len(sub)] == sub:
+        soni += 1
+
+print("Substring soni:", soni)
+
 # 41. Oddiy password validator:
 #     - kamida 8 belgi
 #     - 1 ta katta harf
