@@ -278,14 +278,19 @@ String Methods • Searching • Replacing
 
 # 36. Barcha raqamlarni ajratib yangi string yarat.
 
-new_string = ""
-text = "Lorem 12ipsum 5set, dolor set1"
-for i in text:
-    if i.isdigit():
-        new_string += i
-print(new_string)
+# new_string = ""
+# text = "Lorem 12ipsum 5set, dolor set1"
+# for i in text:
+#     if i.isdigit():
+#         new_string += i
+# print(new_string)
 
 # 37. Barcha bo‘shliqlarni olib tashla.
+
+text = "Lorem 12ipsum 5set, dolor set1"
+natija = text.replace(" ", "")
+print(natija)
+
 # 38. Har bir so‘zning birinchi harfini katta qil (title() ishlatmasdan).
 # 39. So‘zlar tartibini teskariga o‘gir (harflarni emas).
 
