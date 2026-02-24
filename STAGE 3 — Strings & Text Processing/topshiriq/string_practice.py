@@ -329,16 +329,21 @@ String Methods • Searching • Replacing
 #     - 1 ta raqam
 # 42. Maxsus belgilarni olib tashla (faqat harf va raqam qolsin).
 
-matn2 = "Salom! Dunyo@2026#"
-tozalangan = ""
+# matn2 = "Salom! Dunyo@2026#"
+# tozalangan = ""
 
-for belgi in matn2:
-    if belgi.isalnum():
-        tozalangan += belgi
+# for belgi in matn2:
+#     if belgi.isalnum():
+#         tozalangan += belgi
 
-print("Tozalangan:", tozalangan)
+# print("Tozalangan:", tozalangan)
 
 # 43. Matnni snake_case ga o‘zgartir.
+
+matn3 = "Salom Dunyo Python Darsi"
+snake = matn3.lower().replace(" ", "_")
+print("snake_case:", snake)
+
 # 44. CamelCase formatga o‘zgartir.
 # 45. Eng ko‘p takrorlangan harfni top.
 # 46. Har bir harf nechta marta takrorlanganini dictionary ko‘rinishida chiqar.
