@@ -266,17 +266,25 @@ String Methods • Searching • Replacing
 
 # 35. Raqamlar sonini aniqlang.
 
-gap = input("Gap kiriting: ")
+# gap = input("Gap kiriting: ")
 
-raqam_soni = 0
+# raqam_soni = 0
 
-for belgi in gap:
-    if belgi.isdigit():
-        raqam_soni += 1
+# for belgi in gap:
+#     if belgi.isdigit():
+#         raqam_soni += 1
 
-print("Raqamlar soni:", raqam_soni)
+# print("Raqamlar soni:", raqam_soni)
 
 # 36. Barcha raqamlarni ajratib yangi string yarat.
+
+new_string = ""
+text = "Lorem 12ipsum 5set, dolor set1"
+for i in text:
+    if i.isdigit():
+        new_string += i
+print(new_string)
+
 # 37. Barcha bo‘shliqlarni olib tashla.
 # 38. Har bir so‘zning birinchi harfini katta qil (title() ishlatmasdan).
 # 39. So‘zlar tartibini teskariga o‘gir (harflarni emas).
