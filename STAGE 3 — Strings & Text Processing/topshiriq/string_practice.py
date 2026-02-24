@@ -287,11 +287,19 @@ String Methods • Searching • Replacing
 
 # 37. Barcha bo‘shliqlarni olib tashla.
 
-text = "Lorem 12ipsum 5set, dolor set1"
-natija = text.replace(" ", "")
-print(natija)
+# text = "Lorem 12ipsum 5set, dolor set1"
+# natija = text.replace(" ", "")
+# print(natija)
 
 # 38. Har bir so‘zning birinchi harfini katta qil (title() ishlatmasdan).
+
+text = "Lorem 12ipsum 5set, dolor set1"
+list = text.split()
+text_update = ""
+for i in list:
+    text_update += i[0].upper() + i[1:] + " "
+print(text_update)
+    
 # 39. So‘zlar tartibini teskariga o‘gir (harflarni emas).
 
 # text = "Python is great"
