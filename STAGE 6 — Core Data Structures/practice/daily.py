@@ -31,20 +31,20 @@
 # * eng uzun ismni
 # * alifbo bo‘yicha saralangan ro‘yxatni chiqarsin
 
-names = []
-while True:
-    n = input("Ismingizni kiriting: ")
-    if n.lower() == "stop":
-        break
-    names.append(n)
-print(names)
-print(f"Ismlar uzunligi: {len(names)}")
+# names = []
+# while True:
+#     n = input("Ismingizni kiriting: ")
+#     if n.lower() == "stop":
+#         break
+#     names.append(n)
+# print(names)
+# print(f"Ismlar uzunligi: {len(names)}")
 
-eng_uzun = ""
-for i in names:
-    if len(i) > len(eng_uzun):
-        eng_uzun = i
-print(f"Eng uzun ism {eng_uzun}, uning uzunligi {len(eng_uzun)}ga teng")
+# eng_uzun = ""
+# for i in names:
+#     if len(i) > len(eng_uzun):
+#         eng_uzun = i
+# print(f"Eng uzun ism {eng_uzun}, uning uzunligi {len(eng_uzun)}ga teng")
 
 # ---
 
@@ -121,6 +121,18 @@ print(f"Eng uzun ism {eng_uzun}, uning uzunligi {len(eng_uzun)}ga teng")
 # * talabalarni ball bo‘yicha kamayish tartibida saralasin
 # * eng yaxshi 3 talabani chiqarsin
 # * o‘rtacha ballni hisoblasin
+# student = [("Donyor", 21, 78), ("Akmal", 23, 79), ("Bahrom", 25, 80)]
+students = []
+n = int(input("Nechta talaba kiritilsin: "))
+for i in range(n):
+    name = input("Ism: ")
+    age = int(input("Yosh: "))
+    score = int(input("Ball: "))
+    students.append((name, age, score))
+students.sort(key = lambda x: x[2], reverse=True)
+print(students)
+# print(student)
+print(f"Eng yaxshi 2ta talaba: {students[:3]}")
 
 # ---
 
@@ -132,17 +144,7 @@ print(f"Eng uzun ism {eng_uzun}, uning uzunligi {len(eng_uzun)}ga teng")
 
 # Dastur:
 
-# * barcha unikal fanlarni aniqlasin
-# * eng ko‘p fan olgan talabani topsin
-# * har fakultetda nechta talaba borligini chiqarsin
-# * 3 tadan kam fan olgan talabalarni alohida ro‘yxatga ajratsin
-
-# ---
-
-# Agar xohlasangiz, keyingi qadam sifatida men sizga:
-
-# * 🟢 shu topshiriqlarning **yechimlarini bosqichma-bosqich**
-# * 🟢 yoki **imtihon varianti ko‘rinishida PDF darajada**
-# * 🟢 yoki **real mini-loyiha shakliga keltirib**
-
-# ham tayyorlab berishim mumkin.
+# barcha unikal(takrorlanmagan) fanlarni aniqlasin
+# eng ko‘p fan olgan talabani topsin
+# har fakultetda nechta talaba borligini chiqarsin
+# 3 tadan kam fan olgan talabalarni alohida ro‘yxatga ajratsin
