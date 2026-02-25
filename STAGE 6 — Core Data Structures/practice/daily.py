@@ -11,6 +11,15 @@
 # * ularni listga joylang
 # * eng kattasini va eng kichigini chiqaring
 
+# nums = []
+# for i in range(5):
+#     nums.append(int(input("Son kiriting: ")))
+    
+# print(f"Kattasi: {max(nums)}")
+# print(f"Kichigi: {min(nums)}")
+
+
+
 # ---
 
 # ### 2️⃣ List o‘rtacha daraja
@@ -22,6 +31,13 @@
 # * eng uzun ismni
 # * alifbo bo‘yicha saralangan ro‘yxatni chiqarsin
 
+names = []
+while True:
+    n = input("Ismingizni kiriting: ")
+    if n == "stop":
+        break
+    names.append(n)
+print(names)
 # ---
 
 # ### 3️⃣ List + sikl fikrlash topshirig‘i
