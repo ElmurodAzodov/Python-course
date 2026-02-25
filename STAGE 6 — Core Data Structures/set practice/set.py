@@ -140,5 +140,9 @@
 
 registered_users = {"ali","vali","hasan"}
 new_users = ["vali","zafar","olim","ali","sardor"]
+new_users_set = set(new_users)
 not_registered = registered_users.difference(new_users)
 print(not_registered)
+
+updated_users = registered_users.union(new_users_set)
+print(updated_users)
