@@ -146,3 +146,6 @@ print(not_registered)
 
 updated_users = registered_users.union(new_users_set)
 print(updated_users)
+
+total_users = len(updated_users)
+print(total_users)
