@@ -34,10 +34,18 @@
 names = []
 while True:
     n = input("Ismingizni kiriting: ")
-    if n == "stop":
+    if n.lower() == "stop":
         break
     names.append(n)
 print(names)
+print(f"Ismlar uzunligi: {len(names)}")
+
+eng_uzun = ""
+for i in names:
+    if len(i) > len(eng_uzun):
+        eng_uzun = i
+print(f"Eng uzun ism {eng_uzun}, uning uzunligi {len(eng_uzun)}ga teng")
+
 # ---
 
 # ### 3️⃣ List + sikl fikrlash topshirig‘i
