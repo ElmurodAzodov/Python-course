@@ -9,6 +9,7 @@
 # Nima uchun ayrim sonlar faqat bir marta chiqayotganini izohlang (kommentariyada).
 
 
+
 # 2-topshiriq
 # numbers = [5,5,6,7,7,8]
 # Uni setga o‘tkazing va natijani chiqaring.
@@ -136,3 +137,8 @@
 #   - Yangi foydalanuvchilar ichidan ro‘yxatdan o‘tmaganlar
 #   - Ro‘yxatni yangilang (duplicate bo‘lmasin)
 #   - Oxirgi foydalanuvchilar sonini chiqaring
+
+registered_users = {"ali","vali","hasan"}
+new_users = ["vali","zafar","olim","ali","sardor"]
+not_registered = registered_users.difference(new_users)
+print(not_registered)
