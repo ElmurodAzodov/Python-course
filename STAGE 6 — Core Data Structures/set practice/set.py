@@ -129,6 +129,11 @@
 #   - Uchalasida ham mavjud elementlar
 #   - Kamida ikkita setda mavjud elementlar
 
+A = {1, 2, 3, 4}
+B = {3, 4, 5, 6}
+C = {4, 5, 6, 7}
+only_in_A = A - (B | C)
+print("Faqat A da:", only_in_A)
 
 # 20-topshiriq
 # registered_users = {"ali","vali","hasan"}
@@ -138,14 +143,14 @@
 #   - Ro‘yxatni yangilang (duplicate bo‘lmasin)
 #   - Oxirgi foydalanuvchilar sonini chiqaring
 
-registered_users = {"ali","vali","hasan"}
-new_users = ["vali","zafar","olim","ali","sardor"]
-new_users_set = set(new_users)
-not_registered = registered_users.difference(new_users)
-print(not_registered)
+# registered_users = {"ali","vali","hasan"}
+# new_users = ["vali","zafar","olim","ali","sardor"]
+# new_users_set = set(new_users)
+# not_registered = registered_users.difference(new_users)
+# print(not_registered)
 
-updated_users = registered_users.union(new_users_set)
-print(updated_users)
+# updated_users = registered_users.union(new_users_set)
+# print(updated_users)
 
-total_users = len(updated_users)
-print(total_users)
+# total_users = len(updated_users)
+# print(total_users)
