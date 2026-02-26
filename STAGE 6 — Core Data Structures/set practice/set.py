@@ -135,6 +135,11 @@ C = {4, 5, 6, 7}
 only_in_A = A - (B | C)
 print("Faqat A da:", only_in_A)
 
+A_and_B = A & B
+print("A va B kesishmasi:", A_and_B)
+
+
+
 # 20-topshiriq
 # registered_users = {"ali","vali","hasan"}
 # new_users = ["vali","zafar","olim","ali","sardor"]
