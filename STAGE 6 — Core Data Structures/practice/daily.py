@@ -122,17 +122,17 @@
 # * eng yaxshi 3 talabani chiqarsin
 # * o‘rtacha ballni hisoblasin
 # student = [("Donyor", 21, 78), ("Akmal", 23, 79), ("Bahrom", 25, 80)]
-students = []
-n = int(input("Nechta talaba kiritilsin: "))
-for i in range(n):
-    name = input("Ism: ")
-    age = int(input("Yosh: "))
-    score = int(input("Ball: "))
-    students.append((name, age, score))
-students.sort(key = lambda x: x[2], reverse=True)
-print(students)
-# print(student)
-print(f"Eng yaxshi 2ta talaba: {students[:3]}")
+# students = []
+# n = int(input("Nechta talaba kiritilsin: "))
+# for i in range(n):
+#     name = input("Ism: ")
+#     age = int(input("Yosh: "))
+#     score = int(input("Ball: "))
+#     students.append((name, age, score))
+# students.sort(key = lambda x: x[2], reverse=True)
+# print(students)
+# # print(student)
+# print(f"Eng yaxshi 3ta talaba: {students[:3]}")
 
 # ---
 
@@ -148,3 +148,12 @@ print(f"Eng yaxshi 2ta talaba: {students[:3]}")
 # eng ko‘p fan olgan talabani topsin
 # har fakultetda nechta talaba borligini chiqarsin
 # 3 tadan kam fan olgan talabalarni alohida ro‘yxatga ajratsin
+
+talabalar = [
+    ("Ali", "Informatika", 2, ["Matematika", "Fizika", "Dasturlash"]),
+    ("Vali", "Matematika", 1, ["Matematika", "Statistika"]),
+    ("Gulnora", "Informatika", 3, ["Matematika", "Dasturlash", "Fizika", "Algoritmlar"]),
+    ("Sardor", "Biologiya", 2, ["Biologiya", "Kimyo"]),
+    ("Nilufar", "Informatika", 1, ["Matematika", "Dasturlash"]),
+    ("Aziz", "Matematika", 2, ["Matematika", "Fizika", "Statistika"]),
+]

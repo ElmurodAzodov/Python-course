@@ -129,20 +129,20 @@
 #   - Uchalasida ham mavjud elementlar
 #   - Kamida ikkita setda mavjud elementlar
 
-A = {1, 2, 3, 4}
-B = {3, 4, 5, 6}
-C = {4, 5, 6, 7}
-only_in_A = A - (B | C)
-print("Faqat A da:", only_in_A)
+# A = {1, 2, 3, 4}
+# B = {3, 4, 5, 6}
+# C = {4, 5, 6, 7}
+# only_in_A = A - (B | C)
+# print("Faqat A da:", only_in_A)
 
-A_and_B = A & B
-print("A va B kesishmasi:", A_and_B)
+# A_and_B = A & B
+# print("A va B kesishmasi:", A_and_B)
 
-all_three = A & B & C
-print("Uchalasida ham bor:", all_three)
+# all_three = A & B & C
+# print("Uchalasida ham bor:", all_three)
 
-at_least_two = (A & B) | (A & C) | (B & C)
-print("Kamida ikkita setda:", at_least_two)
+# at_least_two = (A & B) | (A & C) | (B & C)
+# print("Kamida ikkita setda:", at_least_two)
 
 # 20-topshiriq
 # registered_users = {"ali","vali","hasan"}
