@@ -157,3 +157,9 @@ talabalar = [
     ("Nilufar", "Informatika", 1, ["Matematika", "Dasturlash"]),
     ("Aziz", "Matematika", 2, ["Matematika", "Fizika", "Statistika"]),
 ]
+
+all_fanlar = set()
+for talaba in talabalar:
+    all_fanlar.update(talaba[3])
+
+print("Barcha unikal fanlar:", all_fanlar)
