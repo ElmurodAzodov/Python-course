@@ -163,3 +163,15 @@ for talaba in talabalar:
     all_fanlar.update(talaba[3])
 
 print("Barcha unikal fanlar:", all_fanlar)
+
+max_fan_soni = 0
+eng_kop_fan_talaba = []
+for talaba in talabalar:
+    fan_soni = len(talaba[3])
+    if fan_soni > max_fan_soni:
+        max_fan_soni = fan_soni
+        eng_kop_fan_talaba = [talaba[0]]
+    elif fan_soni == max_fan_soni:
+        eng_kop_fan_talaba.append(talaba[0])
+
+print("Eng ko'p fan olgan talaba(talabalar):", eng_kop_fan_talaba, "(", max_fan_soni, "fan )")
