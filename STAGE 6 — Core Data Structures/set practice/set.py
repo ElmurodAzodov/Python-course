@@ -141,6 +141,9 @@ print("A va B kesishmasi:", A_and_B)
 all_three = A & B & C
 print("Uchalasida ham bor:", all_three)
 
+at_least_two = (A & B) | (A & C) | (B & C)
+print("Kamida ikkita setda:", at_least_two)
+
 # 20-topshiriq
 # registered_users = {"ali","vali","hasan"}
 # new_users = ["vali","zafar","olim","ali","sardor"]
