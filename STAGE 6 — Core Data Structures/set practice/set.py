@@ -138,7 +138,8 @@ print("Faqat A da:", only_in_A)
 A_and_B = A & B
 print("A va B kesishmasi:", A_and_B)
 
-
+all_three = A & B & C
+print("Uchalasida ham bor:", all_three)
 
 # 20-topshiriq
 # registered_users = {"ali","vali","hasan"}
