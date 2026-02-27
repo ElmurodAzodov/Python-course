@@ -100,6 +100,19 @@
 # * eng past ballni
 # * 70 dan yuqori olgan talabalar ro‘yxatini chiqarsin
 
+students = []
+
+n = int(input("Nechta talaba kiritilsin: "))
+
+for i in range(n):
+    print(f"\n{i+1}-talaba ma'lumoti:")
+    name = input("Ism: ")
+    course = int(input("Kurs: "))
+    score = int(input("Ball: "))
+    
+    students.append((name, course, score))
+    
+print(students)
 # ---
 
 # ### 8️⃣ Murakkabroq mantiqiy topshiriq (List + Set)
@@ -111,41 +124,41 @@
 # * unikal mahsulotlar sonini
 # * eng ko‘p olingan mahsulotni aniqlasin
 
-products = []
+# products = []
 
-print("Mahsulot kiriting (to'xtatish uchun 'stop' yozing):")
+# print("Mahsulot kiriting (to'xtatish uchun 'stop' yozing):")
 
-while True:
-    item = input("Mahsulot nomi: ").lower()
+# while True:
+#     item = input("Mahsulot nomi: ").lower()
     
-    if item == "stop":
-        break
+#     if item == "stop":
+#         break
     
-    products.append(item)
-print(products)
+#     products.append(item)
+# print(products)
 
-total_count = len(products)
+# total_count = len(products)
 
-unique_products = set(products)
-unique_count = len(unique_products)
+# unique_products = set(products)
+# unique_count = len(unique_products)
 
-most_common = None
-max_count = 0
+# most_common = None
+# max_count = 0
 
-for product in unique_products:
-    count = products.count(product)
-    if count > max_count:
-        max_count = count
-        most_common = product
+# for product in unique_products:
+#     count = products.count(product)
+#     if count > max_count:
+#         max_count = count
+#         most_common = product
 
 
-print(f"Jami mahsulotlar soni: {total_count}")
-print(f"Unikal mahsulotlar soni: {unique_count}")
+# print(f"Jami mahsulotlar soni: {total_count}")
+# print(f"Unikal mahsulotlar soni: {unique_count}")
 
-if most_common:
-    print(f"Eng ko‘p olingan mahsulot: {most_common} ({max_count} marta)")
-else:
-    print("Mahsulot kiritilmadi.")
+# if most_common:
+#     print(f"Eng ko‘p olingan mahsulot: {most_common} ({max_count} marta)")
+# else:
+#     print("Mahsulot kiritilmadi.")
 # ---
 
 # ### 9️⃣ Katta topshiriq (Tuple + List + saralash)
