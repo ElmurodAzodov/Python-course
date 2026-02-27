@@ -117,6 +117,13 @@ print(students)
 max_student = max(students, key=lambda x: x[2])
 min_student = min(students, key=lambda x: x[2])
 high_scores = [s for s in students if s[2] > 70]
+
+print(f"Eng yuqori ball: {max_student[2]} ({max_student[0]})")
+print(f"Eng past ball: {min_student[2]} ({min_student[0]})")
+
+print("\n70 dan yuqori olgan talabalar:")
+for s in high_scores:
+    print(s)
 # ---
 
 # ### 8️⃣ Murakkabroq mantiqiy topshiriq (List + Set)
