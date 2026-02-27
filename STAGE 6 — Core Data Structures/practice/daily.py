@@ -124,6 +124,10 @@ while True:
     products.append(item)
 print(products)
 
+total_count = len(products)
+
+unique_products = set(products)
+unique_count = len(unique_products)
 
 
 # ---
