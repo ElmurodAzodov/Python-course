@@ -113,6 +113,10 @@ for i in range(n):
     students.append((name, course, score))
     
 print(students)
+
+max_student = max(students, key=lambda x: x[2])
+min_student = min(students, key=lambda x: x[2])
+high_scores = [s for s in students if s[2] > 70]
 # ---
 
 # ### 8️⃣ Murakkabroq mantiqiy topshiriq (List + Set)
