@@ -121,18 +121,40 @@
 # * talabalarni ball bo‘yicha kamayish tartibida saralasin
 # * eng yaxshi 3 talabani chiqarsin
 # * o‘rtacha ballni hisoblasin
-# student = [("Donyor", 21, 78), ("Akmal", 23, 79), ("Bahrom", 25, 80)]
-# students = []
-# n = int(input("Nechta talaba kiritilsin: "))
-# for i in range(n):
-#     name = input("Ism: ")
-#     age = int(input("Yosh: "))
-#     score = int(input("Ball: "))
-#     students.append((name, age, score))
-# students.sort(key = lambda x: x[2], reverse=True)
-# print(students)
-# # print(student)
-# print(f"Eng yaxshi 3ta talaba: {students[:3]}")
+# Talabalar (ism, yosh, ball) tuple ko‘rinishida kiritiladi
+
+students = []
+
+n = int(input("Nechta talaba kiritilsin: "))
+
+for i in range(n):
+    print(f"\n{i+1}-talaba ma'lumotlari:")
+    name = input("Ism: ")
+    age = int(input("Yosh: "))
+    score = int(input("Ball: "))
+    
+    students.append((name, age, score))
+
+# Ball bo‘yicha kamayish tartibida saralash
+students.sort(key=lambda x: x[2], reverse=True)
+
+print("\nSaralangan ro'yxat (ball bo‘yicha kamayish):")
+for s in students:
+    print(s)
+
+# Eng yaxshi 3 talaba
+print("\nEng yaxshi 3 talaba:")
+for s in students[:3]:
+    print(s)
+
+# O‘rtacha ballni hisoblash
+total_score = 0
+for s in students:
+    total_score += s[2]
+
+average = total_score / len(students)
+
+print(f"\nO‘rtacha ball: {average:.2f}")
 
 # ---
 
@@ -149,29 +171,37 @@
 # har fakultetda nechta talaba borligini chiqarsin
 # 3 tadan kam fan olgan talabalarni alohida ro‘yxatga ajratsin
 
-talabalar = [
-    ("Ali", "Informatika", 2, ["Matematika", "Fizika", "Dasturlash"]),
-    ("Vali", "Matematika", 1, ["Matematika", "Statistika"]),
-    ("Gulnora", "Informatika", 3, ["Matematika", "Dasturlash", "Fizika", "Algoritmlar"]),
-    ("Sardor", "Biologiya", 2, ["Biologiya", "Kimyo"]),
-    ("Nilufar", "Informatika", 1, ["Matematika", "Dasturlash"]),
-    ("Aziz", "Matematika", 2, ["Matematika", "Fizika", "Statistika"]),
-]
+# talabalar = [
+#     ("Ali", "Informatika", 2, ["Matematika", "Fizika", "Dasturlash"]),
+#     ("Vali", "Matematika", 1, ["Matematika", "Statistika"]),
+#     ("Gulnora", "Informatika", 3, ["Matematika", "Dasturlash", "Fizika", "Algoritmlar"]),
+#     ("Sardor", "Biologiya", 2, ["Biologiya", "Kimyo"]),
+#     ("Nilufar", "Informatika", 1, ["Matematika", "Dasturlash"]),
+#     ("Aziz", "Matematika", 2, ["Matematika", "Fizika", "Statistika"]),
+# ]
 
-all_fanlar = set()
-for talaba in talabalar:
-    all_fanlar.update(talaba[3])
+# all_fanlar = set()
+# for talaba in talabalar:
+#     all_fanlar.update(talaba[3])
 
-print("Barcha unikal fanlar:", all_fanlar)
+# print("Barcha unikal fanlar:", all_fanlar)
 
-max_fan_soni = 0
-eng_kop_fan_talaba = []
-for talaba in talabalar:
-    fan_soni = len(talaba[3])
-    if fan_soni > max_fan_soni:
-        max_fan_soni = fan_soni
-        eng_kop_fan_talaba = [talaba[0]]
-    elif fan_soni == max_fan_soni:
-        eng_kop_fan_talaba.append(talaba[0])
+# max_fan_soni = 0
+# eng_kop_fan_talaba = []
+# for talaba in talabalar:
+#     fan_soni = len(talaba[3])
+#     if fan_soni > max_fan_soni:
+#         max_fan_soni = fan_soni
+#         eng_kop_fan_talaba = [talaba[0]]
+#     elif fan_soni == max_fan_soni:
+#         eng_kop_fan_talaba.append(talaba[0])
 
-print("Eng ko'p fan olgan talaba(talabalar):", eng_kop_fan_talaba, "(", max_fan_soni, "fan )")
+# print("Eng ko'p fan olgan talaba(talabalar):", eng_kop_fan_talaba, "(", max_fan_soni, "fan )")
+
+
+# fakultetlar = {}
+# for talaba in talabalar:
+#     fakultet = talaba[1]
+#     fakultetlar[fakultet] = fakultetlar.get(fakultet, 0) + 1
+
+# print("Fakultetlar bo'yicha talabalar soni:", fakultetlar)
