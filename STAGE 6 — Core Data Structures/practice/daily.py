@@ -111,6 +111,21 @@
 # * unikal mahsulotlar sonini
 # * eng ko‘p olingan mahsulotni aniqlasin
 
+products = []
+
+print("Mahsulot kiriting (to'xtatish uchun 'stop' yozing):")
+
+while True:
+    item = input("Mahsulot nomi: ").lower()
+    
+    if item == "stop":
+        break
+    
+    products.append(item)
+print(products)
+
+
+
 # ---
 
 # ### 9️⃣ Katta topshiriq (Tuple + List + saralash)
@@ -123,38 +138,53 @@
 # * o‘rtacha ballni hisoblasin
 # Talabalar (ism, yosh, ball) tuple ko‘rinishida kiritiladi
 
-students = []
+# student = [("Donyor", 21, 78), ("Akmal", 23, 79), ("Bahrom", 25, 80)]
+# students = []
+# n = int(input("Nechta talaba kiritilsin: "))
+# for i in range(n):
+#     name = input("Ism: ")
+#     age = int(input("Yosh: "))
+#     score = int(input("Ball: "))
+#     students.append((name, age, score))
+# students.sort(key = lambda x: x[2], reverse=True)
+# print(students)
+# # print(student)
+# print(f"Eng yaxshi 3ta talaba: {students[:3]}")
 
-n = int(input("Nechta talaba kiritilsin: "))
+#================================================================
 
-for i in range(n):
-    print(f"\n{i+1}-talaba ma'lumotlari:")
-    name = input("Ism: ")
-    age = int(input("Yosh: "))
-    score = int(input("Ball: "))
+# students = []
+
+# n = int(input("Nechta talaba kiritilsin: "))
+
+# for i in range(n):
+#     print(f"\n{i+1}-talaba ma'lumotlari:")
+#     name = input("Ism: ")
+#     age = int(input("Yosh: "))
+#     score = int(input("Ball: "))
     
-    students.append((name, age, score))
+#     students.append((name, age, score))
 
-# Ball bo‘yicha kamayish tartibida saralash
-students.sort(key=lambda x: x[2], reverse=True)
+# # Ball bo‘yicha kamayish tartibida saralash
+# students.sort(key=lambda x: x[2], reverse=True)
 
-print("\nSaralangan ro'yxat (ball bo‘yicha kamayish):")
-for s in students:
-    print(s)
+# print("\nSaralangan ro'yxat (ball bo‘yicha kamayish):")
+# for s in students:
+#     print(s)
 
-# Eng yaxshi 3 talaba
-print("\nEng yaxshi 3 talaba:")
-for s in students[:3]:
-    print(s)
+# # Eng yaxshi 3 talaba
+# print("\nEng yaxshi 3 talaba:")
+# for s in students[:3]:
+#     print(s)
 
-# O‘rtacha ballni hisoblash
-total_score = 0
-for s in students:
-    total_score += s[2]
+# # O‘rtacha ballni hisoblash
+# total_score = 0
+# for s in students:
+#     total_score += s[2]
 
-average = total_score / len(students)
+# average = total_score / len(students)
 
-print(f"\nO‘rtacha ball: {average:.2f}")
+# print(f"\nO‘rtacha ball: {average:.2f}")
 
 # ---
 
