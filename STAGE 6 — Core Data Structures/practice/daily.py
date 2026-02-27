@@ -129,7 +129,23 @@ total_count = len(products)
 unique_products = set(products)
 unique_count = len(unique_products)
 
+most_common = None
+max_count = 0
 
+for product in unique_products:
+    count = products.count(product)
+    if count > max_count:
+        max_count = count
+        most_common = product
+
+
+print(f"Jami mahsulotlar soni: {total_count}")
+print(f"Unikal mahsulotlar soni: {unique_count}")
+
+if most_common:
+    print(f"Eng ko‘p olingan mahsulot: {most_common} ({max_count} marta)")
+else:
+    print("Mahsulot kiritilmadi.")
 # ---
 
 # ### 9️⃣ Katta topshiriq (Tuple + List + saralash)
