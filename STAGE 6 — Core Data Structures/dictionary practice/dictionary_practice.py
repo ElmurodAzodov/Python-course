@@ -16,11 +16,15 @@
 
 # 2 Dictionarydagi barcha keylarni alohida listga o‘tkazing.
 
-dict2 = {'a': 10, 'b': 20, 'c': 30, 'd': 40, 'e': 50}
-keylar_royxati = list(dict2.keys())
-print(keylar_royxati)
+# dict2 = {'a': 10, 'b': 20, 'c': 30, 'd': 40, 'e': 50}
+# keylar_royxati = list(dict2.keys())
+# print(keylar_royxati)
 
 # 3 Dictionarydagi barcha value’larni alohida listga o‘tkazing.
+
+dict3 = {'a': 10, 'b': 20, 'c': 30, 'd': 40, 'e': 50}
+value_royxati = list(dict3.values())
+print(value_royxati)
 
 # 4 Value’si eng katta bo‘lgan keyni toping.
 
