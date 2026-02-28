@@ -41,6 +41,12 @@
 
 # 6 Dictionarydan faqat juft value’larni saqlab qoling.
 
+my_dict = {'a': 10, 'b': 15, 'c': 20, 'd': 25, 'e': 30, 'f': 35, 'g': 40}
+juft_dict = {key: value for key, value in my_dict.items() if value % 2 == 0}
+
+print(f"Asl dictionary: {my_dict}")
+print(f"Faqat juft value'li dictionary: {juft_dict}")
+
 # 7 Dictionarydagi barcha value’larni 2 ga ko‘paytirib yangi dictionary yarating.
 
 # 8 Ikkita dictionaryni bitta dictionaryga birlashtiring (update() ishlatmasdan).
