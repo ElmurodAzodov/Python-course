@@ -7,6 +7,14 @@
 
 # 1 Dictionarydagi barcha value’lar yig‘indisini toping.
 
+dict1 = {'a': 10, 'b': 20, 'c': 30, 'd': 40, 'e': 50}
+l = list(dict1.values())
+yigindi = 0
+for i in l:
+    yigindi += i
+print(yigindi)
+
+
 # 2 Dictionarydagi barcha keylarni alohida listga o‘tkazing.
 
 # 3 Dictionarydagi barcha value’larni alohida listga o‘tkazing.

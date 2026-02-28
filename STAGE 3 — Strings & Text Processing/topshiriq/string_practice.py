@@ -376,7 +376,7 @@ print("snake_case:", snake)
 # 52. Har 2-belgini ajrat.
 # 53. Birinchi harfni slicing bilan kichik qil (immutability).
 
-
+ 
 # -----------------------
 # VALIDATION
 # -----------------------
