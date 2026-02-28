@@ -7,15 +7,18 @@
 
 # 1 Dictionarydagi barcha value’lar yig‘indisini toping.
 
-dict1 = {'a': 10, 'b': 20, 'c': 30, 'd': 40, 'e': 50}
-l = list(dict1.values())
-yigindi = 0
-for i in l:
-    yigindi += i
-print(yigindi)
-
+# dict1 = {'a': 10, 'b': 20, 'c': 30, 'd': 40, 'e': 50}
+# l = list(dict1.values())
+# yigindi = 0
+# for i in l:
+#     yigindi += i
+# print(yigindi)
 
 # 2 Dictionarydagi barcha keylarni alohida listga o‘tkazing.
+
+dict2 = {'a': 10, 'b': 20, 'c': 30, 'd': 40, 'e': 50}
+keylar_royxati = list(dict2.keys())
+print(keylar_royxati)
 
 # 3 Dictionarydagi barcha value’larni alohida listga o‘tkazing.
 
