@@ -22,11 +22,20 @@
 
 # 3 Dictionarydagi barcha value’larni alohida listga o‘tkazing.
 
-dict3 = {'a': 10, 'b': 20, 'c': 30, 'd': 40, 'e': 50}
-value_royxati = list(dict3.values())
-print(value_royxati)
+# dict3 = {'a': 10, 'b': 20, 'c': 30, 'd': 40, 'e': 50}
+# value_royxati = list(dict3.values())
+# print(value_royxati)
 
 # 4 Value’si eng katta bo‘lgan keyni toping.
+
+# dict4 = {'a': 10, 'b': 20, 'c': 30, 'd': 40, 'e': 50}
+# values = list(dict4.values())
+# max = 0
+# for i in values:
+#     if i > max:
+#         max = i
+#davomi bor
+# print(max)
 
 # 5 Value’si eng kichik bo‘lgan keyni toping.
 
