@@ -28,24 +28,29 @@
 
 # 4 Value’si eng katta bo‘lgan keyni toping.
 
-# dict4 = {'a': 10, 'b': 20, 'c': 30, 'd': 40, 'e': 50}
-# values = list(dict4.values())
-# max = 0
-# for i in values:
-#     if i > max:
-#         max = i
-#davomi bor
-# print(max)
+dict4 = {'a': 10, 'b': 20, 'c': 30, 'd': 40, 'e': 50}
+
+l = list(dict4.items())
+max = 0
+key = []
+for i in l:
+    if i[1] > max:
+        max = i[1]
+for i in l:
+    if i[1] == max:
+        key.append(i[0])
+print(max)
+print(key)
 
 # 5 Value’si eng kichik bo‘lgan keyni toping.
 
 # 6 Dictionarydan faqat juft value’larni saqlab qoling.
 
-my_dict = {'a': 10, 'b': 15, 'c': 20, 'd': 25, 'e': 30, 'f': 35, 'g': 40}
-juft_dict = {key: value for key, value in my_dict.items() if value % 2 == 0}
+# my_dict = {'a': 10, 'b': 15, 'c': 20, 'd': 25, 'e': 30, 'f': 35, 'g': 40}
+# juft_dict = {key: value for key, value in my_dict.items() if value % 2 == 0}
 
-print(f"Asl dictionary: {my_dict}")
-print(f"Faqat juft value'li dictionary: {juft_dict}")
+# print(f"Asl dictionary: {my_dict}")
+# print(f"Faqat juft value'li dictionary: {juft_dict}")
 
 # 7 Dictionarydagi barcha value’larni 2 ga ko‘paytirib yangi dictionary yarating.
 
