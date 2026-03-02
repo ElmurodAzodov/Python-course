@@ -82,13 +82,19 @@
 
 # 7 Dictionarydagi barcha value’larni 2 ga ko‘paytirib yangi dictionary yarating.
 
-dict1 = {'a': 5, 'b': 10, 'c': 15}
+# dict1 = {'a': 5, 'b': 10, 'c': 15}
 
-new_dict = {k: v * 2 for k, v in dict1.items()}
+# new_dict = {k: v * 2 for k, v in dict1.items()}
 
-print(new_dict)
+# print(new_dict)
 
 # 8 Ikkita dictionaryni bitta dictionaryga birlashtiring (update() ishlatmasdan).
+
+dict1 = {'a': 1, 'b': 2}
+dict2 = {'c': 3, 'd': 4}
+merged = {**dict1, **dict2}
+print(merged)
+
 
 # 9 Dictionaryda foydalanuvchi kiritgan key bor yoki yo‘qligini tekshiring.
 
