@@ -57,20 +57,20 @@
 
 # 5 Value’si eng kichik bo‘lgan keyni toping.
 
-dict4 = {'a': 10, 'b': 20, 'c': 30, 'd': 40, 'e': 50}
+# dict4 = {'a': 10, 'b': 20, 'c': 30, 'd': 40, 'e': 50}
 
-min_val = float('inf')   # Eng katta boshlang'ich qiymat
-keys = []
+# min_val = float('inf')   # Eng katta boshlang'ich qiymat
+# keys = []
 
-for k, v in dict4.items():
-    if v < min_val:
-        min_val = v
-        keys = [k]
-    elif v == min_val:
-        keys.append(k)
+# for k, v in dict4.items():
+#     if v < min_val:
+#         min_val = v
+#         keys = [k]
+#     elif v == min_val:
+#         keys.append(k)
 
-print("Eng kichik qiymat:", min_val)
-print("Shu qiymatga ega key:", keys)
+# print("Eng kichik qiymat:", min_val)
+# print("Shu qiymatga ega key:", keys)
 
 # 6 Dictionarydan faqat juft value’larni saqlab qoling.
 
@@ -81,6 +81,12 @@ print("Shu qiymatga ega key:", keys)
 # print(f"Faqat juft value'li dictionary: {juft_dict}")
 
 # 7 Dictionarydagi barcha value’larni 2 ga ko‘paytirib yangi dictionary yarating.
+
+dict1 = {'a': 5, 'b': 10, 'c': 15}
+
+new_dict = {k: v * 2 for k, v in dict1.items()}
+
+print(new_dict)
 
 # 8 Ikkita dictionaryni bitta dictionaryga birlashtiring (update() ishlatmasdan).
 
