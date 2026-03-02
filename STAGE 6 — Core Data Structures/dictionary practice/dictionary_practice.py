@@ -105,16 +105,22 @@
 
 # 9 Dictionaryda foydalanuvchi kiritgan key bor yoki yo‘qligini tekshiring.
 
-dict1 = {'name': 'Ali', 'age': 20, 'city': 'Tashkent'}
+# dict1 = {'name': 'Ali', 'age': 20, 'city': 'Tashkent'}
 
-key = input("Key kiriting: ")
+# key = input("Key kiriting: ")
 
-if key in dict1:
-    print("Bor")
-else:
-    print("Yo'q")
+# if key in dict1:
+#     print("Bor")
+# else:
+#     print("Yo'q")
 
 # 10 Dictionarydan eng uzun keyni aniqlang.
+
+dict1 = {'apple': 10, 'banana': 20, 'kiwi': 5}
+
+longest_key = max(dict1, key=len)
+
+print("Eng uzun key:", longest_key)
 
 # 11 Dictionarydagi value’lar ichidan string bo‘lganlarini toping.
 
