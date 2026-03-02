@@ -90,20 +90,29 @@
 
 # 8 Ikkita dictionaryni bitta dictionaryga birlashtiring (update() ishlatmasdan).
 
-dict1 = {'a': 1, 'b': 2}
-dict2 = {'c': 3, 'd': 4}
-merged = {**dict1, **dict2}
-print(merged)
-# ---------------------------------
-merged = {}
+# dict1 = {'a': 1, 'b': 2}
+# dict2 = {'c': 3, 'd': 4}
+# merged = {**dict1, **dict2}
+# print(merged)
+# # ---------------------------------
+# merged = {}
 
-for d in (dict1, dict2):
-    for k, v in d.items():
-        merged[k] = v
+# for d in (dict1, dict2):
+#     for k, v in d.items():
+#         merged[k] = v
 
-print(merged)
+# print(merged)
 
 # 9 Dictionaryda foydalanuvchi kiritgan key bor yoki yo‘qligini tekshiring.
+
+dict1 = {'name': 'Ali', 'age': 20, 'city': 'Tashkent'}
+
+key = input("Key kiriting: ")
+
+if key in dict1:
+    print("Bor")
+else:
+    print("Yo'q")
 
 # 10 Dictionarydan eng uzun keyni aniqlang.
 
