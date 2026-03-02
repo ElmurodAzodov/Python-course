@@ -28,7 +28,7 @@
 
 # 4 Value’si eng katta bo‘lgan keyni toping.
 
-dict4 = {'a': 10, 'b': 20, 'c': 30, 'd': 40, 'e': 50}
+# dict4 = {'a': 10, 'b': 20, 'c': 30, 'd': 40, 'e': 50}
 
 # l = list(dict4.items())
 # max = 0
@@ -42,20 +42,35 @@ dict4 = {'a': 10, 'b': 20, 'c': 30, 'd': 40, 'e': 50}
 # print(max)
 # print(key)
 # ------------------------------------
-max_val = 0
+# max_val = 0
+# keys = []
+
+# for k, v in dict4.items():
+#     if v > max_val:
+#         max_val = v
+#         keys = [k]
+#     elif v == max_val:
+#         keys.append(k)
+
+# print(max_val)
+# print(keys)
+
+# 5 Value’si eng kichik bo‘lgan keyni toping.
+
+dict4 = {'a': 10, 'b': 20, 'c': 30, 'd': 40, 'e': 50}
+
+min_val = float('inf')   # Eng katta boshlang'ich qiymat
 keys = []
 
 for k, v in dict4.items():
-    if v > max_val:
-        max_val = v
+    if v < min_val:
+        min_val = v
         keys = [k]
-    elif v == max_val:
+    elif v == min_val:
         keys.append(k)
 
-print(max_val)
-print(keys)
-
-# 5 Value’si eng kichik bo‘lgan keyni toping.
+print("Eng kichik qiymat:", min_val)
+print("Shu qiymatga ega key:", keys)
 
 # 6 Dictionarydan faqat juft value’larni saqlab qoling.
 
