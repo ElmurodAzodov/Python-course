@@ -94,7 +94,14 @@ dict1 = {'a': 1, 'b': 2}
 dict2 = {'c': 3, 'd': 4}
 merged = {**dict1, **dict2}
 print(merged)
+# ---------------------------------
+merged = {}
 
+for d in (dict1, dict2):
+    for k, v in d.items():
+        merged[k] = v
+
+print(merged)
 
 # 9 Dictionaryda foydalanuvchi kiritgan key bor yoki yo‘qligini tekshiring.
 
