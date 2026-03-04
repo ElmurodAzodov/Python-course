@@ -140,12 +140,20 @@
 
 # 13 Dictionarydagi barcha elementlarni for loop orqali chiqarib bering.
 
-dict1 = {'a': 10, 'b': "hello", 'c': 25, 'd': "world"}
+# dict1 = {'a': 10, 'b': "hello", 'c': 25, 'd': "world"}
 
-for k, v in dict1.items():
-    print("Key:", k, "| Value:", v)
+# for k, v in dict1.items():
+#     print("Key:", k, "| Value:", v)
 
 # 14 Dictionarydagi elementlar sonini len() ishlatmasdan toping.
+
+dict1 = {'a': 10, 'b': "hello", 'c': 25, 'd': "world"}
+
+count = 0
+for _ in dict1:
+    count += 1
+
+print("Elementlar soni:", count)
 
 # 15 Dictionarydan value’si 10 dan katta bo‘lgan elementlarni ajrating.
 
