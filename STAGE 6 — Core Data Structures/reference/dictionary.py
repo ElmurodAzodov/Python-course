@@ -66,7 +66,22 @@ person = {"name": "Alice", "age": 25, "city": "Tashkent"}
 # person.setdefault("date", "27.02.2026", "time")
 # print(person)
 
-print(hash("name"))
-print(hash(12))
-print(hash(12.5))
-print(hash((1,2,3)))
+# print(hash("name"))
+# print(hash(12))
+# print(hash(12.5))
+# print(hash((1,2,3)))
+
+# dict1 = {'name': 'Ali', 'age': 20, 'city': 'Tashkent'}
+# dict2 = {'name1': 'Ali', 'age1': 20, 'city1': 'Tashkent'}
+# for k, v in dict1.items():
+#     print(k, v)
+
+# birlashtirildi = {**dict1, **dict2}
+# birlashtirildi = dict1 | dict2
+# print(birlashtirildi)
+# print(type(birlashtirildi))
+
+# dict_1 = {}
+# for k, v in dict1.items():
+#     dict_1[k] = v
+# print(dict_1)
