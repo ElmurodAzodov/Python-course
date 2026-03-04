@@ -90,18 +90,18 @@
 
 # 8 Ikkita dictionaryni bitta dictionaryga birlashtiring (update() ishlatmasdan).
 
-dict1 = {'a': 1, 'b': 2}
-dict2 = {'c': 3, 'd': 4}
-merged = {**dict1, **dict2}
-print(merged)
-# ---------------------------------
-merged = {}
+# dict1 = {'a': 1, 'b': 2}
+# dict2 = {'c': 3, 'd': 4}
+# merged = {**dict1, **dict2}
+# print(merged)
+# # ---------------------------------
+# merged = {}
 
-for d in (dict1, dict2):
-    for k, v in d.items():
-        merged[k] = v
+# for d in (dict1, dict2):
+#     for k, v in d.items():
+#         merged[k] = v
 
-print(merged)
+# print(merged)
 
 # 9 Dictionaryda foydalanuvchi kiritgan key bor yoki yo‘qligini tekshiring.
 
@@ -125,6 +125,10 @@ print(merged)
 # 11 Dictionarydagi value’lar ichidan string bo‘lganlarini toping.
 
 dict1 = {'a': 10, 'b': "hello", 'c': 25, 'd': "world"}
+
+for k, v in dict1.items():
+    if isinstance(v, str):
+        print(k, v)
 
 
 # 12 Dictionarydagi value’lar ichidan int bo‘lganlarini toping.
