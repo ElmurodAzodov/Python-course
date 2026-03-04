@@ -124,14 +124,19 @@
 
 # 11 Dictionarydagi value’lar ichidan string bo‘lganlarini toping.
 
+# dict1 = {'a': 10, 'b': "hello", 'c': 25, 'd': "world"}
+
+# for k, v in dict1.items():
+#     if isinstance(v, str):
+#         print(k, v)
+
+# 12 Dictionarydagi value’lar ichidan int bo‘lganlarini toping.
+
 dict1 = {'a': 10, 'b': "hello", 'c': 25, 'd': "world"}
 
 for k, v in dict1.items():
-    if isinstance(v, str):
+    if isinstance(v, int):
         print(k, v)
-
-
-# 12 Dictionarydagi value’lar ichidan int bo‘lganlarini toping.
 
 # 13 Dictionarydagi barcha elementlarni for loop orqali chiqarib bering.
 
