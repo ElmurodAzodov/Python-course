@@ -132,13 +132,18 @@
 
 # 12 Dictionarydagi value’lar ichidan int bo‘lganlarini toping.
 
+# dict1 = {'a': 10, 'b': "hello", 'c': 25, 'd': "world"}
+
+# for k, v in dict1.items():
+#     if isinstance(v, int):
+#         print(k, v)
+
+# 13 Dictionarydagi barcha elementlarni for loop orqali chiqarib bering.
+
 dict1 = {'a': 10, 'b': "hello", 'c': 25, 'd': "world"}
 
 for k, v in dict1.items():
-    if isinstance(v, int):
-        print(k, v)
-
-# 13 Dictionarydagi barcha elementlarni for loop orqali chiqarib bering.
+    print("Key:", k, "| Value:", v)
 
 # 14 Dictionarydagi elementlar sonini len() ishlatmasdan toping.
 
