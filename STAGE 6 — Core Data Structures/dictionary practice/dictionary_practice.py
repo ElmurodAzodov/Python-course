@@ -171,12 +171,16 @@
 
 # 17 Dictionarydagi barcha value’larni string ko‘rinishga o‘tkazing.
 
-dict1 = {'a': 5, 'b': 12, 'c': 7, 'd': 20}
-result = {k: str(v) for k, v in dict1.items()}
-print(result)
+# dict1 = {'a': 5, 'b': 12, 'c': 7, 'd': 20}
+# result = {k: str(v) for k, v in dict1.items()}
+# print(result)
 
 
 # 18 Dictionarydan faqat value’lari unikal bo‘lgan elementlarni toping.
+
+dict1 = {'a': 5, 'b': 12, 'c': 7, 'd': 20}
+result = {k: v for k, v in dict1.items() if list(dict1.values()).count(v) == 1}
+print(result)
 
 # 19 Dictionarydan tasodifiy bitta elementni o‘chiring.
 
