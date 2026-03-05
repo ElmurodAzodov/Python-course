@@ -185,16 +185,25 @@
 # 19 Dictionarydan tasodifiy bitta elementni o‘chiring.
 # import random
 
-import random
+# import random
 
-dict1 = {'a': 10, 'b': 20, 'c': 30, 'd': 40}
+# dict1 = {'a': 10, 'b': 20, 'c': 30, 'd': 40}
 
-key = random.choice(list(dict1.keys()))
-del dict1[key]
+# key = random.choice(list(dict1.keys()))
+# del dict1[key]
 
-print(dict1)
+# print(dict1)
 
 # 20 Dictionarydan nusxa (copy) olib, original o‘zgarmasligini tekshiring.
+
+dict1 = {'a': 1, 'b': 2, 'c': 3}
+
+copy_dict = dict1.copy()
+
+copy_dict['d'] = 4
+
+print("Original:", dict1)
+print("Copy:", copy_dict)
 
 # ----------------------------------------------------
 # 🔴 21–40: QIYIN TOPSHIRIQLAR
