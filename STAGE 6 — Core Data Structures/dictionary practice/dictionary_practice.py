@@ -147,15 +147,20 @@
 
 # 14 Dictionarydagi elementlar sonini len() ishlatmasdan toping.
 
-dict1 = {'a': 10, 'b': "hello", 'c': 25, 'd': "world"}
+# dict1 = {'a': 10, 'b': "hello", 'c': 25, 'd': "world"}
 
-count = 0
-for _ in dict1:
-    count += 1
+# count = 0
+# for _ in dict1:
+#     count += 1
 
-print("Elementlar soni:", count)
+# print("Elementlar soni:", count)
 
 # 15 Dictionarydan value’si 10 dan katta bo‘lgan elementlarni ajrating.
+
+dict1 = {'a': 5, 'b': 12, 'c': 7, 'd': 20}
+
+result = {k: v for k, v in dict1.items() if v > 10}
+print(result)
 
 # 16 Dictionarydagi barcha keylarni katta harflarga o‘tkazing.
 
