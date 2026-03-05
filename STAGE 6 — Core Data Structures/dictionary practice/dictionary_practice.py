@@ -157,12 +157,17 @@
 
 # 15 Dictionarydan value’si 10 dan katta bo‘lgan elementlarni ajrating.
 
-dict1 = {'a': 5, 'b': 12, 'c': 7, 'd': 20}
+# dict1 = {'a': 5, 'b': 12, 'c': 7, 'd': 20}
 
-result = {k: v for k, v in dict1.items() if v > 10}
-print(result)
+# result = {k: v for k, v in dict1.items() if v > 10}
+# print(result)
 
 # 16 Dictionarydagi barcha keylarni katta harflarga o‘tkazing.
+
+dict1 = {'a': 5, 'b': 12, 'c': 7, 'd': 20}
+result = {k.upper(): v for k, v in dict1.items()}
+print(result)
+
 
 # 17 Dictionarydagi barcha value’larni string ko‘rinishga o‘tkazing.
 
