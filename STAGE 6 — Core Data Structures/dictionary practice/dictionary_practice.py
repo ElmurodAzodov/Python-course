@@ -178,11 +178,21 @@
 
 # 18 Dictionarydan faqat value’lari unikal bo‘lgan elementlarni toping.
 
-dict1 = {'a': 5, 'b': 12, 'c': 7, 'd': 20}
-result = {k: v for k, v in dict1.items() if list(dict1.values()).count(v) == 1}
-print(result)
+# dict1 = {'a': 5, 'b': 12, 'c': 7, 'd': 20}
+# result = {k: v for k, v in dict1.items() if list(dict1.values()).count(v) == 1}
+# print(result)
 
 # 19 Dictionarydan tasodifiy bitta elementni o‘chiring.
+# import random
+
+import random
+
+dict1 = {'a': 10, 'b': 20, 'c': 30, 'd': 40}
+
+key = random.choice(list(dict1.keys()))
+del dict1[key]
+
+print(dict1)
 
 # 20 Dictionarydan nusxa (copy) olib, original o‘zgarmasligini tekshiring.
 
