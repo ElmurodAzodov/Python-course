@@ -246,6 +246,14 @@ for k in set(dict1.keys()).union(set(dict2.keys())):
     result[k] = dict1.get(k, 0) + dict2.get(k, 0)
 print(result)
 
+# ---------------------------------------
+result = {}
+
+for k in dict1:
+    if k in dict2:
+        result[k] = dict1[k] + dict2[k]
+
+print(result)
 
 # 25 Dictionary ichida dictionary bo‘lsa, barcha sonlarning yig‘indisini toping.
 
