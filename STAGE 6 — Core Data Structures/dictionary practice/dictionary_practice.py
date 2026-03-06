@@ -211,19 +211,25 @@
 
 # 21 Dictionarydagi value’larning chastotasini hisoblang.
 
-d = {'a': 1, 'b': 2, 'c': 1, 'd': 3, 'e': 2}
+# d = {'a': 1, 'b': 2, 'c': 1, 'd': 3, 'e': 2}
 
-freq = {}
+# freq = {}
 
-for v in d.values():
-    if v in freq:
-        freq[v] += 1
-    else:
-        freq[v] = 1
+# for v in d.values():
+#     if v in freq:
+#         freq[v] += 1
+#     else:
+#         freq[v] = 1
 
-print(freq)
+# print(freq)
 
 # 22 Dictionaryni value’lar bo‘yicha o‘sish tartibida saralang.
+
+d = {'a': 5, 'b': 2, 'c': 8, 'd': 1}
+
+sorted_dict = dict(sorted(d.items(), key=lambda x: x[1]))
+
+print(sorted_dict)
 
 # 23 Dictionaryni value’lar bo‘yicha kamayish tartibida saralang.
 
