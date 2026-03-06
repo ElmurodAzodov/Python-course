@@ -233,11 +233,19 @@
 
 # 23 Dictionaryni value’lar bo‘yicha kamayish tartibida saralang.
 
-d = {'a': 5, 'b': 2, 'c': 8, 'd': 1}
-sorted_dict = dict(sorted(d.items(), key=lambda x: x[1], reverse=True))
-print(sorted_dict)
+# d = {'a': 5, 'b': 2, 'c': 8, 'd': 1}
+# sorted_dict = dict(sorted(d.items(), key=lambda x: x[1], reverse=True))
+# print(sorted_dict)
 
 # 24 Ikkita dictionarydagi bir xil keylarning value’larini qo‘shing.
+
+dict1 = {'a': 10, 'b': 20, 'c': 30}
+dict2 = {'b': 5, 'c': 15, 'd': 25}
+result = {}
+for k in set(dict1.keys()).union(set(dict2.keys())):
+    result[k] = dict1.get(k, 0) + dict2.get(k, 0)
+print(result)
+
 
 # 25 Dictionary ichida dictionary bo‘lsa, barcha sonlarning yig‘indisini toping.
 
