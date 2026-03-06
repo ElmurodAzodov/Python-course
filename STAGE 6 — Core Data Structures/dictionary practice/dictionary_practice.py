@@ -225,13 +225,17 @@
 
 # 22 Dictionaryni value’lar bo‘yicha o‘sish tartibida saralang.
 
-d = {'a': 5, 'b': 2, 'c': 8, 'd': 1}
+# d = {'a': 5, 'b': 2, 'c': 8, 'd': 1}
 
-sorted_dict = dict(sorted(d.items(), key=lambda x: x[1]))
+# sorted_dict = dict(sorted(d.items(), key=lambda x: x[1]))
 
-print(sorted_dict)
+# print(sorted_dict)
 
 # 23 Dictionaryni value’lar bo‘yicha kamayish tartibida saralang.
+
+d = {'a': 5, 'b': 2, 'c': 8, 'd': 1}
+sorted_dict = dict(sorted(d.items(), key=lambda x: x[1], reverse=True))
+print(sorted_dict)
 
 # 24 Ikkita dictionarydagi bir xil keylarning value’larini qo‘shing.
 
