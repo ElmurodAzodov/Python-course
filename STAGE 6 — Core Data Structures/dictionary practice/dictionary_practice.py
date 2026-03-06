@@ -239,23 +239,40 @@
 
 # 24 Ikkita dictionarydagi bir xil keylarning value’larini qo‘shing.
 
-dict1 = {'a': 10, 'b': 20, 'c': 30}
-dict2 = {'b': 5, 'c': 15, 'd': 25}
-result = {}
-for k in set(dict1.keys()).union(set(dict2.keys())):
-    result[k] = dict1.get(k, 0) + dict2.get(k, 0)
-print(result)
+# dict1 = {'a': 10, 'b': 20, 'c': 30}
+# dict2 = {'b': 5, 'c': 15, 'd': 25}
+# result = {}
+# for k in set(dict1.keys()).union(set(dict2.keys())):
+#     result[k] = dict1.get(k, 0) + dict2.get(k, 0)
+# print(result)
 
-# ---------------------------------------
-result = {}
+# # ---------------------------------------
+# result = {}
 
-for k in dict1:
-    if k in dict2:
-        result[k] = dict1[k] + dict2[k]
+# for k in dict1:
+#     if k in dict2:
+#         result[k] = dict1[k] + dict2[k]
 
-print(result)
+# print(result)
 
 # 25 Dictionary ichida dictionary bo‘lsa, barcha sonlarning yig‘indisini toping.
+
+d = {
+    'a': 10,
+    'b': {'x': 5, 'y': 15},
+    'c': {'z': 20},
+    'd': 3
+}
+
+total = 0
+
+for v in d.values():
+    if isinstance(v, dict):
+        total += sum(v.values())
+    else:
+        total += v
+
+print(total)
 
 # 26 Nested dictionaryni tekis (flat) dictionaryga aylantiring.
 
