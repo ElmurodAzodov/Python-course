@@ -196,20 +196,32 @@
 
 # 20 Dictionarydan nusxa (copy) olib, original o‘zgarmasligini tekshiring.
 
-dict1 = {'a': 1, 'b': 2, 'c': 3}
+# dict1 = {'a': 1, 'b': 2, 'c': 3}
 
-copy_dict = dict1.copy()
+# copy_dict = dict1.copy()
 
-copy_dict['d'] = 4
+# copy_dict['d'] = 4
 
-print("Original:", dict1)
-print("Copy:", copy_dict)
+# print("Original:", dict1)
+# print("Copy:", copy_dict)
 
 # ----------------------------------------------------
 # 🔴 21–40: QIYIN TOPSHIRIQLAR
 # ----------------------------------------------------
 
 # 21 Dictionarydagi value’larning chastotasini hisoblang.
+
+d = {'a': 1, 'b': 2, 'c': 1, 'd': 3, 'e': 2}
+
+freq = {}
+
+for v in d.values():
+    if v in freq:
+        freq[v] += 1
+    else:
+        freq[v] = 1
+
+print(freq)
 
 # 22 Dictionaryni value’lar bo‘yicha o‘sish tartibida saralang.
 
