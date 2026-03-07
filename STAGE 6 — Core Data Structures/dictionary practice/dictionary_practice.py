@@ -328,18 +328,28 @@
 
 # 29 Dictionary ichidagi tuple value’lardan eng katta sonni toping.
 
-data = {"a": (1, 5, 3), "b": (10, 2), "c": (4, 7, 6)}
+# data = {"a": (1, 5, 3), "b": (10, 2), "c": (4, 7, 6)}
 
-max_num = 0
+# max_num = 0
 
-for v in data.values():
-    for num in v:
-        if num > max_num:
-            max_num = num
+# for v in data.values():
+#     for num in v:
+#         if num > max_num:
+#             max_num = num
 
-print(max_num)
+# print(max_num)
 
 # 30 Dictionaryni key uzunligi bo‘yicha saralang.
+
+data = {"apple": 5, "kiwi": 2, "banana": 7, "fig": 1}
+
+items = list(data.items())
+
+items.sort(key=lambda x: len(x[0]))
+
+sorted_dict = dict(items)
+
+print(sorted_dict)
 
 # 31 Dictionarydagi barcha key-value juftliklarini teskari qilib yangi dictionary yarating.
 
