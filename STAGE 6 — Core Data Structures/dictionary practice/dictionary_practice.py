@@ -297,23 +297,34 @@
 
 # 27 Dictionarydan faqat hashable value’li elementlarni ajrating.
 
-data = {
-    "a": 10,
-    "b": [1,2,3],
-    "c": (4,5),
-    "d": {"x":1},
-    "e": "hello"
-}
+# data = {
+#     "a": 10,
+#     "b": [1,2,3],
+#     "c": (4,5),
+#     "d": {"x":1},
+#     "e": "hello"
+# }
 
-result = {}
+# result = {}
 
-for k, v in data.items():
-    if type(v) in (int, float, str, tuple, bool):
-        result[k] = v
+# for k, v in data.items():
+#     if type(v) in (int, float, str, tuple, bool):
+#         result[k] = v
 
-print(result)
+# print(result)
 
 # 28 Dictionarydagi value’lari palindrom bo‘lgan keylarni toping.
+
+data = {
+    "a": "level",
+    "b": "python",
+    "c": "madam",
+    "d": "hello"
+}
+
+for k, v in data.items():
+    if str(v) == str(v)[::-1]:
+        print(k)
 
 # 29 Dictionary ichidagi tuple value’lardan eng katta sonni toping.
 
