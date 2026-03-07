@@ -276,26 +276,42 @@
 
 # 26 Nested dictionaryni tekis (flat) dictionaryga aylantiring.
 
-data = {
-    "a": 1,
-    "b": {
-        "c": 2,
-        "d": 3
-    }
-}
+# data = {
+#     "a": 1,
+#     "b": {
+#         "c": 2,
+#         "d": 3
+#     }
+# }
 
-flat = {}
+# flat = {}
 
-for k, v in data.items():
-    if type(v) == dict:
-        for k2, v2 in v.items():
-            flat[k + "_" + k2] = v2
-    else:
-        flat[k] = v
+# for k, v in data.items():
+#     if type(v) == dict:
+#         for k2, v2 in v.items():
+#             flat[k + "_" + k2] = v2
+#     else:
+#         flat[k] = v
 
-print(flat)
+# print(flat)
 
 # 27 Dictionarydan faqat hashable value’li elementlarni ajrating.
+
+data = {
+    "a": 10,
+    "b": [1,2,3],
+    "c": (4,5),
+    "d": {"x":1},
+    "e": "hello"
+}
+
+result = {}
+
+for k, v in data.items():
+    if type(v) in (int, float, str, tuple, bool):
+        result[k] = v
+
+print(result)
 
 # 28 Dictionarydagi value’lari palindrom bo‘lgan keylarni toping.
 
