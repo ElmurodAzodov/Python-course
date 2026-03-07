@@ -257,24 +257,43 @@
 
 # 25 Dictionary ichida dictionary bo‘lsa, barcha sonlarning yig‘indisini toping.
 
-d = {
-    'a': 10,
-    'b': {'x': 5, 'y': 15},
-    'c': {'z': 20},
-    'd': 3
-}
+# d = {
+#     'a': 10,
+#     'b': {'x': 5, 'y': 15},
+#     'c': {'z': 20},
+#     'd': 3
+# }
 
-total = 0
+# total = 0
 
-for v in d.values():
-    if isinstance(v, dict):
-        total += sum(v.values())
-    else:
-        total += v
+# for v in d.values():
+#     if isinstance(v, dict):
+#         total += sum(v.values())
+#     else:
+#         total += v
 
-print(total)
+# print(total)
 
 # 26 Nested dictionaryni tekis (flat) dictionaryga aylantiring.
+
+data = {
+    "a": 1,
+    "b": {
+        "c": 2,
+        "d": 3
+    }
+}
+
+flat = {}
+
+for k, v in data.items():
+    if type(v) == dict:
+        for k2, v2 in v.items():
+            flat[k + "_" + k2] = v2
+    else:
+        flat[k] = v
+
+print(flat)
 
 # 27 Dictionarydan faqat hashable value’li elementlarni ajrating.
 
