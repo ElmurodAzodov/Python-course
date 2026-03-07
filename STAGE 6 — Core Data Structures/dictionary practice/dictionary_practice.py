@@ -1,5 +1,5 @@
 # ====================================================
-#* PYTHON DICTIONARIES — 60 TA TOPSHIRIQ
+# * PYTHON DICTIONARIES — 60 TA TOPSHIRIQ
 # ====================================================
 
 # 🟢 1–20: O‘RTA DARAJADAGI TOPSHIRIQLAR
@@ -315,18 +315,29 @@
 
 # 28 Dictionarydagi value’lari palindrom bo‘lgan keylarni toping.
 
-data = {
-    "a": "level",
-    "b": "python",
-    "c": "madam",
-    "d": "hello"
-}
+# data = {
+#     "a": "level",
+#     "b": "python",
+#     "c": "madam",
+#     "d": "hello"
+# }
 
-for k, v in data.items():
-    if str(v) == str(v)[::-1]:
-        print(k)
+# for k, v in data.items():
+#     if str(v) == str(v)[::-1]:
+#         print(k)
 
 # 29 Dictionary ichidagi tuple value’lardan eng katta sonni toping.
+
+data = {"a": (1, 5, 3), "b": (10, 2), "c": (4, 7, 6)}
+
+max_num = 0
+
+for v in data.values():
+    for num in v:
+        if num > max_num:
+            max_num = num
+
+print(max_num)
 
 # 30 Dictionaryni key uzunligi bo‘yicha saralang.
 
