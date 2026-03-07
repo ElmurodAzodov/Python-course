@@ -341,17 +341,22 @@
 
 # 30 Dictionaryni key uzunligi bo‘yicha saralang.
 
-data = {"apple": 5, "kiwi": 2, "banana": 7, "fig": 1}
+# data = {"apple": 5, "kiwi": 2, "banana": 7, "fig": 1}
 
-items = list(data.items())
+# items = list(data.items())
 
-items.sort(key=lambda x: len(x[0]))
+# items.sort(key=lambda x: len(x[0]))
 
-sorted_dict = dict(items)
+# sorted_dict = dict(items)
 
-print(sorted_dict)
+# print(sorted_dict)
 
 # 31 Dictionarydagi barcha key-value juftliklarini teskari qilib yangi dictionary yarating.
+
+data = {"apple": 5, "kiwi": 2, "banana": 7, "fig": 1}
+# reversed_dict = dict(reversed(list(data.items())))
+new_dict = {v: k for k, v in data.items()}
+print(new_dict)
 
 # 32 Dictionarydan value’lari list bo‘lgan elementlarni ajrating.
 
