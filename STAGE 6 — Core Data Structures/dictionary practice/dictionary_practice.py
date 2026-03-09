@@ -360,22 +360,33 @@
 
 # 32 Dictionarydan value’lari list bo‘lgan elementlarni ajrating.
 
-d = {
-    "a": [1, 2, 3],
-    "b": 10,
-    "c": [4, 5],
-    "d": "hello"
-}
+# d = {
+#     "a": [1, 2, 3],
+#     "b": 10,
+#     "c": [4, 5],
+#     "d": "hello"
+# }
 
-result = {}
+# result = {}
 
-for k, v in d.items():
-    if type(v) == list:
-        result[k] = v
+# for k, v in d.items():
+#     if type(v) == list:
+#         result[k] = v
 
-print(result)
+# print(result)
 
 # 33 Dictionaryda nechta unique value borligini aniqlang.
+
+d = {
+    "a": 10,
+    "b": 20,
+    "c": 10,
+    "d": 30,
+    "e": 20
+}
+
+values = set(d.values())
+print(len(values))
 
 # 34 Dictionarydagi eng ko‘p takrorlangan value’ni toping.
 
