@@ -390,29 +390,48 @@
 
 # 34 Dictionarydagi eng ko‘p takrorlangan value’ni toping.
 
+# d = {
+#     "a": 10,
+#     "b": 20,
+#     "c": 10,
+#     "d": 30,
+#     "e": 10,
+#     "f": 20
+# }
+
+# values = list(d.values())
+
+# max_count = 0
+# most_common = None
+
+# for v in values:
+#     count = values.count(v)
+#     if count > max_count:
+#         max_count = count
+#         most_common = v
+
+# print(most_common)
+
+# 35 Dictionarydagi barcha sonli value’larning o‘rtacha qiymatini hisoblang.
+
 d = {
     "a": 10,
     "b": 20,
-    "c": 10,
+    "c": "hello",
     "d": 30,
-    "e": 10,
-    "f": 20
+    "e": 40
 }
 
-values = list(d.values())
+total = 0
+count = 0
 
-max_count = 0
-most_common = None
+for v in d.values():
+    if type(v) == int or type(v) == float:
+        total += v
+        count += 1
 
-for v in values:
-    count = values.count(v)
-    if count > max_count:
-        max_count = count
-        most_common = v
-
-print(most_common)
-
-# 35 Dictionarydagi barcha sonli value’larning o‘rtacha qiymatini hisoblang.
+average = total / count
+print(average)
 
 # 36 Dictionarydagi value’lar orasida faqat musbat sonlarni qoldiring.
 
