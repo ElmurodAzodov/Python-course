@@ -377,18 +377,40 @@
 
 # 33 Dictionaryda nechta unique value borligini aniqlang.
 
+# d = {
+#     "a": 10,
+#     "b": 20,
+#     "c": 10,
+#     "d": 30,
+#     "e": 20
+# }
+
+# values = set(d.values())
+# print(len(values))
+
+# 34 Dictionarydagi eng ko‘p takrorlangan value’ni toping.
+
 d = {
     "a": 10,
     "b": 20,
     "c": 10,
     "d": 30,
-    "e": 20
+    "e": 10,
+    "f": 20
 }
 
-values = set(d.values())
-print(len(values))
+values = list(d.values())
 
-# 34 Dictionarydagi eng ko‘p takrorlangan value’ni toping.
+max_count = 0
+most_common = None
+
+for v in values:
+    count = values.count(v)
+    if count > max_count:
+        max_count = count
+        most_common = v
+
+print(most_common)
 
 # 35 Dictionarydagi barcha sonli value’larning o‘rtacha qiymatini hisoblang.
 
