@@ -353,12 +353,27 @@
 
 # 31 Dictionarydagi barcha key-value juftliklarini teskari qilib yangi dictionary yarating.
 
-data = {"apple": 5, "kiwi": 2, "banana": 7, "fig": 1}
-# reversed_dict = dict(reversed(list(data.items())))
-new_dict = {v: k for k, v in data.items()}
-print(new_dict)
+# data = {"apple": 5, "kiwi": 2, "banana": 7, "fig": 1}
+# # reversed_dict = dict(reversed(list(data.items())))
+# new_dict = {v: k for k, v in data.items()}
+# print(new_dict)
 
 # 32 Dictionarydan value’lari list bo‘lgan elementlarni ajrating.
+
+d = {
+    "a": [1, 2, 3],
+    "b": 10,
+    "c": [4, 5],
+    "d": "hello"
+}
+
+result = {}
+
+for k, v in d.items():
+    if type(v) == list:
+        result[k] = v
+
+print(result)
 
 # 33 Dictionaryda nechta unique value borligini aniqlang.
 
