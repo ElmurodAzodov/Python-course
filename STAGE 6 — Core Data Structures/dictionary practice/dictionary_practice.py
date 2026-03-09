@@ -414,26 +414,43 @@
 
 # 35 Dictionarydagi barcha sonli value’larning o‘rtacha qiymatini hisoblang.
 
-d = {
-    "a": 10,
-    "b": 20,
-    "c": "hello",
-    "d": 30,
-    "e": 40
-}
+# d = {
+#     "a": 10,
+#     "b": 20,
+#     "c": "hello",
+#     "d": 30,
+#     "e": 40
+# }
 
-total = 0
-count = 0
+# total = 0
+# count = 0
 
-for v in d.values():
-    if type(v) == int or type(v) == float:
-        total += v
-        count += 1
+# for v in d.values():
+#     if type(v) == int or type(v) == float:
+#         total += v
+#         count += 1
 
-average = total / count
-print(average)
+# average = total / count
+# print(average)
 
 # 36 Dictionarydagi value’lar orasida faqat musbat sonlarni qoldiring.
+
+d = {
+    "a": 10,
+    "b": -5,
+    "c": 20,
+    "d": -3,
+    "e": 15
+}
+
+result = {}
+
+for k, v in d.items():
+    if type(v) == int or type(v) == float:
+        if v > 0:
+            result[k] = v
+
+print(result)
 
 # 37 Dictionaryni deep copy qilib, nested elementlar mustaqilligini tekshiring.
 
