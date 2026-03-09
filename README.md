@@ -1,837 +1,891 @@
-
-# **PYTHON PROGRAMMING LANGUAGE**
-
-<br>
-
-<br>
-
+# **THE COMPLETE PYTHON ROADMAP 2026**
 <div align="center">
-  <img src="./py.png" width="100" alt="Python">
+  <img src="./py.png" width="200" alt="Python Logo">
+  <br>
+  <h3>🐍 Python Programming Language 🐍</h3>
+  <p><strong>Version 3.9 → 3.13 | Full Stack Edition</strong></p>
+  <br>
+  <p><strong>Elmurod Azodov</strong></p>
+  <p>@the_elmurod</p>
 </div>
 
 <br>
 
-<br>
+---
 
-**Elmurod Azodov**
-**@the_elmurod** 
-<br>
+## 📑 **TABLE OF CONTENTS**
+
+- [📘 THE COMPLETE PYTHON ROADMAP 2026](#-the-complete-python-roadmap-2026)
+  - [From Zero to Senior Full Stack Developer](#from-zero-to-senior-full-stack-developer)
+  - [📑 TABLE OF CONTENTS](#-table-of-contents)
+  - [🎯 ROADMAP OVERVIEW](#-roadmap-overview)
+    - [**Learning Path Summary**](#learning-path-summary)
+    - [**📊 Time Distribution**](#-time-distribution)
+  - [🎯 STAGE 0 — Programming & Python Foundations](#-stage-0--programming--python-foundations)
+  - [🎯 STAGE 1 — Core Syntax & Expressions](#-stage-1--core-syntax--expressions)
+  - [🎯 STAGE 2 — Python Object Model & Primitive Types](#-stage-2--python-object-model--primitive-types)
+  - [🎯 STAGE 3 — Strings & Text Processing](#-stage-3--strings--text-processing)
+  - [🎯 STAGE 4 — Control Flow & Logic](#-stage-4--control-flow--logic)
+  - [🎯 STAGE 5 — Loops & Iteration](#-stage-5--loops--iteration)
+  - [🎯 STAGE 6 — Core Data Structures (Extended)](#-stage-6--core-data-structures-extended)
+  - [🎯 STAGE 7 — Functions & Scope](#-stage-7--functions--scope)
+  - [🎯 STAGE 8 — Advanced Functions & Functional Concepts](#-stage-8--advanced-functions--functional-concepts)
+  - [🎯 STAGE 9 — Error Handling & Robustness](#-stage-9--error-handling--robustness)
+  - [🎯 STAGE 10 — Modules, Packages & Environments](#-stage-10--modules-packages--environments)
+  - [🎯 STAGE 11 — File Handling & OS Interaction](#-stage-11--file-handling--os-interaction)
+  - [🎯 STAGE 12 — Object-Oriented Programming](#-stage-12--object-oriented-programming)
+  - [🎯 STAGE 13 — Advanced OOP & Design](#-stage-13--advanced-oop--design)
+  - [🎯 STAGE 14 — Python Standard Library (Extended)](#-stage-14--python-standard-library-extended)
+  - [🎯 STAGE 15 — Iterators, Generators & Context Managers](#-stage-15--iterators-generators--context-managers)
+  - [🎯 STAGE 16 — Memory, Performance & Internals](#-stage-16--memory-performance--internals)
+  - [🎯 STAGE 17 — Concurrency & Async Programming](#-stage-17--concurrency--async-programming)
+  - [🎯 STAGE 18 — Testing, Quality & Tooling](#-stage-18--testing-quality--tooling)
+  - [🎯 STAGE 19 — Packaging, Distribution & Maintenance](#-stage-19--packaging-distribution--maintenance)
+  - [🎯 STAGE 20 — Senior Python Engineering](#-stage-20--senior-python-engineering)
+  - [🎯 STAGE 21 — Data Validation & Serialization](#-stage-21--data-validation--serialization)
+  - [🎯 STAGE 22 — Security & Authentication](#-stage-22--security--authentication)
+  - [🎯 STAGE 23 — Database Integration](#-stage-23--database-integration)
+  - [🎯 STAGE 24 — API Development](#-stage-24--api-development)
+  - [🎯 STAGE 25 — Production Readiness](#-stage-25--production-readiness)
+  - [📊 COMPLETE TIMELINE](#-complete-timeline)
+  - [🎯 LEARNING PATH RECOMMENDATIONS](#-learning-path-recommendations)
+  - [📈 SKILL PROGRESSION](#-skill-progression)
+  - [🔧 RECOMMENDED TOOLS](#-recommended-tools)
+  - [📚 RESOURCES](#-resources)
 
 ---
 
-## **Python Programming Language**
+## 🎯 ROADMAP OVERVIEW
+
+### **Learning Path Summary**
+
+| Level | Stages | Time | Outcome |
+|-------|--------|------|---------|
+| 🟢 **Beginner** | 0-5 | 1 oy | Python sintaksisi, asosiy dasturlar |
+| 🔵 **Intermediate** | 6-10 | 2 oy | Ma'lumot tuzilmalari, funksiyalar, OOP |
+| 🟠 **Advanced** | 11-15 | 2 oy | Murakkab Python, standart kutubxona |
+| 🔴 **Expert** | 16-20 | 2 oy | Performans, konkurentlik, senior ko'nikmalar |
+| 🟣 **Full Stack** | 21-25 | 2 oy | Backend, xavfsizlik, production |
+
+### **📊 Time Distribution**
+
+```
+Jami vaqt: 9 oy (36 hafta)
+Haftalik yuklama: 10-12 soat
+Jami soat: ~400 soat
+
+Beginner    (0-5)   ████████░░░░ 1 oy
+Intermediate (6-10) ████████████░ 2 oy
+Advanced    (11-15) ████████████░ 2 oy
+Expert      (16-20) ████████████░ 2 oy
+Full Stack  (21-25) ████████████░ 2 oy
+```
 
 ---
 
-### **🎯 STAGE 0 — Programming & Python Foundations**
-**Goal** - Understand what Python is and how it executes before writing code.
-<br>
+## 🎯 STAGE 0 — Programming & Python Foundations
+**Goal**: Understand what Python is and how it executes before writing code.
+**Time**: 4 soat | 2 dars
 
-#### **📚 Topics**
-- **⚙️ What Programming Is**
+#### 📚 Topics
+- **⚙️ What Programming Is** (algorithms, flowcharts)
 - **🐍 What Python Is** (Language vs Implementation)
-- **🔧 CPython Overview**
+- **🔧 CPython, PyPy, Jython** (implementations)
 - **🔄 Interpreter vs Compiler**
-- **🏃 Python Execution Model**
-- **📄 Python Source Files**
-- **📊 Python Versions and Release Cycle**
-- **📥 Installing Python Correctly**
-- **💻 Python REPL**
-- **🚀 Running Scripts**
-- **✏️ Code Editors and IDEs**
-- **📝 Syntax Rules**
-- **↪️ Indentation and Code Blocks**
-- **💬 Comments and Documentation Strings**
+- **🏃 Python Execution Model** (bytecode, PVM)
+- **📄 Python Source Files** (.py, .pyc)
+- **📊 Python Versions** (3.9 → 3.13 features)
+- **📥 Installing Python** (pyenv, official)
+- **💻 Python REPL** (interactive mode)
+- **🚀 Running Scripts** (python script.py)
+- **✏️ Code Editors** (VS Code, PyCharm, Vim)
+- **🔧 VS Code Extensions** (Python, Pylance, Ruff)
+- **📝 Syntax Rules** (case sensitivity)
+- **↪️ Indentation** (PEP 8, 4 spaces)
+- **💬 Comments** (# single, """ multi """)
+- **📄 Docstrings** (PEP 257)
 
 ---
 
-### **🎯 STAGE 1 — Core Syntax & Expressions**
-**Goal** - Write correct Python statements and expressions.
-<br>
+## 🎯 STAGE 1 — Core Syntax & Expressions
+**Goal**: Write correct Python statements and expressions.
+**Time**: 6 soat | 3 dars
 
-#### **📚 Topics**
-- **📊 Variables and Assignment**
-- **🏷️ Identifiers and Keywords**
-- **🔤 Built-in Data Types Overview**
-- **🌀 Dynamic Typing**
-- **✅ Type Checking**
-- **🔄 Type Conversion**
-- **⌨️ Input Handling**
-- **🖨️ Output Formatting**
-- **🔧 Operators**
-  - ➕➖ Arithmetic
-  - ⚖️ Comparison
-  - 🔗 Logical
-  - 📝 Assignment
-  - 🔢 Bitwise
-  - 👥 Membership
-  - 🆔 Identity
-- **📝 Expressions**
-- **📊 Operator Precedence**
+#### 📚 Topics
+- **📊 Variables and Assignment** (naming rules)
+- **🏷️ Identifiers and Keywords** (reserved words)
+- **🔤 Built-in Data Types** (overview)
+- **🌀 Dynamic Typing** (type inference)
+- **✅ Type Checking** (type(), isinstance())
+- **🔄 Type Conversion** (int(), str(), float())
+- **⌨️ Input Handling** (input(), type conversion)
+- **🖨️ Output Formatting** (print(), sep, end)
+- **🔧 Operators:**
+  - ➕➖ Arithmetic (+, -, *, /, //, %, **)
+  - ⚖️ Comparison (==, !=, >, <, >=, <=)
+  - 🔗 Logical (and, or, not)
+  - 📝 Assignment (=, +=, -=, *=, /=)
+  - 🔢 Bitwise (&, |, ^, ~, <<, >>)
+  - 👥 Membership (in, not in)
+  - 🆔 Identity (is, is not)
+- **📝 Expressions** (evaluation)
+- **📊 Operator Precedence** (PEMDAS)
 
 ---
 
-### **🎯 STAGE 2 — Python Object Model & Primitive Types**
-**Goal** - Understand Python's object-based nature.
-<br>
+## 🎯 STAGE 2 — Python Object Model & Primitive Types
+**Goal**: Understand Python's object-based nature.
+**Time**: 6 soat | 3 dars
 
-#### **📚 Topics**
-- **🎯 Everything Is an Object**
-- **🆔 Object Identity**
-- **🔄 Object Mutability**
-- **🔢 Integers**
-- **🔟 Floating-Point Numbers**
-- **🔷 Complex Numbers**
-- **✅ Booleans**
-- **🚫 NoneType**
-- **📏 Numeric Precision**
+#### 📚 Topics
+- **🎯 Everything Is an Object** (objects, classes)
+- **🆔 Object Identity** (id(), is operator)
+- **🔄 Object Mutability** (mutable vs immutable)
+- **🔢 Integers** (int, unlimited precision)
+- **🔟 Floating-Point Numbers** (float, IEEE 754)
+- **🔷 Complex Numbers** (3+4j)
+- **✅ Booleans** (True, False)
+- **🚫 NoneType** (None)
+- **📏 Numeric Precision** (round(), Decimal)
 - **🔒 Immutability Concepts**
 
 ---
 
-### **🎯 STAGE 3 — Strings & Text Processing**
-**Goal** - Master text handling, a core Python skill.
-<br>
+## 🎯 STAGE 3 — Strings & Text Processing
+**Goal**: Master text handling, a core Python skill.
+**Time**: 6 soat | 3 dars
 
-#### **📚 Topics**
-- **📝 String Creation**
-- **📍 Indexing**
-- **🔪 Slicing**
+#### 📚 Topics
+- **📝 String Creation** ('', "", ''' ''', r'')
+- **📍 Indexing** (0-based, negative)
+- **🔪 Slicing** ([start:stop:step])
 - **🔒 String Immutability**
-- **🛠️ Common String Methods**
+- **🛠️ Common String Methods:**
+  - `upper()`, `lower()`, `capitalize()`
+  - `strip()`, `lstrip()`, `rstrip()`
+  - `split()`, `join()`
+  - `replace()`, `find()`, `count()`
+  - `startswith()`, `endswith()`
+  - `isalpha()`, `isdigit()`, `isalnum()`
 - **🔍 Searching and Replacing**
-- **🎨 String Formatting**
-  - **f-string** 🎯
-  - **format()** 🎨
-- **🔤 Escape Characters**
-- **🌐 Unicode**
-- **🔢 Encoding and Decoding**
-- **📐 Text Normalization**
+- **🎨 String Formatting:**
+  - **f-string** 🎯 (Python 3.6+, recommended)
+  - **format()** 🎨 (.format() method)
+  - **% formatting** (legacy)
+- **🔤 Escape Characters** (\n, \t, \\, \', \")
+- **🌐 Unicode** (ord(), chr(), \uXXXX)
+- **🔢 Encoding and Decoding** (encode(), decode())
+- **📐 Text Normalization** (NFC, NFD)
+- **🔍 Regular Expressions** (re module)
 
 ---
 
-### **🎯 STAGE 4 — Control Flow & Logic**
-**Goal** - Control program execution accurately.
-<br>
+## 🎯 STAGE 4 — Control Flow & Logic
+**Goal**: Control program execution accurately.
+**Time**: 4 soat | 2 dars
 
-#### **📚 Topics**
+#### 📚 Topics
 - **✅ Boolean Expressions**
-- **⚖️ Truthy and Falsy Values**
+- **⚖️ Truthy and Falsy Values** (False: 0, "", [], {}, None)
 - **🔀 if Statements**
 - **⛓️ elif Chains**
 - **🔚 else Blocks**
 - **📦 Nested Conditions**
 - **🎭 match / case** (Structural Pattern Matching)
+  - Wildcard patterns (_)
+  - Sequence patterns ([x, y])
+  - Mapping patterns ({"key": value})
+  - Class patterns (Point(x, y))
+  - OR patterns (401 | 403)
+  - Guard clauses (if condition)
 
 ---
 
-### **🎯 STAGE 5 — Loops & Iteration**
-**Goal** - Repeat logic safely and efficiently.
-<br>
+## 🎯 STAGE 5 — Loops & Iteration
+**Goal**: Repeat logic safely and efficiently.
+**Time**: 6 soat | 3 dars
 
-#### **📚 Topics**
-- **🔄 for Loops**
-- **⏳ while Loops**
-- **🎮 Loop Control Statements**
-  - **⏹️ break**
-  - **⏭️ continue**
-  - **🔲 pass**
+#### 📚 Topics
+- **🔄 for Loops** (range(), iterables)
+- **⏳ while Loops** (condition-based)
+- **🎮 Loop Control Statements:**
+  - **⏹️ break** (exit loop)
+  - **⏭️ continue** (skip to next)
+  - **🔲 pass** (do nothing)
 - **📦 Nested Loops**
-- **➕ Loop else Clause**
-- **🎨 Common Loop Patterns**
+- **➕ Loop else Clause** (runs if no break)
+- **🎨 Common Loop Patterns:**
+  - `enumerate()` (index + value)
+  - `zip()` (parallel iteration)
+  - `reversed()` (reverse order)
+  - `sorted()` (sorted order)
+- **📝 Comprehensions:**
+  - List comprehension: `[x**2 for x in range(10)]`
+  - Dict comprehension: `{x: x**2 for x in range(5)}`
+  - Set comprehension: `{x**2 for x in range(5)}`
 - **🚫 Avoiding Infinite Loops**
 
 ---
 
-### **🎯 STAGE 6 — Core Data Structures**
-**Goal** - Store, access, and manipulate data correctly.
-<br>
+## 🎯 STAGE 6 — Core Data Structures (Extended)
+**Goal**: Store, access, and manipulate data correctly.
+**Time**: 12 soat | 6 dars
 
-#### **📚 Topics**
-- **📋 Lists**
-  - 🆕 Creation
-  - 📍 Indexing
-  - 🔪 Slicing
-  - 🛠️ Methods
-  - 🔄 Mutability
-- **📦 Tuples**
-  - 📦 Packing
-  - 📤 Unpacking
-  - 🔒 Immutability
-- **🔢 Sets**
-  - ⭐ Uniqueness
-  - ➕➖ Mathematical Operations
-- **📖 Dictionaries**
-  - 🔑 Keys and Values
-  - #️⃣ Hashing Basics
-  - 🛠️ Dictionary Methods
-- **🤔 Choosing Data Structures**
+#### 📚 Topics
+
+##### **📋 Lists** (Dynamic Arrays)
+- 🆕 Creation: `[]`, `list()`
+- 📍 Indexing (0, -1)
+- 🔪 Slicing `[start:stop:step]`
+- 🛠️ Methods: `append()`, `insert()`, `extend()`, `remove()`, `pop()`, `clear()`, `index()`, `count()`, `sort()`, `reverse()`, `copy()`
+- 🔄 Mutability
+- ⏱️ Time Complexity: O(1) append, O(n) search
+
+##### **📦 Tuples** (Immutable Lists)
+- 🆕 Creation: `()`, `tuple()`
+- 📤 Packing/Unpacking: `x, y = point`
+- 🔒 Immutability
+- 📦 NamedTuple: `from collections import namedtuple`
+- 🎯 Use Cases: coordinates, database records
+
+##### **🔢 Sets** (Unique Elements)
+- ⭐ Uniqueness (no duplicates)
+- ➕➖ Mathematical Operations: union `|`, intersection `&`, difference `-`, symmetric diff `^`
+- 🛠️ Methods: `add()`, `remove()`, `discard()`, `pop()`, `clear()`, `update()`
+- ⏱️ Time Complexity: O(1) average for `in`
+
+##### **🔒 Frozenset** (Immutable Set)
+- 🆕 Creation: `frozenset([1,2,3])`
+- 🔒 Immutability (hashable)
+- 🎯 Use Cases: dict keys, set of sets
+- 🛠️ Methods: union, intersection, difference (read-only)
+
+##### **📖 Dictionaries** (Key-Value)
+- 🔑 Keys and Values (immutable keys)
+- #️⃣ Hashing Basics
+- 🛠️ Methods: `get()`, `setdefault()`, `update()`, `pop()`, `popitem()`, `keys()`, `values()`, `items()`
+- 📝 Dict Comprehensions
+- ⏱️ Time Complexity: O(1) average
+
+##### **🌀 Collections Module** (Advanced)
+- **deque**: double-ended queue (O(1) append/pop both ends)
+- **Counter**: counting, `most_common()`
+- **defaultdict**: default values for missing keys
+- **OrderedDict**: preserves order (Python 3.7+ dict does too)
+- **ChainMap**: combine multiple dicts
+
+##### **🔷 Heapq** (Priority Queue)
+- `heappush()`, `heappop()`
+- `nlargest()`, `nsmallest()`
+- Min-heap vs Max-heap
+
+##### **🔄 Queue** (Thread-Safe)
+- `queue.Queue` (FIFO)
+- `queue.LifoQueue` (stack)
+- `queue.PriorityQueue` (priority)
+
+##### **📊 Array Module**
+- Type-specific arrays: `array('i', [1,2,3])`
+- Memory efficient
+
+##### **🤔 Choosing Data Structures** (decision guide)
 
 ---
 
-### **🎯 STAGE 7 — Functions & Scope**
-**Goal** - Write reusable and maintainable code.
-<br>
+## 🎯 STAGE 7 — Functions & Scope
+**Goal**: Write reusable and maintainable code.
+**Time**: 8 soat | 4 dars
 
-#### **📚 Topics**
-- **📝 Function Definitions**
-- **📞 Calling Functions**
+#### 📚 Topics
+- **📝 Function Definitions** (`def name():`)
+- **📞 Calling Functions** (invocation)
 - **📊 Parameters vs Arguments**
-- **📤 Return Values**
-- **⚙️ Default Arguments**
-- **🔑 Keyword Arguments**
-- **📏 Variable-Length Arguments**
-- **🌐 Scope Rules**
-- **🏠 Local vs Global Scope**
-- **🔢 LEGB Rule**
-- **📄 Docstrings**
-- **✨ Clean Function Design**
+- **📤 Return Values** (single, multiple, None)
+- **⚙️ Default Arguments** (`def func(x=5)`)
+- **🔑 Keyword Arguments** (`func(x=1, y=2)`)
+- **📏 Variable-Length Arguments** (`*args`, `**kwargs`)
+- **🔢 Keyword-Only Arguments** (`*, arg`)
+- **🌐 Scope Rules** (local, global, built-in)
+- **🏠 Local vs Global Scope** (`global` keyword)
+- **🔢 LEGB Rule** (Local → Enclosing → Global → Built-in)
+- **📄 Docstrings** (documentation, `help()`)
+- **✨ Clean Function Design** (single responsibility, pure functions)
 
 ---
 
-### **🎯 STAGE 8 — Advanced Functions & Functional Concepts**
-**Goal** - Use Python's functional capabilities correctly.
-<br>
+## 🎯 STAGE 8 — Advanced Functions & Functional Concepts
+**Goal**: Use Python's functional capabilities correctly.
+**Time**: 8 soat | 4 dars
 
-#### **📚 Topics**
-- **⭐ Functions as First-Class Objects**
-- **λ Lambda Functions**
-- **🗺️ map()**
-- **🔍 filter()**
-- **📊 reduce()**
-- **🔁 Recursion**
-- **🔒 Closures**
-- **🎨 Decorators**
-- **📝 Function Annotations**
+#### 📚 Topics
+- **⭐ Functions as First-Class Objects** (assign, pass, return)
+- **λ Lambda Functions** (anonymous, single expression)
+- **🗺️ map()** (transform iterable)
+- **🔍 filter()** (select items)
+- **📊 reduce()** (accumulate) - from functools
+- **⚡ functools.partial** (fix arguments)
+- **⚡ functools.wraps** (preserve metadata)
+- **⚡ functools.singledispatch** (generic functions)
+- **⚡ functools.lru_cache / @cache** (memoization)
+- **🔁 Recursion** (base case, recursion limit)
+- **🔒 Closures** (functions with captured state)
+- **🎨 Decorators** (@ syntax, wrapping)
+- **📝 Function Annotations** (type hints)
 
 ---
 
-### **🎯 STAGE 9 — Error Handling & Robustness**
-**Goal** - Build fault-tolerant programs.
-<br>
+## 🎯 STAGE 9 — Error Handling & Robustness
+**Goal**: Build fault-tolerant programs.
+**Time**: 6 soat | 3 dars
 
-#### **📚 Topics**
+#### 📚 Topics
 - **❌ Syntax Errors vs Runtime Errors**
-- **⚠️ Exceptions**
+- **⚠️ Exceptions** (what are they?)
 - **📊 Built-in Exception Hierarchy**
-- **🛡️ try / except**
+- **🛡️ try / except** (basic handling)
 - **🔢 Multiple except Blocks**
-- **➕ else Clause**
-- **🔚 finally Clause**
-- **⬆️ Raising Exceptions**
-- **🎨 Custom Exceptions**
+- **➕ else Clause** (runs if no exception)
+- **🔚 finally Clause** (always runs, cleanup)
+- **⬆️ Raising Exceptions** (`raise ValueError("msg")`)
+- **🔗 Exception Chaining** (`raise ... from ...`)
+- **🎨 Custom Exceptions** (`class MyError(Exception)`)
+- **📦 contextlib**
+  - `@contextmanager`
+  - `suppress()`
+  - `redirect_stdout()`
+- **🔄 Retry Logic** (tenacity library)
 - **✨ Error Design Best Practices**
 
 ---
 
-### **🎯 STAGE 10 — Modules, Packages & Environments**
-**Goal** - Structure real Python projects professionally.
-<br>
+## 🎯 STAGE 10 — Modules, Packages & Environments
+**Goal**: Structure real Python projects professionally.
+**Time**: 6 soat | 3 dars
 
-#### **📚 Topics**
-- **📦 Python Modules**
-- **📥 import Mechanics**
-- **📤 from ... import**
-- **🏷️ Import Aliases**
-- **📚 Python Packages**
-- **📝 __init__.py**
-- **🔍 Module Search Path**
-- **🌍 Virtual Environments**
-  - **🐍 venv**
-- **📦 Package Installation**
-  - **📥 pip**
-- **📄 pyproject.toml**
-- **🔗 Dependency Management**
-- **📚 poetry**
-- **⚡ uv**
-- **📦 pipenv** (Legacy Awareness)
-
----
-
-### **🎯 STAGE 11 — File Handling & OS Interaction**
-**Goal** - Work with real files and system resources.
-<br>
-
-#### **📚 Topics**
-- **📁 File Paths**
-- **🗺️ Pathlib**
-- **📂 File Modes**
-- **📖 Reading Files**
-- **✏️ Writing Files**
-- **📝 Appending Files**
-- **📊 CSV Files**
-- **📋 JSON Files**
-- **💻 os Module**
-- **⚙️ sys Module**
-- **🌐 Environment Variables**
+#### 📚 Topics
+- **📦 Python Modules** (.py files)
+- **📥 import Mechanics** (how import works)
+- **📤 from ... import** (specific names)
+- **🏷️ Import Aliases** (`import numpy as np`)
+- **📚 Python Packages** (directories with `__init__.py`)
+- **📝 __init__.py** (package initializer)
+- **🔍 Module Search Path** (`sys.path`)
+- **🌍 Virtual Environments:**
+  - **🐍 venv** (built-in)
+  - **📥 pip** (package installer)
+  - **📄 requirements.txt**
+- **📄 pyproject.toml** (modern standard)
+- **🔗 Dependency Management:**
+  - **📚 poetry** (modern)
+  - **⚡ uv** (fast, new)
+  - **📦 pipenv** (legacy awareness)
 
 ---
 
-### **🎯 STAGE 12 — Object-Oriented Programming**
-**Goal** - Design structured and scalable programs.
-<br>
+## 🎯 STAGE 11 — File Handling & OS Interaction
+**Goal**: Work with real files and system resources.
+**Time**: 8 soat | 4 dars
 
-#### **📚 Topics**
-- **🏗️ OOP Principles**
-- **📐 Classes and Objects**
-- **📊 Attributes**
-- **🔧 Methods**
-- **🔨 Constructors**
-- **🎯 Instance Variables**
-- **🏛️ Class Variables**
-- **🔒 Encapsulation**
-- **🔐 Access Control**
-- **👪 Inheritance**
-- **🔄 Method Overriding**
-- **🎭 Polymorphism**
-- **📦 Abstraction**
-- **🔷 Abstract Base Classes**
-- **✨ Magic Methods**
-- **📊 Dataclasses**
-
----
-
-### **🎯 STAGE 13 — Advanced OOP & Design**
-**Goal** - Apply professional design practices.
-<br>
-
-#### **📚 Topics**
-- **👥 Multiple Inheritance**
-- **🔢 Method Resolution Order (MRO)**
-- **🔗 Composition vs Inheritance**
-- **🧩 Mixins**
-- **⭐ SOLID Principles**
-- **🎨 Design Patterns in Python**
-- **❌ Anti-Patterns**
+#### 📚 Topics
+- **📁 File Paths** (absolute, relative)
+- **🗺️ Pathlib** (object-oriented paths)
+- **📂 File Modes** (r, w, a, rb, wb, r+)
+- **📖 Reading Files** (`read()`, `readline()`, `readlines()`)
+- **✏️ Writing Files** (`write()`, `writelines()`)
+- **📝 Appending Files** (a mode)
+- **📊 CSV Files** (`csv` module)
+- **📋 JSON Files** (`json` module, dump/load)
+- **💾 Binary Files** (images, files)
+- **📁 Tempfile** (temporary files/dirs)
+- **🔒 File Locking** (fcntl, msvcrt)
+- **👀 File Watchers** (watchdog library)
+- **💻 os Module** (OS operations)
+- **⚙️ sys Module** (system-specific)
+- **🌐 Environment Variables** (`os.environ`, python-dotenv)
 
 ---
 
-### **🎯 STAGE 14 — Python Standard Library**
-**Goal** - Use built-in tools instead of reinventing the wheel.
-<br>
+## 🎯 STAGE 12 — Object-Oriented Programming
+**Goal**: Design structured and scalable programs.
+**Time**: 12 soat | 6 dars
 
-#### **📚 Topics**
-- **🧮 math**
-- **🎲 random**
-- **📅 datetime**
-- **📚 collections**
-- **🔄 itertools**
-- **🔧 functools**
-- **📊 statistics**
-- **🔢 enum**
-- **📝 typing**
-- **📋 copy**
-- **💾 pickle**
-- **⌨️ argparse**
-- **📝 logging**
-
----
-
-### **🎯 STAGE 15 — Iterators, Generators & Context Managers**
-**Goal** - Write memory-efficient and elegant code.
-<br>
-
-#### **📚 Topics**
-- **🔄 Iterable vs Iterator**
-- **📜 Iterator Protocol**
-- **🎭 Generators**
-- **⏸️ yield**
-- **⚡ Generator Expressions**
-- **🔧 Context Managers**
-- **📦 with Statement**
-- **🎨 Custom Context Managers**
+#### 📚 Topics
+- **🏗️ OOP Principles** (encapsulation, inheritance, polymorphism, abstraction)
+- **📐 Classes and Objects** (blueprint vs instance)
+- **📊 Attributes** (instance, class)
+- **🔧 Methods** (instance, class, static)
+- **🔨 Constructors** (`__init__`)
+- **🎯 Instance Variables** (`self.var`)
+- **🏛️ Class Variables** (shared across instances)
+- **🔒 Encapsulation** (hiding internal state)
+- **🔐 Access Control** (name mangling, `__private`)
+- **👪 Inheritance** (single inheritance)
+- **🔄 Method Overriding** (override parent)
+- **🎭 Polymorphism** (same interface, different behavior)
+- **📦 Abstraction** (hiding complexity)
+- **🔷 Abstract Base Classes** (`abc` module, `@abstractmethod`)
+- **✨ Magic Methods** (`__str__`, `__repr__`, `__len__`, `__getitem__`)
+- **📊 Dataclasses** (`@dataclass`, Python 3.7+)
 
 ---
 
-### **🎯 STAGE 16 — Memory, Performance & Internals**
-**Goal** - Understand Python at runtime level.
-<br>
+## 🎯 STAGE 13 — Advanced OOP & Design
+**Goal**: Apply professional design practices.
+**Time**: 8 soat | 4 dars
 
-#### **📚 Topics**
-- **🧠 Python Memory Model**
-- **📚 Stack vs Heap**
-- **🔢 Reference Counting**
-- **🗑️ Garbage Collection**
-- **📋 Shallow vs Deep Copy**
-- **⚠️ Mutability Pitfalls**
-- **⏱️ Time Complexity**
-- **💾 Space Complexity**
-- **📊 Profiling**
-- **⚡ Optimization Techniques**
-
----
-
-### **🎯 STAGE 17 — Concurrency & Async Programming**
-**Goal** - Handle multiple tasks efficiently.
-<br>
-
-#### **📚 Topics**
-- **🔀 Processes vs Threads**
-- **🔒 Global Interpreter Lock (GIL)**
-- **🧵 threading**
-- **🔀 multiprocessing**
-- **🎯 concurrent.futures**
-- **⚡ Async Programming Model**
-- **🌀 asyncio**
-- **🎡 Event Loop**
-- **⚡ Async Functions**
-- **📦 Async Context Managers**
+#### 📚 Topics
+- **👥 Multiple Inheritance** (diamond problem)
+- **🔢 Method Resolution Order (MRO)** (C3 linearization)
+- **🔗 Composition vs Inheritance** ("has-a" vs "is-a")
+- **🧩 Mixins** (reusable functionality)
+- **⭐ SOLID Principles:**
+  - **S**ingle Responsibility
+  - **O**pen/Closed
+  - **L**iskov Substitution
+  - **I**nterface Segregation
+  - **D**ependency Inversion
+- **🎨 Design Patterns in Python:**
+  - Singleton, Factory, Observer
+  - Strategy, Template, Decorator
+- **❌ Anti-Patterns** (what NOT to do)
 
 ---
 
-### **🎯 STAGE 18 — Testing, Quality & Tooling**
-**Goal** - Ensure correctness and maintainability.
-<br>
+## 🎯 STAGE 14 — Python Standard Library (Extended)
+**Goal**: Use built-in tools instead of reinventing the wheel.
+**Time**: 10 soat | 5 dars
 
-#### **📚 Topics**
-- **🧪 Testing Principles**
-- **✅ Unit Testing**
-- **⚡ pytest**
-- **✅ Assertions**
-- **🔧 Fixtures**
-- **🎭 Mocking**
-- **📊 Code Coverage**
-- **🔍 Linting**
-- **🎨 Formatting**
-- **📜 PEP 8**
-- **📝 Type Hinting**
-- **✅ Static Type Checking** (mypy / pyright)
-- **⚡ Ruff / Black**
-
----
-
-### **🎯 STAGE 19 — Packaging, Distribution & Maintenance**
-**Goal** - Ship Python software properly.
-<br>
-
-#### **📚 Topics**
-- **📁 Project Layout Standards**
-- **📦 Packaging Workflows**
-- **🔢 Versioning**
-- **🔒 Dependency Locking**
-- **⚙️ Wheels**
-- **🚀 Publishing Packages**
-- **↩️ Backward Compatibility**
-- **⚠️ Deprecation Strategy**
+#### 📚 Topics
+- **🧮 math** (mathematical functions)
+- **🎲 random** (random numbers, choices, shuffle)
+- **🔐 secrets** (cryptographically secure random)
+- **📅 datetime** (dates, times, timedelta)
+- **⏰ zoneinfo** (Python 3.9+ timezone)
+- **📚 collections** (deque, Counter, defaultdict)
+- **🔄 itertools** (count, cycle, repeat, permutations, combinations)
+- **🔧 functools** (partial, wraps, lru_cache)
+- **📊 statistics** (mean, median, mode)
+- **🔢 enum** (Enum, IntEnum, auto)
+- **📝 typing** (type hints, List, Dict, Optional, Union)
+- **📋 copy** (shallow vs deep copy)
+- **🔒 hashlib** (md5, sha256)
+- **🔐 hmac** (message authentication)
+- **📦 shelve** (persistent dictionary)
+- **🔌 socket** (network programming)
+- **🌐 http** (HTTP client/server)
+- **📨 urllib** (URL handling)
+- **🔑 uuid** (unique identifiers)
+- **🔤 base64** (encoding)
+- **⌨️ argparse** (command-line arguments)
+- **📝 logging** (logging levels, handlers, formatters)
+- **🌐 contextvars** (context variables)
+- **🔒 ssl** (secure sockets)
 
 ---
 
-### **🎯 STAGE 20 — Senior Python Engineering**
-**Goal** - Operate as a senior Python engineer.
-<br>
+## 🎯 STAGE 15 — Iterators, Generators & Context Managers
+**Goal**: Write memory-efficient and elegant code.
+**Time**: 6 soat | 3 dars
 
-#### **📚 Topics**
-- **🏭 Writing Production-Grade Python**
-- **🔍 Reading CPython Source** (High Level)
-- **⚖️ Performance Trade-offs**
-- **🔄 Refactoring Strategies**
-- **🐛 Debugging Complex Systems**
-- **👁️‍🗨️ Code Reviews**
-- **📚 Documentation Standards**
-- **🤔 Technical Decision Making**
-- **👨‍🏫 Mentorship**
-- **🛠️ Long-Term Maintenance**
-
----
-
-## **uzb: Python dasturlash tili**
+#### 📚 Topics
+- **🔄 Iterable vs Iterator** (`__iter__`, `__next__`)
+- **📜 Iterator Protocol** (how iteration works)
+- **🎭 Generators** (`yield`, generator functions)
+- **⏸️ yield** (pausing execution)
+- **⚡ Generator Expressions** (`(x**2 for x in range(10))`)
+- **📦 yield from** (delegating to subgenerator)
+- **🔧 Context Managers** (`__enter__`, `__exit__`)
+- **📦 with Statement** (resource management)
+- **🎨 Custom Context Managers** (class-based, `@contextmanager`)
 
 ---
 
-### **🎯 BOSQICH 0 — Dasturlash va Python asoslari**
-**Maqsad** - Python nima va qanday ishlashini tushunish.
-<br>
+## 🎯 STAGE 16 — Memory, Performance & Internals
+**Goal**: Understand Python at runtime level.
+**Time**: 8 soat | 4 dars
 
-#### **📚 Mavzular**
-- **⚙️ Dasturlash nima**
-- **🐍 Python nima** (til va interpreter farqi)
-- **🔧 CPython haqida qisqacha**
-- **🔄 Interpreter va kompilator farqi**
-- **🏃 Python dasturining ishlash jarayoni**
-- **📄 Python fayllari va strukturalari**
-- **📊 Python versiyalari va yangilanishlar**
-- **📥 Python o'rnatish**
-- **💻 Python REPL bilan ishlash**
-- **🚀 Skriptni ishga tushirish**
-- **✏️ Kod muharrirlari va IDE**
-- **📝 Sintaksis qoidalari**
-- **↪️ Indentatsiya va kod bloklari**
-- **💬 Izohlar va hujjat yozish**
-
----
-
-### **🎯 BOSQICH 1 — Asosiy sintaksis va ifodalar**
-**Maqsad** - To'g'ri Python kodini yozishni o'rganish.
-<br>
-
-#### **📚 Mavzular**
-- **📊 O'zgaruvchilar va qiymat tayinlash**
-- **🏷️ Identifikatorlar va kalit so'zlar**
-- **🔤 Ma'lumot turlari (overview)**
-- **🌀 Dinamik tur**
-- **✅ Tur tekshirish**
-- **🔄 Tur konvertatsiyasi**
-- **⌨️ Foydalanuvchi kiritishi va chiqishi**
-- **🔧 Operatorlar:**
-  - ➕➖ Arifmetik
-  - ⚖️ Solishtirish
-  - 🔗 Mantiqiy
-  - 📝 Tayinslash
-  - 🔢 Bitwise
-  - 👥 A'zolik (membership)
-  - 🆔 Identifikatorlar (identity)
-- **📝 Ifodalar va operator ustuvorligi**
+#### 📚 Topics
+- **🧠 Python Memory Model** (how Python manages memory)
+- **📚 Stack vs Heap** (function calls vs objects)
+- **🔢 Reference Counting** (how Python tracks objects)
+- **🗑️ Garbage Collection** (cyclic references)
+- **⚡ __slots__** (memory optimization)
+- **🔗 weakref** (weak references)
+- **📋 Shallow vs Deep Copy** (copy module)
+- **⚠️ Mutability Pitfalls** (shared references)
+- **⏱️ Time Complexity** (Big O notation)
+- **💾 Space Complexity** (memory usage)
+- **📊 Profiling:**
+  - **cProfile** (function call profiling)
+  - **memory_profiler** (line-by-line memory)
+  - **tracemalloc** (memory allocation tracking)
+- **⚡ Optimization Techniques** (when to optimize)
+- **🔍 dis module** (bytecode analysis)
+- **⏱️ timeit** (micro-benchmarks)
 
 ---
 
-### **🎯 BOSQICH 2 — Python obyekti va primitive turlar**
-**Maqsad** - Python obyekt modeli va asosiy turlarni tushunish.
-<br>
+## 🎯 STAGE 17 — Concurrency & Async Programming
+**Goal**: Handle multiple tasks efficiently.
+**Time**: 12 soat | 6 dars
 
-#### **📚 Mavzular**
-- **🎯 Hamma narsa obyekt**
-- **🆔 Obyekt identifikatori**
-- **🔄 Obyekt o'zgarmasligi va o'zgarmas turlar**
-- **🔢 Integer, Float, Complex**
-- **✅ Boolean**
-- **🚫 NoneType**
-- **📏 Numerik aniqlik**
-
----
-
-### **🎯 BOSQICH 3 — Matnlar bilan ishlash**
-**Maqsad** - Matn bilan ishlashni puxta o'rganish.
-<br>
-
-#### **📚 Mavzular**
-- **📝 String yaratish**
-- **📍 Index va slicing**
-- **🔒 String o'zgarmasligi**
-- **🛠️ String metodlari**
-- **🔍 Qidirish va almashtirish**
-- **🎨 Formatlash:**
-  - **f-string** 🎯
-  - **format()** 🎨
-- **🔤 Escape belgilar**
-- **🌐 Unicode va kodlash**
-- **📐 Matn normalizatsiyasi**
+#### 📚 Topics
+- **🔀 Processes vs Threads** (parallelism vs concurrency)
+- **🔒 Global Interpreter Lock (GIL)** (limitations)
+- **🧵 threading** (thread-based parallelism)
+- **🔀 multiprocessing** (process-based parallelism)
+- **🎯 concurrent.futures** (ThreadPoolExecutor, ProcessPoolExecutor)
+- **⚡ Async Programming Model** (cooperative multitasking)
+- **🌀 asyncio** (async I/O framework)
+- **🎡 Event Loop** (how asyncio works)
+- **⚡ Async Functions** (`async def`, `await`)
+- **🔄 Async Iterators** (`__aiter__`, `__anext__`)
+- **📦 Async Context Managers** (`__aenter__`, `__aexit__`)
+- **⚡ Async Generators** (`async yield`)
+- **📦 TaskGroup** (Python 3.11+)
+- **🔌 asyncio queues** (async task queues)
+- **🔒 asyncio locks** (semaphores, events)
+- **📁 aiofiles** (async file I/O)
+- **🌐 httpx** (async HTTP client)
 
 ---
 
-### **🎯 BOSQICH 4 — Shartli operatorlar va mantiq**
-**Maqsad** - Dastur oqimini nazorat qilish.
-<br>
+## 🎯 STAGE 18 — Testing, Quality & Tooling
+**Goal**: Ensure correctness and maintainability.
+**Time**: 8 soat | 4 dars
 
-#### **📚 Mavzular**
-- **✅ Boolean ifodalar**
-- **⚖️ True/Falsy qiymatlar**
-- **🔀 if, elif, else**
-- **📦 Nested shartlar**
-- **🎭 match / case** (pattern matching)
-
----
-
-### **🎯 BOSQICH 5 — Sikllar va iteratsiya**
-**Maqsad** - Kod takrorlash va boshqarish.
-<br>
-
-#### **📚 Mavzular**
-- **🔄 for sikl**
-- **⏳ while sikl**
-- **🎮 break, continue, pass**
-- **📦 Nested sikllar**
-- **➕ sikl else bloki**
-- **🎨 Mashhur sikl naqshlari**
-- **🚫 Cheksiz sikllardan saqlanish**
+#### 📚 Topics
+- **🧪 Testing Principles** (why test?)
+- **✅ Unit Testing** (test individual units)
+- **⚡ pytest** (modern testing framework)
+- **✅ Assertions** (`assert` statement, pytest assertions)
+- **🔧 Fixtures** (setup/teardown, dependency injection)
+- **🎭 Mocking** (`unittest.mock`, patching)
+- **📊 Code Coverage** (pytest-cov)
+- **🔍 Linting:**
+  - **ruff** (fast linter) ⚡
+  - **pylint** (comprehensive)
+  - **flake8** (style guide)
+- **🎨 Formatting:**
+  - **black** (opinionated formatter)
+  - **ruff format** (fast alternative)
+- **📜 PEP 8** (style guide)
+- **📝 Type Hinting** (gradual typing)
+- **✅ Static Type Checking** (mypy, pyright)
+- **⚡ Pre-commit Hooks** (automated checks)
 
 ---
 
-### **🎯 BOSQICH 6 — Asosiy ma'lumot tuzilmalari**
-**Maqsad** - Ma'lumotni saqlash va ishlash.
-<br>
+## 🎯 STAGE 19 — Packaging, Distribution & Maintenance
+**Goal**: Ship Python software properly.
+**Time**: 6 soat | 3 dars
 
-#### **📚 Mavzular**
-- **📋 List**
-  - 🆕 yaratish, indekslash, slicing
-  - 🛠️ metodlar, o'zgaruvchanligi
-- **📦 Tuple**
-  - 📦 packing/unpacking
-  - 🔒 o'zgarmaslik
-- **🔢 Set**
-  - ⭐ noyob elementlar
-  - ➕➖ matematik operatsiyalar
-- **📖 Dictionary**
-  - 🔑 Keys/values
-  - #️⃣ Hashing
-  - 🛠️ metodlar
-- **🤔 Ma'lumot tuzilmasini tanlash**
+#### 📚 Topics
+- **📁 Project Layout Standards** (src layout)
+- **📦 Packaging Workflows:**
+  - **setuptools** (traditional)
+  - **poetry** (modern)
+  - **flit** (simple)
+- **🔢 Versioning** (semantic versioning)
+- **🔒 Dependency Locking** (lock files)
+- **⚙️ Wheels** (binary distribution)
+- **🚀 Publishing Packages** (PyPI, TestPyPI)
+- **↩️ Backward Compatibility** (SemVer)
+- **⚠️ Deprecation Strategy** (warnings, docs)
 
 ---
 
-### **🎯 BOSQICH 7 — Funksiyalar va scope**
-**Maqsad** - Qayta ishlatiladigan va toza kod yozish.
-<br>
+## 🎯 STAGE 20 — Senior Python Engineering
+**Goal**: Operate as a senior Python engineer.
+**Time**: 8 soat | 4 dars
 
-#### **📚 Mavzular**
-- **📝 Funksiya yaratish va chaqirish**
-- **📊 Parametrlar va argumentlar**
-- **📤 Return qiymatlar**
-- **⚙️ Default va keyword argumentlar**
-- **📏 Variable-length argumentlar**
-- **🌐 Scope: Local/Global**
-- **🔢 LEGB qoidasi**
-- **📄 Docstring**
-- **✨ Toza funksiya dizayni**
-
----
-
-### **🎯 BOSQICH 8 — Advanced functions & Functional concepts**
-**Maqsad** - Python funksional imkoniyatlarini puxta o'rganish.
-<br>
-
-#### **📚 Mavzular**
-- **⭐ Funksiyalar birinchi darajali obyekt**
-- **λ Lambda funksiyalar**
-- **🗺️ map, filter, reduce**
-- **🔁 Recursion**
-- **🔒 Closures**
-- **🎨 Decorators**
-- **📝 Function annotations**
+#### 📚 Topics
+- **🏭 Writing Production-Grade Python** (robustness, maintainability)
+- **⚖️ Performance Trade-offs** (speed vs memory vs readability)
+- **🔄 Refactoring Strategies** (improving code without changing behavior)
+- **🐛 Debugging Complex Systems** (pdb, logging, tracing)
+- **👁️‍🗨️ Code Reviews** (giving and receiving feedback)
+- **📚 Documentation Standards** (README, API docs, examples)
+- **🤔 Technical Decision Making** (choosing libraries, architectures)
+- **👨‍🏫 Mentorship** (helping others grow)
+- **🛠️ Long-Term Maintenance** (technical debt, legacy code)
 
 ---
 
-### **🎯 BOSQICH 9 — Exception va xatolarga chidamlilik**
-**Maqsad** - Xatolardan xavfsiz ishlash.
-<br>
+## 🎯 STAGE 21 — Data Validation & Serialization
+**Goal**: Validate and serialize data for APIs and databases.
+**Time**: 8 soat | 4 dars
 
-#### **📚 Mavzular**
-- **❌ Syntax vs Runtime errors**
-- **⚠️ Exception turlari**
-- **🛡️ try / except**
-- **🔢 Multiple except**
-- **➕ else/finally**
-- **🎨 Custom exceptions**
-- **⬆️ Raise**
-
----
-
-### **🎯 BOSQICH 10 — Modul, package va muhit**
-**Maqsad** - Katta loyihalar uchun strukturani tushunish.
-<br>
-
-#### **📚 Mavzular**
-- **📦 Modul va import**
-- **📤 from ... import**
-- **🏷️ Import alias**
-- **📚 Package va __init__.py**
-- **🔍 Module path**
-- **🌍 Virtual environment: venv**
-- **📥 Pip**
-- **📄 pyproject.toml**
-- **📚 Poetry, UV, pipenv (legacy)**
+#### 📚 Topics
+- **✅ Pydantic v2** (data validation, settings management)
+  - Models, validators, field types
+  - JSON serialization/deserialization
+  - Nested models
+- **📝 Marshmallow** (serialization/deserialization)
+  - Schemas, fields, nesting
+  - Validation, post-load processing
+- **📦 attrs** (classes without boilerplate)
+- **⚡ msgspec** (fast serialization)
+- **📄 Pydantic Settings** (environment config)
+- **🔄 Data Mapping** (between different formats)
 
 ---
 
-### **🎯 BOSQICH 11 — File va OS bilan ishlash**
-**Maqsad** - Fayl va tizim bilan ishlash.
-<br>
+## 🎯 STAGE 22 — Security & Authentication
+**Goal**: Build secure applications with authentication.
+**Time**: 10 soat | 5 dars
 
-#### **📚 Mavzular**
-- **📁 File paths va pathlib**
-- **📂 File modes**
-- **📖 Read, write, append**
-- **📊 CSV va JSON**
-- **💻 os va sys**
-- **🌐 Environment variables**
-
----
-
-### **🎯 BOSQICH 12 — OOP asoslari**
-**Maqsad** - Katta va murakkab dasturlar yozish.
-<br>
-
-#### **📚 Mavzular**
-- **📐 Classes & Objects**
-- **📊 Attributes, Methods**
-- **🔨 Constructor**
-- **🎯 Instance va class variables**
-- **🔒 Encapsulation, Access control**
-- **👪 Inheritance, Overriding**
-- **🎭 Polymorphism**
-- **📦 Abstraction & ABC**
-- **✨ Magic methods, Dataclasses**
-
----
-
-### **🎯 BOSQICH 13 — Advanced OOP & Design**
-**Maqsad** - Professional dizayn va arxitekturani qo'llash.
-<br>
-
-#### **📚 Mavzular**
-- **👥 Multiple inheritance & MRO**
-- **🔗 Composition vs Inheritance**
-- **🧩 Mixins**
-- **⭐ SOLID principles**
-- **🎨 Design patterns**
-- **❌ Anti-patterns**
+#### 📚 Topics
+- **🔐 Password Hashing:**
+  - **bcrypt** (slow, adaptive)
+  - **argon2** (modern, memory-hard)
+  - **passlib** (unified interface)
+- **🎫 JWT (JSON Web Tokens):**
+  - Structure (header, payload, signature)
+  - Creation and verification
+  - Access tokens vs Refresh tokens
+- **🔑 OAuth2** (authorization framework)
+  - Authorization code flow
+  - PKCE (Proof Key for Code Exchange)
+- **🛡️ Session Management:**
+  - Signed cookies (`itsdangerous`)
+  - Redis sessions
+- **🔒 Encryption:**
+  - **cryptography** library
+  - Symmetric vs asymmetric
+- **✅ Security Best Practices:**
+  - SQL injection prevention
+  - XSS protection
+  - CSRF protection
+  - Rate limiting
 
 ---
 
-### **🎯 BOSQICH 14 — Python Standard Library**
-**Maqsad** - Built-in vositalardan foydalanish.
-<br>
+## 🎯 STAGE 23 — Database Integration
+**Goal**: Work with databases efficiently.
+**Time**: 12 soat | 6 dars
 
-#### **📚 Mavzular**
-- **🧮 math, random, datetime**
-- **📚 collections, itertools, functools**
-- **📊 statistics, enum, typing**
-- **📋 copy, pickle**
-- **⌨️ argparse, logging**
-
----
-
-### **🎯 BOSQICH 15 — Iterators, generators & context managers**
-**Maqsad** - Xotira samaradorligi va elegant kod.
-<br>
-
-#### **📚 Mavzular**
-- **🔄 Iterable vs iterator**
-- **📜 Iterator protocol**
-- **🎭 Generators, yield**
-- **⚡ Generator expressions**
-- **🔧 Context manager & with**
-- **🎨 Custom context managers**
+#### 📚 Topics
+- **🔷 SQLAlchemy 2.0** (async ORM)
+  - Core (SQL expression language)
+  - ORM (models, relationships)
+  - Async support (asyncpg, aiosqlite)
+- **📦 Alembic** (database migrations)
+  - Auto-generate migrations
+  - Upgrades/downgrades
+- **⚡ asyncpg** (raw async PostgreSQL)
+- **📊 databases** (async SQL toolkit)
+- **🔥 Redis** (caching, sessions, pub/sub)
+  - redis-py (sync)
+  - aioredis (async)
+- **🔌 Connection Pooling**
+- **🎯 N+1 Problem** (eager loading, selectinload)
+- **📝 Transactions** (ACID, commit, rollback)
+- **📈 Query Optimization** (indexes, explain)
 
 ---
 
-### **🎯 BOSQICH 16 — Memory va performance**
-**Maqsad** - Python ichki ishlashini tushunish.
-<br>
+## 🎯 STAGE 24 — API Development
+**Goal**: Build robust APIs for web and mobile clients.
+**Time**: 10 soat | 5 dars
 
-#### **📚 Mavzular**
-- **🧠 Memory model**
-- **📚 Stack vs Heap**
-- **🔢 Reference counting**
-- **🗑️ Garbage collection**
-- **📋 Shallow vs deep copy**
-- **⏱️ Time & space complexity**
-- **📊 Profiling va optimization**
-
----
-
-### **🎯 BOSQICH 17 — Concurrency & Async**
-**Maqsad** - Ko'p vazifali dasturlar yozish.
-<br>
-
-#### **📚 Mavzular**
-- **🔀 Threads vs Processes**
-- **🔒 GIL**
-- **🧵 threading, multiprocessing**
-- **🎯 concurrent.futures**
-- **🌀 Asyncio, Event loop**
-- **⚡ Async functions & context managers**
+#### 📚 Topics
+- **🌐 RESTful Design Principles:**
+  - Resources, HTTP methods
+  - Status codes (2xx, 3xx, 4xx, 5xx)
+  - URL naming conventions
+- **📦 Request/Response Models** (Pydantic)
+- **📄 OpenAPI / Swagger** (API documentation)
+- **🔌 CORS** (Cross-Origin Resource Sharing)
+- **⚡ Rate Limiting** (slowapi, limits)
+- **⏱️ Background Tasks:**
+  - **Celery** (distributed task queue)
+  - **RQ** (Redis Queue)
+  - **Dramatiq** (alternative)
+- **🔌 WebSockets** (real-time communication)
+  - Connection lifecycle
+  - Broadcasting messages
+- **📊 GraphQL** (alternative to REST)
+  - Strawberry, Graphene
+  - Queries, mutations, subscriptions
 
 ---
 
-### **🎯 BOSQICH 18 — Testing va code quality**
-**Maqsad** - Dastur to'g'ri va saqlash oson bo'lishi.
-<br>
+## 🎯 STAGE 25 — Production Readiness
+**Goal**: Deploy and maintain Python applications in production.
+**Time**: 10 soat | 5 dars
 
-#### **📚 Mavzular**
-- **🧪 Unit testing**
-- **⚡ pytest**
-- **✅ Assertions, Fixtures**
-- **🎭 Mocking**
-- **📊 Code coverage**
-- **🔍 Linting & formatting**
-- **📜 PEP8**
-- **📝 Type hints**
-- **✅ Static type check (mypy/pyright)**
-- **⚡ Black/Ruff**
-
----
-
-### **🎯 BOSQICH 19 — Packaging & distribution**
-**Maqsad** - Python dasturini tarqatish va boshqarish.
-<br>
-
-#### **📚 Mavzular**
-- **📁 Project layout**
-- **📦 Packaging**
-- **🔢 Versioning**
-- **🔒 Dependency locking**
-- **⚙️ Wheel**
-- **🚀 Publishing**
-- **↩️ Backward compatibility**
-- **⚠️ Deprecation strategy**
+#### 📚 Topics
+- **🐳 Docker** (containerization)
+  - Dockerfile, .dockerignore
+  - Multi-stage builds
+- **📦 Docker Compose** (multi-container apps)
+  - Services, networks, volumes
+  - Environment variables
+- **🚀 Production Servers:**
+  - **Gunicorn** (WSGI)
+  - **Uvicorn** (ASGI)
+- **🌐 Nginx** (reverse proxy, load balancing)
+- **📊 Monitoring:**
+  - **Prometheus** (metrics collection)
+  - **Grafana** (visualization)
+  - Custom metrics (`prometheus_client`)
+- **🐛 Error Tracking** (Sentry)
+- **📝 Structured Logging:**
+  - **structlog** (structured logs)
+  - **python-json-logger** (JSON logs)
+- **✅ Health Checks** (/health, /ready)
+- **🛑 Graceful Shutdown** (SIGTERM handling)
+- **☁️ Cloud Deployment:**
+  - AWS (EC2, S3, RDS, Lambda)
+  - Environment configuration
+  - Secrets management
 
 ---
 
-### **🎯 BOSQICH 20 — Senior Python engineer**
-**Maqsad** - Professional Python muhandisi bo'lish.
-<br>
+## 📊 COMPLETE TIMELINE
 
-#### **📚 Mavzular**
-- **🏭 Production-grade Python**
-- **🔍 CPython source high-level**
-- **⚖️ Performance trade-offs**
-- **🔄 Refactoring strategies**
-- **🐛 Debugging complex systems**
-- **👁️‍🗨️ Code review**
-- **📚 Documentation**
-- **🤔 Technical decisions**
-- **👨‍🏫 Mentorship**
-- **🛠️ Large codebase maintenance**
+| Stage | Topic | Soat | Darslar (2h) | Haftalar (3 dars/hafta) |
+|-------|-------|------|--------------|------------------------|
+| 0 | Python Foundations | 4 | 2 | 0.7 |
+| 1 | Core Syntax | 6 | 3 | 1 |
+| 2 | Object Model & Primitives | 6 | 3 | 1 |
+| 3 | Strings & Text | 6 | 3 | 1 |
+| 4 | Control Flow | 4 | 2 | 0.7 |
+| 5 | Loops | 6 | 3 | 1 |
+| 6 | Data Structures (Extended) | 12 | 6 | 2 |
+| 7 | Functions & Scope | 8 | 4 | 1.3 |
+| 8 | Advanced Functions | 8 | 4 | 1.3 |
+| 9 | Error Handling | 6 | 3 | 1 |
+| 10 | Modules & Environments | 6 | 3 | 1 |
+| 11 | File Handling | 8 | 4 | 1.3 |
+| 12 | OOP Basics | 12 | 6 | 2 |
+| 13 | Advanced OOP | 8 | 4 | 1.3 |
+| 14 | Standard Library | 10 | 5 | 1.7 |
+| 15 | Iterators & Generators | 6 | 3 | 1 |
+| 16 | Memory & Performance | 8 | 4 | 1.3 |
+| 17 | Concurrency & Async | 12 | 6 | 2 |
+| 18 | Testing & Quality | 8 | 4 | 1.3 |
+| 19 | Packaging | 6 | 3 | 1 |
+| 20 | Senior Engineering | 8 | 4 | 1.3 |
+| 21 | Data Validation | 8 | 4 | 1.3 |
+| 22 | Security & Auth | 10 | 5 | 1.7 |
+| 23 | Database Integration | 12 | 6 | 2 |
+| 24 | API Development | 10 | 5 | 1.7 |
+| 25 | Production Readiness | 10 | 5 | 1.7 |
+| **JAMI** | | **208** | **104** | **~35 hafta** |
+
+### **📅 Jami vaqt: 8-9 oy** (haftasiga 3 dars bilan)
 
 ---
 
-## **🔹 Backend va AI mosligi**
-- **🚀 Backend**: Async, OOP, packaging, testing, concurrency, logging → barcha Python core bor
-- **🤖 AI**: Data structures, memory efficiency, generators, performance, functional programming → barcha Python core bor
-- **🛠️ Frameworklar** (FastAPI, Django, PyTorch, NumPy) → bu roadmap ustiga qo'shiladi, ammo Python asoslari bo'lmasa ishlamaydi.
+## 🎯 LEARNING PATH RECOMMENDATIONS
+
+### **For Beginners (0-6 months experience)**
+```
+Focus on Stages 0-10 (3 oy)
+├── Build CLI applications
+├── Automate tasks
+├── Work with files and data
+└── Understand OOP basics
+```
+
+### **For Intermediate (6-12 months experience)**
+```
+Focus on Stages 11-17 (2 oy)
+├── Master advanced Python features
+├── Understand async programming
+├── Write efficient code
+└── Learn testing practices
+```
+
+### **For Advanced (1-2 years experience)**
+```
+Focus on Stages 18-25 (3 oy)
+├── Build production-ready applications
+├── Implement authentication
+├── Work with databases
+├── Create REST APIs
+├── Containerize applications
+└── Deploy to cloud
+```
 
 ---
 
-## **⏱️ O'quv davri davomiyligi:**
+## 📈 SKILL PROGRESSION
 
-### **📊 Bosqichlar va vaqt taxmini**
+```
+Level 1: Junior Developer (Stages 0-10)
+├── Can write Python scripts
+├── Understands data structures
+├── Can build CLI tools
+└── Knows OOP basics
 
-| Bosqich | % | Taxminiy o'rganish soati |
-|---------|---|---------------------------|
-| 0. Python asoslari | 0–5% | 4 soat (2 dars) |
-| 1. Sintaksis, operatorlar | 5–10% | 6 soat (3 dars) |
-| 2. Primitive turlar | 10–15% | 6 soat (3 dars) |
-| 3. Strings | 15–20% | 6 soat (3 dars) |
-| 4. If/else | 20–25% | 4 soat (2 dars) |
-| 5. Loops | 25–30% | 6 soat (3 dars) |
-| 6. Data structures | 30–35% | 8 soat (4 dars) |
-| 7. Functions | 35–40% | 8 soat (4 dars) |
-| 8. Advanced functions | 40–45% | 6 soat (3 dars) |
-| 9. Exception handling | 45–50% | 4 soat (2 dars) |
-| 10. Modules & env | 50–55% | 6 soat (3 dars) |
-| 11. File & OS | 55–60% | 6 soat (3 dars) |
-| 12. OOP asoslari | 60–70% | 12 soat (6 dars) |
-| 13. Advanced OOP | 70–75% | 6 soat (3 dars) |
-| 14. Std library | 75–80% | 6 soat (3 dars) |
-| 15. Iterators, generators | 80–85% | 6 soat (3 dars) |
-| 16. Memory & performance | 85–87% | 4 soat (2 dars) |
-| 17. Concurrency & Async | 87–90% | 8 soat (4 dars) |
-| 18. Testing & code quality | 90–95% | 6 soat (3 dars) |
-| 19. Packaging & distribution | 95–98% | 4 soat (2 dars) |
-| 20. Senior engineer skills | 98–100% | 6 soat (3 dars) |
+Level 2: Mid-Level Developer (Stages 11-17)
+├── Writes efficient, clean code
+├── Understands concurrency
+├── Can optimize performance
+└── Writes tests
 
-### **📅 Umumiy soat va darslar**
-- **⏱️ Umumiy vaqt**: 120 soat
-- **📚 Har dars 2 soat, haftada 3 dars** → haftada 6 soat
-- **📊 120 / 6 = 20 hafta**
-- **🗓️ 20 hafta ≈ 5 oy**
+Level 3: Senior Developer (Stages 18-20)
+├── Architects complex systems
+├── Mentors other developers
+├── Makes technical decisions
+└── Maintains large codebases
 
-#### **🔍 Xulosa:**
-- **✅ Agar haftada 3 kun, har dars 2 soat bo'lsa: Python ni taxminan 5 oyda tugatish mumkin.**
-- **📝 Bu hisobda amaliy mashqlar va kichik testlar kiritilgan.**
+Level 4: Full Stack Developer (Stages 21-25)
+├── Builds secure APIs
+├── Integrates databases
+├── Deploys to production
+└── Monitors applications
+```
+
+---
+
+## 🔧 RECOMMENDED TOOLS
+
+| Category | Tools |
+|----------|-------|
+| **Code Editor** | VS Code, PyCharm, Vim |
+| **Extensions** | Python, Pylance, Ruff, GitLens |
+| **Package Management** | pip, poetry, uv |
+| **Virtual Environments** | venv, conda |
+| **Testing** | pytest, unittest, tox |
+| **Linting/Formatting** | ruff, black, mypy |
+| **Debugging** | pdb, ipdb, VS Code debugger |
+| **Profiling** | cProfile, memory_profiler |
+| **Documentation** | Sphinx, MkDocs |
+| **Version Control** | Git, GitHub, GitLab |
+| **CI/CD** | GitHub Actions, GitLab CI |
+| **Containerization** | Docker, Docker Compose |
+| **Cloud** | AWS, Google Cloud, Azure |
+
+---
+
+## 📚 RESOURCES
+
+### **Official Documentation**
+- [Python.org](https://python.org)
+- [PEP 8 Style Guide](https://pep8.org)
+- [Python Documentation](https://docs.python.org/3/)
+
+### **Books**
+- "Python Crash Course" by Eric Matthes
+- "Fluent Python" by Luciano Ramalho
+- "Effective Python" by Brett Slatkin
+
+### **Practice Platforms**
+- LeetCode
+- HackerRank
+- Codewars
+- Exercism
 
 ---
 
 <p align="center">
-  <strong>© Elmurod Azodov</strong>
+  <strong>© Python Full Stack Roadmap 2026</strong>
+  <br>
+  <strong>Elmurod Azodov | @the_elmurod</strong>
 </p>
+
+---
