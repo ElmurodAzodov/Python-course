@@ -468,34 +468,72 @@
 
 # 38 Dictionary ichidagi barcha tuple’larni listga aylantiring.
 
-lugat = {
-    'a': (1, 2, 3),
-    'b': [4, 5, (6, 7)],
-    'c': 'salom',
-    'd': 100
-}
-# Tuple'larni listga aylantiramiz
-yangi_lugat = {}
+# lugat = {
+#     'a': (1, 2, 3),
+#     'b': [4, 5, (6, 7)],
+#     'c': 'salom',
+#     'd': 100
+# }
+# # Tuple'larni listga aylantiramiz
+# yangi_lugat = {}
 
-for kalit, qiymat in lugat.items():
-    if type(qiymat) == tuple:
-        yangi_lugat[kalit] = list(qiymat)
-    elif type(qiymat) == list:
-        # List ichidagi tuple'larni ham tekshiramiz
-        yangi_royxat = []
-        for element in qiymat:
-            if type(element) == tuple:
-                yangi_royxat.append(list(element))
-            else:
-                yangi_royxat.append(element)
-        yangi_lugat[kalit] = yangi_royxat
-    else:
-        yangi_lugat[kalit] = qiymat
+# for kalit, qiymat in lugat.items():
+#     if type(qiymat) == tuple:
+#         yangi_lugat[kalit] = list(qiymat)
+#     elif type(qiymat) == list:
+#         # List ichidagi tuple'larni ham tekshiramiz
+#         yangi_royxat = []
+#         for element in qiymat:
+#             if type(element) == tuple:
+#                 yangi_royxat.append(list(element))
+#             else:
+#                 yangi_royxat.append(element)
+#         yangi_lugat[kalit] = yangi_royxat
+#     else:
+#         yangi_lugat[kalit] = qiymat
 
-print("\nTuple'lar listga aylantirilgan:")
-print(yangi_lugat)
+# print("\nTuple'lar listga aylantirilgan:")
+# print(yangi_lugat)
 
 # 39 Dictionarydagi value’lari bir xil bo‘lgan keylarni guruhlang.
+
+data = {
+    'olma': 'meva',
+    'sabzi': 'sabzavot',
+    'banan': 'meva',
+    'karam': 'sabzavot',
+    'olcha': 'meva',
+    'kartoshka': 'sabzavot'
+}
+
+print("Boshlang'ich lug'at:")
+print(data)
+
+# Guruhlash
+mevalar = []
+sabzavotlar = []
+
+for kalit, qiymat in data.items():
+    if qiymat == 'meva':
+        mevalar.append(kalit)
+    elif qiymat == 'sabzavot':
+        sabzavotlar.append(kalit)
+
+print("\nNatija:")
+print("Mevalar:", mevalar)
+print("Sabzavotlar:", sabzavotlar)
+
+# Yana bir usul (umumiy)
+print("\nUmumiy usul:")
+guruhlar = {}
+
+for kalit, qiymat in data.items():
+    if qiymat not in guruhlar:
+        guruhlar[qiymat] = []
+    guruhlar[qiymat].append(kalit)
+
+for qiymat, kalitlar in guruhlar.items():
+    print(f"{qiymat}: {kalitlar}")
 
 # 40 Dictionary ichida dictionary bo‘lsa, maksimal chuqurlikni aniqlang.
 
