@@ -7228,3 +7228,2697 @@ config = {}
 <br>
 <br>
 
+## 🔢 LEGB Rule (Local → Enclosing → Global → Built-in)
+
+### LEGB qoidasi nima?
+
+LEGB - bu Python'da o'zgaruvchilarni qidirish tartibini belgilaydigan qoida. Qisqartma so'z:
+
+**L**ocal → **E**nclosing → **G**lobal → **B**uilt-in
+
+Python o'zgaruvchi nomini topish uchun aynan shu tartibda qidiradi. Agar birinchi darajada topsa, qidiruvni to'xtatadi va keyingi darajalarga o'tmaydi.
+
+**Real hayotdan misol:**
+- **Local**: Sizning cho'ntagingizdagi pul (eng tez topiladi)
+- **Enclosing**: Uydagi jamg'arma (qo'shni xonadagi pul)
+- **Global**: Bankdagi hisobingiz (butun shaharda mavjud)
+- **Built-in**: Davlatning umumiy fondi (hamma foydalanishi mumkin)
+
+```python
+# LEGB qoidasining oddiy misoli
+x = "global x"  # Global
+
+def outer():
+    x = "enclosing x"  # Enclosing
+    
+    def inner():
+        x = "local x"  # Local
+        print(f"Inner: {x}")  # Local topiladi
+    
+    inner()
+    print(f"Outer: {x}")  # Enclosing topiladi
+
+outer()
+print(f"Global: {x}")  # Global topiladi
+```
+
+### LEGB qoidasining batafsil tahlili
+
+#### 1. Local (Lokal) daraja
+
+Local daraja - bu eng ichki funktsiya ichidagi o'zgaruvchilar.
+
+```python
+def local_daraja_misol():
+    # Local o'zgaruvchilar
+    lokal_son = 10
+    lokal_matn = "Bu lokal matn"
+    
+    def ichki_funktsiya():
+        # Bu yerda lokal_son va lokal_matn enclosing darajaga aylanadi
+        lokal_son_ichki = 20  # Local (ichki funktsiya uchun)
+        print(f"Ichki lokal: {lokal_son_ichki}")
+        print(f"Enclosing: {lokal_son}")  # Enclosing dan olish
+    
+    ichki_funktsiya()
+    print(f"Tashqi lokal: {lokal_son}")
+    # print(lokal_son_ichki)  # NameError - lokal_son_ichki local edi
+
+local_daraja_misol()
+```
+
+#### 2. Enclosing (O'rab turuvchi) daraja
+
+Enclosing daraja - bu ichma-ich funktsiyalarda tashqi funktsiyaning o'zgaruvchilari.
+
+```python
+def tashqi_funktsiya(outer_param):
+    """Enclosing daraja misoli"""
+    outer_var = 100  # Enclosing (ichki funktsiya uchun)
+    
+    def orta_funktsiya():
+        middle_var = 50  # Enclosing (eng ichki uchun)
+        
+        def ichki_funktsiya():
+            inner_var = 25  # Local
+            
+            # LEGB bo'yicha qidirish
+            print(f"Inner var: {inner_var}")  # Local
+            print(f"Middle var: {middle_var}")  # Enclosing
+            print(f"Outer var: {outer_var}")  # Enclosing
+            print(f"Outer param: {outer_param}")  # Enclosing
+        
+        ichki_funktsija()
+    
+    orta_funktsiya()
+
+tashqi_funktsiya("test")
+```
+
+#### 3. Global (Global) daraja
+
+Global daraja - bu modul darajasida yaratilgan o'zgaruvchilar.
+
+```python
+# Global o'zgaruvchilar
+global_son = 1000
+global_matn = "Global matn"
+
+def global_daraja_misol():
+    """Global darajadan foydalanish"""
+    local_son = 500
+    
+    def ichki():
+        print(f"Local: {local_son}")  # Enclosing
+        print(f"Global son: {global_son}")  # Global
+        print(f"Global matn: {global_matn}")  # Global
+    
+    ichki()
+    
+    # Globalni o'zgartirish uchun global keyword kerak
+    # global_son += 50  # UnboundLocalError
+    print(f"Global o'zgarmadi: {global_son}")
+
+global_daraja_misol()
+print(f"Global tashqarida: {global_son}")
+```
+
+#### 4. Built-in (O'rnatilgan) daraja
+
+Built-in daraja - Python'ning o'rnatilgan funktsiyalari va nomlari.
+
+```python
+def built_in_misol():
+    """Built-in darajadan foydalanish"""
+    # Local
+    local_son = 42
+    
+    # Built-in funktsiyalar
+    print(f"len: {len('salom')}")  # built-in len
+    print(f"max: {max([1, 5, 3])}")  # built-in max
+    print(f"int: {int('123')}")  # built-in int
+    print(f"str: {str(456)}")  # built-in str
+    
+    # Built-in nomlarni yashirish (tavsiya etilmaydi)
+    len = 100  # Endi len local o'zgaruvchi
+    print(f"Endi len: {len}")  # Local len
+    
+    # Built-in len endi ishlamaydi
+    # print(len("test"))  # TypeError
+
+built_in_misol()
+
+# Built-in larni qayta tiklash
+del len  # Local len ni o'chirish
+print(f"Qayta tiklangan len: {len('test')}")
+```
+
+### LEGB qoidasining amaliy misollari
+
+**1-misol: LEGB qoidasini vizual ko'rsatish**
+
+```python
+# Global daraja
+x = "GLOBAL x"
+y = "GLOBAL y"
+z = "GLOBAL z"
+
+def outer_function(a):
+    """Enclosing daraja (outer_function uchun)"""
+    x = "ENCLOSING x (outer)"
+    y = "ENCLOSING y (outer)"
+    
+    def middle_function(b):
+        """Enclosing daraja (middle_function uchun)"""
+        x = "ENCLOSING x (middle)"
+        
+        def inner_function(c):
+            """Local daraja"""
+            x = "LOCAL x (inner)"
+            
+            print("\n" + "="*50)
+            print("LEGB QOIDASI BO'YICHA QIDIRISH")
+            print("="*50)
+            
+            # Local daraja
+            print(f"\n1. LOCAL daraja:")
+            print(f"   x = {x}")  # Local x topiladi
+            
+            # Enclosing daraja (inner_function da x local, y va z qidiriladi)
+            print(f"\n2. ENCLOSING daraja:")
+            print(f"   y = {y}")  # Enclosing y (middle_function dan)
+            print(f"   a = {a}")  # Enclosing a (outer_function parametri)
+            print(f"   b = {b}")  # Enclosing b (middle_function parametri)
+            
+            # Global daraja
+            print(f"\n3. GLOBAL daraja:")
+            print(f"   z = {z}")  # Global z
+            
+            # Built-in daraja
+            print(f"\n4. BUILT-IN daraja:")
+            print(f"   len('test') = {len('test')}")  # Built-in len
+            print(f"   max(1,2,3) = {max(1,2,3)}")  # Built-in max
+        
+        inner_function("param c")
+    
+    middle_function("param b")
+
+outer_function("param a")
+```
+
+**2-misol: LEGB bilan hisoblagich**
+
+```python
+# Global counter
+global_counter = 0
+
+def counter_factory(start=0):
+    """Counter yaratuvchi fabrika"""
+    enclosing_counter = start  # Enclosing
+    
+    def increment(step=1):
+        local_temp = 0  # Local
+        
+        # LEGB bo'yicha o'zgaruvchilarni topish
+        nonlocal enclosing_counter  # Enclosing ni o'zgartirish uchun
+        global global_counter  # Global ni o'zgartirish uchun
+        
+        enclosing_counter += step
+        global_counter += step
+        local_temp += step
+        
+        print(f"  Local: {local_temp}")
+        print(f"  Enclosing: {enclosing_counter}")
+        print(f"  Global: {global_counter}")
+        
+        return enclosing_counter
+    
+    def decrement(step=1):
+        nonlocal enclosing_counter
+        enclosing_counter -= step
+        return enclosing_counter
+    
+    return {
+        "inc": increment,
+        "dec": decrement,
+        "current": lambda: enclosing_counter
+    }
+
+print("=== COUNTER 1 (start=10) ===")
+counter1 = counter_factory(10)
+counter1["inc"]()
+counter1["inc"](5)
+counter1["dec"](3)
+
+print("\n=== COUNTER 2 (start=100) ===")
+counter2 = counter_factory(100)
+counter2["inc"](10)
+counter2["inc"](20)
+
+print(f"\nGlobal counter: {global_counter}")
+```
+
+**3-misol: LEGB bilan kalkulyator**
+
+```python
+# Built-in operatsiyalar
+BUILT_IN_OPS = {
+    "abs": abs,
+    "round": round,
+    "pow": pow
+}
+
+# Global sozlamalar
+PRECISION = 2
+DECIMAL_SEPARATOR = "."
+
+def create_calculator(initial_value=0):
+    """Kalkulyator yaratish"""
+    # Enclosing
+    memory = initial_value
+    history = []
+    
+    def add(*numbers):
+        nonlocal memory
+        result = memory + sum(numbers)
+        memory = result
+        history.append(f"add{numbers} -> {result}")
+        return result
+    
+    def subtract(*numbers):
+        nonlocal memory
+        result = memory - sum(numbers)
+        memory = result
+        history.append(f"subtract{numbers} -> {result}")
+        return result
+    
+    def multiply(*numbers):
+        nonlocal memory
+        result = memory
+        for n in numbers:
+            result *= n
+        memory = result
+        history.append(f"multiply{numbers} -> {result}")
+        return result
+    
+    def divide(divisor, *numbers):
+        nonlocal memory
+        result = memory
+        result /= divisor
+        for n in numbers:
+            result /= n
+        memory = result
+        history.append(f"divide{[divisor] + list(numbers)} -> {result}")
+        return result
+    
+    def power(exponent):
+        nonlocal memory
+        # Built-in pow dan foydalanish
+        result = BUILT_IN_OPS["pow"](memory, exponent)
+        memory = result
+        history.append(f"power({exponent}) -> {result}")
+        return result
+    
+    def absolute():
+        nonlocal memory
+        # Built-in abs dan foydalanish
+        result = BUILT_IN_OPS["abs"](memory)
+        memory = result
+        history.append(f"abs() -> {result}")
+        return result
+    
+    def format_result():
+        """Natijani formatlash (global PRECISION dan foydalanadi)"""
+        # Global va built-in
+        formatted = f"{memory:.{PRECISION}f}".replace(".", DECIMAL_SEPARATOR)
+        return formatted
+    
+    def get_history():
+        return history.copy()
+    
+    def reset(value=0):
+        nonlocal memory
+        memory = value
+        history.append(f"reset -> {value}")
+    
+    return {
+        "add": add,
+        "subtract": subtract,
+        "multiply": multiply,
+        "divide": divide,
+        "power": power,
+        "abs": absolute,
+        "format": format_result,
+        "history": get_history,
+        "reset": reset,
+        "current": lambda: memory
+    }
+
+# Kalkulyatorni ishlatish
+calc = create_calculator(10)
+
+print("=== KALKULYATOR ===")
+print(f"Initial: {calc['current']()}")
+
+calc["add"](5, 3)
+print(f"add(5,3): {calc['format']()}")
+
+calc["multiply"](2, 4)
+print(f"multiply(2,4): {calc['format']()}")
+
+calc["power"](2)
+print(f"power(2): {calc['format']()}")
+
+calc["abs"]()
+print(f"abs(): {calc['format']()}")
+
+print("\nHISTORY:")
+for item in calc["history"]():
+    print(f"  • {item}")
+
+# Global PRECISION ni o'zgartirish
+PRECISION = 4
+print(f"\nPrecision o'zgartirildi (PRECISION=4): {calc['format']()}")
+```
+
+### LEGB va nonlocal keyword
+
+`nonlocal` kalit so'zi enclosing scope dagi o'zgaruvchilarni o'zgartirish uchun ishlatiladi.
+
+```python
+def nonlocal_misol():
+    """nonlocal keyword misoli"""
+    x = 10  # Enclosing
+    
+    def inner():
+        nonlocal x  # Enclosing dagi x ni o'zgartirish
+        x += 5
+        print(f"Inner: x = {x}")
+    
+    print(f"Before: x = {x}")
+    inner()
+    print(f"After: x = {x}")
+    
+    def wrong_inner():
+        # x += 5  # UnboundLocalError
+        print("Bu xato beradi")
+    
+    return x
+
+nonlocal_misol()
+```
+
+### LEGB va global keyword
+
+`global` kalit so'zi global scope dagi o'zgaruvchilarni o'zgartirish uchun ishlatiladi.
+
+```python
+# Global o'zgaruvchi
+counter = 0
+
+def global_vs_enclosing():
+    """global vs enclosing"""
+    counter = 100  # Enclosing
+    
+    def inner():
+        global counter  # Global counter
+        counter += 1
+        print(f"Inner (global): {counter}")
+    
+    def inner2():
+        nonlocal counter  # Enclosing counter
+        counter += 1
+        print(f"Inner2 (enclosing): {counter}")
+    
+    print(f"Outer before: {counter}")
+    inner()
+    inner2()
+    print(f"Outer after: {counter}")
+
+print(f"Global before: {counter}")
+global_vs_enclosing()
+print(f"Global after: {counter}")
+```
+
+### LEGB bilan murakkab misollar
+
+**4-misol: Dekorator va LEGB**
+
+```python
+# Global sozlamalar
+DEBUG = True
+LOG_LEVEL = "INFO"
+call_counts = {}
+
+def logger_decorator(prefix=""):
+    """Logger dekorator - LEGB misoli"""
+    # Enclosing
+    decorator_calls = 0
+    
+    def decorator(func):
+        # Enclosing
+        function_calls = 0
+        
+        def wrapper(*args, **kwargs):
+            # Local
+            local_call_id = id(args)
+            
+            # Global, enclosing, built-in lardan foydalanish
+            nonlocal decorator_calls, function_calls
+            global call_counts
+            
+            decorator_calls += 1
+            function_calls += 1
+            
+            if func.__name__ not in call_counts:
+                call_counts[func.__name__] = 0
+            call_counts[func.__name__] += 1
+            
+            # Global DEBUG ni tekshirish
+            if DEBUG:
+                print(f"\n{'='*50}")
+                print(f"[{prefix}] Funktsiya: {func.__name__}")
+                print(f"  Local ID: {local_call_id}")
+                print(f"  Decorator calls: {decorator_calls}")
+                print(f"  Function calls: {function_calls}")
+                print(f"  Global calls[{func.__name__}]: {call_counts[func.__name__]}")
+                print(f"  Log level: {LOG_LEVEL}")
+                print(f"  Args: {args}")
+                print(f"  Kwargs: {kwargs}")
+                print(f"{'='*50}")
+            
+            result = func(*args, **kwargs)
+            return result
+        
+        return wrapper
+    return decorator
+
+@logger_decorator(prefix="📝")
+def add(a, b):
+    return a + b
+
+@logger_decorator(prefix="✖️")
+def multiply(a, b):
+    return a * b
+
+# Test
+add(5, 3)
+add(10, 20)
+multiply(4, 5)
+multiply(6, 7)
+
+print(f"\nGlobal call counts: {call_counts}")
+
+# Global DEBUG ni o'chirish
+DEBUG = False
+print("\nDEBUG o'chirilgan:")
+add(1, 2)
+multiply(3, 4)
+```
+
+**5-misol: LEGB bilan konfiguratsiya tizimi**
+
+```python
+# Global konfiguratsiya
+CONFIG = {
+    "database": {
+        "host": "localhost",
+        "port": 5432,
+        "name": "myapp"
+    },
+    "api": {
+        "timeout": 30,
+        "retries": 3
+    }
+}
+
+ENVIRONMENT = "development"
+VERSION = "1.0.0"
+
+def create_service(service_name):
+    """Xizmat yaratish"""
+    # Enclosing
+    service_instances = []
+    service_config = {}
+    
+    def configure(**kwargs):
+        """Xizmatni sozlash"""
+        nonlocal service_config
+        service_config.update(kwargs)
+        
+        # Global CONFIG dan foydalanish
+        if service_name in CONFIG:
+            service_config.update(CONFIG[service_name])
+        
+        print(f"\n⚙️ {service_name} sozlandi:")
+        for key, value in service_config.items():
+            print(f"  {key}: {value}")
+    
+    def create_instance(instance_id):
+        """Yangi instance yaratish"""
+        # Local
+        instance = {
+            "id": instance_id,
+            "service": service_name,
+            "config": service_config.copy(),
+            "environment": ENVIRONMENT,  # Global
+            "version": VERSION  # Global
+        }
+        
+        service_instances.append(instance)
+        
+        print(f"\n✅ {service_name} instance yaratildi: {instance_id}")
+        print(f"  Environment: {ENVIRONMENT}")
+        print(f"  Version: {VERSION}")
+        
+        return instance
+    
+    def list_instances():
+        """Barcha instancelarni ko'rsatish"""
+        print(f"\n📋 {service_name} instancelari:")
+        for inst in service_instances:
+            print(f"  • {inst['id']} (config: {len(inst['config'])} items)")
+    
+    def get_stats():
+        """Statistika"""
+        return {
+            "service": service_name,
+            "instances": len(service_instances),
+            "config_size": len(service_config),
+            "environment": ENVIRONMENT
+        }
+    
+    return {
+        "configure": configure,
+        "create": create_instance,
+        "list": list_instances,
+        "stats": get_stats
+    }
+
+# Xizmatlar yaratish
+db_service = create_service("database")
+api_service = create_service("api")
+
+# Xizmatlarni sozlash
+db_service["configure"](pool_size=10, timeout=60)
+api_service["configure"](rate_limit=100, cors=True)
+
+# Instance yaratish
+db1 = db_service["create"]("main-db")
+db2 = db_service["create"]("backup-db")
+api1 = api_service["create"]("public-api")
+api2 = api_service["create"]("admin-api")
+
+# Ro'yxat va statistika
+db_service["list"]()
+api_service["list"]()
+
+print(f"\n📊 DB Service stats: {db_service['stats']()}")
+print(f"📊 API Service stats: {api_service['stats']()}")
+
+# Global muhitni o'zgartirish
+ENVIRONMENT = "production"
+print("\n🚀 Environment production ga o'zgartirildi")
+
+# Yangi instance
+db3 = db_service["create"]("prod-db")
+print(f"\n📊 Yangi stats: {db_service['stats']()}")
+```
+
+### LEGB va NameError
+
+```python
+def name_error_misol():
+    """LEGB bo'yicha topilmaganda NameError"""
+    try:
+        print(not_existing_var)  # Hech qayerda topilmaydi
+    except NameError as e:
+        print(f"❌ NameError: {e}")
+    
+    # Local va enclosing
+    local_var = 42
+    
+    def inner():
+        try:
+            print(local_var)  # Enclosing da topiladi
+            print(not_existing)  # Topilmaydi
+        except NameError as e:
+            print(f"❌ Inner NameError: {e}")
+    
+    inner()
+
+name_error_misol()
+```
+
+### LEGB qoidasining vizual tasviri
+
+```python
+# Global
+level = "GLOBAL"
+
+def level_test():
+    # Enclosing
+    level = "ENCLOSING"
+    
+    def inner():
+        # Local
+        level = "LOCAL"
+        
+        print("\n" + "="*50)
+        print("LEGB QIDIRUV TARTIBI")
+        print("="*50)
+        
+        # 1. Local qidiriladi
+        print(f"1. LOCAL: {level}")
+        
+        # 2. Enclosing qidiriladi (lekin local topilgani uchun o'tmaydi)
+        
+        # 3. Agar local bo'lmasa, enclosing qidiriladi
+        def show_enclosing():
+            # Bu yerda local level yo'q
+            print(f"2. ENCLOSING: {level}")  # inner() dagi level topiladi
+        
+        show_enclosing()
+        
+        # 4. Global qidirish
+        def show_global():
+            nonlocal level
+            level = "MODIFIED"
+            # Global level ni ko'rsatish
+            import __main__
+            print(f"3. GLOBAL: {__main__.level}")
+        
+        show_global()
+    
+    inner()
+    print(f"After inner: {level}")  # MODIFIED
+
+level_test()
+print(f"After all: {level}")  # GLOBAL
+```
+
+### LEGB va Scope Hierarchy
+
+```python
+# Hierarchy diagrammasi
+print("""
+LEGB SCOPE HIERARCHY:
+========================
+    BUILT-IN (eng yuqori)
+         ↓
+    GLOBAL
+         ↓
+    ENCLOSING
+         ↓
+    LOCAL (eng past)
+
+Qidiruv har doim LOCAL dan boshlanadi:
+LOCAL → ENCLOSING → GLOBAL → BUILT-IN
+""")
+
+def demonstrate_hierarchy():
+    """Hierarchyani ko'rsatish"""
+    # Built-in misol
+    print(f"Built-in len: {len('test')}")
+    
+    # Global misol
+    global_var = "global"
+    
+    def outer():
+        # Enclosing
+        enclosing_var = "enclosing"
+        
+        def inner():
+            # Local
+            local_var = "local"
+            
+            print(f"\nHierarchy bo'yicha:")
+            print(f"  Local: {local_var}")
+            print(f"  Enclosing: {enclosing_var}")
+            print(f"  Global: {global_var}")
+            print(f"  Built-in: {len('test')}")
+        
+        inner()
+    
+    outer()
+
+demonstrate_hierarchy()
+```
+
+### LEGB qoidasining muhim jihatlari
+
+1. **Qidiruv har doim LOCAL dan boshlanadi**
+2. **Topilishi bilanoq qidiruv to'xtaydi**
+3. **Hech qayerda topilmasa NameError**
+4. **O'zgaruvchi yaratish har doim eng ichki scope da bo'ladi**
+5. **O'zgaruvchini o'zgartirish uchun global yoki nonlocal kerak**
+
+```python
+# Muhim jihatlarni ko'rsatish
+def important_points():
+    """LEGBning muhim jihatlari"""
+    
+    # 1. Qidiruv local dan boshlanadi
+    x = 10
+    
+    def test1():
+        x = 20  # Local yaratadi, globalni yashiradi
+        print(f"test1: {x}")  # 20
+    
+    test1()
+    print(f"global x: {x}")  # 10
+    
+    # 2. Topilishi bilanoq to'xtaydi
+    def test2():
+        # x = 30  # Agar shu qator bo'lsa, keyingi qator 30 ni chiqaradi
+        print(f"test2: {x}")  # 10 (global topiladi)
+    
+    test2()
+    
+    # 3. O'zgaruvchi yaratish local da
+    def test3():
+        y = 100  # Local yaratish
+        print(f"test3 local y: {y}")
+    
+    test3()
+    # print(y)  # NameError
+
+important_points()
+```
+---
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## 📄 Docstrings (documentation, help())
+
+### Docstring nima?
+
+Docstring (documentation string) - bu Python'da funktsiyalar, klasslar va modullarni hujjatlashtirish uchun ishlatiladigan maxsus matn. Uch qavatli qo'shtirnoq (`"""`) ichida yoziladi va obyektning birinchi qatori sifatida joylashadi.
+
+**Real hayotdan misol:**
+- **Foydalanish qo'llanmasi**: Har bir mahsulot bilan birga keladigan qo'llanma
+- **Retsept**: Ovqat tayyorlash uchun kerakli masalliqlar va usullar
+- **Yo'l belgisi**: Qaysi yo'l qayerga olib borishini ko'rsatadi
+
+```python
+# Oddiy docstring misoli
+def salom_ber(ism):
+    """Foydalanuvchiga salom beruvchi funktsiya"""
+    print(f"Salom, {ism}!")
+
+# Docstringni ko'rish
+print(salom_ber.__doc__)
+help(salom_ber)
+```
+
+### Docstring yozish qoidalari
+
+1. **Uch qavatli qo'shtirnoq** `"""` ishlatiladi
+2. **Birinchi qator** - qisqa, aniq tavsif
+3. **Bo'sh qator** - birinchi qatordan keyin
+4. **Batafsil tavsif** - keyingi qatorlarda
+
+```python
+def matematik_amal(a, b, amal='+'):
+    """
+    Ikki son ustida matematik amal bajaradi.
+    
+    Args:
+        a (int/float): Birinchi son
+        b (int/float): Ikkinchi son
+        amal (str): Bajariladigan amal ('+', '-', '*', '/')
+    
+    Returns:
+        float: Amal natijasi
+    
+    Raises:
+        ValueError: Noto'g'ri amal kiritilganda
+        ZeroDivisionError: Nolga bo'lishda
+    
+    Example:
+        >>> matematik_amal(10, 5, '+')
+        15.0
+        >>> matematik_amal(10, 5, '/')
+        2.0
+    """
+    if amal == '+':
+        return a + b
+    elif amal == '-':
+        return a - b
+    elif amal == '*':
+        return a * b
+    elif amal == '/':
+        if b == 0:
+            raise ZeroDivisionError("Nolga bo'lish mumkin emas")
+        return a / b
+    else:
+        raise ValueError(f"Noto'g'ri amal: {amal}")
+```
+
+### Docstring formatlari
+
+#### 1. Google Style (eng keng tarqalgan)
+
+```python
+def google_style_misol(param1, param2, param3=None):
+    """
+    Google style docstring misoli.
+    
+    Bu funktsiya Google style formatida yozilgan docstringni ko'rsatadi.
+    
+    Args:
+        param1 (int): Birinchi parametrning tavsifi
+        param2 (str): Ikkinchi parametrning tavsifi
+        param3 (list, optional): Uchinchi parametr. Default: None
+    
+    Returns:
+        dict: Natija lug'ati
+    
+    Raises:
+        ValueError: Agar param1 manfiy bo'lsa
+    
+    Examples:
+        >>> google_style_misol(5, 'test')
+        {'param1': 5, 'param2': 'test', 'param3': None}
+    """
+    if param1 < 0:
+        raise ValueError("param1 manfiy bo'lishi mumkin emas")
+    
+    return {
+        "param1": param1,
+        "param2": param2,
+        "param3": param3
+    }
+```
+
+#### 2. NumPy/SciPy Style
+
+```python
+def numpy_style_misol(x, y, method='linear'):
+    """
+    NumPy/SciPy style docstring misoli.
+    
+    Parameters
+    ----------
+    x : array_like
+        X koordinatalar
+    y : array_like
+        Y koordinatalar
+    method : {'linear', 'cubic', 'nearest'}, optional
+        Interpolyatsiya usuli. Default: 'linear'
+    
+    Returns
+    -------
+    result : ndarray
+        Interpolyatsiya qilingan qiymatlar
+    
+    See Also
+    --------
+    scipy.interpolate.interp1d : Boshqa interpolyatsiya funktsiyasi
+    
+    Notes
+    -----
+    Bu funktsiya 1D interpolyatsiya uchun ishlatiladi.
+    
+    Examples
+    --------
+    >>> x = [1, 2, 3, 4]
+    >>> y = [1, 4, 9, 16]
+    >>> numpy_style_misol(x, y, method='cubic')
+    array([ 1.,  4.,  9., 16.])
+    """
+    return f"Interpolatsiya: {method}"
+```
+
+#### 3. Sphinx Style
+
+```python
+def sphinx_style_misol(network, timeout=30, retries=3):
+    """
+    Sphinx style docstring misoli.
+    
+    :param network: Tarmoq nomi
+    :type network: str
+    :param timeout: Ulanish vaqti (sekund)
+    :type timeout: int
+    :param retries: Qayta urinishlar soni
+    :type retries: int
+    :returns: Ulanish holati
+    :rtype: bool
+    :raises ConnectionError: Agar ulanish muvaffaqiyatsiz bo'lsa
+    
+    :example:
+    
+    >>> sphinx_style_misol('wifi', 60, 5)
+    True
+    """
+    return True
+```
+
+### Docstring bilan amaliy misollar
+
+**1-misol: Bank hisob tizimi**
+
+```python
+class BankAccount:
+    """
+    Bank hisobi klas i.
+    
+    Bu klas bank hisobi bilan ishlash uchun asosiy operatsiyalarni ta'minlaydi.
+    
+    Attributes:
+        account_number (str): Hisob raqami
+        owner (str): Hisob egasi
+        balance (float): Joriy balans
+        currency (str): Valyuta turi
+    
+    Examples:
+        >>> account = BankAccount("123456", "Ali Valiyev", 1000000)
+        >>> account.deposit(500000)
+        >>> account.get_balance()
+        1500000.0
+    """
+    
+    def __init__(self, account_number, owner, initial_balance=0, currency="UZS"):
+        """
+        BankAccount klasini initialize qilish.
+        
+        Args:
+            account_number (str): Unikal hisob raqami
+            owner (str): Hisob egasining ismi
+            initial_balance (float, optional): Boshlang'ich balans. Default: 0
+            currency (str, optional): Valyuta. Default: "UZS"
+        
+        Raises:
+            ValueError: Agar initial_balance manfiy bo'lsa
+        """
+        if initial_balance < 0:
+            raise ValueError("Boshlang'ich balans manfiy bo'lishi mumkin emas")
+        
+        self.account_number = account_number
+        self.owner = owner
+        self.balance = initial_balance
+        self.currency = currency
+        self.transactions = []
+    
+    def deposit(self, amount):
+        """
+        Hisobga pul qo'shish.
+        
+        Args:
+            amount (float): Qo'shiladigan summa
+        
+        Returns:
+            float: Yangi balans
+        
+        Raises:
+            ValueError: Agar amount <= 0 bo'lsa
+        
+        Examples:
+            >>> account = BankAccount("123", "Ali", 1000)
+            >>> account.deposit(500)
+            1500.0
+        """
+        if amount <= 0:
+            raise ValueError("Pul miqdori musbat bo'lishi kerak")
+        
+        self.balance += amount
+        self.transactions.append({
+            "type": "deposit",
+            "amount": amount,
+            "balance": self.balance
+        })
+        
+        return self.balance
+    
+    def withdraw(self, amount):
+        """
+        Hisobdan pul yechish.
+        
+        Args:
+            amount (float): Yechiladigan summa
+        
+        Returns:
+            float: Yangi balans
+        
+        Raises:
+            ValueError: Agar amount <= 0 yoki balans yetarli bo'lmasa
+        
+        Examples:
+            >>> account = BankAccount("123", "Ali", 1000)
+            >>> account.withdraw(300)
+            700.0
+        """
+        if amount <= 0:
+            raise ValueError("Pul miqdori musbat bo'lishi kerak")
+        
+        if amount > self.balance:
+            raise ValueError("Mablag' yetarli emas")
+        
+        self.balance -= amount
+        self.transactions.append({
+            "type": "withdraw",
+            "amount": amount,
+            "balance": self.balance
+        })
+        
+        return self.balance
+    
+    def get_balance(self):
+        """
+        Joriy balansni qaytarish.
+        
+        Returns:
+            str: Formatlangan balans
+        
+        Examples:
+            >>> account = BankAccount("123", "Ali", 1500)
+            >>> account.get_balance()
+            '1500.00 UZS'
+        """
+        return f"{self.balance:.2f} {self.currency}"
+    
+    def get_transactions(self, limit=None):
+        """
+        Tranzaksiyalar tarixini qaytarish.
+        
+        Args:
+            limit (int, optional): Qaytariladigan tranzaksiyalar soni
+        
+        Returns:
+            list: Tranzaksiyalar ro'yxati
+        
+        Examples:
+            >>> account.get_transactions(5)
+            [{'type': 'deposit', 'amount': 500, 'balance': 1500}]
+        """
+        if limit:
+            return self.transactions[-limit:]
+        return self.transactions.copy()
+    
+    def transfer(self, to_account, amount):
+        """
+        Boshqa hisobga pul o'tkazish.
+        
+        Args:
+            to_account (BankAccount): Pul o'tkaziladigan hisob
+            amount (float): O'tkaziladigan summa
+        
+        Returns:
+            bool: Muvaffaqiyatli bo'lsa True
+        
+        Raises:
+            ValueError: Agar amount <= 0 yoki balans yetarli bo'lmasa
+        
+        Examples:
+            >>> acc1 = BankAccount("123", "Ali", 1000)
+            >>> acc2 = BankAccount("456", "Vali", 500)
+            >>> acc1.transfer(acc2, 200)
+            True
+        """
+        self.withdraw(amount)
+        to_account.deposit(amount)
+        return True
+
+# BankAccount klasini ishlatish
+help(BankAccount)
+print(BankAccount.__doc__)
+print(BankAccount.deposit.__doc__)
+```
+
+**2-misol: Online do'kon tizimi**
+
+```python
+class Product:
+    """
+    Mahsulot klas i.
+    
+    Bu klas do'kondagi mahsulotlarni ifodalaydi.
+    
+    Attributes:
+        id (int): Mahsulot ID si
+        name (str): Mahsulot nomi
+        price (float): Mahsulot narxi
+        quantity (int): Mavjud miqdor
+        category (str): Mahsulot kategoriyasi
+    
+    Methods:
+        update_price(): Mahsulot narxini yangilash
+        update_quantity(): Mahsulot miqdorini yangilash
+        is_available(): Mahsulot mavjudligini tekshirish
+    """
+    
+    def __init__(self, id, name, price, quantity=0, category="general"):
+        """
+        Product klasini initialize qilish.
+        
+        Args:
+            id (int): Unikal mahsulot ID si
+            name (str): Mahsulot nomi
+            price (float): Mahsulot narxi
+            quantity (int, optional): Boshlang'ich miqdor. Default: 0
+            category (str, optional): Mahsulot kategoriyasi. Default: "general"
+        
+        Raises:
+            ValueError: Agar price <= 0 yoki quantity < 0 bo'lsa
+        """
+        if price <= 0:
+            raise ValueError("Narx musbat bo'lishi kerak")
+        if quantity < 0:
+            raise ValueError("Miqdor manfiy bo'lishi mumkin emas")
+        
+        self.id = id
+        self.name = name
+        self.price = price
+        self.quantity = quantity
+        self.category = category
+    
+    def update_price(self, new_price):
+        """
+        Mahsulot narxini yangilash.
+        
+        Args:
+            new_price (float): Yangi narx
+        
+        Returns:
+            bool: Muvaffaqiyatli bo'lsa True
+        
+        Raises:
+            ValueError: Agar new_price <= 0 bo'lsa
+        """
+        if new_price <= 0:
+            raise ValueError("Narx musbat bo'lishi kerak")
+        
+        old_price = self.price
+        self.price = new_price
+        print(f"💰 {self.name} narxi o'zgartirildi: {old_price} -> {new_price}")
+        return True
+    
+    def update_quantity(self, change):
+        """
+        Mahsulot miqdorini o'zgartirish.
+        
+        Args:
+            change (int): Miqdor o'zgarishi (musbat - qo'shish, manfiy - ayirish)
+        
+        Returns:
+            int: Yangi miqdor
+        
+        Raises:
+            ValueError: Agar change mutlaq qiymati joriy miqdordan katta bo'lsa
+        
+        Examples:
+            >>> product = Product(1, "Noutbuk", 5000000, 10)
+            >>> product.update_quantity(-3)  # 3 ta sotildi
+            7
+            >>> product.update_quantity(5)   # 5 ta qo'shildi
+            12
+        """
+        new_quantity = self.quantity + change
+        
+        if new_quantity < 0:
+            raise ValueError(f"Miqdor manfiy bo'lishi mumkin emas. Mavjud: {self.quantity}")
+        
+        self.quantity = new_quantity
+        action = "qo'shildi" if change > 0 else "sotildi"
+        print(f"📦 {self.name}: {abs(change)} ta {action}")
+        
+        return self.quantity
+    
+    def is_available(self, requested=1):
+        """
+        Mahsulot mavjudligini tekshirish.
+        
+        Args:
+            requested (int): So'ralgan miqdor. Default: 1
+        
+        Returns:
+            bool: Agar so'ralgan miqdor mavjud bo'lsa True
+        
+        Examples:
+            >>> product = Product(1, "Noutbuk", 5000000, 10)
+            >>> product.is_available(5)
+            True
+            >>> product.is_available(15)
+            False
+        """
+        return self.quantity >= requested
+    
+    def get_info(self):
+        """
+        Mahsulot haqida to'liq ma'lumot.
+        
+        Returns:
+            str: Formatlangan mahsulot ma'lumoti
+        """
+        return f"""
+📦 Mahsulot: {self.name}
+   ID: {self.id}
+   Narx: {self.price:,.0f} so'm
+   Mavjud: {self.quantity} dona
+   Kategoriya: {self.category}
+        """
+
+class ShoppingCart:
+    """
+    Savat klas i.
+    
+    Bu klas foydalanuvchi savati bilan ishlaydi.
+    
+    Attributes:
+        items (dict): Savatdagi mahsulotlar
+        total (float): Umumiy summa
+    """
+    
+    def __init__(self):
+        """ShoppingCart klasini initialize qilish."""
+        self.items = {}
+        self.total = 0
+    
+    def add_item(self, product, quantity=1):
+        """
+        Savatga mahsulot qo'shish.
+        
+        Args:
+            product (Product): Qo'shiladigan mahsulot
+            quantity (int): Mahsulot soni. Default: 1
+        
+        Returns:
+            bool: Muvaffaqiyatli bo'lsa True
+        
+        Raises:
+            ValueError: Agar mahsulot yetarli bo'lmasa
+        
+        Examples:
+            >>> cart = ShoppingCart()
+            >>> product = Product(1, "Noutbuk", 5000000, 10)
+            >>> cart.add_item(product, 2)
+            True
+        """
+        if not product.is_available(quantity):
+            raise ValueError(f"{product.name} dan yetarli mavjud emas")
+        
+        if product.id in self.items:
+            self.items[product.id]["quantity"] += quantity
+        else:
+            self.items[product.id] = {
+                "product": product,
+                "quantity": quantity
+            }
+        
+        product.update_quantity(-quantity)
+        self.total += product.price * quantity
+        
+        print(f"🛒 {product.name} x{quantity} savatga qo'shildi")
+        return True
+    
+    def remove_item(self, product_id, quantity=None):
+        """
+        Savatdan mahsulot olib tashlash.
+        
+        Args:
+            product_id (int): Mahsulot ID si
+            quantity (int, optional): Olib tashlanadigan son.
+                                    None bo'lsa, hammasi olib tashlanadi
+        
+        Returns:
+            bool: Muvaffaqiyatli bo'lsa True
+        """
+        if product_id not in self.items:
+            print(f"❌ Mahsulot ID {product_id} savatda topilmadi")
+            return False
+        
+        item = self.items[product_id]
+        product = item["product"]
+        
+        if quantity is None or quantity >= item["quantity"]:
+            # Hammasini olib tashlash
+            remove_qty = item["quantity"]
+            del self.items[product_id]
+        else:
+            # Bir qismini olib tashlash
+            remove_qty = quantity
+            item["quantity"] -= quantity
+        
+        product.update_quantity(remove_qty)
+        self.total -= product.price * remove_qty
+        
+        print(f"🔄 {product.name} x{remove_qty} savatdan olib tashlandi")
+        return True
+    
+    def checkout(self):
+        """
+        Savatni rasmiylashtirish.
+        
+        Returns:
+            dict: Buyurtma ma'lumotlari
+        
+        Examples:
+            >>> cart.checkout()
+            {'items': [...], 'total': 10000000, 'status': 'completed'}
+        """
+        if not self.items:
+            print("❌ Savat bo'sh")
+            return None
+        
+        order = {
+            "items": [
+                {
+                    "name": item["product"].name,
+                    "quantity": item["quantity"],
+                    "price": item["product"].price,
+                    "total": item["product"].price * item["quantity"]
+                }
+                for item in self.items.values()
+            ],
+            "total": self.total,
+            "status": "completed",
+            "order_id": hash(str(self.items)) % 10000
+        }
+        
+        print("\n" + "="*50)
+        print("✅ BUYURTMA RASMIYLASHTIRILDI")
+        print("="*50)
+        for item in order["items"]:
+            print(f"  {item['name']} x{item['quantity']} = {item['total']:,.0f} so'm")
+        print("-"*50)
+        print(f"  JAMI: {order['total']:,.0f} so'm")
+        print(f"  Buyurtma ID: {order['order_id']}")
+        
+        # Savatni tozalash
+        self.items = {}
+        self.total = 0
+        
+        return order
+
+# Do'kon tizimini ishlatish
+help(Product)
+help(ShoppingCart)
+
+# Mahsulotlar yaratish
+product1 = Product(1, "Noutbuk", 5000000, 10, "elektronika")
+product2 = Product(2, "Telefon", 3000000, 15, "elektronika")
+product3 = Product(3, "Kitob", 50000, 50, "adabiyot")
+
+print(product1.get_info())
+
+# Savat bilan ishlash
+cart = ShoppingCart()
+cart.add_item(product1, 2)
+cart.add_item(product2, 1)
+cart.add_item(product3, 3)
+
+cart.remove_item(1, 1)  # 1 ta noutbukni olib tashlash
+cart.checkout()
+```
+
+### help() funktsiyasi
+
+`help()` - Python'ning o'rnatilgan funktsiyasi bo'lib, obyekt haqida yordam ma'lumotini chiqaradi.
+
+```python
+# help() ni turli xil ishlatish usullari
+help(str)  # String klas i haqida
+help(list.append)  # List metodlari haqida
+help(print)  # Built-in funktsiya haqida
+
+# O'z klasimiz haqida
+help(BankAccount)
+help(ShoppingCart)
+
+# help() ni to'xtatish uchun 'q' tugmasini bosing
+```
+
+### __doc__ attribute
+
+Har bir obyektning `__doc__` attributi uning docstringini saqlaydi.
+
+```python
+def test_function():
+    """Bu test funktsiyasi"""
+    pass
+
+print(test_function.__doc__)  # "Bu test funktsiyasi"
+print(len.__doc__)  # Built-in funktsiyaning docstringi
+print(list.__doc__)  # Klas docstringi
+```
+
+### Docstring va pydoc
+
+```python
+# pydoc orqali docstringlarni ko'rish (terminalda)
+"""
+Terminalda quyidagi buyruqlarni ishlatish mumkin:
+
+python -m pydoc <modul_nomi>
+python -m pydoc <funktsiya_nomi>
+python -m pydoc -b  # Web server ishga tushirish
+"""
+```
+
+### Docstring generatorlari
+
+**1-misol: Avtomatik docstring generatori**
+
+```python
+def generate_docstring(func_name, params, returns, description, examples=None):
+    """
+    Funktsiya uchun docstring generatsiya qilish.
+    
+    Args:
+        func_name (str): Funktsiya nomi
+        params (list): Parametrlar ro'yxati
+        returns (str): Qaytariladigan qiymat tavsifi
+        description (str): Funktsiya tavsifi
+        examples (list, optional): Misollar ro'yxati
+    
+    Returns:
+        str: Generatsiya qilingan docstring
+    """
+    doc = f'''"""
+{description}
+
+Args:
+'''
+    for param in params:
+        doc += f"    {param['name']} ({param['type']}): {param['desc']}\n"
+    
+    doc += f'''
+Returns:
+    {returns}
+
+'''
+    if examples:
+        doc += "Examples:\n"
+        for example in examples:
+            doc += f"    >>> {example}\n"
+    
+    doc += '"""'
+    return doc
+
+# Docstring yaratish
+params = [
+    {"name": "a", "type": "int", "desc": "Birinchi son"},
+    {"name": "b", "type": "int", "desc": "Ikkinchi son"},
+    {"name": "c", "type": "int, optional", "desc": "Uchinchi son. Default: 0"}
+]
+
+docstring = generate_docstring(
+    "add_numbers",
+    params,
+    "int: Sonlarning yig'indisi",
+    "Uchta sonni qo'shish",
+    ["add_numbers(1, 2, 3) -> 6", "add_numbers(10, 20) -> 30"]
+)
+
+print(docstring)
+```
+
+### Docstring best practices
+
+1. **Bir qatorli docstringlar**
+```python
+def kvadrat(son):
+    """Sonning kvadratini qaytaradi."""
+    return son ** 2
+```
+
+2. **Ko'p qatorli docstringlar**
+```python
+def murakkab_funktsiya(x, y):
+    """
+    Murakkab hisoblashlarni bajaradi.
+    
+    Bu funktsiya bir necha bosqichli hisoblashlarni amalga oshiradi
+    va natijani formatlangan holda qaytaradi.
+    
+    Args:
+        x (float): Birinchi parametr
+        y (float): Ikkinchi parametr
+    
+    Returns:
+        float: Hisoblash natijasi
+    """
+    return (x ** 2 + y ** 2) ** 0.5
+```
+
+3. **Klas docstringlari**
+```python
+class MyClass:
+    """
+    MyClass klasining qisqa tavsifi.
+    
+    Bu klas nima qilishi va qanday ishlatilishi haqida batafsil ma'lumot.
+    
+    Attributes:
+        attr1 (str): Birinchi attribute tavsifi
+        attr2 (int): Ikkinchi attribute tavsifi
+    
+    Methods:
+        method1(): Birinchi metod tavsifi
+        method2(): Ikkinchi metod tavsifi
+    """
+    
+    def method1(self):
+        """Method1 tavsifi."""
+        pass
+```
+
+4. **Modul docstringlari**
+```python
+"""
+Bu modul matematik hisoblashlar uchun funktsiyalarni o'z ichiga oladi.
+
+Modul tarkibi:
+    - kvadrat(): Sonning kvadratini hisoblaydi
+    - kub(): Sonning kubini hisoblaydi
+    - faktorial(): Sonning faktorialini hisoblaydi
+
+Muallif: Alisher
+Versiya: 1.0.0
+"""
+```
+
+### Docstring va testing
+
+```python
+import doctest
+
+def add(a, b):
+    """
+    Ikki sonni qo'shish.
+    
+    Args:
+        a (int): Birinchi son
+        b (int): Ikkinchi son
+    
+    Returns:
+        int: Yig'indi
+    
+    Examples:
+        >>> add(2, 3)
+        5
+        >>> add(-1, 1)
+        0
+        >>> add(0, 0)
+        0
+    """
+    return a + b
+
+def multiply(a, b):
+    """
+    Ikki sonni ko'paytirish.
+    
+    Args:
+        a (int): Birinchi son
+        b (int): Ikkinchi son
+    
+    Returns:
+        int: Ko'paytma
+    
+    Examples:
+        >>> multiply(2, 3)
+        6
+        >>> multiply(5, 5)
+        25
+        >>> multiply(0, 10)
+        0
+    """
+    return a * b
+
+# Doctestlarni ishga tushirish
+if __name__ == "__main__":
+    doctest.testmod(verbose=True)
+```
+
+### Docstring va Sphinx dokumentatsiya
+
+```python
+def sphinx_ready_function(param1, param2):
+    """
+    Sphinx dokumentatsiya tizimi uchun tayyorlangan funktsiya.
+
+    :param param1: Birinchi parametr tavsifi
+    :type param1: int
+    :param param2: Ikkinchi parametr tavsifi
+    :type param2: str
+    :returns: Natija tavsifi
+    :rtype: bool
+    :raises ValueError: Xato holati tavsifi
+
+    .. note::
+        Bu funktsiya muhim eslatma.
+
+    .. warning::
+        Diqqat! Bu funktsiyani ishlatishda ehtiyot bo'ling.
+
+    **Misol**::
+
+        >>> result = sphinx_ready_function(5, 'test')
+        >>> print(result)
+        True
+    """
+    return True
+```
+
+### Docstring va IDE integratsiyasi
+
+```python
+class DataProcessor:
+    """
+    Ma'lumotlarni qayta ishlash klas i.
+    
+    Bu klas turli xil ma'lumotlar ustida amallar bajarish uchun ishlatiladi.
+    IDE'lar bu docstringlarni ko'rsatib, kod yozishni osonlashtiradi.
+    """
+    
+    def __init__(self, data):
+        """
+        DataProcessor ni initialize qilish.
+        
+        Args:
+            data (list): Qayta ishlanadigan ma'lumotlar
+        """
+        self.data = data
+        self.processed = False
+    
+    def clean_data(self, remove_nulls=True):
+        """
+        Ma'lumotlarni tozalash.
+        
+        Args:
+            remove_nulls (bool): Null qiymatlarni olib tashlash
+        
+        Returns:
+            list: Tozalangan ma'lumotlar
+        
+        Examples:
+            >>> processor = DataProcessor([1, None, 3, None, 5])
+            >>> processor.clean_data()
+            [1, 3, 5]
+        """
+        if remove_nulls:
+            self.data = [x for x in self.data if x is not None]
+        
+        self.processed = True
+        return self.data
+    
+    def normalize(self, min_val=0, max_val=1):
+        """
+        Ma'lumotlarni normalizatsiya qilish.
+        
+        Args:
+            min_val (float): Minimal qiymat
+            max_val (float): Maksimal qiymat
+        
+        Returns:
+            list: Normalizatsiya qilingan ma'lumotlar
+        
+        Raises:
+            ValueError: Agar ma'lumotlar tozalanmagan bo'lsa
+        """
+        if not self.processed:
+            raise ValueError("Avval clean_data() ni chaqiring!")
+        
+        if not self.data:
+            return []
+        
+        data_min = min(self.data)
+        data_max = max(self.data)
+        
+        if data_min == data_max:
+            return [min_val] * len(self.data)
+        
+        normalized = [
+            min_val + (x - data_min) * (max_val - min_val) / (data_max - data_min)
+            for x in self.data
+        ]
+        
+        return normalized
+
+# IDE'da quyidagi kodni yozganda docstringlar ko'rinadi
+processor = DataProcessor([1, 2, 3, 4, 5])
+processor.clean_data(remove_nulls=True)  # Docstring ko'rinadi
+processor.normalize(min_val=0, max_val=1)  # Docstring ko'rinadi
+```
+
+---
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## ✨ Clean Function Design (single responsibility, pure functions)
+
+### Clean Function Design nima?
+
+Clean Function Design - bu funktsiyalarni tushunarli, qayta ishlatish oson va xatolardan holi qilib yozish usullari va qoidalari to'plami. Bu qoidalar kod sifatini oshiradi va dasturni boshqarishni osonlashtiradi.
+
+**Real hayotdan misol:**
+- **Restoran oshxonasi**: Har bir oshpaz o'z vazifasini bajaradi (biri sho'rva, biri salat, biri desert tayyorlaydi)
+- **Zavod konveyeri**: Har bir ishchi bitta operatsiyani bajaradi
+- **Kutubxona**: Kitoblar kategoriyalar bo'yicha joylashtirilgan
+
+```python
+# YOMON dizayn - hamma narsa bir funktsiyada
+def yomon_funktsiya(x):
+    # Ma'lumotni tekshirish
+    if x < 0:
+        return "Xato: manfiy son"
+    
+    # Hisoblash
+    natija = x * 2
+    
+    # Natijani saqlash
+    with open("natija.txt", "w") as f:
+        f.write(str(natija))
+    
+    # Natijani chiqarish
+    print(f"Natija: {natija}")
+    
+    # Email jo'natish
+    import smtplib
+    # ... email jo'natish kodi
+    
+    return natija
+
+# YAXSHI dizayn - har bir vazifa alohida funktsiyada
+def tekshir(x):
+    """Ma'lumotni tekshirish"""
+    if x < 0:
+        raise ValueError("Manfiy son qabul qilinmaydi")
+    return True
+
+def hisobla(x):
+    """Asosiy hisoblash"""
+    return x * 2
+
+def saqlash(natija, fayl_nomi):
+    """Natijani faylga saqlash"""
+    with open(fayl_nomi, "w") as f:
+        f.write(str(natija))
+
+def chiqar(natija):
+    """Natijani ekranga chiqarish"""
+    print(f"Natija: {natija}")
+
+def asosiy_funktsiya(x):
+    """Barcha funktsiyalarni birlashtirish"""
+    tekshir(x)
+    natija = hisobla(x)
+    saqlash(natija, "natija.txt")
+    chiqar(natija)
+    return natija
+```
+
+### Single Responsibility Principle (Yagona mas'uliyat prinsipi)
+
+Har bir funktsiya bitta va faqat bitta vazifani bajarishi kerak.
+
+**1-misol: Foydalanuvchi ma'lumotlarini qayta ishlash**
+
+```python
+# YOMON - bir funktsiyada hamma narsa
+def user_processing_bad(user_data):
+    # Validatsiya
+    if len(user_data['name']) < 2:
+        return "Xato: ism juda qisqa"
+    if '@' not in user_data['email']:
+        return "Xato: email noto'g'ri"
+    
+    # Formatlash
+    user_data['name'] = user_data['name'].title()
+    user_data['email'] = user_data['email'].lower()
+    
+    # Saqlash
+    import json
+    with open('users.json', 'a') as f:
+        json.dump(user_data, f)
+        f.write('\n')
+    
+    # Email jo'natish
+    print(f"Email jo'natildi: {user_data['email']}")
+    
+    return "Foydalanuvchi qo'shildi"
+
+# YAXSHI - har bir vazifa alohida funktsiyada
+def validate_user(user_data):
+    """Foydalanuvchi ma'lumotlarini tekshirish"""
+    errors = []
+    
+    if len(user_data.get('name', '')) < 2:
+        errors.append("Ism kamida 2 harfdan iborat bo'lishi kerak")
+    
+    if '@' not in user_data.get('email', ''):
+        errors.append("Email noto'g'ri formatda")
+    
+    if user_data.get('age', 0) < 18:
+        errors.append("Yosh 18 dan katta bo'lishi kerak")
+    
+    return errors
+
+def format_user(user_data):
+    """Foydalanuvchi ma'lumotlarini formatlash"""
+    return {
+        'name': user_data['name'].title(),
+        'email': user_data['email'].lower().strip(),
+        'age': user_data['age'],
+        'created_at': '2024-01-15'
+    }
+
+def save_user(user_data, filename='users.json'):
+    """Foydalanuvchini faylga saqlash"""
+    import json
+    import os
+    
+    # Fayl mavjudligini tekshirish
+    users = []
+    if os.path.exists(filename):
+        with open(filename, 'r') as f:
+            for line in f:
+                if line.strip():
+                    users.append(json.loads(line))
+    
+    # Yangi foydalanuvchini qo'shish
+    users.append(user_data)
+    
+    # Faylga yozish
+    with open(filename, 'w') as f:
+        for user in users:
+            json.dump(user, f)
+            f.write('\n')
+    
+    return len(users)
+
+def send_welcome_email(user_data):
+    """Xush kelibsiz emailini jo'natish"""
+    print(f"📧 Email jo'natildi: {user_data['email']}")
+    print(f"   Mavzu: Xush kelibsiz, {user_data['name']}!")
+    return True
+
+def create_user(user_data):
+    """Yangi foydalanuvchi yaratish (asosiy funktsiya)"""
+    # 1. Validatsiya
+    errors = validate_user(user_data)
+    if errors:
+        return {'success': False, 'errors': errors}
+    
+    # 2. Formatlash
+    formatted_user = format_user(user_data)
+    
+    # 3. Saqlash
+    user_count = save_user(formatted_user)
+    
+    # 4. Email jo'natish
+    send_welcome_email(formatted_user)
+    
+    return {
+        'success': True,
+        'message': f"Foydalanuvchi qo'shildi",
+        'user_count': user_count
+    }
+
+# Ishlatish
+user = {
+    'name': 'ali valiyev',
+    'email': 'ALI@EMAIL.COM',
+    'age': 25
+}
+
+result = create_user(user)
+print(result)
+```
+
+**2-misol: Buyurtma tizimi**
+
+```python
+class Order:
+    """Buyurtma klas i - ma'lumotlar strukturasi"""
+    def __init__(self, order_id, customer, items):
+        self.order_id = order_id
+        self.customer = customer
+        self.items = items
+        self.status = "pending"
+        self.total = 0
+
+class OrderValidator:
+    """Buyurtma validatsiyasi - alohida klass"""
+    @staticmethod
+    def validate_items(items):
+        """Mahsulotlarni tekshirish"""
+        if not items:
+            return False, "Buyurtma bo'sh"
+        
+        for item in items:
+            if item.get('quantity', 0) <= 0:
+                return False, f"Mahsulot {item.get('name')} miqdori noto'g'ri"
+            if item.get('price', 0) <= 0:
+                return False, f"Mahsulot {item.get('name')} narxi noto'g'ri"
+        
+        return True, "OK"
+    
+    @staticmethod
+    def validate_customer(customer):
+        """Mijoz ma'lumotlarini tekshirish"""
+        required = ['name', 'email', 'phone']
+        missing = [f for f in required if f not in customer]
+        
+        if missing:
+            return False, f"Yetishmayotgan ma'lumotlar: {missing}"
+        
+        if '@' not in customer['email']:
+            return False, "Email noto'g'ri"
+        
+        return True, "OK"
+
+class OrderCalculator:
+    """Buyurtma hisoblash - alohida klass"""
+    @staticmethod
+    def calculate_total(items):
+        """Umumiy summani hisoblash"""
+        total = 0
+        for item in items:
+            total += item['price'] * item['quantity']
+        return total
+    
+    @staticmethod
+    def apply_discount(total, discount_percent):
+        """Chegirma qo'llash"""
+        if discount_percent < 0 or discount_percent > 100:
+            raise ValueError("Chegirma 0-100 oralig'ida bo'lishi kerak")
+        return total * (1 - discount_percent / 100)
+
+class OrderRepository:
+    """Buyurtma saqlash - alohida klass"""
+    def __init__(self):
+        self.orders = {}
+    
+    def save(self, order):
+        """Buyurtmani saqlash"""
+        self.orders[order.order_id] = order
+        return True
+    
+    def find_by_id(self, order_id):
+        """Buyurtmani ID bo'yicha topish"""
+        return self.orders.get(order_id)
+    
+    def update_status(self, order_id, new_status):
+        """Buyurtma statusini yangilash"""
+        if order_id in self.orders:
+            self.orders[order_id].status = new_status
+            return True
+        return False
+
+class OrderNotifier:
+    """Xabarnoma yuborish - alohida klass"""
+    @staticmethod
+    def send_confirmation(order):
+        """Buyurtma tasdiqlash xabarnomasi"""
+        print(f"📧 Email: {order.customer['email']}")
+        print(f"   Mavzu: Buyurtma #{order.order_id} tasdiqlandi")
+        print(f"   Xabar: Buyurtmangiz qabul qilindi. Summa: {order.total}")
+    
+    @staticmethod
+    def send_status_update(order):
+        """Status yangilanishi xabarnomasi"""
+        print(f"📧 Email: {order.customer['email']}")
+        print(f"   Mavzu: Buyurtma #{order.order_id} statusi o'zgartirildi")
+        print(f"   Xabar: Yangi status: {order.status}")
+
+class OrderService:
+    """Asosiy buyurtma xizmati - barcha komponentlarni birlashtirish"""
+    def __init__(self):
+        self.validator = OrderValidator()
+        self.calculator = OrderCalculator()
+        self.repository = OrderRepository()
+        self.notifier = OrderNotifier()
+    
+    def create_order(self, order_id, customer, items):
+        """Yangi buyurtma yaratish"""
+        # Validatsiya
+        items_valid, items_msg = self.validator.validate_items(items)
+        if not items_valid:
+            return {'success': False, 'error': items_msg}
+        
+        cust_valid, cust_msg = self.validator.validate_customer(customer)
+        if not cust_valid:
+            return {'success': False, 'error': cust_msg}
+        
+        # Buyurtma yaratish
+        order = Order(order_id, customer, items)
+        
+        # Hisoblash
+        order.total = self.calculator.calculate_total(items)
+        
+        # Saqlash
+        self.repository.save(order)
+        
+        # Xabarnoma
+        self.notifier.send_confirmation(order)
+        
+        return {
+            'success': True,
+            'order_id': order_id,
+            'total': order.total
+        }
+    
+    def update_order_status(self, order_id, new_status):
+        """Buyurtma statusini yangilash"""
+        order = self.repository.find_by_id(order_id)
+        if not order:
+            return {'success': False, 'error': 'Buyurtma topilmadi'}
+        
+        order.status = new_status
+        self.repository.update_status(order_id, new_status)
+        self.notifier.send_status_update(order)
+        
+        return {'success': True, 'new_status': new_status}
+
+# Ishlatish
+service = OrderService()
+
+customer = {
+    'name': 'Ali Valiyev',
+    'email': 'ali@email.com',
+    'phone': '+998901234567'
+}
+
+items = [
+    {'name': 'Noutbuk', 'price': 5000000, 'quantity': 1},
+    {'name': 'Sichqoncha', 'price': 150000, 'quantity': 2}
+]
+
+# Buyurtma yaratish
+result = service.create_order("ORD-001", customer, items)
+print(f"Buyurtma yaratish: {result}")
+
+# Status yangilash
+result = service.update_order_status("ORD-001", "shipped")
+print(f"Status yangilash: {result}")
+```
+
+### Pure Functions (Sof funktsiyalar)
+
+Pure function - bu quyidagi shartlarga javob beradigan funktsiya:
+1. **Deterministik**: Bir xil kirish argumentlari har doim bir xil natija qaytaradi
+2. **Yon ta'siri yo'q**: Global holatni o'zgartirmaydi, I/O operatsiyalar bajarmaydi
+
+**3-misol: Pure vs Impure funktsiyalar**
+
+```python
+import random
+import datetime
+import json
+
+# IMPURE FUNKTSIYALAR (YOMON)
+class ImpureFunctions:
+    def __init__(self):
+        self.counter = 0
+        self.cache = {}
+    
+    def add_to_counter(self, x):
+        """Global holatni o'zgartiradi"""
+        self.counter += x
+        return self.counter
+    
+    def get_random(self, x):
+        """Deterministik emas (random)"""
+        return x * random.random()
+    
+    def get_current_time(self):
+        """Deterministik emas (vaqt)"""
+        return datetime.datetime.now()
+    
+    def save_to_file(self, data, filename):
+        """Yon ta'sir (fayl yozish)"""
+        with open(filename, 'w') as f:
+            json.dump(data, f)
+        return True
+    
+    def get_from_cache(self, key):
+        """Global holatga bog'liq"""
+        return self.cache.get(key)
+    
+    def process_data(self, data):
+        """Bir nechta yon ta'sirlar"""
+        # Global holatni o'zgartirish
+        self.counter += 1
+        
+        # Faylga yozish
+        with open('log.txt', 'a') as f:
+            f.write(f"Processing: {data}\n")
+        
+        # Random qiymat
+        result = data * random.random()
+        
+        # Cacheni yangilash
+        self.cache[data] = result
+        
+        return result
+
+# PURE FUNKTSIYALAR (YAXSHI)
+class PureFunctions:
+    @staticmethod
+    def add(x, y):
+        """Pure - bir xil kirish, bir xil chiqish"""
+        return x + y
+    
+    @staticmethod
+    def multiply(x, y):
+        """Pure - faqat argumentlarga bog'liq"""
+        return x * y
+    
+    @staticmethod
+    def calculate_average(numbers):
+        """Pure - faqat kirish ma'lumotlariga bog'liq"""
+        if not numbers:
+            return 0
+        return sum(numbers) / len(numbers)
+    
+    @staticmethod
+    def format_user(name, age, email):
+        """Pure - yangi obyekt qaytaradi"""
+        return {
+            'name': name.title(),
+            'age': age,
+            'email': email.lower()
+        }
+    
+    @staticmethod
+    def filter_adults(users, min_age=18):
+        """Pure - filtr qilingan yangi ro'yxat qaytaradi"""
+        return [u for u in users if u['age'] >= min_age]
+    
+    @staticmethod
+    def calculate_discount(price, percent):
+        """Pure - matematik hisoblash"""
+        if percent < 0 or percent > 100:
+            raise ValueError("Percent 0-100 oralig'ida bo'lishi kerak")
+        return price * (1 - percent / 100)
+    
+    @staticmethod
+    def compose(f, g, x):
+        """Pure - funktsiyalar kompozitsiyasi"""
+        return f(g(x))
+
+# Pure funktsiyalarni ishlatish
+print("PURE FUNKTSIYALAR:")
+print(f"add(5, 3) = {PureFunctions.add(5, 3)}")  # Har doim 8
+print(f"add(5, 3) = {PureFunctions.add(5, 3)}")  # Har doim 8
+
+numbers = [1, 2, 3, 4, 5]
+print(f"calculate_average({numbers}) = {PureFunctions.calculate_average(numbers)}")
+
+users = [
+    {'name': 'ali', 'age': 17},
+    {'name': 'vali', 'age': 25},
+    {'name': 'hasan', 'age': 32}
+]
+adults = PureFunctions.filter_adults(users)
+print(f"filter_adults() = {adults}")
+
+# Pure funktsiyalarning afzalliklari:
+# 1. Test qilish oson
+# 2. Parallel ishlatish xavfsiz
+# 3. Caching mumkin
+# 4. Debug qilish oson
+```
+
+### Pure funktsiyalarning afzalliklari
+
+**4-misol: Pure funktsiyalar bilan ishlash**
+
+```python
+from functools import lru_cache
+import time
+
+class MathOperations:
+    @staticmethod
+    @lru_cache(maxsize=128)
+    def fibonacci(n):
+        """Pure funktsiya - caching mumkin"""
+        if n < 2:
+            return n
+        return MathOperations.fibonacci(n-1) + MathOperations.fibonacci(n-2)
+    
+    @staticmethod
+    def factorial(n):
+        """Pure funktsiya"""
+        if n <= 1:
+            return 1
+        return n * MathOperations.factorial(n-1)
+    
+    @staticmethod
+    def power(base, exp):
+        """Pure funktsiya"""
+        return base ** exp
+
+class DataTransformer:
+    @staticmethod
+    def map_data(data, func):
+        """Pure - transformatsiya"""
+        return [func(x) for x in data]
+    
+    @staticmethod
+    def filter_data(data, predicate):
+        """Pure - filtr"""
+        return [x for x in data if predicate(x)]
+    
+    @staticmethod
+    def reduce_data(data, func, initial):
+        """Pure - agregatsiya"""
+        result = initial
+        for x in data:
+            result = func(result, x)
+        return result
+
+# Pure funktsiyalarni test qilish
+def test_pure_functions():
+    """Pure funktsiyalarni test qilish oson"""
+    
+    # Test 1: Fibonacci
+    assert MathOperations.fibonacci(5) == 5
+    assert MathOperations.fibonacci(7) == 13
+    assert MathOperations.fibonacci(10) == 55
+    
+    # Test 2: Data transformation
+    data = [1, 2, 3, 4, 5]
+    transformer = DataTransformer()
+    
+    squared = transformer.map_data(data, lambda x: x**2)
+    assert squared == [1, 4, 9, 16, 25]
+    
+    evens = transformer.filter_data(data, lambda x: x % 2 == 0)
+    assert evens == [2, 4]
+    
+    total = transformer.reduce_data(data, lambda acc, x: acc + x, 0)
+    assert total == 15
+    
+    print("✅ Barcha testlar o'tdi!")
+
+test_pure_functions()
+
+# Caching afzalligi
+start = time.time()
+print(MathOperations.fibonacci(30))
+print(f"Birinchi marta: {time.time() - start:.3f} sekund")
+
+start = time.time()
+print(MathOperations.fibonacci(30))
+print(f"Ikkinchi marta: {time.time() - start:.3f} sekund (cached)")
+```
+
+### Clean Function Design qoidalari
+
+**5-misol: To'liq clean function misoli**
+
+```python
+from typing import List, Dict, Optional, Union
+from dataclasses import dataclass
+from enum import Enum
+
+class OrderStatus(Enum):
+    """Buyurtma statuslari"""
+    PENDING = "pending"
+    PROCESSING = "processing"
+    SHIPPED = "shipped"
+    DELIVERED = "delivered"
+    CANCELLED = "cancelled"
+
+@dataclass
+class Product:
+    """Mahsulot ma'lumotlari"""
+    id: int
+    name: str
+    price: float
+    quantity: int
+
+@dataclass
+class Customer:
+    """Mijoz ma'lumotlari"""
+    id: int
+    name: str
+    email: str
+    loyalty_points: int = 0
+
+# 1. Kichik, fokuslangan funktsiyalar
+def calculate_item_total(price: float, quantity: int) -> float:
+    """Bitta mahsulot umumiy narxini hisoblash"""
+    return price * quantity
+
+def calculate_subtotal(items: List[Dict]) -> float:
+    """Mahsulotlar umumiy narxini hisoblash"""
+    return sum(calculate_item_total(item['price'], item['quantity']) 
+               for item in items)
+
+def calculate_tax(subtotal: float, tax_rate: float = 0.12) -> float:
+    """Soliq hisoblash"""
+    return subtotal * tax_rate
+
+def calculate_loyalty_discount(subtotal: float, points: int) -> float:
+    """Loyalty ballari asosida chegirma hisoblash"""
+    discount = min(points * 0.01, subtotal * 0.2)  # Max 20%
+    return discount
+
+def calculate_shipping_cost(items_count: int, distance: float) -> float:
+    """Yetkazish narxini hisoblash"""
+    base_cost = 5000  # Asosiy narx
+    per_item_cost = items_count * 1000
+    distance_cost = distance * 500
+    return base_cost + per_item_cost + distance_cost
+
+# 2. Pure funktsiyalar
+def apply_discount(amount: float, discount: float) -> float:
+    """Chegirma qo'llash (pure)"""
+    return max(0, amount - discount)
+
+def calculate_final_price(
+    subtotal: float,
+    tax: float,
+    shipping: float,
+    discount: float = 0
+) -> float:
+    """Yakuniy narxni hisoblash (pure)"""
+    return subtotal + tax + shipping - discount
+
+def validate_order(items: List[Dict]) -> List[str]:
+    """Buyurtmani tekshirish (pure)"""
+    errors = []
+    
+    if not items:
+        errors.append("Buyurtma bo'sh")
+        return errors
+    
+    for i, item in enumerate(items):
+        if item.get('quantity', 0) <= 0:
+            errors.append(f"Item {i}: miqdor noto'g'ri")
+        if item.get('price', 0) <= 0:
+            errors.append(f"Item {i}: narx noto'g'ri")
+    
+    return errors
+
+# 3. Bir vazifa - bir funktsiya
+def format_order_summary(
+    order_id: str,
+    customer: Customer,
+    items: List[Dict],
+    totals: Dict
+) -> str:
+    """Buyurtma xulosasini formatlash"""
+    lines = [
+        "=" * 50,
+        f"BUYURTMA #{order_id}",
+        "=" * 50,
+        f"Mijoz: {customer.name} ({customer.email})",
+        f"Ballar: {customer.loyalty_points}",
+        "-" * 50,
+        "Mahsulotlar:"
+    ]
+    
+    for item in items:
+        lines.append(f"  {item['name']} x{item['quantity']} = {item['price'] * item['quantity']:,.0f} so'm")
+    
+    lines.extend([
+        "-" * 50,
+        f"Umumiy: {totals['subtotal']:,.0f} so'm",
+        f"Soliq (12%): {totals['tax']:,.0f} so'm",
+        f"Yetkazish: {totals['shipping']:,.0f} so'm",
+        f"Chegirma: -{totals['discount']:,.0f} so'm",
+        "=" * 50,
+        f"JAMI: {totals['final']:,.0f} so'm",
+        "=" * 50
+    ])
+    
+    return "\n".join(lines)
+
+# 4. Asosiy funktsiya - kompozitsiya
+def process_order(
+    order_id: str,
+    customer: Customer,
+    items: List[Dict],
+    distance: float
+) -> Dict:
+    """
+    Buyurtmani qayta ishlash (asosiy funktsiya)
+    Barcha kichik funktsiyalarni birlashtiradi
+    """
+    # Validatsiya
+    errors = validate_order(items)
+    if errors:
+        return {'success': False, 'errors': errors}
+    
+    # Hisoblashlar
+    subtotal = calculate_subtotal(items)
+    tax = calculate_tax(subtotal)
+    shipping = calculate_shipping_cost(len(items), distance)
+    discount = calculate_loyalty_discount(subtotal, customer.loyalty_points)
+    final = calculate_final_price(subtotal, tax, shipping, discount)
+    
+    totals = {
+        'subtotal': subtotal,
+        'tax': tax,
+        'shipping': shipping,
+        'discount': discount,
+        'final': final
+    }
+    
+    # Formatlash
+    summary = format_order_summary(order_id, customer, items, totals)
+    
+    return {
+        'success': True,
+        'order_id': order_id,
+        'customer': customer.name,
+        'totals': totals,
+        'summary': summary
+    }
+
+# Ishlatish
+customer = Customer(
+    id=1,
+    name="Ali Valiyev",
+    email="ali@email.com",
+    loyalty_points=150
+)
+
+items = [
+    {'name': 'Noutbuk', 'price': 5000000, 'quantity': 1},
+    {'name': 'Sichqoncha', 'price': 150000, 'quantity': 2},
+    {'name': 'Klaviatura', 'price': 250000, 'quantity': 1}
+]
+
+result = process_order("ORD-001", customer, items, distance=5.5)
+
+if result['success']:
+    print(result['summary'])
+    print(f"\nHisob: {result['totals']['final']:,.0f} so'm")
+else:
+    print(f"Xatolar: {result['errors']}")
+```
+
+### Clean Function Design - Best Practices
+
+**6-misol: Umumiy qoidalar va misollar**
+
+```python
+# 1. Funktsiya nomi aniq bo'lishi kerak
+# YOMON
+def proc(x, y):
+    return x * y
+
+# YAXSHI
+def calculate_rectangle_area(length, width):
+    return length * width
+
+# 2. Funktsiya kichik bo'lishi kerak (25 qatordan kam)
+# YOMON
+def process_user_data_bad(user_data):
+    # 100 qator kod
+    pass
+
+# YAXSHI
+def validate_user(user_data): pass
+def format_user(user_data): pass
+def save_user(user_data): pass
+def notify_user(user_data): pass
+
+# 3. Funktsiya bitta vazifani bajarishi kerak
+# YOMON
+def process_order_bad(order):
+    # Validatsiya
+    # Hisoblash
+    # Saqlash
+    # Email jo'natish
+    # Log yozish
+    pass
+
+# 4. Side effects minimal bo'lishi kerak
+# YOMON - side effect
+def add_to_cart_bad(product_id):
+    global cart
+    cart.append(product_id)
+    print(f"Product {product_id} added")
+    with open('cart.log', 'a') as f:
+        f.write(f"{product_id}\n")
+
+# YAXSHI - pure
+def add_to_cart(cart, product_id):
+    new_cart = cart.copy()
+    new_cart.append(product_id)
+    return new_cart
+
+# 5. Error handling aniq bo'lishi kerak
+# YOMON
+def divide_bad(a, b):
+    try:
+        return a / b
+    except:
+        return None
+
+# YAXSHI
+def divide(a, b):
+    if b == 0:
+        raise ValueError("Division by zero")
+    return a / b
+
+# 6. Type hints ishlatish
+from typing import List, Optional
+
+def find_user(users: List[Dict], user_id: int) -> Optional[Dict]:
+    """Foydalanuvchini qidirish"""
+    for user in users:
+        if user.get('id') == user_id:
+            return user
+    return None
+
+# 7. Dokumentatsiya
+def calculate_bmi(weight_kg: float, height_m: float) -> float:
+    """
+    BMI (Body Mass Index) hisoblash.
+    
+    Formula: weight / height²
+    
+    Args:
+        weight_kg: Vazn (kilogramm)
+        height_m: Bo'y (metr)
+    
+    Returns:
+        BMI qiymati
+    
+    Raises:
+        ValueError: Agar parametrlar noto'g'ri bo'lsa
+    
+    Examples:
+        >>> calculate_bmi(70, 1.75)
+        22.86
+    """
+    if weight_kg <= 0 or height_m <= 0:
+        raise ValueError("Vazn va bo'y musbat bo'lishi kerak")
+    
+    return round(weight_kg / (height_m ** 2), 2)
+```
+
+### Clean Function Design - Amaliy maslahatlar
+
+```python
+# 1. DRY (Don't Repeat Yourself)
+# YOMON
+def process_student():
+    # validatsiya
+    if len(name) < 2:
+        errors.append("Ism juda qisqa")
+    # ... 100 qator
+
+def process_teacher():
+    # validatsiya (takrorlangan kod)
+    if len(name) < 2:
+        errors.append("Ism juda qisqa")
+    # ... 100 qator
+
+# YAXSHI
+def validate_name(name):
+    if len(name) < 2:
+        return "Ism juda qisqa"
+    return None
+
+# 2. KISS (Keep It Simple, Stupid)
+# YOMON
+def is_even_bad(n):
+    return True if n % 2 == 0 else False
+
+# YAXSHI
+def is_even(n):
+    return n % 2 == 0
+
+# 3. YAGNI (You Ain't Gonna Need It)
+# YOMON
+def process_data_bad(data, future_feature=False, experimental=False):
+    # Hozir kerak bo'lmagan parametrlar
+    pass
+
+# YAXSHI
+def process_data(data):
+    # Faqat kerakli parametrlar
+    pass
+
+# 4. Command-Query Separation
+# YOMON - ikkalasini birga
+def add_and_get_count(item):
+    items.append(item)
+    return len(items)
+
+# YAXSHI - ajratilgan
+def add_item(items, item):
+    items.append(item)
+
+def get_count(items):
+    return len(items)
+```
+
+### Clean Function Design Checklist
+
+```python
+"""
+✅ CLEAN FUNCTION DESIGN CHECKLIST
+
+Funktsiya yozganda quyidagilarni tekshiring:
+
+1. Nomi
+   □ Funktsiya nomi uning vazifasini aniq ifodalayaptimi?
+   □ Verb bilan boshlanganmi? (get_, calculate_, validate_, format_)
+
+2. Hajmi
+   □ Funktsiya 20-30 qatordan oshmayaptimi?
+   □ Bir ekranga sig'adimi?
+
+3. Vazifalar
+   □ Bitta vazifani bajarayaptimi?
+   □ Boshqa funktsiyalarga bo'lish mumkinmi?
+
+4. Parametrlar
+   □ 3 tadan kam parametr bormi?
+   □ Ko'p bo'lsa, dataclass ishlatilganmi?
+
+5. Pure
+   □ Deterministikmi? (bir xil input -> bir xil output)
+   □ Side effects bormi?
+   □ Global o'zgaruvchilarni o'zgartiryaptimi?
+
+6. Error Handling
+   □ Xatoliklar to'g'ri handled qilinganmi?
+   □ Aniq exception lar ishlatilganmi?
+
+7. Dokumentatsiya
+   □ Docstring yozilganmi?
+   □ Type hints ishlatilganmi?
+   □ Misollar keltirilganmi?
+
+8. Test
+   □ Funktsiyani test qilish osonmi?
+   □ Unit testlar yozish mumkinmi?
+"""
+```
