@@ -497,45 +497,71 @@
 
 # 39 Dictionarydagi value’lari bir xil bo‘lgan keylarni guruhlang.
 
-data = {
-    'olma': 'meva',
-    'sabzi': 'sabzavot',
-    'banan': 'meva',
-    'karam': 'sabzavot',
-    'olcha': 'meva',
-    'kartoshka': 'sabzavot'
-}
+# data = {
+#     'olma': 'meva',
+#     'sabzi': 'sabzavot',
+#     'banan': 'meva',
+#     'karam': 'sabzavot',
+#     'olcha': 'meva',
+#     'kartoshka': 'sabzavot'
+# }
 
-print("Boshlang'ich lug'at:")
-print(data)
+# print("Boshlang'ich lug'at:")
+# print(data)
 
-# Guruhlash
-mevalar = []
-sabzavotlar = []
+# # Guruhlash
+# mevalar = []
+# sabzavotlar = []
 
-for kalit, qiymat in data.items():
-    if qiymat == 'meva':
-        mevalar.append(kalit)
-    elif qiymat == 'sabzavot':
-        sabzavotlar.append(kalit)
+# for kalit, qiymat in data.items():
+#     if qiymat == 'meva':
+#         mevalar.append(kalit)
+#     elif qiymat == 'sabzavot':
+#         sabzavotlar.append(kalit)
 
-print("\nNatija:")
-print("Mevalar:", mevalar)
-print("Sabzavotlar:", sabzavotlar)
+# print("\nNatija:")
+# print("Mevalar:", mevalar)
+# print("Sabzavotlar:", sabzavotlar)
 
-# Yana bir usul (umumiy)
-print("\nUmumiy usul:")
-guruhlar = {}
+# # Yana bir usul (umumiy)
+# print("\nUmumiy usul:")
+# guruhlar = {}
 
-for kalit, qiymat in data.items():
-    if qiymat not in guruhlar:
-        guruhlar[qiymat] = []
-    guruhlar[qiymat].append(kalit)
+# for kalit, qiymat in data.items():
+#     if qiymat not in guruhlar:
+#         guruhlar[qiymat] = []
+#     guruhlar[qiymat].append(kalit)
 
-for qiymat, kalitlar in guruhlar.items():
-    print(f"{qiymat}: {kalitlar}")
+# for qiymat, kalitlar in guruhlar.items():
+#     print(f"{qiymat}: {kalitlar}")
 
 # 40 Dictionary ichida dictionary bo‘lsa, maksimal chuqurlikni aniqlang.
+
+data = {"a": {"b": {"c": 5}}, "d": {"e": 6}, "f": 7}
+
+print("Lug'at:")
+print(data)
+
+# Chuqurlikni hisoblash
+chuqurlik = 1
+max_chuqurlik = 1
+
+# 1-darajadagi qiymatlarni tekshiramiz
+for qiymat1 in data.values():
+    if type(qiymat1) == dict:
+        chuqurlik = 2
+        # 2-darajadagi qiymatlarni tekshiramiz
+        for qiymat2 in qiymat1.values():
+            if type(qiymat2) == dict:
+                chuqurlik = 3
+                # 3-darajadagi qiymatlarni tekshiramiz
+                for qiymat3 in qiymat2.values():
+                    if type(qiymat3) == dict:
+                        chuqurlik = 4
+        if chuqurlik > max_chuqurlik:
+            max_chuqurlik = chuqurlik
+
+print(f"\nMaksimal chuqurlik: {max_chuqurlik}")
 
 # ----------------------------------------------------
 # 🟣 41–60: KATTA PROYEKT TOPSHIRIQLAR
