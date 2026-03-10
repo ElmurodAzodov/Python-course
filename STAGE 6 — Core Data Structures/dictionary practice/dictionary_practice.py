@@ -454,19 +454,46 @@
 
 # 37 Dictionaryni deep copy qilib, nested elementlar mustaqilligini tekshiring.
 
-import copy
+# import copy
 
-d = {"a": [1, 2, 3], "b": {"x": 10}}
+# d = {"a": [1, 2, 3], "b": {"x": 10}}
 
-d_copy = copy.deepcopy(d)
+# d_copy = copy.deepcopy(d)
 
-d_copy["a"].append(4)
-d_copy["b"]["x"] = 99
+# d_copy["a"].append(4)
+# d_copy["b"]["x"] = 99
 
-print("Original:", d)
-print("Copy:", d_copy)
+# print("Original:", d)
+# print("Copy:", d_copy)
 
 # 38 Dictionary ichidagi barcha tuple’larni listga aylantiring.
+
+lugat = {
+    'a': (1, 2, 3),
+    'b': [4, 5, (6, 7)],
+    'c': 'salom',
+    'd': 100
+}
+# Tuple'larni listga aylantiramiz
+yangi_lugat = {}
+
+for kalit, qiymat in lugat.items():
+    if type(qiymat) == tuple:
+        yangi_lugat[kalit] = list(qiymat)
+    elif type(qiymat) == list:
+        # List ichidagi tuple'larni ham tekshiramiz
+        yangi_royxat = []
+        for element in qiymat:
+            if type(element) == tuple:
+                yangi_royxat.append(list(element))
+            else:
+                yangi_royxat.append(element)
+        yangi_lugat[kalit] = yangi_royxat
+    else:
+        yangi_lugat[kalit] = qiymat
+
+print("\nTuple'lar listga aylantirilgan:")
+print(yangi_lugat)
 
 # 39 Dictionarydagi value’lari bir xil bo‘lgan keylarni guruhlang.
 
