@@ -4935,3 +4935,2296 @@ print(format_text("test", 'underline', 'capitalize', width=20, align='right'))
 <br>
 <br>
 
+## 🔢 Keyword-Only Arguments (*, arg)
+
+### Keyword-Only Arguments nima?
+
+Keyword-only arguments - bu funktsiyani chaqirishda faqat keyword (nom) orqali berilishi mumkin bo'lgan parametrlar. Boshqacha aytganda, bu parametrlarni pozitsiya (tartib) orqali berib bo'lmaydi.
+
+**Real hayotdan misol:**
+- **Samolyot chiptasi**: Siz "business klass" deyishingiz mumkin, lekin "2-parametr" deb berolmaysiz
+- **Kafe buyurtmasi**: "Qahva, sutli, shakar kam" - bu yerda "sutli" va "shakar kam" keyword-only argumentlarga o'xshaydi
+
+```python
+# Oddiy misol - * dan keyingi barcha parametrlar keyword-only
+def talaba_ma'lumot(ism, familiya, *, yosh, kurs):
+    """
+    ism va familiya - positional yoki keyword bo'lishi mumkin
+    yosh va kurs - FAQAT keyword bo'lishi kerak
+    """
+    print(f"Ism: {ism}")
+    print(f"Familiya: {familiya}")
+    print(f"Yosh: {yosh}")
+    print(f"Kurs: {kurs}")
+
+# TO'G'RI - keyword-only argumentlar nom bilan berilgan
+talaba_ma'lumot("Ali", "Valiyev", yosh=20, kurs=2)
+
+# NOTO'G'RI - keyword-only argumentlar pozitsion berilgan
+# talaba_ma'lumot("Ali", "Valiyev", 20, 2)  # TypeError!
+```
+
+### Keyword-Only Arguments Sintaksisi
+
+Keyword-only argumentlarni yaratishning ikki usuli bor:
+
+#### 1. `*` operatori bilan
+```python
+def funktsiya(param1, param2, *, keyword_only1, keyword_only2):
+    """* dan keyingi barcha parametrlar keyword-only"""
+    pass
+```
+
+#### 2. `*args` bilan birgalikda
+```python
+def funktsiya(param1, param2, *args, keyword_only1, keyword_only2):
+    """*args dan keyingi parametrlar keyword-only"""
+    pass
+```
+
+### Keyword-Only Argumentsning Afzalliklari
+
+1. **Kod o'qilishi yaxshilanadi** - har bir argumentning ma'nosi aniq
+2. **Xatoliklarni kamaytiradi** - argumentlar tartibini adashtirish xavfi yo'q
+3. **API dizaynida qulay** - kengaytirish oson
+4. **Majburiy va ixtiyoriy parametrlarni ajratish oson**
+
+### Amaliy Misollar
+
+**1-misol: Foydalanuvchi yaratish tizimi**
+
+```python
+def create_user(username, email, *, age=None, phone=None, is_active=True, role="user"):
+    """
+    Yangi foydalanuvchi yaratish
+    username, email - positional yoki keyword
+    age, phone, is_active, role - FAQAT keyword
+    """
+    user = {
+        "username": username,
+        "email": email,
+        "age": age,
+        "phone": phone,
+        "is_active": is_active,
+        "role": role,
+        "created_at": "2024-01-15"
+    }
+    
+    print("\n" + "👤"*10)
+    print("YANGI FOYDALANUVCHI YARATILDI")
+    print("👤"*10)
+    
+    for key, value in user.items():
+        print(f"{key}: {value}")
+    
+    return user
+
+# TO'G'RI chaqirish usullari
+print("1-USUL: Pozitsion + keyword")
+user1 = create_user("alisher", "ali@email.com", age=25, phone="+998901234567")
+
+print("\n2-USUL: Hamma keyword")
+user2 = create_user(
+    username="madina",
+    email="madina@email.com",
+    age=23,
+    role="admin",
+    is_active=True
+)
+
+print("\n3-USUL: Minimal ma'lumotlar")
+user3 = create_user("bobur", "bobur@email.com")
+
+# NOTO'G'RI - keyword-only argumentlarni pozitsion berish
+# user4 = create_user("jasur", "jasur@email.com", 25, "+998901234567")  # TypeError!
+
+# NOTO'G'RI - * dan oldin keyword berish
+# user5 = create_user(username="ali", "ali@email.com")  # SyntaxError!
+```
+
+**2-misol: Bank operatsiyalari**
+
+```python
+def bank_transaction(
+    account_number,
+    amount,
+    *,
+    transaction_type="deposit",
+    currency="UZS",
+    description="",
+    notify=True,
+    urgent=False
+):
+    """
+    Bank operatsiyasini amalga oshirish
+    account_number, amount - positional yoki keyword
+    qolganlari - FAQAT keyword
+    """
+    print("\n" + "💰"*10)
+    print("BANK OPERATSIYASI")
+    print("💰"*10)
+    
+    print(f"Hisob raqami: {account_number}")
+    print(f"Summa: {amount} {currency}")
+    print(f"Operatsiya turi: {transaction_type}")
+    
+    if description:
+        print(f"Izoh: {description}")
+    
+    # Komissiya hisoblash
+    commission = 0
+    if urgent:
+        commission = amount * 0.02  # 2% tezkor uchun
+        print(f"Tezkor xizmat: Ha (+2% komissiya)")
+    
+    if notify:
+        print("SMS xabarnoma: Yuboriladi")
+    
+    total = amount + commission
+    
+    print(f"\nKomissiya: {commission} {currency}")
+    print(f"Jami hisobdan chiqadi: {total} {currency}")
+    
+    return {
+        "transaction_id": "TXN" + str(hash(account_number) % 10000),
+        "amount": amount,
+        "commission": commission,
+        "total": total,
+        "status": "completed"
+    }
+
+# To'g'ri chaqirishlar
+print("1-OPERATSIYA: Oddiy depozit")
+t1 = bank_transaction("1234567890", 1000000)
+
+print("\n2-OPERATSIYA: Tezkor pul o'tkazma")
+t2 = bank_transaction(
+    "0987654321",
+    500000,
+    transaction_type="transfer",
+    description="Qarz to'lovi",
+    urgent=True,
+    notify=True
+)
+
+print("\n3-OPERATSIYA: Xalqaro o'tkazma")
+t3 = bank_transaction(
+    account_number="5555555555",
+    amount=1000,
+    currency="USD",
+    transaction_type="transfer",
+    description="International payment"
+)
+
+# Xato misollar
+# t4 = bank_transaction("1111111111", 200000, "withdrawal", "UZS")  # TypeError!
+```
+
+### *args bilan Keyword-Only Arguments
+
+```python
+def process_grades(student_name, *grades, passing_score=60, show_stats=True):
+    """
+    Talaba baholarini qayta ishlash
+    student_name - positional
+    *grades - variable-length positional arguments
+    passing_score, show_stats - keyword-only (*grades dan keyin)
+    """
+    print(f"\n=== TALABA: {student_name} ===")
+    
+    if not grades:
+        print("Baholar mavjud emas")
+        return
+    
+    print(f"Baholar: {grades}")
+    print(f"O'rtacha: {sum(grades) / len(grades):.2f}")
+    print(f"Eng yuqori: {max(grades)}")
+    print(f"Eng past: {min(grades)}")
+    
+    if show_stats:
+        passed = sum(1 for g in grades if g >= passing_score)
+        failed = len(grades) - passed
+        print(f"\nSTATISTIKA:")
+        print(f"  O'tish bali: {passing_score}")
+        print(f"  O'tganlar: {passed}")
+        print(f"  O'tmaganlar: {failed}")
+        print(f"  O'tish foizi: {(passed/len(grades))*100:.1f}%")
+
+# To'g'ri chaqirishlar
+process_grades("Ali Valiyev", 85, 90, 78, 92, 88)
+process_grades("Madina Azizova", 72, 68, 75, 70, passing_score=70)
+process_grades("Bobur Karimov", 45, 55, 60, 58, 62, show_stats=False)
+```
+
+### Keyword-Only Arguments bilan Murakkab Misollar
+
+**3-misol: REST API so'rovlari**
+
+```python
+def api_request(
+    endpoint,
+    method="GET",
+    *,
+    headers=None,
+    params=None,
+    data=None,
+    json=None,
+    auth=None,
+    timeout=30,
+    retries=3,
+    verify_ssl=True,
+    allow_redirects=True
+):
+    """
+    API so'rovini yuborish
+    endpoint, method - positional yoki keyword
+    qolganlari - FAQAT keyword
+    """
+    print("\n" + "🌐"*10)
+    print("API SO'ROV")
+    print("🌐"*10)
+    
+    print(f"Endpoint: {endpoint}")
+    print(f"Method: {method}")
+    
+    if headers:
+        print(f"\nHeaders: {headers}")
+    
+    if params:
+        print(f"Params: {params}")
+    
+    if data:
+        print(f"Data: {data}")
+    
+    if json:
+        print(f"JSON: {json}")
+    
+    if auth:
+        print(f"Auth: {auth[0]}:{'*' * len(auth[1])}")
+    
+    print(f"\nSozlamalar:")
+    print(f"  Timeout: {timeout}s")
+    print(f"  Retries: {retries}")
+    print(f"  SSL Verify: {verify_ssl}")
+    print(f"  Allow Redirects: {allow_redirects}")
+    
+    # So'rov simulyatsiyasi
+    print(f"\n✅ So'rov yuborildi")
+    return {
+        "status": 200,
+        "data": {"message": "Success"},
+        "headers": {"Content-Type": "application/json"}
+    }
+
+# Turli xil API so'rovlari
+print("1-SO'ROV: GET so'rov")
+api_request("/users", headers={"Authorization": "Bearer token123"})
+
+print("\n2-SO'ROV: POST so'rov ma'lumotlar bilan")
+api_request(
+    "/users",
+    method="POST",
+    json={"name": "Ali", "email": "ali@email.com"},
+    auth=("admin", "secret"),
+    timeout=60
+)
+
+print("\n3-SO'ROV: Parametrlar bilan")
+api_request(
+    endpoint="/search",
+    params={"q": "python", "page": 1, "limit": 10},
+    retries=5,
+    timeout=10
+)
+
+print("\n4-SO'ROV: Minimal so'rov")
+api_request("/health")
+```
+
+**4-misol: Ma'lumotlar bazasi konfiguratsiyasi**
+
+```python
+def create_db_connection(
+    db_type,
+    host="localhost",
+    port=None,
+    *,
+    username=None,
+    password=None,
+    database=None,
+    ssl_mode="disable",
+    pool_size=10,
+    timeout=30,
+    autocommit=False,
+    charset="utf8"
+):
+    """
+    Ma'lumotlar bazasiga ulanish yaratish
+    db_type, host, port - positional yoki keyword
+    qolganlari - FAQAT keyword
+    """
+    print("\n" + "🗄️"*10)
+    print("MA'LUMOTLAR BAZASIGA ULANISH")
+    print("🗄️"*10)
+    
+    # Portni aniqlash
+    if port is None:
+        default_ports = {
+            "postgresql": 5432,
+            "mysql": 3306,
+            "mongodb": 27017,
+            "redis": 6379
+        }
+        port = default_ports.get(db_type, 5432)
+    
+    print(f"Database turi: {db_type}")
+    print(f"Ulanish: {host}:{port}")
+    
+    if database:
+        print(f"Database: {database}")
+    
+    if username:
+        print(f"Username: {username}")
+        print(f"Password: {'*' * len(password) if password else 'None'}")
+    
+    print(f"\nSozlamalar:")
+    print(f"  SSL Mode: {ssl_mode}")
+    print(f"  Pool Size: {pool_size}")
+    print(f"  Timeout: {timeout}s")
+    print(f"  Autocommit: {autocommit}")
+    print(f"  Charset: {charset}")
+    
+    # Ulanish simulyatsiyasi
+    connection_id = f"conn_{hash(host + str(port)) % 10000:04d}"
+    print(f"\n✅ Ulanish yaratildi. ID: {connection_id}")
+    
+    return {
+        "connection_id": connection_id,
+        "db_type": db_type,
+        "host": host,
+        "port": port,
+        "database": database,
+        "pool_size": pool_size
+    }
+
+# Turli xil ulanishlar
+print("1-ULANISH: PostgreSQL lokal")
+conn1 = create_db_connection(
+    "postgresql",
+    username="postgres",
+    password="admin123",
+    database="myapp_db"
+)
+
+print("\n2-ULANISH: MySQL production")
+conn2 = create_db_connection(
+    "mysql",
+    host="db.example.com",
+    username="app_user",
+    password="secret_password",
+    database="prod_db",
+    ssl_mode="require",
+    pool_size=20,
+    autocommit=True
+)
+
+print("\n3-ULANISH: MongoDB cloud")
+conn3 = create_db_connection(
+    "mongodb",
+    host="cluster0.abcde.mongodb.net",
+    port=27017,
+    username="admin",
+    password="complex_pass",
+    database="users",
+    ssl_mode="required",
+    timeout=60
+)
+
+print("\n4-ULANISH: Redis cache")
+conn4 = create_db_connection(
+    "redis",
+    host="localhost",
+    password="redis_pass",
+    pool_size=5,
+    timeout=5
+)
+```
+
+**5-misol: Grafik sozlamalari**
+
+```python
+def create_window(
+    title,
+    width=800,
+    height=600,
+    *,
+    resizable=True,
+    fullscreen=False,
+    bg_color="white",
+    icon=None,
+    always_on_top=False,
+    transparent=False,
+    opacity=1.0,
+    max_width=None,
+    max_height=None
+):
+    """
+    Grafik oyna yaratish
+    title, width, height - positional yoki keyword
+    qolganlari - FAQAT keyword
+    """
+    print("\n" + "🪟"*10)
+    print("OYNA YARATISH")
+    print("🪟"*10)
+    
+    print(f"Sarlavha: {title}")
+    print(f"O'lcham: {width}x{height}")
+    
+    if max_width or max_height:
+        print(f"Maksimal o'lcham: {max_width or 'auto'}x{max_height or 'auto'}")
+    
+    print(f"\nXususiyatlar:")
+    print(f"  O'lchami o'zgartirish: {resizable}")
+    print(f"  To'liq ekran: {fullscreen}")
+    print(f"  Fon rangi: {bg_color}")
+    print(f"  Har doim ustida: {always_on_top}")
+    print(f"  Shaffoflik: {transparent}")
+    
+    if transparent:
+        print(f"  Shaffoflik darajasi: {opacity}")
+    
+    if icon:
+        print(f"  Ikona: {icon}")
+    
+    # Oyna yaratish simulyatsiyasi
+    window_id = f"win_{hash(title) % 10000:04d}"
+    print(f"\n✅ Oyna yaratildi. ID: {window_id}")
+    
+    return {
+        "window_id": window_id,
+        "title": title,
+        "width": width,
+        "height": height,
+        "fullscreen": fullscreen
+    }
+
+# Turli xil oynalar
+print("1-OYNA: Oddiy oyna")
+win1 = create_window("Mening Ilovam")
+
+print("\n2-OYNA: To'liq ekran o'yin")
+win2 = create_window(
+    "Super Game",
+    width=1920,
+    height=1080,
+    fullscreen=True,
+    bg_color="black",
+    resizable=False
+)
+
+print("\n3-OYNA: Shaffof bildirishnoma")
+win3 = create_window(
+    "Notification",
+    width=300,
+    height=150,
+    resizable=False,
+    always_on_top=True,
+    transparent=True,
+    opacity=0.8,
+    bg_color="yellow"
+)
+
+print("\n4-OYNA: Grafik muharrir")
+win4 = create_window(
+    title="Photo Editor",
+    width=1200,
+    height=800,
+    max_width=1920,
+    max_height=1080,
+    icon="photo_icon.ico",
+    bg_color="gray"
+)
+```
+
+### Keyword-Only Arguments va Default Qiymatlar
+
+```python
+def advanced_function(
+    required1,
+    required2,
+    *args,
+    option1="default1",
+    option2="default2",
+    **kwargs
+):
+    """
+    Murakkab funktsiya - barcha imkoniyatlarni ko'rsatish
+    """
+    print(f"Majburiy1: {required1}")
+    print(f"Majburiy2: {required2}")
+    
+    if args:
+        print(f"*args: {args}")
+    
+    print(f"Option1: {option1}")
+    print(f"Option2: {option2}")
+    
+    if kwargs:
+        print(f"**kwargs: {kwargs}")
+
+# To'g'ri chaqirishlar
+advanced_function(1, 2)
+advanced_function(1, 2, 3, 4, 5, option1="custom")
+advanced_function(1, 2, option2="new", extra1="value1", extra2="value2")
+```
+
+### Keyword-Only Arguments bilan Validatsiya
+
+**6-misol: Ma'lumot validatsiyasi**
+
+```python
+def validate_user_data(
+    username,
+    email,
+    *,
+    age=None,
+    phone=None,
+    password=None,
+    password_confirm=None,
+    min_age=13,
+    max_age=120,
+    require_strong_password=True
+):
+    """
+    Foydalanuvchi ma'lumotlarini tekshirish
+    """
+    errors = []
+    warnings = []
+    
+    print("\n" + "✓"*10)
+    print("MA'LUMOTLARNI TEKSHIRISH")
+    print("✓"*10)
+    
+    # Username tekshirish
+    if len(username) < 3:
+        errors.append("Username kamida 3 belgidan iborat bo'lishi kerak")
+    elif len(username) > 30:
+        errors.append("Username 30 belgidan oshmasligi kerak")
+    
+    # Email tekshirish
+    if "@" not in email or "." not in email:
+        errors.append("Email noto'g'ri formatda")
+    
+    # Yosh tekshirish
+    if age is not None:
+        if age < min_age:
+            errors.append(f"Yosh {min_age} dan kichik bo'lishi mumkin emas")
+        elif age > max_age:
+            errors.append(f"Yosh {max_age} dan katta bo'lishi mumkin emas")
+    
+    # Telefon tekshirish
+    if phone:
+        phone = phone.replace(" ", "").replace("-", "")
+        if not phone.startswith("+998") or len(phone) != 13:
+            errors.append("Telefon +998 bilan boshlanib, 13 ta belgidan iborat bo'lishi kerak")
+    
+    # Parol tekshirish
+    if password:
+        if len(password) < 6:
+            errors.append("Parol kamida 6 belgidan iborat bo'lishi kerak")
+        
+        if require_strong_password:
+            if not any(c.isupper() for c in password):
+                errors.append("Parolda kamida 1 ta katta harf bo'lishi kerak")
+            if not any(c.isdigit() for c in password):
+                errors.append("Parolda kamida 1 ta raqam bo'lishi kerak")
+            if not any(c in "!@#$%^&*" for c in password):
+                warnings.append("Parolda maxsus belgi bo'lishi tavsiya etiladi")
+        
+        if password_confirm and password != password_confirm:
+            errors.append("Parollar mos kelmadi")
+    
+    # Natija
+    if errors:
+        print("\n❌ XATOLAR:")
+        for error in errors:
+            print(f"  • {error}")
+    else:
+        print("\n✅ Barcha ma'lumotlar to'g'ri")
+    
+    if warnings:
+        print("\n⚠️ Ogohlantirishlar:")
+        for warning in warnings:
+            print(f"  • {warning}")
+    
+    return len(errors) == 0
+
+# Test qilish
+print("1-TEKSHIRISH: To'g'ri ma'lumotlar")
+validate_user_data(
+    "alisher",
+    "ali@email.com",
+    age=25,
+    phone="+998901234567",
+    password="Secret123!",
+    password_confirm="Secret123!"
+)
+
+print("\n2-TEKSHIRISH: Xatoliklar bilan")
+validate_user_data(
+    "al",
+    "not-email",
+    age=10,
+    phone="12345",
+    password="123",
+    password_confirm="456",
+    min_age=18,
+    require_strong_password=True
+)
+
+print("\n3-TEKSHIRISH: Minimal ma'lumotlar")
+validate_user_data("bobur", "bobur@email.com")
+```
+
+### Keyword-Only Arguments bilan Dekoratorlar
+
+```python
+def validate_args(**validators):
+    """
+    Argumentlarni tekshiruvchi dekorator
+    """
+    def decorator(func):
+        def wrapper(*args, **kwargs):
+            for param, validator in validators.items():
+                if param in kwargs:
+                    value = kwargs[param]
+                    if not validator(value):
+                        raise ValueError(f"Parametr '{param}' noto'g'ri qiymat: {value}")
+            return func(*args, **kwargs)
+        return wrapper
+    return decorator
+
+@validate_args(
+    age=lambda x: 0 <= x <= 150,
+    price=lambda x: x > 0,
+    name=lambda x: len(x) >= 2 and x.isalpha()
+)
+def create_product(name, price, *, age=None, category=None):
+    """
+    Mahsulot yaratish
+    name, price - positional yoki keyword
+    age, category - keyword-only
+    """
+    print(f"\n✅ Mahsulot yaratildi: {name}, {price} so'm")
+    if age:
+        print(f"  Yosh cheklovi: {age}+")
+    if category:
+        print(f"  Kategoriya: {category}")
+    return {"name": name, "price": price, "age": age, "category": category}
+
+# To'g'ri chaqirishlar
+create_product("Noutbuk", 5000000, category="Elektronika")
+create_product("Kitob", 15000, age=12, category="Adabiyot")
+
+# Xato chaqirish
+# create_product("A", -100, age=200)  # ValueError!
+```
+
+### Keyword-Only Arguments bilan API Dizayni
+
+```python
+class APIClient:
+    def __init__(self, base_url, *, timeout=30, retries=3, verify_ssl=True):
+        """
+        API klient yaratish
+        base_url - positional yoki keyword
+        timeout, retries, verify_ssl - keyword-only
+        """
+        self.base_url = base_url
+        self.timeout = timeout
+        self.retries = retries
+        self.verify_ssl = verify_ssl
+        self.session = None
+        print(f"✅ API Client yaratildi: {base_url}")
+    
+    def request(
+        self,
+        method,
+        endpoint,
+        *,
+        params=None,
+        data=None,
+        json=None,
+        headers=None,
+        timeout=None,
+        retries=None
+    ):
+        """
+        API so'rov yuborish
+        method, endpoint - positional yoki keyword
+        qolganlari - keyword-only
+        """
+        url = f"{self.base_url}{endpoint}"
+        timeout = timeout or self.timeout
+        retries = retries or self.retries
+        
+        print(f"\n📡 So'rov: {method} {url}")
+        
+        if params:
+            print(f"  Params: {params}")
+        if headers:
+            print(f"  Headers: {headers}")
+        if data:
+            print(f"  Data: {data}")
+        if json:
+            print(f"  JSON: {json}")
+        
+        print(f"  Timeout: {timeout}s")
+        print(f"  Retries: {retries}")
+        
+        # So'rov simulyatsiyasi
+        return {
+            "status": 200,
+            "data": {"message": "Success"},
+            "url": url
+        }
+    
+    def get(self, endpoint, **kwargs):
+        """GET so'rov"""
+        return self.request("GET", endpoint, **kwargs)
+    
+    def post(self, endpoint, **kwargs):
+        """POST so'rov"""
+        return self.request("POST", endpoint, **kwargs)
+
+# API klient ishlatish
+client = APIClient("https://api.example.com", timeout=60, retries=5)
+
+# Turli xil so'rovlar
+client.get("/users", params={"page": 1, "limit": 10})
+client.post("/users", json={"name": "Ali", "email": "ali@email.com"})
+client.request(
+    "PUT",
+    "/users/1",
+    json={"name": "Ali Updated"},
+    headers={"X-Custom": "value"}
+)
+```
+
+### Keyword-Only Arguments Best Practices
+
+1. **Majburiy keyword-only argumentlar**
+```python
+def send_message(text, *, recipient, sender="system"):
+    """
+    recipient majburiy keyword-only
+    sender ixtiyoriy keyword-only
+    """
+    print(f"{sender} -> {recipient}: {text}")
+```
+
+2. **Konfiguratsiya parametrlari uchun**
+```python
+def initialize_app(
+    name,
+    *,
+    debug=False,
+    log_level="INFO",
+    max_workers=4,
+    cache_size=128
+):
+    """Ilova konfiguratsiyasi - barcha sozlamalar keyword-only"""
+    pass
+```
+
+3. **Xavfsizlik muhim bo'lgan parametrlar**
+```python
+def delete_user(user_id, *, confirm=False, force=False):
+    """Xavfsizlik uchun confirm va force keyword-only"""
+    if not confirm:
+        raise ValueError("delete_user uchun confirm=True kerak")
+    # ...
+```
+
+4. **Kengaytiriladigan API lar**
+```python
+def plot_graph(
+    data,
+    *,
+    title=None,
+    xlabel=None,
+    ylabel=None,
+    color="blue",
+    linewidth=1,
+    **style_options
+):
+    """Grafig chizish - keyword-only parametrlar kengaytirish oson"""
+    pass
+```
+
+---
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## 🌐 Scope Rules (local, global, built-in)
+
+### Scope (Ko'rinish sohasi) nima?
+
+Scope - bu dasturda o'zgaruvchilarning qayerda mavjudligi va qayerdan foydalanish mumkinligini belgilaydigan qoidalar to'plami. Xuddi real hayotdagi "xona" tushunchasiga o'xshaydi - har bir xonadagi narsalar faqat shu xonada ko'rinadi va ishlatiladi.
+
+**Real hayotdan misol:**
+- **Uy**: Har bir xonaning o'z jihozlari bor (local scope)
+- **Butun uy**: Umumiy joylardagi narsalar (global scope)
+- **Shahar infratuzilmi**: Elektr, suv, gaz - hamma uchun mavjud (built-in scope)
+
+```python
+# Oddiy misol
+x = 10  # Global o'zgaruvchi
+
+def funktsiya():
+    y = 20  # Local o'zgaruvchi
+    print(f"Funktsiya ichida: x = {x}")  # Globalga kirish mumkin
+    print(f"Funktsiya ichida: y = {y}")  # Localga kirish mumkin
+
+funktsiya()
+print(f"Funktsiya tashqarisida: x = {x}")  # Globalga kirish mumkin
+# print(y)  # NameError: y local va tashqarida mavjud emas
+```
+
+### Scope Turlari
+
+Python'da 4 xil scope mavjud:
+
+1. **Local (Lokal)** - funktsiya ichida yaratilgan o'zgaruvchilar
+2. **Enclosing (O'rab turuvchi)** - ichma-ich funktsiyalarda tashqi funktsiya o'zgaruvchilari
+3. **Global (Global)** - modul darajasida yaratilgan o'zgaruvchilar
+4. **Built-in (O'rnatilgan)** - Python'ning o'zida mavjud bo'lgan nomlar
+
+### LEGB Qoidasi
+
+Python o'zgaruvchilarni qidirishda LEGB qoidasiga amal qiladi:
+**L**ocal → **E**nclosing → **G**lobal → **B**uilt-in
+
+```python
+# Built-in misol
+print(len("salom"))  # len - built-in funktsiya
+
+# Global misol
+x = 100  # global
+
+def outer():
+    y = 50  # enclosing (outer uchun local, inner uchun enclosing)
+    
+    def inner():
+        z = 25  # local
+        print(f"Local z: {z}")
+        print(f"Enclosing y: {y}")
+        print(f"Global x: {x}")
+        print(f"Built-in len: {len('test')}")
+    
+    inner()
+
+outer()
+```
+
+### 1. Local Scope (Lokal soha)
+
+Local scope - bu funktsiya ichida yaratilgan o'zgaruvchilar faqat shu funktsiya ichida mavjud bo'ladi.
+
+```python
+def local_scope_misol():
+    # Local o'zgaruvchilar
+    ism = "Ali"
+    yosh = 25
+    print(f"Funktsiya ichida: {ism}, {yosh}")
+    
+    # Local o'zgaruvchini o'zgartirish
+    ism = "Vali"
+    print(f"O'zgartirilgan: {ism}")
+
+local_scope_misol()
+# print(ism)  # NameError: ism local va tashqarida mavjud emas
+```
+
+**Amaliy misol: Turli funktsiyalarda local o'zgaruvchilar**
+
+```python
+def user_info():
+    username = "alisher123"
+    email = "ali@email.com"
+    return f"User: {username}, Email: {email}"
+
+def product_info():
+    product = "Noutbuk"
+    price = 5000000
+    return f"Product: {product}, Price: {price}"
+
+# Har bir funktsiyaning local o'zgaruvchilari bir-biriga ta'sir qilmaydi
+print(user_info())
+print(product_info())
+
+# Local o'zgaruvchilar funktsiya tugagach yo'qoladi
+# print(username)  # NameError
+# print(product)   # NameError
+```
+
+### 2. Enclosing Scope (O'rab turuvchi soha)
+
+Enclosing scope - bu ichma-ich funktsiyalarda tashqi funktsiyaning o'zgaruvchilari.
+
+```python
+def tashqi_funktsiya(son):
+    """Tashqi funktsiya"""
+    tashqi_son = son
+    print(f"Tashqi funktsiya: {tashqi_son}")
+    
+    def ichki_funktsiya():
+        """Ichki funktsiya"""
+        # Enclosing scope dan foydalanish
+        natija = tashqi_son * 2
+        print(f"Ichki funktsiya: {tashqi_son} * 2 = {natija}")
+        
+        def eng_ichki():
+            # Enclosing scope (tashqi_son va natija mavjud)
+            print(f"Eng ichki: {tashqi_son} ning kvadrati = {tashqi_son ** 2}")
+        
+        eng_ichki()
+    
+    ichki_funktsiya()
+
+tashqi_funktsiya(5)
+```
+
+**Amaliy misol: Counter yaratish**
+
+```python
+def counter_yaratish(boshlangich=0):
+    """Hisoblagich yaratuvchi funktsiya"""
+    count = boshlangich
+    
+    def increment(qiymat=1):
+        nonlocal count  # Enclosing scope dagi o'zgaruvchini o'zgartirish uchun
+        count += qiymat
+        return count
+    
+    def decrement(qiymat=1):
+        nonlocal count
+        count -= qiymat
+        return count
+    
+    def reset():
+        nonlocal count
+        count = boshlangich
+        return count
+    
+    def current():
+        return count
+    
+    # Bir necha funktsiyani qaytarish
+    return {
+        "increment": increment,
+        "decrement": decrement,
+        "reset": reset,
+        "current": current
+    }
+
+# Hisoblagich yaratish
+counter1 = counter_yaratish(10)
+counter2 = counter_yaratish(100)
+
+print("=== COUNTER 1 ===")
+print(f"Current: {counter1['current']()}")
+print(f"Increment: {counter1['increment']()}")
+print(f"Increment 5: {counter1['increment'](5)}")
+print(f"Decrement 3: {counter1['decrement'](3)}")
+print(f"Reset: {counter1['reset']()}")
+
+print("\n=== COUNTER 2 ===")
+print(f"Current: {counter2['current']()}")
+print(f"Increment: {counter2['increment'](50)}")
+```
+
+### 3. Global Scope (Global soha)
+
+Global scope - bu modul darajasida (barcha funktsiyalardan tashqarida) yaratilgan o'zgaruvchilar.
+
+```python
+# Global o'zgaruvchilar
+APP_NAME = "My Application"
+VERSION = "1.0.0"
+users = []  # Global ro'yxat
+
+def add_user(name):
+    """Global ro'yxatga foydalanuvchi qo'shish"""
+    users.append(name)
+    print(f"User {name} qo'shildi. Jami users: {users}")
+
+def show_info():
+    """Global o'zgaruvchilardan foydalanish"""
+    print(f"Ilova: {APP_NAME} v{VERSION}")
+    print(f"Users: {users}")
+
+# Global o'zgaruvchilarni ishlatish
+show_info()
+add_user("Ali")
+add_user("Vali")
+show_info()
+
+# Global o'zgaruvchini o'zgartirish
+APP_NAME = "New Application"  # Bu globalni o'zgartiradi
+show_info()
+```
+
+### global keyword
+
+`global` kalit so'zi funktsiya ichida global o'zgaruvchini o'zgartirish uchun ishlatiladi.
+
+```python
+# Global o'zgaruvchi
+counter = 0
+settings = {"theme": "light", "language": "uz"}
+
+def increment_counter():
+    """Global counterni oshirish"""
+    global counter
+    counter += 1
+    print(f"Counter: {counter}")
+
+def update_settings(**kwargs):
+    """Global sozlamalarni yangilash"""
+    global settings
+    settings.update(kwargs)
+    print(f"Settings: {settings}")
+
+def problematic_increment():
+    """Xato - global ishlatilmagan"""
+    # counter += 1  # UnboundLocalError
+    print("Global ishlatilmadi")
+
+# Test qilish
+print(f"Boshlang'ich counter: {counter}")
+increment_counter()
+increment_counter()
+increment_counter()
+
+print(f"\nBoshlang'ich settings: {settings}")
+update_settings(theme="dark")
+update_settings(language="en", font_size=14)
+```
+
+### Global vs Local - Muhim farqlar
+
+```python
+# 1-misol: Local o'zgaruvchi globalni yashiradi
+x = 100  # Global
+
+def test1():
+    x = 50  # Local - globalni yashiradi
+    print(f"Local x: {x}")
+
+test1()
+print(f"Global x: {x}")
+
+# 2-misol: Globalni o'qish mumkin (o'zgartirish uchun global kerak)
+y = 200
+
+def test2():
+    print(f"Global y ni o'qish: {y}")  # Bu ishlaydi
+    # y = 300  # Bu local yaratadi, globalni o'zgartirmaydi
+
+test2()
+print(f"Global y o'zgarmadi: {y}")
+
+# 3-misol: Global va local birga
+z = 1000
+
+def test3():
+    global z
+    local_z = 500
+    z += local_z  # Globalni o'zgartirish
+    print(f"Local: {local_z}, Global yangi: {z}")
+
+test3()
+print(f"Global endi: {z}")
+```
+
+### 4. Built-in Scope (O'rnatilgan soha)
+
+Built-in scope - bu Python'ning o'zida mavjud bo'lgan funktsiyalar va nomlar.
+
+```python
+# Built-in funktsiyalar
+print("Bu built-in print funktsiyasi")
+print(f"len('salom') = {len('salom')}")
+print(f"max([1, 5, 3]) = {max([1, 5, 3])}")
+print(f"int('123') = {int('123')}")
+
+# Built-in nomlarni yashirish (tavsiya etilmaydi!)
+len = 100  # Built-in len ni yashiradi
+print(f"Endi len o'zgaruvchi: {len}")
+# print(len("test"))  # TypeError: 'int' object is not callable
+
+# Built-in larni qayta tiklash
+del len  # O'zgaruvchini o'chirish
+print(f"len qayta tiklandi: {len('test')}")
+```
+
+### Murakkab Scope Misollari
+
+**1-misol: Kalkulyator dasturi**
+
+```python
+# Global sozlamalar
+PRECISION = 2
+DECIMAL_SEPARATOR = "."
+operations_count = 0
+last_result = None
+
+def calculate(operation, *numbers):
+    """
+    Kalkulyator funktsiyasi
+    """
+    global operations_count, last_result
+    
+    operations_count += 1
+    
+    def add():
+        return sum(numbers)
+    
+    def multiply():
+        result = 1
+        for n in numbers:
+            result *= n
+        return result
+    
+    def average():
+        return sum(numbers) / len(numbers) if numbers else 0
+    
+    # Operatsiyani bajarish
+    if operation == "+":
+        result = add()
+    elif operation == "*":
+        result = multiply()
+    elif operation == "avg":
+        result = average()
+    else:
+        result = None
+    
+    # Natijani formatlash
+    if result is not None:
+        last_result = result
+        formatted = f"{result:.{PRECISION}f}".replace(".", DECIMAL_SEPARATOR)
+        print(f"Natija: {formatted}")
+    
+    return result
+
+def get_stats():
+    """Statistikani ko'rsatish"""
+    print("\n=== STATISTIKA ===")
+    print(f"Operatsiyalar soni: {operations_count}")
+    print(f"Oxirgi natija: {last_result}")
+    print(f"Precision: {PRECISION}")
+
+# Test qilish
+calculate("+", 10, 20, 30)
+calculate("*", 2, 3, 4)
+calculate("avg", 15, 25, 35, 45)
+
+# Globalni o'zgartirish
+PRECISION = 3
+DECIMAL_SEPARATOR = ","
+
+calculate("+", 5.5, 6.7, 8.3)
+get_stats()
+```
+
+**2-misol: Bank hisob tizimi**
+
+```python
+# Global ma'lumotlar
+accounts = {}
+total_balance = 0
+transaction_counter = 0
+BANK_NAME = "MyBank"
+INTEREST_RATE = 0.05
+
+def create_account(owner, initial_deposit=0):
+    """Yangi hisob ochish"""
+    global total_balance, transaction_counter
+    
+    account_id = f"ACC{len(accounts) + 1:04d}"
+    accounts[account_id] = {
+        "owner": owner,
+        "balance": initial_deposit,
+        "transactions": []
+    }
+    
+    total_balance += initial_deposit
+    
+    if initial_deposit > 0:
+        transaction_counter += 1
+        accounts[account_id]["transactions"].append({
+            "type": "deposit",
+            "amount": initial_deposit,
+            "balance": initial_deposit
+        })
+    
+    print(f"✅ Hisob ochildi: {account_id} ({owner})")
+    return account_id
+
+def deposit(account_id, amount):
+    """Pul qo'yish"""
+    global total_balance, transaction_counter
+    
+    if account_id not in accounts:
+        print("❌ Hisob topilmadi")
+        return False
+    
+    accounts[account_id]["balance"] += amount
+    total_balance += amount
+    transaction_counter += 1
+    
+    accounts[account_id]["transactions"].append({
+        "type": "deposit",
+        "amount": amount,
+        "balance": accounts[account_id]["balance"]
+    })
+    
+    print(f"💰 {amount} so'm qo'yildi. Yangi balans: {accounts[account_id]['balance']}")
+    return True
+
+def withdraw(account_id, amount):
+    """Pul yechish"""
+    global total_balance, transaction_counter
+    
+    if account_id not in accounts:
+        print("❌ Hisob topilmadi")
+        return False
+    
+    if accounts[account_id]["balance"] < amount:
+        print("❌ Mablag' yetarli emas")
+        return False
+    
+    accounts[account_id]["balance"] -= amount
+    total_balance -= amount
+    transaction_counter += 1
+    
+    accounts[account_id]["transactions"].append({
+        "type": "withdraw",
+        "amount": amount,
+        "balance": accounts[account_id]["balance"]
+    })
+    
+    print(f"💸 {amount} so'm yechildi. Yangi balans: {accounts[account_id]['balance']}")
+    return True
+
+def apply_interest():
+    """Foiz hisoblash"""
+    global total_balance
+    
+    print(f"\n📈 Foiz hisoblash ({INTEREST_RATE*100}%)")
+    
+    for acc_id, acc_data in accounts.items():
+        interest = acc_data["balance"] * INTEREST_RATE
+        acc_data["balance"] += interest
+        total_balance += interest
+        
+        acc_data["transactions"].append({
+            "type": "interest",
+            "amount": interest,
+            "balance": acc_data["balance"]
+        })
+        
+        print(f"  {acc_id}: +{interest:.2f} so'm")
+
+def bank_report():
+    """Bank hisoboti"""
+    print("\n" + "="*50)
+    print(f"{BANK_NAME} BANK HISOBI")
+    print("="*50)
+    
+    print(f"Jami hisoblar: {len(accounts)}")
+    print(f"Jami mablag': {total_balance:,.2f} so'm")
+    print(f"Jami tranzaksiyalar: {transaction_counter}")
+    print(f"Foiz stavkasi: {INTEREST_RATE*100}%")
+    
+    print("\nHisoblar ro'yxati:")
+    for acc_id, acc_data in accounts.items():
+        print(f"  {acc_id}: {acc_data['owner']} - {acc_data['balance']:,.2f} so'm")
+        print(f"     Tranzaksiyalar: {len(acc_data['transactions'])} ta")
+
+# Test qilish
+acc1 = create_account("Ali Valiyev", 1000000)
+acc2 = create_account("Madina Azizova", 500000)
+acc3 = create_account("Bobur Karimov")
+
+deposit(acc1, 500000)
+withdraw(acc2, 200000)
+deposit(acc3, 1000000)
+withdraw(acc1, 300000)
+
+apply_interest()
+bank_report()
+```
+
+**3-misol: Ichma-ich funktsiyalar va closure**
+
+```python
+def power_factory(exponent):
+    """
+    Daraja funksiyalarini yaratuvchi fabrika
+    """
+    # Enclosing scope - exponent
+    
+    def power(base):
+        # Local scope - base
+        # Enclosing scope dan exponent ni ishlatadi
+        return base ** exponent
+    
+    return power
+
+# Turli darajadagi funksiyalar yaratish
+square = power_factory(2)
+cube = power_factory(3)
+fourth = power_factory(4)
+
+print("=== DARAJA FUNKSIYALARI ===")
+print(f"5 ning kvadrati: {square(5)}")
+print(f"3 ning kubi: {cube(3)}")
+print(f"2 ning 4-darajasi: {fourth(2)}")
+
+# Har bir funktsiya o'z exponent qiymatini "eslab qoladi"
+print(f"\nsquare funktsiyasi uchun exponent: {square.__closure__[0].cell_contents}")
+print(f"cube funktsiyasi uchun exponent: {cube.__closure__[0].cell_contents}")
+```
+
+**4-misol: Dekorator va scope**
+
+```python
+def logger_decorator(func):
+    """
+    Funktsiyani log qiluvchi dekorator
+    """
+    call_count = 0  # Enclosing scope
+    
+    def wrapper(*args, **kwargs):
+        nonlocal call_count
+        call_count += 1
+        
+        print(f"\n📝 {func.__name__}() chaqirildi ({call_count}-marta)")
+        print(f"  Argumentlar: {args}, {kwargs}")
+        
+        result = func(*args, **kwargs)
+        
+        print(f"  Natija: {result}")
+        return result
+    
+    return wrapper
+
+@logger_decorator
+def add(a, b):
+    return a + b
+
+@logger_decorator
+def multiply(a, b):
+    return a * b
+
+@logger_decorator
+def greet(name, greeting="Salom"):
+    return f"{greeting}, {name}!"
+
+# Test qilish
+add(5, 3)
+add(10, 20)
+multiply(4, 5)
+greet("Ali")
+greet("Vali", greeting="Assalomu alaykum")
+```
+
+**5-misol: Rekursiv funktsiya va global counter**
+
+```python
+# Global counter
+recursion_depth = 0
+max_depth = 0
+
+def factorial(n):
+    """
+    Faktorial hisoblash (rekursiv)
+    """
+    global recursion_depth, max_depth
+    
+    recursion_depth += 1
+    max_depth = max(max_depth, recursion_depth)
+    
+    print(f"{'  ' * recursion_depth}→ factorial({n})")
+    
+    if n <= 1:
+        result = 1
+    else:
+        result = n * factorial(n - 1)
+    
+    print(f"{'  ' * recursion_depth}← {result}")
+    recursion_depth -= 1
+    
+    return result
+
+def fibonacci(n):
+    """
+    Fibonachchi sonini hisoblash (rekursiv)
+    """
+    global recursion_depth, max_depth
+    
+    recursion_depth += 1
+    max_depth = max(max_depth, recursion_depth)
+    
+    if n <= 1:
+        result = n
+    else:
+        result = fibonacci(n - 1) + fibonacci(n - 2)
+    
+    recursion_depth -= 1
+    return result
+
+# Test qilish
+print("=== FAKTORIAL ===")
+print(f"5! = {factorial(5)}")
+print(f"Max recursion depth: {max_depth}")
+
+max_depth = 0
+print("\n=== FIBONACCHI ===")
+print(f"fib(7) = {fibonacci(7)}")
+print(f"Max recursion depth: {max_depth}")
+```
+
+### Scope va Xatoliklar
+
+**1. UnboundLocalError**
+
+```python
+x = 100
+
+def xato_misol():
+    # Global x ni o'qish va yozish
+    print(x)  # Bu ishlaydi (o'qish)
+    # x = 200  # Agar bu qator qo'shilsa, yuqoridagi print xato beradi
+    # Chunki Python x ni local deb hisoblaydi
+
+def togri_misol():
+    global x
+    print(x)
+    x = 200
+    print(x)
+
+xato_misol()
+togri_misol()
+```
+
+**2. NameError**
+
+```python
+def test():
+    local_var = 42
+    print(local_var)  # Ishlaydi
+
+test()
+# print(local_var)  # NameError: name 'local_var' is not defined
+```
+
+**3. nonlocal bilan ishlash**
+
+```python
+def outer():
+    x = "outer"
+    
+    def inner():
+        # x = "inner"  # Bu local yaratadi
+        nonlocal x  # Enclosing scope dagi x ni o'zgartirish
+        x = "modified by inner"
+        print(f"Inner: {x}")
+    
+    print(f"Outer before: {x}")
+    inner()
+    print(f"Outer after: {x}")
+
+outer()
+```
+
+### Scope Best Practices
+
+1. **Global o'zgaruvchilardan iloji boricha kam foydalaning**
+```python
+# YOMON
+total = 0
+
+def add(x):
+    global total
+    total += x
+
+# YAXSHI
+class Calculator:
+    def __init__(self):
+        self.total = 0
+    
+    def add(self, x):
+        self.total += x
+```
+
+2. **Constantlarni globalda saqlang**
+```python
+# YAXSHI - constantlar
+MAX_USERS = 1000
+DEFAULT_TIMEOUT = 30
+API_KEY = "abc123"
+```
+
+3. **Funktsiyalar ichida global o'zgaruvchilarni o'zgartirmang**
+```python
+# YOMON
+data = []
+
+def process():
+    global data
+    data.append(1)
+
+# YAXSHI
+def process(data):
+    data.append(1)
+    return data
+```
+
+4. **nonlocal ni tushunarli ishlating**
+```python
+def counter():
+    count = 0
+    
+    def increment():
+        nonlocal count
+        count += 1
+        return count
+    
+    return increment
+```
+
+---
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## 🏠 Local vs Global Scope (global keyword)
+
+### Local va Global Scope tushunchasi
+
+**Local scope** - bu funktsiya ichida yaratilgan o'zgaruvchilar faqat shu funktsiya ichida mavjud bo'ladi.
+**Global scope** - bu funktsiyadan tashqarida yaratilgan o'zgaruvchilar dasturning istalgan joyida mavjud bo'ladi.
+
+**Real hayotdan misol:**
+- **Local**: Xonadagi shaxsiy buyumlar - faqat sizning xonangizda ishlatiladi
+- **Global**: Uydagi umumiy buyumlar (televizor, muzlatkich) - hamma foydalanishi mumkin
+
+```python
+# Global o'zgaruvchi
+global_ism = "Ali"
+
+def salom_ber():
+    # Local o'zgaruvchi
+    local_ism = "Vali"
+    print(f"Local: {local_ism}")  # Local ga kirish
+    print(f"Global: {global_ism}")  # Global ga kirish
+
+salom_ber()
+print(f"Global tashqarida: {global_ism}")  # Global ga kirish
+# print(local_ism)  # NameError: local_ism local va tashqarida mavjud emas
+```
+
+### Local Scope chuqur tahlil
+
+```python
+def local_scope_misol():
+    # Local o'zgaruvchilar
+    ism = "Ali"
+    yosh = 25
+    kasb = "Dasturchi"
+    
+    print(f"Funktsiya ichida:")
+    print(f"  Ism: {ism}")
+    print(f"  Yosh: {yosh}")
+    print(f"  Kasb: {kasb}")
+    
+    # Local o'zgaruvchilarni o'zgartirish
+    ism = "Vali"
+    yosh = 30
+    print(f"O'zgartirilgan:")
+    print(f"  Ism: {ism}")
+    print(f"  Yosh: {yosh}")
+
+local_scope_misol()
+# Funktsiya tugagach, barcha local o'zgaruvchilar yo'qoladi
+```
+
+### Global Scope chuqur tahlil
+
+```python
+# Global o'zgaruvchilar
+dastur_nomi = "MyApp"
+versiya = "1.0.0"
+foydalanuvchilar = []  # Global ro'yxat
+sozlamalar = {
+    "til": "uz",
+    "rang": "qora",
+    "hajm": 100
+}
+
+def info_chiqar():
+    """Global o'zgaruvchilardan foydalanish"""
+    print(f"Dastur: {dastur_nomi} v{versiya}")
+    print(f"Foydalanuvchilar soni: {len(foydalanuvchilar)}")
+    print(f"Sozlamalar: {sozlamalar}")
+
+def foydalanuvchi_qosh(ism):
+    """Global ro'yxatga foydalanuvchi qo'shish"""
+    # Global ro'yxatni o'zgartirish (global kalit so'zi kerak emas!)
+    foydalanuvchilar.append(ism)
+    print(f"'{ism}' qo'shildi. Jami: {len(foydalanuvchilar)}")
+
+def sozlamalarni_yangila(**yangi_sozlamalar):
+    """Global sozlamalarni yangilash"""
+    sozlamalar.update(yangi_sozlamalar)
+    print(f"Sozlamalar yangilandi: {sozlamalar}")
+
+# Global o'zgaruvchilarni ishlatish
+info_chiqar()
+foydalanuvchi_qosh("Ali")
+foydalanuvchi_qosh("Vali")
+sozlamalarni_yangila(til="en", hajm=200)
+info_chiqar()
+```
+
+### global keyword - Nima uchun kerak?
+
+`global` kalit so'zi funktsiya ichida global o'zgaruvchini **o'zgartirish** uchun kerak. Agar global o'zgaruvchini faqat o'qish kerak bo'lsa, `global` kerak emas.
+
+```python
+# Global o'zgaruvchi
+son = 10
+
+def oqish_mumkin():
+    """Globalni o'qish - global kerak emas"""
+    print(f"Global son: {son}")
+
+def ozgartirish_xato():
+    """Bu xato beradi - global ishlatilmagan"""
+    # son += 5  # UnboundLocalError
+
+def ozgartirish_togri():
+    """Globalni o'zgartirish - global kerak"""
+    global son
+    son += 5
+    print(f"Global son o'zgartirildi: {son}")
+
+print(f"Boshlang'ich: {son}")
+oqish_mumkin()
+ozgartirish_togri()
+print(f"Keyingi: {son}")
+```
+
+### global keyword bilan amaliy misollar
+
+**1-misol: Hisoblagich dasturi**
+
+```python
+# Global hisoblagichlar
+umumiy_chaqiruvlar = 0
+xatolar_soni = 0
+muvaffaqiyatlar_soni = 0
+
+def funktsiya_chaqirildi():
+    """Funktsiya chaqirilganda hisoblagichni oshirish"""
+    global umumiy_chaqiruvlar
+    umumiy_chaqiruvlar += 1
+    print(f"Funktsiya chaqirildi. Jami: {umumiy_chaqiruvlar}")
+
+def muvaffaqiyat():
+    """Muvaffaqiyatli amal"""
+    global muvaffaqiyatlar_soni, umumiy_chaqiruvlar
+    muvaffaqiyatlar_soni += 1
+    umumiy_chaqiruvlar += 1
+    print(f"✅ Muvaffaqiyat! Jami: {muvaffaqiyatlar_soni}")
+
+def xato():
+    """Xato yuz berganda"""
+    global xatolar_soni, umumiy_chaqiruvlar
+    xatolar_soni += 1
+    umumiy_chaqiruvlar += 1
+    print(f"❌ Xato! Jami: {xatolar_soni}")
+
+def statistika():
+    """Umumiy statistikani ko'rsatish"""
+    print("\n" + "="*40)
+    print("STATISTIKA")
+    print("="*40)
+    print(f"Jami chaqiruvlar: {umumiy_chaqiruvlar}")
+    print(f"Muvaffaqiyatlar: {muvaffaqiyatlar_soni}")
+    print(f"Xatolar: {xatolar_soni}")
+    print(f"Muvaffaqiyat foizi: {(muvaffaqiyatlar_soni/umumiy_chaqiruvlar*100 if umumiy_chaqiruvlar else 0):.1f}%")
+
+# Test qilish
+funktsiya_chaqirildi()
+muvaffaqiyat()
+funktsiya_chaqirildi()
+xato()
+muvaffaqiyat()
+muvaffaqiyat()
+xato()
+statistika()
+```
+
+**2-misol: Bankomat dasturi**
+
+```python
+# Global bank ma'lumotlari
+balans = 1000000
+tranzaksiyalar = []
+karta_bloklangan = False
+urinishlar_soni = 0
+MAX_URINISHLAR = 3
+
+def balans_tekshir():
+    """Balansni ko'rsatish"""
+    global urinishlar_soni
+    urinishlar_soni = 0  # Muvaffaqiyatli urinishda counter ni tozalash
+    print(f"💰 Joriy balans: {balans} so'm")
+    tranzaksiyalar.append({
+        "tur": "balans_tekshirish",
+        "vaqt": "2024-01-15 10:30"
+    })
+
+def pul_qosh(miqdor):
+    """Hisobga pul qo'shish"""
+    global balans, urinishlar_soni
+    
+    if miqdor <= 0:
+        print("❌ Miqdor musbat bo'lishi kerak")
+        return False
+    
+    urinishlar_soni = 0
+    balans += miqdor
+    tranzaksiyalar.append({
+        "tur": "qo'shish",
+        "miqdor": miqdor,
+        "yangi_balans": balans
+    })
+    print(f"✅ {miqdor} so'm qo'shildi")
+    print(f"💰 Yangi balans: {balans} so'm")
+    return True
+
+def pul_yech(miqdor):
+    """Hisobdan pul yechish"""
+    global balans, urinishlar_soni, karta_bloklangan
+    
+    if karta_bloklangan:
+        print("❌ Karta bloklangan! Bankka murojaat qiling")
+        return False
+    
+    if miqdor <= 0:
+        print("❌ Miqdor musbat bo'lishi kerak")
+        urinishlar_soni += 1
+        return False
+    
+    if miqdor > balans:
+        print("❌ Mablag' yetarli emas")
+        urinishlar_soni += 1
+        
+        if urinishlar_soni >= MAX_URINISHLAR:
+            karta_bloklangan = True
+            print("⚠️ Karta bloklandi! 3 marta noto'g'ri urinish")
+        return False
+    
+    urinishlar_soni = 0
+    balans -= miqdor
+    tranzaksiyalar.append({
+        "tur": "yechish",
+        "miqdor": miqdor,
+        "yangi_balans": balans
+    })
+    print(f"✅ {miqdor} so'm yechildi")
+    print(f"💰 Yangi balans: {balans} so'm")
+    return True
+
+def karta_blokdan_chiqar():
+    """Kartani blokdan chiqarish"""
+    global karta_bloklangan, urinishlar_soni
+    karta_bloklangan = False
+    urinishlar_soni = 0
+    print("✅ Karta blokdan chiqarildi")
+
+def oxirgi_tranzaksiyalar(soni=5):
+    """Oxirgi tranzaksiyalarni ko'rsatish"""
+    print(f"\n📋 OXIRGI {soni} TRANZAKSIYA:")
+    for t in tranzaksiyalar[-soni:]:
+        print(f"  • {t}")
+
+def bankomat_menyu():
+    """Bankomat menyusi"""
+    while True:
+        print("\n" + "="*40)
+        print("🏦 BANKOMAT")
+        print("="*40)
+        print("1. Balansni tekshirish")
+        print("2. Pul qo'shish")
+        print("3. Pul yechish")
+        print("4. Oxirgi tranzaksiyalar")
+        print("5. Kartani blokdan chiqarish")
+        print("6. Chiqish")
+        
+        tanlov = input("Tanlovingiz: ")
+        
+        if tanlov == "1":
+            balans_tekshir()
+        elif tanlov == "2":
+            miqdor = int(input("Miqdor: "))
+            pul_qosh(miqdor)
+        elif tanlov == "3":
+            miqdor = int(input("Miqdor: "))
+            pul_yech(miqdor)
+        elif tanlov == "4":
+            oxirgi_tranzaksiyalar()
+        elif tanlov == "5":
+            karta_blokdan_chiqar()
+        elif tanlov == "6":
+            print("Hayr! Xizmatdan foydalanganingiz uchun rahmat.")
+            break
+        else:
+            print("Noto'g'ri tanlov!")
+
+# Bankomatni ishga tushirish (test uchun)
+if __name__ == "__main__":
+    # Test operatsiyalari
+    pul_qosh(500000)
+    pul_yech(200000)
+    pul_yech(1500000)  # Yetarli emas
+    pul_yech(300000)
+    pul_yech(400000)
+    pul_yech(100000)  # 3-urinish - bloklanadi
+    oxirgi_tranzaksiyalar()
+    print(f"\nKarta bloklangan: {karta_bloklangan}")
+    
+    # Bankomat menyusini ishga tushirish (agar xohlasangiz)
+    # bankomat_menyu()
+```
+
+### Local va Global o'zgaruvchilar bilan murakkab misollar
+
+**3-misol: Online do'kon inventarizatsiyasi**
+
+```python
+# Global ma'lumotlar
+mahsulotlar = {}
+sotuvlar = []
+jami_daromad = 0
+aksiya_foizi = 10  # Global aksiya foizi
+
+def mahsulot_qosh(nom, narx, miqdor):
+    """Yangi mahsulot qo'shish"""
+    global mahsulotlar
+    
+    if nom in mahsulotlar:
+        print(f"⚠️ '{nom}' allaqachon mavjud. Yangilanyapti...")
+    
+    mahsulotlar[nom] = {
+        "narx": narx,
+        "miqdor": miqdor,
+        "qoshilgan_vaqt": "2024-01-15"
+    }
+    print(f"✅ '{nom}' qo'shildi: {narx} so'm, {miqdor} dona")
+
+def mahsulot_yangila(nom, **ozgarishlar):
+    """Mahsulot ma'lumotlarini yangilash"""
+    global mahsulotlar
+    
+    if nom not in mahsulotlar:
+        print(f"❌ '{nom}' topilmadi")
+        return False
+    
+    for key, value in ozgarishlar.items():
+        if key in mahsulotlar[nom]:
+            mahsulotlar[nom][key] = value
+            print(f"  {key} yangilandi: {value}")
+    
+    return True
+
+def sotish(nom, soni, aksiya=False):
+    """Mahsulot sotish"""
+    global mahsulotlar, sotuvlar, jami_daromad, aksiya_foizi
+    
+    if nom not in mahsulotlar:
+        print(f"❌ '{nom}' topilmadi")
+        return False
+    
+    if mahsulotlar[nom]["miqdor"] < soni:
+        print(f"❌ Yetarli mahsulot yo'q. Mavjud: {mahsulotlar[nom]['miqdor']}")
+        return False
+    
+    # Narxni hisoblash
+    narx = mahsulotlar[nom]["narx"]
+    if aksiya:
+        chegirma = narx * aksiya_foizi / 100
+        narx -= chegirma
+        print(f"🏷️ Aksiya! {aksiya_foizi}% chegirma: -{chegirma} so'm")
+    
+    jami = narx * soni
+    
+    # Global o'zgaruvchilarni yangilash
+    mahsulotlar[nom]["miqdor"] -= soni
+    jami_daromad += jami
+    
+    sotuv = {
+        "mahsulot": nom,
+        "soni": soni,
+        "narx": narx,
+        "jami": jami,
+        "aksiya": aksiya,
+        "vaqt": "2024-01-15 15:30"
+    }
+    sotuvlar.append(sotuv)
+    
+    print(f"✅ Sotildi: {nom} x{soni} = {jami} so'm")
+    return True
+
+def aksiya_foizini_ozgartirish(yangi_foiz):
+    """Global aksiya foizini o'zgartirish"""
+    global aksiya_foizi
+    eski_foiz = aksiya_foizi
+    aksiya_foizi = yangi_foiz
+    print(f"📊 Aksiya foizi o'zgartirildi: {eski_foiz}% -> {aksiya_foizi}%")
+
+def inventar_hisobot():
+    """Inventar hisobotini chiqarish"""
+    global mahsulotlar, sotuvlar, jami_daromad, aksiya_foizi
+    
+    print("\n" + "="*50)
+    print("📦 INVENTAR HISOBOTI")
+    print("="*50)
+    
+    print(f"\n📊 STATISTIKA:")
+    print(f"  Jami mahsulot turlari: {len(mahsulotlar)}")
+    print(f"  Jami sotuvlar: {len(sotuvlar)}")
+    print(f"  Jami daromad: {jami_daromad:,.0f} so'm")
+    print(f"  Aksiya foizi: {aksiya_foizi}%")
+    
+    print(f"\n📦 MAHSULOTLAR:")
+    jami_dona = 0
+    for nom, info in mahsulotlar.items():
+        print(f"  • {nom}:")
+        print(f"      Narx: {info['narx']:,.0f} so'm")
+        print(f"      Miqdor: {info['miqdor']} dona")
+        jami_dona += info['miqdor']
+    print(f"  Jami dona: {jami_dona}")
+    
+    if sotuvlar:
+        print(f"\n💰 OXIRGI SOTUVLAR:")
+        for s in sotuvlar[-3:]:
+            aksiya_belgi = "🏷️" if s['aksiya'] else "  "
+            print(f"  {aksiya_belgi} {s['mahsulot']} x{s['soni']} = {s['jami']:,.0f} so'm")
+
+# Test qilish
+print("=== ONLINE DO'KON INVENTARIZATSIYASI ===\n")
+
+# Mahsulotlar qo'shish
+mahsulot_qosh("Noutbuk", 5000000, 10)
+mahsulot_qosh("Telefon", 3000000, 15)
+mahsulot_qosh("Planshet", 2000000, 8)
+
+# Mahsulotlarni yangilash
+mahsulot_yangila("Noutbuk", narx=4800000, miqdor=12)
+
+# Sotish operatsiyalari
+sotish("Noutbuk", 2)
+sotish("Telefon", 3, aksiya=True)
+sotish("Planshet", 1)
+sotish("Noutbuk", 1, aksiya=True)
+
+# Aksiya foizini o'zgartirish
+aksiya_foizini_ozgartirish(15)
+sotish("Telefon", 2, aksiya=True)
+
+# Hisobot
+inventar_hisobot()
+```
+
+### Local o'zgaruvchilar globalni yashirishi
+
+```python
+x = 100  # Global
+
+def test_yashirish():
+    x = 50  # Local - globalni yashiradi
+    print(f"Local x: {x}")  # 50
+    
+    def ichki():
+        x = 25  # Local - tashqi localni yashiradi
+        print(f"Ichki local x: {x}")  # 25
+    
+    ichki()
+    print(f"Local x yana: {x}")  # 50
+
+print(f"Global x: {x}")  # 100
+test_yashirish()
+print(f"Global x: {x}")  # 100 (o'zgarmadi)
+```
+
+### global vs local performance
+
+```python
+import time
+
+# Global o'zgaruvchi bilan
+global_var = 0
+
+def global_versiya():
+    global global_var
+    for i in range(1000000):
+        global_var += 1
+
+# Local o'zgaruvchi bilan
+def local_versiya():
+    local_var = 0
+    for i in range(1000000):
+        local_var += 1
+    return local_var
+
+# Tezlikni taqqoslash
+start = time.time()
+global_versiya()
+print(f"Global vaqt: {time.time() - start:.3f} sekund")
+
+start = time.time()
+local_versiya()
+print(f"Local vaqt: {time.time() - start:.3f} sekund")
+```
+
+### Global o'zgaruvchilarni to'g'ri ishlatish
+
+**1. Konfiguratsiya uchun global constantlar**
+
+```python
+# YAXSHI - constantlar
+DATABASE_CONFIG = {
+    "host": "localhost",
+    "port": 5432,
+    "name": "myapp"
+}
+
+API_KEYS = {
+    "google": "AIza...",
+    "facebook": "EAAC..."
+}
+
+MAX_RETRIES = 3
+TIMEOUT = 30
+```
+
+**2. Global holat (state) uchun klas ishlatish**
+
+```python
+# YOMON - global o'zgaruvchilar
+user = None
+cart = []
+orders = []
+
+def login(username):
+    global user
+    user = username
+
+# YAXSHI - klas ichida
+class ShoppingSession:
+    def __init__(self):
+        self.user = None
+        self.cart = []
+        self.orders = []
+    
+    def login(self, username):
+        self.user = username
+    
+    def add_to_cart(self, item):
+        self.cart.append(item)
+```
+
+**3. Singleton pattern**
+
+```python
+class AppConfig:
+    _instance = None
+    _initialized = False
+    
+    def __new__(cls):
+        if cls._instance is None:
+            cls._instance = super().__new__(cls)
+        return cls._instance
+    
+    def __init__(self):
+        if not self._initialized:
+            self.debug = False
+            self.log_level = "INFO"
+            self.max_users = 100
+            self._initialized = True
+
+# Har doim bir xil obyekt qaytariladi
+config1 = AppConfig()
+config2 = AppConfig()
+print(config1 is config2)  # True
+```
+
+### Xatoliklar va ularni tuzatish
+
+**1. UnboundLocalError**
+
+```python
+counter = 0
+
+def xato_kod():
+    # print(counter)  # Agar bu qator bo'lsa va keyin counter o'zgartirilsa - xato
+    counter += 1  # UnboundLocalError
+
+def togri_kod():
+    global counter
+    counter += 1
+    print(f"Counter: {counter}")
+
+# xato_kod()  # Xato beradi
+togri_kod()
+```
+
+**2. Global o'zgaruvchini o'zgartirish**
+
+```python
+data = [1, 2, 3]
+
+def ozgartirish1():
+    # Bu local data yaratadi
+    data = [4, 5, 6]
+    print(f"Local data: {data}")
+
+def ozgartirish2():
+    # Bu global data ni o'zgartiradi
+    global data
+    data = [4, 5, 6]
+    print(f"Global data: {data}")
+
+print(f"Boshlang'ich: {data}")
+ozgartirish1()
+print(f"1-dan keyin: {data}")
+ozgartirish2()
+print(f"2-dan keyin: {data}")
+```
+
+**3. Mutable obyektlar bilan ishlash**
+
+```python
+# Mutable obyektlarni globalda o'zgartirish uchun global kerak EMAS
+users = []  # Global ro'yxat
+
+def add_user(name):
+    # global kerak emas - ro'yxatni o'zgartiryapmiz, qayta biriktirmayapmiz
+    users.append(name)
+    print(f"Users: {users}")
+
+def set_users(new_users):
+    # global kerak - butunlay yangi ro'yxat biriktiryapmiz
+    global users
+    users = new_users
+    print(f"Users yangilandi: {users}")
+
+add_user("Ali")
+add_user("Vali")
+set_users(["Hasan", "Husan"])
+```
+
+### Best Practices
+
+1. **Global o'zgaruvchilarni minimal ishlating**
+```python
+# YOMON
+count = 0
+total = 0
+items = []
+
+def process(x):
+    global count, total, items
+    count += 1
+    total += x
+    items.append(x)
+
+# YAXSHI
+class Processor:
+    def __init__(self):
+        self.count = 0
+        self.total = 0
+        self.items = []
+    
+    def process(self, x):
+        self.count += 1
+        self.total += x
+        self.items.append(x)
+```
+
+2. **Constantlarni UPPER_CASE da yozing**
+```python
+MAX_CONNECTIONS = 100
+DEFAULT_TIMEOUT = 30
+API_ENDPOINT = "https://api.example.com"
+```
+
+3. **Global o'zgaruvchilarni funktsiyalarda o'zgartirmang**
+```python
+# YOMON
+data = []
+
+def process_data(item):
+    global data
+    data.append(item)
+    return data
+
+# YAXSHI
+def process_data(data, item):
+    data.append(item)
+    return data
+```
+
+4. **Dependency injection ishlating**
+```python
+# YOMON
+def save_user(user):
+    global database
+    database.insert(user)
+
+# YAXSHI
+def save_user(user, database):
+    database.insert(user)
+```
+
+5. **Dokumentatsiya yozing**
+```python
+"""
+Global o'zgaruvchilar:
+    active_users: Hozirgi aktiv foydalanuvchilar ro'yxati
+    total_requests: Jami so'rovlar soni
+    config: Ilova konfiguratsiyasi
+"""
+active_users = []
+total_requests = 0
+config = {}
+```
+
+---
+<br>
+<br>
+<br>
+<br>
+<br>
+
