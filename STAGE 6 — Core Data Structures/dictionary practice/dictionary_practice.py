@@ -435,24 +435,36 @@
 
 # 36 Dictionarydagi value’lar orasida faqat musbat sonlarni qoldiring.
 
-d = {
-    "a": 10,
-    "b": -5,
-    "c": 20,
-    "d": -3,
-    "e": 15
-}
+# d = {
+#     "a": 10,
+#     "b": -5,
+#     "c": 20,
+#     "d": -3,
+#     "e": 15
+# }
 
-result = {}
+# result = {}
 
-for k, v in d.items():
-    if type(v) == int or type(v) == float:
-        if v > 0:
-            result[k] = v
+# for k, v in d.items():
+#     if type(v) == int or type(v) == float:
+#         if v > 0:
+#             result[k] = v
 
-print(result)
+# print(result)
 
 # 37 Dictionaryni deep copy qilib, nested elementlar mustaqilligini tekshiring.
+
+import copy
+
+d = {"a": [1, 2, 3], "b": {"x": 10}}
+
+d_copy = copy.deepcopy(d)
+
+d_copy["a"].append(4)
+d_copy["b"]["x"] = 99
+
+print("Original:", d)
+print("Copy:", d_copy)
 
 # 38 Dictionary ichidagi barcha tuple’larni listga aylantiring.
 
