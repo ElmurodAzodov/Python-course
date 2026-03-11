@@ -1240,3 +1240,315 @@ Area: 20
 <br>
 <br>
 <br>
+# ⚙️ Default Arguments (`def func(x=5)`) — Standart qiymatli parametrlar
+
+Python funksiyalarida **parameterlarga oldindan qiymat berish** mumkin.
+Bu **default argument** deyiladi.
+
+> **Default Argument** — agar funksiya chaqirilganda qiymat berilmasa, **oldindan belgilangan qiymat ishlatiladi**.
+
+---
+
+# 🎯 1. Default argument nima?
+
+Funksiya yaratilayotganda parametrga **standart qiymat** beriladi.
+
+### Sintaksis
+
+```python
+def function_name(parameter=value):
+    kod
+```
+
+---
+
+# ✨ 2. Eng oddiy misol
+
+```python
+def greet(name="Mehmon"):
+    print("Salom", name)
+```
+
+Funksiyani chaqirish:
+
+```python
+greet()
+```
+
+Natija
+
+```
+Salom Mehmon
+```
+
+Sababi:
+
+```
+name = "Mehmon" (default qiymat)
+```
+
+---
+
+# 🧠 3. Argument berilsa nima bo‘ladi?
+
+Agar argument berilsa, **default qiymat ishlatilmaydi**.
+
+```python
+def greet(name="Mehmon"):
+    print("Salom", name)
+```
+
+```python
+greet("Ali")
+```
+
+Natija
+
+```
+Salom Ali
+```
+
+Jarayon
+
+```
+name = "Ali"
+```
+
+---
+
+# 📊 4. Default argument qanday ishlaydi
+
+Funksiya:
+
+```python
+def greet(name="Mehmon"):
+```
+
+Chaqirish:
+
+```
+greet()
+```
+
+Mapping:
+
+```
+name = "Mehmon"
+```
+
+Agar:
+
+```
+greet("Ali")
+```
+
+Mapping:
+
+```
+name = "Ali"
+```
+
+---
+
+# 🧩 5. Bir nechta default argument
+
+Funksiya bir nechta default parametrga ega bo‘lishi mumkin.
+
+```python
+def introduce(name="Mehmon", age=18):
+    print("Ism:", name)
+    print("Yosh:", age)
+```
+
+Chaqirish:
+
+```python
+introduce()
+```
+
+Natija
+
+```
+Ism: Mehmon
+Yosh: 18
+```
+
+---
+
+# 🔄 6. Ba'zilarini o‘zgartirish
+
+```python
+def introduce(name="Mehmon", age=18):
+    print("Ism:", name)
+    print("Yosh:", age)
+```
+
+```python
+introduce("Ali")
+```
+
+Natija
+
+```
+Ism: Ali
+Yosh: 18
+```
+
+Mapping:
+
+```
+name = "Ali"
+age = 18
+```
+
+---
+
+# 🧪 7. Barcha argumentlarni berish
+
+```python
+def introduce(name="Mehmon", age=18):
+    print("Ism:", name)
+    print("Yosh:", age)
+```
+
+```python
+introduce("Ali", 20)
+```
+
+Natija
+
+```
+Ism: Ali
+Yosh: 20
+```
+
+---
+
+# ⚠️ 8. Default argument tartibi
+
+Python’da **default parametrlar oxirida bo‘lishi kerak**.
+
+### ❌ Xato
+
+```python
+def test(a=5, b):
+    print(a, b)
+```
+
+Xatolik:
+
+```
+SyntaxError
+```
+
+---
+
+### ✔ To‘g‘ri
+
+```python
+def test(a, b=5):
+    print(a, b)
+```
+
+---
+
+# 📦 9. Real misol
+
+```python
+def power(base, exponent=2):
+    return base ** exponent
+```
+
+Chaqirish:
+
+```python
+print(power(5))
+```
+
+Natija
+
+```
+25
+```
+
+Chunki:
+
+```
+exponent = 2
+```
+
+---
+
+Agar exponent berilsa:
+
+```python
+print(power(5, 3))
+```
+
+Natija
+
+```
+125
+```
+
+---
+
+# 🧭 10. Default argument bilan amaliy misol
+
+```python
+def connect(host="localhost", port=8000):
+    print("Host:", host)
+    print("Port:", port)
+```
+
+```python
+connect()
+```
+
+Natija
+
+```
+Host: localhost
+Port: 8000
+```
+
+---
+
+```python
+connect("google.com", 443)
+```
+
+Natija
+
+```
+Host: google.com
+Port: 443
+```
+
+---
+
+# 🏗 11. Mini real dastur
+
+```python
+def greet_user(name="User"):
+    return "Hello " + name
+```
+
+```python
+print(greet_user())
+print(greet_user("Ali"))
+```
+
+Natija
+
+```
+Hello User
+Hello Ali
+```
+
+---
+<br>
+<br>
+<br>
+<br>
+<br>
