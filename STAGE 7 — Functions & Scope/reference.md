@@ -904,3 +904,339 @@ y = 5
 <br>
 <br>
 <br>
+# 📤 Return Values (single, multiple, None) — Funksiyadan qiymat qaytarish
+
+Python’da funksiya **natija qaytarishi** mumkin.
+Bu **`return`** kalit so‘zi orqali amalga oshiriladi.
+
+> **Return value** — funksiya bajarilgandan keyin tashqariga beriladigan natija.
+
+---
+
+# 🎯 1. `return` nima?
+
+`return` — funksiya ichidagi natijani **funksiyadan tashqariga yuboradi**.
+
+### Sintaksis
+
+```python
+def function_name():
+    return value
+```
+
+---
+
+# ✨ 2. Oddiy return (single value)
+
+Funksiya **bitta qiymat qaytarishi** mumkin.
+
+### Misol
+
+```python
+def add(a, b):
+    return a + b
+```
+
+Funksiyani chaqirish:
+
+```python
+result = add(5, 3)
+print(result)
+```
+
+Natija
+
+```
+8
+```
+
+### Jarayon
+
+```
+a = 5
+b = 3
+a + b = 8
+return 8
+```
+
+---
+
+# 🧠 3. `return` bo‘lmasa nima bo‘ladi?
+
+Agar funksiya `return` ishlatmasa, Python **`None` qaytaradi**.
+
+### Misol
+
+```python
+def greet():
+    print("Salom")
+
+result = greet()
+
+print(result)
+```
+
+Natija
+
+```
+Salom
+None
+```
+
+Sababi:
+
+```
+Funksiya qiymat qaytarmadi
+→ Python avtomatik None qaytardi
+```
+
+---
+
+# 📦 4. `return` va `print` farqi
+
+Ko‘pchilik bu ikkalasini adashtiradi.
+
+| print                            | return                  |
+| -------------------------------- | ----------------------- |
+| faqat ekranga chiqaradi          | qiymatni qaytaradi      |
+| funksiyadan tashqariga chiqmaydi | natijani saqlash mumkin |
+
+### Misol
+
+```python
+def add(a, b):
+    print(a + b)
+```
+
+```
+add(5, 3)
+```
+
+Natija
+
+```
+8
+```
+
+Lekin:
+
+```
+x = add(5,3)
+print(x)
+```
+
+Natija
+
+```
+8
+None
+```
+
+---
+
+### To‘g‘ri usul
+
+```python
+def add(a, b):
+    return a + b
+```
+
+```
+x = add(5,3)
+print(x)
+```
+
+Natija
+
+```
+8
+```
+
+---
+
+# 🧩 5. `return` funksiya bajarilishini to‘xtatadi
+
+`return` bajarilgandan keyin **funksiya tugaydi**.
+
+### Misol
+
+```python
+def test():
+    print("Start")
+    return
+    print("End")
+```
+
+```
+test()
+```
+
+Natija
+
+```
+Start
+```
+
+Sababi:
+
+```
+return dan keyingi kod ishlamaydi
+```
+
+---
+
+# 🔢 6. Multiple return values (bir nechta qiymat)
+
+Python funksiya **bir nechta qiymat qaytarishi** mumkin.
+
+### Misol
+
+```python
+def calculate(a, b):
+    return a + b, a * b
+```
+
+Chaqarish:
+
+```python
+result = calculate(4, 3)
+print(result)
+```
+
+Natija
+
+```
+(7, 12)
+```
+
+Python bu yerda **tuple** qaytaradi.
+
+---
+
+# 📊 7. Multiple return ni alohida o‘zgaruvchiga olish
+
+```python
+def calculate(a, b):
+    return a + b, a * b
+```
+
+```
+sum_value, product = calculate(4, 3)
+
+print(sum_value)
+print(product)
+```
+
+Natija
+
+```
+7
+12
+```
+
+Mapping:
+
+```
+sum_value = 7
+product = 12
+```
+
+---
+
+# 🧪 8. Real misol
+
+```python
+def get_user():
+    name = "Ali"
+    age = 20
+    return name, age
+```
+
+```
+name, age = get_user()
+
+print(name)
+print(age)
+```
+
+Natija
+
+```
+Ali
+20
+```
+
+---
+
+# ⚠️ 9. Return bilan shart ishlatish
+
+Funksiya turli qiymat qaytarishi mumkin.
+
+```python
+def check_number(n):
+    if n > 0:
+        return "Positive"
+    else:
+        return "Negative"
+```
+
+```
+print(check_number(5))
+print(check_number(-2))
+```
+
+Natija
+
+```
+Positive
+Negative
+```
+
+---
+
+# 🧭 10. `return None`
+
+Ba'zan funksiya **hech qanday natija bermasligini aniq ko‘rsatish uchun** `None` qaytariladi.
+
+```python
+def do_nothing():
+    return None
+```
+
+```
+print(do_nothing())
+```
+
+Natija
+
+```
+None
+```
+
+---
+
+# 🏗 11. Real mini dastur
+
+```python
+def rectangle_area(width, height):
+    return width * height
+```
+
+```
+area = rectangle_area(5, 4)
+
+print("Area:", area)
+```
+
+Natija
+
+```
+Area: 20
+```
+
+---
+<br>
+<br>
+<br>
+<br>
+<br>
