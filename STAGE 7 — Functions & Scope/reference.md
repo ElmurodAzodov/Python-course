@@ -614,3 +614,293 @@ b() tugadi
 <br>
 <br>
 <br>
+# 📊 Parameters vs Arguments — Python’da parametr va argument
+
+Funksiyalar bilan ishlaganda **ikkita muhim tushuncha bor**:
+
+```
+Parameters
+Arguments
+```
+
+Ular ko‘pincha aralashib ketadi, lekin aslida **farqli tushunchalar**.
+
+---
+
+# 🎯 1. Parameter nima?
+
+> **Parameter** — bu funksiya yaratilganda (`def`) qavs ichida yoziladigan **o‘zgaruvchi**.
+
+### Misol
+
+```python
+def greet(name):
+    print("Salom", name)
+```
+
+Bu yerda:
+
+```
+name → parameter
+```
+
+Chunki u **funksiya ichida ishlatiladigan o‘zgaruvchi**.
+
+---
+
+# 🎯 2. Argument nima?
+
+> **Argument** — bu funksiya chaqirilganda parametrga beriladigan **haqiqiy qiymat**.
+
+### Misol
+
+```python
+greet("Ali")
+```
+
+Bu yerda:
+
+```
+"Ali" → argument
+```
+
+---
+
+# 🧠 3. Oddiy taqqoslash
+
+| Tushuncha | Qayerda yoziladi       | Misol              |
+| --------- | ---------------------- | ------------------ |
+| Parameter | funksiya yaratishda    | `def greet(name):` |
+| Argument  | funksiya chaqirilganda | `greet("Ali")`     |
+
+---
+
+# ✨ 4. To‘liq misol
+
+```python
+def greet(name):
+    print("Salom", name)
+
+greet("Ali")
+```
+
+Natija
+
+```
+Salom Ali
+```
+
+Tahlil:
+
+```
+name → parameter
+"Ali" → argument
+```
+
+---
+
+# 📦 5. Bir nechta parameter
+
+Funksiya bir nechta parametrga ega bo‘lishi mumkin.
+
+### Misol
+
+```python
+def add(a, b):
+    print(a + b)
+```
+
+Bu yerda:
+
+```
+a → parameter
+b → parameter
+```
+
+Chaqarish:
+
+```python
+add(5, 3)
+```
+
+Natija
+
+```
+8
+```
+
+Bu yerda:
+
+```
+5 → argument
+3 → argument
+```
+
+---
+
+# 🔄 6. Bir nechta chaqirish
+
+Bir funksiya turli argumentlar bilan ishlatilishi mumkin.
+
+```python
+def greet(name):
+    print("Salom", name)
+
+greet("Ali")
+greet("Vali")
+greet("Sardor")
+```
+
+Natija
+
+```
+Salom Ali
+Salom Vali
+Salom Sardor
+```
+
+---
+
+# 🧩 7. Parameterlar funksiya ichida ishlaydi
+
+Parameter **faqat funksiya ichida mavjud bo‘ladi**.
+
+```python
+def show_age(age):
+    print("Yosh:", age)
+
+show_age(25)
+```
+
+Natija
+
+```
+Yosh: 25
+```
+
+Bu yerda:
+
+```
+age → parameter
+25 → argument
+```
+
+---
+
+# ⚠️ 8. Argument soni mos bo‘lishi kerak
+
+Parameter va argument soni mos kelishi kerak.
+
+### Xato misol
+
+```python
+def add(a, b):
+    print(a + b)
+
+add(5)
+```
+
+Xatolik
+
+```
+TypeError: missing required argument
+```
+
+Sababi:
+
+```
+2 ta parameter
+1 ta argument
+```
+
+---
+
+# ✔ To‘g‘ri misol
+
+```python
+def add(a, b):
+    print(a + b)
+
+add(5, 10)
+```
+
+Natija
+
+```
+15
+```
+
+---
+
+# 🧪 9. Real misol
+
+```python
+def introduce(name, age):
+    print("Ism:", name)
+    print("Yosh:", age)
+
+introduce("Ali", 20)
+```
+
+Natija
+
+```
+Ism: Ali
+Yosh: 20
+```
+
+---
+
+# 📊 10. Visual tushuntirish
+
+Funksiya:
+
+```
+def add(a, b):
+```
+
+Chaqirish:
+
+```
+add(3, 7)
+```
+
+Mapping:
+
+```
+a = 3
+b = 7
+```
+
+---
+
+# 🧠 11. Parameter → argument ga qiymat berilishi
+
+Python avtomatik ravishda qiymatlarni moslashtiradi.
+
+```python
+def multiply(x, y):
+    print(x * y)
+
+multiply(4, 5)
+```
+
+Natija
+
+```
+20
+```
+
+Jarayon:
+
+```
+x = 4
+y = 5
+```
+
+---
+<br>
+<br>
+<br>
+<br>
+<br>
