@@ -298,3 +298,319 @@ Ichki funksiya
 <br>
 <br>
 <br>
+# 📞 Calling Functions (Invocation) — Funksiyani chaqirish
+
+Oldingi darsda biz **funksiyani yaratishni (`def`)** o‘rgandik.
+Endi esa **funksiyani qanday ishga tushirish (chaqirish)** ni o‘rganamiz.
+
+> **Calling a function (invocation)** — bu **yaratilgan funksiyani bajarish uchun uni chaqirish jarayoni**.
+
+---
+
+# 🎯 1. Funksiyani chaqirish nima?
+
+Funksiya **`def` bilan yaratiladi**, lekin **chaqirilmaguncha ishlamaydi**.
+
+### Misol
+
+```python
+def greet():
+    print("Salom!")
+```
+
+Bu yerda funksiya **faqat yaratilgan**.
+
+Uni ishlatish uchun:
+
+```python
+greet()
+```
+
+Natija
+
+```
+Salom!
+```
+
+---
+
+# 🧠 2. Funksiya chaqirish sintaksisi
+
+Funksiyani chaqirish juda oddiy:
+
+```python
+function_name()
+```
+
+### Strukturasi
+
+| Qism            | Vazifa                     |
+| --------------- | -------------------------- |
+| `function_name` | funksiya nomi              |
+| `()`            | funksiyani ishga tushiradi |
+
+---
+
+# ✨ 3. To‘liq misol
+
+```python
+def say_hello():
+    print("Hello!")
+```
+
+Funksiyani chaqirish:
+
+```python
+say_hello()
+```
+
+Natija
+
+```
+Hello!
+```
+
+---
+
+# 🔄 4. Bir funksiyani ko‘p marta chaqirish
+
+Funksiyaning eng katta afzalligi — **uni cheksiz marta ishlatish mumkin**.
+
+```python
+def greet():
+    print("Salom!")
+
+greet()
+greet()
+greet()
+```
+
+Natija
+
+```
+Salom!
+Salom!
+Salom!
+```
+
+---
+
+# 🧩 5. Dastur oqimi (Execution Flow)
+
+Python kodni **yuqoridan pastga** o‘qiydi.
+
+Misol:
+
+```python
+def hello():
+    print("Funksiya ishladi")
+
+print("Boshlanish")
+hello()
+print("Tugadi")
+```
+
+Natija
+
+```
+Boshlanish
+Funksiya ishladi
+Tugadi
+```
+
+### Jarayon
+
+```
+1️⃣ print("Boshlanish")
+2️⃣ hello() chaqiriladi
+3️⃣ funksiya ichidagi kod bajariladi
+4️⃣ dastur davom etadi
+```
+
+---
+
+# ⚠️ 6. Funksiya chaqirilmasa nima bo‘ladi?
+
+```python
+def hello():
+    print("Hello")
+```
+
+Natija:
+
+```
+Hech narsa chiqmaydi
+```
+
+Sababi:
+
+> Funksiya **chaqirilmagan**.
+
+---
+
+# 🧪 7. Bir nechta funksiyani chaqirish
+
+```python
+def greet():
+    print("Salom")
+
+def bye():
+    print("Xayr")
+
+greet()
+bye()
+```
+
+Natija
+
+```
+Salom
+Xayr
+```
+
+---
+
+# 🔗 8. Funksiya ichidan boshqa funksiyani chaqirish
+
+Funksiya boshqa funksiyani ham chaqirishi mumkin.
+
+```python
+def greet():
+    print("Salom")
+
+def start():
+    print("Dastur boshlandi")
+    greet()
+
+start()
+```
+
+Natija
+
+```
+Dastur boshlandi
+Salom
+```
+
+---
+
+# 🧭 9. Funksiya chaqirilish tartibi
+
+Misol:
+
+```python
+def first():
+    print("Birinchi funksiya")
+
+def second():
+    print("Ikkinchi funksiya")
+
+second()
+first()
+```
+
+Natija
+
+```
+Ikkinchi funksiya
+Birinchi funksiya
+```
+
+Python **chaqirilgan tartibda** bajaradi.
+
+---
+
+# ⚡ 10. Funksiya chaqirishni o‘zgaruvchiga saqlash
+
+Funksiya natijasi ba’zan o‘zgaruvchiga saqlanadi.
+
+Misol:
+
+```python
+def greet():
+    print("Salom!")
+
+result = greet()
+```
+
+Natija
+
+```
+Salom!
+```
+
+Lekin `result` qiymati:
+
+```
+None
+```
+
+Sababi — funksiya **hech narsa qaytarmadi**.
+
+---
+
+# 🏗 11. Real misol (mini dastur)
+
+```python
+def show_menu():
+    print("1 - Start")
+    print("2 - Settings")
+    print("3 - Exit")
+
+print("Menu:")
+show_menu()
+```
+
+Natija
+
+```
+Menu:
+1 - Start
+2 - Settings
+3 - Exit
+```
+
+---
+
+# 📊 12. Stack tushunchasi (oddiy tushuntirish)
+
+Funksiya chaqirilganda **call stack** ishlaydi.
+
+Misol:
+
+```python
+def a():
+    print("A")
+
+def b():
+    print("B")
+    a()
+
+b()
+```
+
+Natija
+
+```
+B
+A
+```
+
+Jarayon
+
+```
+b() chaqirildi
+↓
+b() ichida a() chaqirildi
+↓
+a() bajarildi
+↓
+b() tugadi
+```
+
+---
+<br>
+<br>
+<br>
+<br>
+<br>
