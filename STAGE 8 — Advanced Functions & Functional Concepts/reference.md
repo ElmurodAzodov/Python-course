@@ -1386,3 +1386,247 @@ Natija
 <br>
 <br>
 
+# ⚡ `functools.partial` — Argumentlarni oldindan belgilash (fix arguments)
+
+Python’da **`functools.partial`** funksiyasi yordamida mavjud funksiyaning **ba’zi argumentlarini oldindan belgilab yangi funksiya yaratish** mumkin.
+
+> `partial()` → funksiyaning **ba’zi argumentlarini “muzlatib” (fix qilib)** yangi funksiya hosil qiladi.
+
+Bu **functional programming** da juda muhim tushuncha.
+
+---
+
+# 🎯 1. `partial` import qilish
+
+`partial` **`functools`** modulida joylashgan.
+
+```python
+from functools import partial
+```
+
+---
+
+# 🧠 2. `partial()` sintaksisi
+
+```python
+partial(function, arg1, arg2, ...)
+```
+
+📌 Ma’nosi:
+
+* `function` → asosiy funksiya
+* `arg` → oldindan beriladigan argument
+
+Natijada **yangi funksiya** hosil bo‘ladi.
+
+---
+
+# 📦 3. Oddiy misol
+
+Oddiy funksiya:
+
+```python
+def power(base, exponent):
+    return base ** exponent
+```
+
+Endi `partial` bilan **kvadrat funksiyasi** yaratamiz.
+
+```python
+from functools import partial
+
+square = partial(power, exponent=2)
+
+print(square(5))
+```
+
+Natija
+
+```
+25
+```
+
+📌 Bu aslida quyidagiga teng:
+
+```python
+power(5, 2)
+```
+
+---
+
+# ⚡ 4. Yangi funksiya yaratish
+
+`partial` bilan bir nechta yangi funksiyalar yaratish mumkin.
+
+```python
+from functools import partial
+
+def power(base, exponent):
+    return base ** exponent
+```
+
+```python
+square = partial(power, exponent=2)
+cube = partial(power, exponent=3)
+
+print(square(4))
+print(cube(4))
+```
+
+Natija
+
+```
+16
+64
+```
+
+📌 Mapping
+
+```
+square(x) → x^2
+cube(x) → x^3
+```
+
+---
+
+# 🔁 5. Birinchi argumentni fix qilish
+
+```python
+from functools import partial
+
+def multiply(a, b):
+    return a * b
+```
+
+```python
+double = partial(multiply, 2)
+
+print(double(5))
+```
+
+Natija
+
+```
+10
+```
+
+Bu aslida:
+
+```
+multiply(2, 5)
+```
+
+---
+
+# 🧩 6. Real misol
+
+Narxga **10% soliq qo‘shish**.
+
+```python
+from functools import partial
+
+def add_tax(price, tax_rate):
+    return price + price * tax_rate
+```
+
+```python
+add_vat = partial(add_tax, tax_rate=0.10)
+
+print(add_vat(100))
+print(add_vat(200))
+```
+
+Natija
+
+```
+110
+220
+```
+
+---
+
+# 🏗 7. `partial` qanday ishlaydi
+
+Asosiy funksiya
+
+```
+f(a, b, c)
+```
+
+`partial` bilan
+
+```
+g = partial(f, a)
+```
+
+Natija
+
+```
+g(b, c) → f(a, b, c)
+```
+
+---
+
+# 📊 8. `partial` vs oddiy funksiya
+
+### Oddiy funksiya
+
+```python
+def double(x):
+    return multiply(2, x)
+```
+
+### `partial` bilan
+
+```python
+double = partial(multiply, 2)
+```
+
+📌 `partial` — **qisqa va functional style**.
+
+---
+
+# 📌 9. Qachon ishlatiladi
+
+`partial()` ko‘pincha ishlatiladi:
+
+✔ callback funksiyalarda
+✔ functional programming’da
+✔ argumentlarni qayta ishlatishda
+✔ `map()` va `sorted()` bilan
+
+---
+
+# 🧠 10. `map()` bilan misol
+
+```python
+from functools import partial
+
+def multiply(a, b):
+    return a * b
+```
+
+```python
+double = partial(multiply, 2)
+
+numbers = [1,2,3,4]
+
+result = list(map(double, numbers))
+
+print(result)
+```
+
+Natija
+
+```
+[2, 4, 6, 8]
+```
+
+---
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
