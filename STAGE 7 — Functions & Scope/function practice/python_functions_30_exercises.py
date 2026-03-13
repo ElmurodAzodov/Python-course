@@ -78,19 +78,29 @@
 # - ko‘paytma
 # - bo‘linma
 
-def calc(a, b):
-    yigindi = a + b
-    ayirma = a - b
-    kopaytma = a * b
-    bolinma = a / b
-    return yigindi, ayirma, kopaytma, bolinma
+# def calc(a, b):
+#     yigindi = a + b
+#     ayirma = a - b
+#     kopaytma = a * b
+#     bolinma = a / b
+#     return yigindi, ayirma, kopaytma, bolinma
 
-print(calc(10, 5))
+# print(calc(10, 5))
 
 # 12
 # String qabul qiladigan funksiya yozing.
 # Funksiya matn ichidagi unli harflar sonini hisoblab return qilsin.
 
+def count_vowels(text):
+    vowels = "aeiouAEIOUo'u'"
+    count = 0
+
+    for i in text:
+        if i in vowels:
+            count += 1
+    return count
+
+print(count_vowels("Salom dunyo"))
 
 # 13
 # Default argument sifatida list ishlatadigan funksiya yozing.
