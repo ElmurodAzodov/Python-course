@@ -54,6 +54,10 @@
 # **kwargs qabul qiladigan funksiya yozing.
 # Funksiya kelgan barcha ma’lumotlarni dictionary ko‘rinishida return qilsin.
 
+def get_data(**kwargs):
+    return kwargs
+
+print(get_data(name="Ali", age=20, city="Tashkent"))
 
 # 11
 # Ikki son qabul qiladigan funksiya yozing.
