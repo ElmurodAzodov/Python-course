@@ -49,26 +49,26 @@
 # *args yordamida bir nechta son qabul qiladigan funksiya yozing.
 # Funksiya barcha sonlarning o‘rtacha qiymatini return qilsin.
 
-def average_numbers(*args):
-    total = sum(args)
-    count = len(args)
+# def average_numbers(*args):
+#     total = sum(args)
+#     count = len(args)
 
-    if count == 0:
-        return 0
+#     if count == 0:
+#         return 0
 
-    return total / count
+#     return total / count
 
-print(average_numbers(10, 20, 30))
-print(average_numbers(5, 15, 25, 35))
+# print(average_numbers(10, 20, 30))
+# print(average_numbers(5, 15, 25, 35))
 
 # 10
 # **kwargs qabul qiladigan funksiya yozing.
 # Funksiya kelgan barcha ma’lumotlarni dictionary ko‘rinishida return qilsin.
 
-def get_data(**kwargs):
-    return kwargs
+# def get_data(**kwargs):
+#     return kwargs
 
-print(get_data(name="Ali", age=20, city="Tashkent"))
+# print(get_data(name="Ali", age=20, city="Tashkent"))
 
 # 11
 # Ikki son qabul qiladigan funksiya yozing.
@@ -78,6 +78,14 @@ print(get_data(name="Ali", age=20, city="Tashkent"))
 # - ko‘paytma
 # - bo‘linma
 
+def calc(a, b):
+    yigindi = a + b
+    ayirma = a - b
+    kopaytma = a * b
+    bolinma = a / b
+    return yigindi, ayirma, kopaytma, bolinma
+
+print(calc(10, 5))
 
 # 12
 # String qabul qiladigan funksiya yozing.
