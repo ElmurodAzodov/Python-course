@@ -106,18 +106,33 @@
 # Default argument sifatida list ishlatadigan funksiya yozing.
 # Funksiya listga yangi element qo‘shib return qilsin.
 
-def add_element(element, lst=[]):
-    lst.append(element)
-    return lst
+# def add_element(element, lst=[]):
+#     lst.append(element)
+#     return lst
 
-print(add_element(5))
-print(add_element(10))
+# print(add_element(5))
+# print(add_element(10))
 
 # 14
 # Keyword-only argument ishlatiladigan funksiya yozing.
 # Masalan: func(a, b, *, operation)
 # operation qiymatiga qarab amal bajarilsin.
 
+def func(a, b, *, operation):
+    
+    if operation == "add":
+        return a + b
+    elif operation == "sub":
+        return a - b
+    elif operation == "mul":
+        return a * b
+    elif operation == "div":
+        return a / b
+    else:
+        return "Noto'g'ri amal"
+
+print(func(10, 5, operation="add"))
+print(func(10, 5, operation="mul"))
 
 # 15
 # Bitta son qabul qiladigan funksiya yozing.
