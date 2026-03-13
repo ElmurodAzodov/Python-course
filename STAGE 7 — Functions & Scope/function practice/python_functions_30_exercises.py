@@ -49,6 +49,17 @@
 # *args yordamida bir nechta son qabul qiladigan funksiya yozing.
 # Funksiya barcha sonlarning o‘rtacha qiymatini return qilsin.
 
+def average_numbers(*args):
+    total = sum(args)
+    count = len(args)
+
+    if count == 0:
+        return 0
+
+    return total / count
+
+print(average_numbers(10, 20, 30))
+print(average_numbers(5, 15, 25, 35))
 
 # 10
 # **kwargs qabul qiladigan funksiya yozing.
