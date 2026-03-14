@@ -3,1624 +3,370 @@
 <br>
 <br>
 
-# ⭐ Functions as First-Class Objects — Python’da Funksiyalar obyekt sifatida
+## ⭐ Functions as First-Class Objects (Assign, Pass, Return)
 
-Python’da **funksiyalar oddiy obyektlar kabi ishlaydi**.
-Bu degani funksiyalarni:
+Python’da **funksiyalar ham oddiy obyektlar kabi ishlatilishi mumkin**.
+Bu konsepsiya **First-Class Object** deb ataladi.
 
-* 📦 o‘zgaruvchiga **saqlash**
-* 📤 boshqa funksiyaga **argument sifatida uzatish**
-* 📥 funksiya ichidan **qaytarish**
+Agar biror narsa **first-class** bo‘lsa, u quyidagi imkoniyatlarga ega bo‘ladi:
 
-mumkin.
+✅ O‘zgaruvchiga **biriktirilishi mumkin**
+✅ **Argument sifatida** boshqa funksiyaga berilishi mumkin
+✅ **Funksiyadan qaytarilishi** mumkin
+✅ **Ma'lumot strukturasi ichida** saqlanishi mumkin (list, dict, va hokazo)
 
-> **First-Class Object** — dasturda oddiy qiymat (int, str, list) kabi ishlatilishi mumkin bo‘lgan obyekt.
-
-Python’da **funksiyalar ham first-class object** hisoblanadi.
+Python’da **funksiya ham object** bo‘lgani uchun yuqoridagi barcha imkoniyatlar mavjud.
 
 ---
 
-# 🎯 1. Funksiyani o‘zgaruvchiga saqlash (Assign)
+# 📌 1. Functionni o‘zgaruvchiga assign qilish
 
-Funksiyani **o‘zgaruvchiga assign qilish** mumkin.
+Funksiyani **o‘zgaruvchiga saqlash mumkin**.
+Bu holda funksiya nomi emas, **funksiyaning o‘zi** assign qilinadi.
 
-### Misol
+### 🧠 Nazariya
+
+Funksiya chaqirish:
+
+```
+function_name()
+```
+
+Agar **qavs qo‘ymasak**, funksiya **chaqirilmaydi**, balki **object sifatida olinadi**.
+
+---
+
+### 💻 Misol
 
 ```python
 def greet(name):
-    return f"Salom {name}"
-```
+    return f"Hello {name}"
 
-Endi funksiyani o‘zgaruvchiga beramiz:
-
-```python
 say_hello = greet
-```
 
-Chaqarish:
-
-```python
 print(say_hello("Ali"))
 ```
 
-Natija
+### 📤 Output
 
 ```
-Salom Ali
+Hello Ali
 ```
 
-📌 Muhim:
+### 🔍 Tushuntirish
 
-```python
-say_hello = greet
-```
-
-bu yerda **()` ishlatilmaydi`**, chunki biz **funksiyani chaqirmayapmiz**, balki **reference ni saqlayapmiz**.
+| Kod                 | Ma'nosi                               |
+| ------------------- | ------------------------------------- |
+| `greet`             | funksiya object                       |
+| `say_hello = greet` | funksiya boshqa o‘zgaruvchiga berildi |
+| `say_hello("Ali")`  | aslida `greet("Ali")` chaqirildi      |
 
 ---
 
-# 🧠 2. Funksiya obyekt ekanini tekshirish
-
-Funksiya ham obyekt bo‘lgani uchun uni tekshirish mumkin.
-
-```python
-def add(a, b):
-    return a + b
-```
-
-```python
-print(type(add))
-```
-
-Natija:
-
-```
-<class 'function'>
-```
-
-Demak **funksiya ham obyekt**.
-
----
-
-# 📦 3. Funksiyani list yoki dict ichida saqlash
-
-Funksiyalar **data structure ichida ham saqlanishi mumkin**.
-
-### Misol
+### 📌 Funksiya object ekanini tekshirish
 
 ```python
 def add(a, b):
     return a + b
 
-def multiply(a, b):
-    return a * b
+print(add)
 ```
 
-List ichida:
-
-```python
-operations = [add, multiply]
-
-print(operations[0](2, 3))
-print(operations[1](2, 3))
-```
-
-Natija
+### 📤 Output
 
 ```
-5
-6
+<function add at 0x0000023A...>
 ```
+
+Bu shuni bildiradiki **funksiya ham xotirada obyekt**.
 
 ---
 
-# 📤 4. Funksiyani argument sifatida uzatish (Pass)
+# 📌 2. Functionni argument sifatida berish
 
-Funksiyani boshqa funksiyaga **argument sifatida berish mumkin**.
+Python’da funksiya **boshqa funksiyaga argument sifatida uzatilishi mumkin**.
 
-### Misol
+Bu **Higher-Order Function** deb ataladi.
+
+📌 **Higher-Order Function** — funksiya qabul qiladigan yoki funksiya qaytaradigan funksiya.
+
+---
+
+### 💻 Misol
 
 ```python
 def greet(name):
-    return f"Salom {name}"
-```
+    return f"Hello {name}"
 
-```python
-def execute(func, value):
+def execute_function(func, value):
     return func(value)
-```
 
-Chaqarish:
-
-```python
-print(execute(greet, "Ali"))
-```
-
-Natija
-
-```
-Salom Ali
-```
-
-📌 Jarayon
-
-```
-execute(greet, "Ali")
-
-func = greet
-value = "Ali"
-
-→ greet("Ali")
-```
-
----
-
-# 🔁 5. Real misol (callback function)
-
-Funksiyani argument sifatida berish **callback** deyiladi.
-
-```python
-def square(x):
-    return x * x
-```
-
-```python
-def process_number(func, number):
-    return func(number)
-```
-
-Chaqarish:
-
-```python
-print(process_number(square, 5))
-```
-
-Natija
-
-```
-25
-```
-
-Bu pattern **map, filter, sorting** kabi joylarda ishlatiladi.
-
----
-
-# 📥 6. Funksiya ichidan funksiya qaytarish (Return)
-
-Funksiya boshqa funksiyani **return** qilishi mumkin.
-
-### Misol
-
-```python
-def get_greeter():
-    
-    def greet(name):
-        return f"Salom {name}"
-    
-    return greet
-```
-
-Chaqarish:
-
-```python
-greeter = get_greeter()
-
-print(greeter("Ali"))
-```
-
-Natija
-
-```
-Salom Ali
-```
-
-📌 Jarayon
-
-```
-get_greeter()
-   ↓
-return greet
-   ↓
-greeter = greet
-```
-
----
-
-# 🧩 7. Funksiya yaratish factory pattern
-
-Bu usul **function factory** deyiladi.
-
-```python
-def power_factory(exponent):
-
-    def power(number):
-        return number ** exponent
-
-    return power
-```
-
-Chaqarish:
-
-```python
-square = power_factory(2)
-cube = power_factory(3)
-
-print(square(4))
-print(cube(4))
-```
-
-Natija
-
-```
-16
-64
-```
-
-📌 Mapping
-
-```
-square → exponent = 2
-cube → exponent = 3
-```
-
----
-
-# 🔗 8. Funksiya reference vs funksiya chaqirish
-
-### Reference
-
-```python
-func = greet
-```
-
-Bu **funksiya manzilini saqlaydi**.
-
-### Call
-
-```python
-func = greet()
-```
-
-Bu **funksiyani ishlatadi**.
-
----
-
-# 🏗 9. Real mini dastur (dynamic behavior)
-
-```python
-def add(a, b):
-    return a + b
-
-def multiply(a, b):
-    return a * b
-```
-
-```python
-def calculate(operation, a, b):
-    return operation(a, b)
-```
-
-Chaqarish
-
-```python
-print(calculate(add, 3, 4))
-print(calculate(multiply, 3, 4))
-```
-
-Natija
-
-```
-7
-12
-```
-
-📌 Bu **Strategy Pattern** ga o‘xshaydi.
-
----
-
-# 📊 10. First-Class Object xususiyatlari
-
-Python’da funksiya:
-
-| Xususiyat                     | Misol             |
-| ----------------------------- | ----------------- |
-| o‘zgaruvchiga assign qilish   | `f = greet`       |
-| argument sifatida berish      | `execute(greet)`  |
-| return qilish                 | `return greet`    |
-| data structure ichida saqlash | `[add, multiply]` |
-
----
-
-<br>
-<br>
-<br>
-<br>
-<br>
-
-# λ Lambda Functions — Anonymous Functions (single expression)
-
-Python’da **lambda function** bu **nomi bo‘lmagan (anonymous)** kichik funksiyadir.
-U odatda **bitta ifoda (single expression)** dan iborat bo‘ladi.
-
-> Lambda → tez va qisqa funksiya yozish uchun ishlatiladi.
-
----
-
-# 🎯 1. Lambda sintaksisi
-
-Oddiy funksiya:
-
-```python
-def add(a, b):
-    return a + b
-```
-
-Lambda versiyasi:
-
-```python
-lambda a, b: a + b
-```
-
-📌 Sintaksis
-
-```
-lambda argumentlar : expression
-```
-
-* `lambda` → funksiya yaratadi
-* `argumentlar` → parametrlar
-* `expression` → natija (return avtomatik)
-
-Lambda’da **return yozilmaydi**.
-
----
-
-# 🧠 2. Oddiy lambda misol
-
-```python
-add = lambda a, b: a + b
-
-print(add(2, 3))
-```
-
-Natija
-
-```
-5
-```
-
-Bu aslida quyidagiga teng:
-
-```python
-def add(a, b):
-    return a + b
-```
-
----
-
-# ⚡ 3. Lambda — bir qatorli funksiya
-
-Lambda **faqat bitta expression** ishlatadi.
-
-✔ To‘g‘ri
-
-```python
-square = lambda x: x * x
-print(square(5))
-```
-
-Natija
-
-```
-25
-```
-
-❌ Noto‘g‘ri
-
-```python
-lambda x:
-    y = x * 2
-    return y
-```
-
-Lambda’da:
-
-* assignment
-* ko‘p qatorli kod
-* `return`
-
-bo‘lmaydi.
-
----
-
-# 📦 4. Lambda funksiyani argument sifatida berish
-
-Lambda ko‘pincha boshqa funksiyalarga **argument sifatida beriladi**.
-
-```python
-def apply(func, value):
-    return func(value)
-```
-
-Lambda bilan:
-
-```python
-result = apply(lambda x: x * 2, 5)
+result = execute_function(greet, "Ali")
 
 print(result)
 ```
 
-Natija
+### 📤 Output
 
 ```
-10
+Hello Ali
 ```
+
+### 🔍 Tushuntirish
+
+| Qadam              | Nima bo'ldi                                      |
+| ------------------ | ------------------------------------------------ |
+| `greet`            | funksiya object                                  |
+| `execute_function` | funksiya argument sifatida funksiya qabul qiladi |
+| `func(value)`      | uzatilgan funksiya chaqiriladi                   |
 
 ---
 
-# 🔁 5. Lambda bilan `sorted()`
-
-Lambda ko‘pincha **sorting key** sifatida ishlatiladi.
+### 📌 Bir nechta funksiyalar bilan ishlash
 
 ```python
-students = [
-    ("Ali", 90),
-    ("Vali", 75),
-    ("Hasan", 85)
-]
+def add(a, b):
+    return a + b
+
+def multiply(a, b):
+    return a * b
+
+def calculate(func, x, y):
+    return func(x, y)
+
+print(calculate(add, 5, 3))
+print(calculate(multiply, 5, 3))
 ```
 
-Ball bo‘yicha sort qilish:
-
-```python
-students.sort(key=lambda student: student[1])
-
-print(students)
-```
-
-Natija
+### 📤 Output
 
 ```
-[('Vali', 75), ('Hasan', 85), ('Ali', 90)]
+8
+15
 ```
 
 Bu yerda:
 
 ```
-lambda student: student[1]
+calculate(add, 5, 3)
 ```
 
-→ har bir studentdan **score ni oladi**.
-
----
-
-# 🧩 6. Lambda bilan `map()`
-
-Lambda **transformatsiya** uchun ishlatiladi.
-
-```python
-numbers = [1, 2, 3, 4]
-```
-
-Har bir sonni kvadrat qilish:
-
-```python
-result = list(map(lambda x: x * x, numbers))
-
-print(result)
-```
-
-Natija
+aslida:
 
 ```
-[1, 4, 9, 16]
+add(5, 3)
 ```
 
 ---
 
-# 🔍 7. Lambda bilan `filter()`
+# 📌 3. Functionni return qilish
 
-Filter **shart bo‘yicha tanlash** uchun ishlatiladi.
+Python’da funksiya **boshqa funksiyani qaytarishi ham mumkin**.
 
-```python
-numbers = [1,2,3,4,5,6]
-```
+Bu ko‘pincha:
 
-Faqat juft sonlar:
+* decoratorlar
+* closurelar
+* functional programming
 
-```python
-result = list(filter(lambda x: x % 2 == 0, numbers))
-
-print(result)
-```
-
-Natija
-
-```
-[2, 4, 6]
-```
+uchun ishlatiladi.
 
 ---
 
-# 🏗 8. Real misol
-
-Userlar ro‘yxati:
+### 💻 Misol
 
 ```python
-users = [
-    {"name": "Ali", "age": 20},
-    {"name": "Vali", "age": 17},
-    {"name": "Hasan", "age": 25}
-]
+def get_greeter():
+    
+    def greet(name):
+        return f"Hello {name}"
+    
+    return greet
+
+greeter = get_greeter()
+
+print(greeter("Ali"))
 ```
 
-Yoshi bo‘yicha sort:
-
-```python
-users.sort(key=lambda user: user["age"])
-
-print(users)
-```
-
-Natija
+### 📤 Output
 
 ```
-[
- {'name': 'Vali', 'age': 17},
- {'name': 'Ali', 'age': 20},
- {'name': 'Hasan', 'age': 25}
-]
+Hello Ali
 ```
+
+### 🔍 Tushuntirish
+
+| Qadam           | Nima bo'ldi                     |
+| --------------- | ------------------------------- |
+| `get_greeter()` | ichida yangi funksiya yaratildi |
+| `return greet`  | funksiya qaytarildi             |
+| `greeter`       | endi funksiya object            |
 
 ---
 
-# 📊 9. Lambda vs normal function
+# 📌 4. Functionni data structure ichida saqlash
 
-| Oddiy funksiya                   | Lambda                   |
-| -------------------------------- | ------------------------ |
-| `def` bilan yoziladi             | `lambda` bilan           |
-| bir nechta qator bo‘lishi mumkin | faqat 1 expression       |
-| return yoziladi                  | return avtomatik         |
-| katta funksiyalar uchun          | kichik funksiyalar uchun |
-
-Misol
-
-```python
-def square(x):
-    return x * x
-```
-
-Lambda:
-
-```python
-lambda x: x * x
-```
+Funksiyalarni **list, dictionary, set** ichida ham saqlash mumkin.
 
 ---
 
-# 📌 10. Lambda qachon ishlatiladi
-
-Lambda odatda ishlatiladi:
-
-✔ `map()`
-✔ `filter()`
-✔ `sorted()`
-✔ `min()` / `max()`
-✔ callback funksiyalar
-
-Katta funksiyalar uchun **def ishlatiladi**.
-
----
-
-<br>
-<br>
-<br>
-<br>
-<br>
-
-# 🗺️ `map()` — Iterable elementlarini transform qilish
-
-Python’da **`map()`** funksiyasi iterable (list, tuple, set va hokazo) ichidagi **har bir elementga funksiya qo‘llab yangi qiymatlar yaratadi**.
-
-> `map()` → har bir elementni **o‘zgartirib (transform)** yangi iterable qaytaradi.
-
----
-
-# 🎯 1. `map()` sintaksisi
-
-```python
-map(function, iterable)
-```
-
-📌 Parametrlar
-
-* **function** → har bir elementga qo‘llanadigan funksiya
-* **iterable** → list, tuple, set va hokazo
-
-`map()` natijada **map object** qaytaradi, shuning uchun odatda `list()` bilan o‘giriladi.
-
----
-
-# 🧠 2. Oddiy misol
-
-List ichidagi sonlarni **kvadrat qilish**.
-
-```python
-def square(x):
-    return x * x
-
-numbers = [1, 2, 3, 4]
-
-result = map(square, numbers)
-
-print(list(result))
-```
-
-Natija
-
-```
-[1, 4, 9, 16]
-```
-
-📌 Jarayon
-
-```
-square(1) → 1
-square(2) → 4
-square(3) → 9
-square(4) → 16
-```
-
----
-
-# ⚡ 3. `map()` + lambda
-
-Ko‘pincha `map()` bilan **lambda function** ishlatiladi.
-
-```python
-numbers = [1, 2, 3, 4]
-
-result = list(map(lambda x: x * x, numbers))
-
-print(result)
-```
-
-Natija
-
-```
-[1, 4, 9, 16]
-```
-
-Bu eng ko‘p ishlatiladigan pattern.
-
----
-
-# 📦 4. Stringlarni transform qilish
-
-Har bir ismni **katta harfga** o‘tkazish.
-
-```python
-names = ["ali", "vali", "hasan"]
-
-result = list(map(str.upper, names))
-
-print(result)
-```
-
-Natija
-
-```
-['ALI', 'VALI', 'HASAN']
-```
-
-Bu yerda funksiya sifatida **`str.upper`** ishlatilgan.
-
----
-
-# 🔁 5. Ikki iterable bilan `map()`
-
-`map()` bir nechta iterable bilan ham ishlaydi.
+### 💻 Misol (List)
 
 ```python
 def add(a, b):
     return a + b
 
-nums1 = [1, 2, 3]
-nums2 = [4, 5, 6]
+def subtract(a, b):
+    return a - b
 
-result = list(map(add, nums1, nums2))
+operations = [add, subtract]
 
-print(result)
+print(operations[0](10, 5))
+print(operations[1](10, 5))
 ```
 
-Natija
+### 📤 Output
 
 ```
-[5, 7, 9]
-```
-
-📌 Jarayon
-
-```
-add(1,4)
-add(2,5)
-add(3,6)
+15
+5
 ```
 
 ---
 
-# 🧩 6. Real misol
-
-Mahsulot narxlarini **10% oshirish**.
+### 💻 Misol (Dictionary)
 
 ```python
-prices = [100, 200, 300]
+def add(a, b):
+    return a + b
+
+def multiply(a, b):
+    return a * b
+
+calculator = {
+    "add": add,
+    "multiply": multiply
+}
+
+print(calculator["add"](4, 6))
+print(calculator["multiply"](4, 6))
 ```
 
-```python
-new_prices = list(map(lambda p: p * 1.1, prices))
-
-print(new_prices)
-```
-
-Natija
-
-```
-[110.0, 220.0, 330.0]
-```
-
----
-
-# 🏗 7. `map()` vs for loop
-
-### `for` loop bilan
-
-```python
-numbers = [1,2,3,4]
-
-result = []
-
-for n in numbers:
-    result.append(n*n)
-
-print(result)
-```
-
-Natija
-
-```
-[1,4,9,16]
-```
-
----
-
-### `map()` bilan
-
-```python
-numbers = [1,2,3,4]
-
-result = list(map(lambda x: x*x, numbers))
-
-print(result)
-```
-
-Natija
-
-```
-[1,4,9,16]
-```
-
-📌 `map()` **qisqaroq va functional style**.
-
----
-
-# 📊 8. `map()` qachon ishlatiladi
-
-`map()` ishlatiladi:
-
-✔ list elementlarini transform qilish
-✔ matematik operatsiyalar
-✔ string transformatsiya
-✔ functional programming
-
----
-
-# 📌 9. Muhim eslatma
-
-`map()` natijasi **iterator** bo‘ladi.
-
-```python
-numbers = [1,2,3]
-
-result = map(lambda x: x*2, numbers)
-
-print(result)
-```
-
-Natija
-
-```
-<map object at 0x...>
-```
-
-Shuning uchun:
-
-```python
-print(list(result))
-```
-
----
-
-<br>
-<br>
-<br>
-<br>
-<br>
-
-# 🔍 `filter()` — Iterable dan elementlarni tanlash (select items)
-
-Python’da **`filter()`** funksiyasi iterable ichidan **berilgan shartga mos elementlarni tanlab beradi**.
-
-> `filter()` → elementlarni **filtrlash** uchun ishlatiladi.
-
----
-
-# 🎯 1. `filter()` sintaksisi
-
-```python
-filter(function, iterable)
-```
-
-📌 Parametrlar
-
-* **function** → shartni tekshiruvchi funksiya (True yoki False qaytaradi)
-* **iterable** → list, tuple, set va boshqalar
-
-Natija → **filter object (iterator)** qaytaradi.
-
-Shuning uchun ko‘pincha:
-
-```python
-list(filter(...))
-```
-
-ishlatiladi.
-
----
-
-# 🧠 2. Oddiy misol
-
-Faqat **juft sonlarni tanlash**.
-
-```python
-def is_even(x):
-    return x % 2 == 0
-
-numbers = [1, 2, 3, 4, 5, 6]
-
-result = filter(is_even, numbers)
-
-print(list(result))
-```
-
-Natija
-
-```
-[2, 4, 6]
-```
-
-📌 Jarayon
-
-```
-is_even(1) → False
-is_even(2) → True
-is_even(3) → False
-is_even(4) → True
-```
-
----
-
-# ⚡ 3. `filter()` + lambda
-
-Ko‘pincha `filter()` bilan **lambda function** ishlatiladi.
-
-```python
-numbers = [1,2,3,4,5,6]
-
-result = list(filter(lambda x: x % 2 == 0, numbers))
-
-print(result)
-```
-
-Natija
-
-```
-[2, 4, 6]
-```
-
-Bu eng keng tarqalgan ishlatilish usuli.
-
----
-
-# 📦 4. Stringlarni filtrlash
-
-Faqat **uzunligi 4 dan katta** so‘zlarni tanlash.
-
-```python
-words = ["apple", "cat", "banana", "dog"]
-
-result = list(filter(lambda w: len(w) > 4, words))
-
-print(result)
-```
-
-Natija
-
-```
-['apple', 'banana']
-```
-
----
-
-# 🧩 5. Real misol
-
-Yoshi **18 dan katta** userlarni tanlash.
-
-```python
-users = [
-    {"name": "Ali", "age": 20},
-    {"name": "Vali", "age": 17},
-    {"name": "Hasan", "age": 25}
-]
-```
-
-```python
-adults = list(filter(lambda user: user["age"] >= 18, users))
-
-print(adults)
-```
-
-Natija
-
-```
-[
- {'name': 'Ali', 'age': 20},
- {'name': 'Hasan', 'age': 25}
-]
-```
-
----
-
-# 🔁 6. `filter()` vs `for` loop
-
-### `for` loop bilan
-
-```python
-numbers = [1,2,3,4,5,6]
-
-result = []
-
-for n in numbers:
-    if n % 2 == 0:
-        result.append(n)
-
-print(result)
-```
-
-Natija
-
-```
-[2,4,6]
-```
-
----
-
-### `filter()` bilan
-
-```python
-numbers = [1,2,3,4,5,6]
-
-result = list(filter(lambda x: x % 2 == 0, numbers))
-
-print(result)
-```
-
-Natija
-
-```
-[2,4,6]
-```
-
-📌 `filter()` **functional style** hisoblanadi.
-
----
-
-# 📊 7. `map()` vs `filter()`
-
-| Funksiya   | Vazifa                    |
-| ---------- | ------------------------- |
-| `map()`    | elementlarni o‘zgartiradi |
-| `filter()` | elementlarni tanlaydi     |
-
-Misol:
-
-```python
-numbers = [1,2,3,4]
-```
-
-Transform:
-
-```python
-map(lambda x: x*2, numbers)
-```
-
-Select:
-
-```python
-filter(lambda x: x%2==0, numbers)
-```
-
----
-
-# 📌 8. Muhim eslatma
-
-`filter()` ham **iterator** qaytaradi.
-
-```python
-result = filter(lambda x: x > 5, [3,7,8])
-
-print(result)
-```
-
-Natija
-
-```
-<filter object at 0x...>
-```
-
-Shuning uchun:
-
-```python
-print(list(result))
-```
-
----
-
-# 🏗 9. Mini real dastur
-
-Faqat **musbat sonlarni** olish.
-
-```python
-numbers = [-5, 3, -2, 8, -1, 4]
-
-positive = list(filter(lambda x: x > 0, numbers))
-
-print(positive)
-```
-
-Natija
-
-```
-[3, 8, 4]
-```
-
----
-
-<br>
-<br>
-<br>
-<br>
-<br>
-
-# 📊 `reduce()` — Iterable elementlarini bitta qiymatga yig‘ish (accumulate)
-
-Python’da **`reduce()`** funksiyasi iterable ichidagi elementlarni **ketma-ket hisoblab bitta natijaga keltiradi**.
-
-> `reduce()` → elementlarni **yig‘ib bitta qiymat hosil qiladi**.
-
-`reduce()` **`functools` modulidan** olinadi.
-
----
-
-# 🎯 1. `reduce()` import qilish
-
-`reduce()` Python’da alohida modulda joylashgan.
-
-```python
-from functools import reduce
-```
-
----
-
-# 🧠 2. `reduce()` sintaksisi
-
-```python
-reduce(function, iterable)
-```
-
-📌 Parametrlar
-
-* **function** → ikkita argument qabul qiladigan funksiya
-* **iterable** → list, tuple va boshqalar
-
-`reduce()` har safar **oldingi natija + keyingi element** bilan ishlaydi.
-
----
-
-# ⚡ 3. Oddiy misol — sonlarni qo‘shish
-
-```python
-from functools import reduce
-
-numbers = [1, 2, 3, 4]
-
-result = reduce(lambda a, b: a + b, numbers)
-
-print(result)
-```
-
-Natija
+### 📤 Output
 
 ```
 10
-```
-
-📌 Jarayon
-
-```
-1 + 2 = 3
-3 + 3 = 6
-6 + 4 = 10
-```
-
----
-
-# 📦 4. Sonlarni ko‘paytirish
-
-```python
-from functools import reduce
-
-numbers = [1, 2, 3, 4]
-
-result = reduce(lambda a, b: a * b, numbers)
-
-print(result)
-```
-
-Natija
-
-```
 24
 ```
 
-Jarayon
+Bu usul **command dispatcher** va **plugin system**larda ishlatiladi.
+
+---
+
+# 📌 5. Functionni boshqa o‘zgaruvchiga nusxalash
+
+Funksiya **reference** orqali beriladi.
+
+---
+
+### 💻 Misol
+
+```python
+def greet():
+    print("Hello")
+
+a = greet
+b = greet
+
+a()
+b()
+```
+
+### 📤 Output
 
 ```
-1 * 2 = 2
-2 * 3 = 6
-6 * 4 = 24
+Hello
+Hello
 ```
 
 ---
 
-# 🔁 5. `reduce()` qanday ishlaydi
-
-Iterable:
-
-```
-[1, 2, 3, 4]
-```
-
-Hisoblash:
-
-```
-step1 → f(1,2)
-step2 → f(result,3)
-step3 → f(result,4)
-```
-
-Diagram:
-
-```
-1   2   3   4
- \ /
-  3
-   \
-    6
-     \
-      10
-```
-
----
-
-# 🧩 6. Real misol — eng katta sonni topish
+# 📌 6. Functionni boshqa funksiya ichida ishlatish
 
 ```python
-from functools import reduce
+def square(x):
+    return x * x
 
-numbers = [3, 7, 2, 9, 5]
+def apply(func, value):
+    return func(value)
 
-maximum = reduce(lambda a, b: a if a > b else b, numbers)
-
-print(maximum)
+print(apply(square, 5))
 ```
 
-Natija
-
-```
-9
-```
-
----
-
-# 🏗 7. Stringlarni birlashtirish
-
-```python
-from functools import reduce
-
-words = ["Python", "is", "powerful"]
-
-sentence = reduce(lambda a, b: a + " " + b, words)
-
-print(sentence)
-```
-
-Natija
-
-```
-Python is powerful
-```
-
----
-
-# 📊 8. `map()` vs `filter()` vs `reduce()`
-
-| Funksiya   | Vazifa                              |
-| ---------- | ----------------------------------- |
-| `map()`    | elementlarni transform qiladi       |
-| `filter()` | elementlarni tanlaydi               |
-| `reduce()` | elementlarni bitta natijaga yig‘adi |
-
-Misol
-
-```python
-numbers = [1,2,3,4]
-```
-
-Transform
-
-```python
-map(lambda x: x*2, numbers)
-```
-
-Select
-
-```python
-filter(lambda x: x%2==0, numbers)
-```
-
-Accumulate
-
-```python
-reduce(lambda a,b: a+b, numbers)
-```
-
----
-
-# 📌 9. `reduce()` vs `for` loop
-
-### `for` bilan
-
-```python
-numbers = [1,2,3,4]
-
-total = 0
-
-for n in numbers:
-    total += n
-
-print(total)
-```
-
-Natija
-
-```
-10
-```
-
----
-
-### `reduce()` bilan
-
-```python
-from functools import reduce
-
-numbers = [1,2,3,4]
-
-total = reduce(lambda a,b: a+b, numbers)
-
-print(total)
-```
-
-Natija
-
-```
-10
-```
-
----
-
-# 🧠 10. Initial value bilan reduce
-
-`reduce()` ga boshlang‘ich qiymat berish mumkin.
-
-```python
-from functools import reduce
-
-numbers = [1,2,3]
-
-result = reduce(lambda a,b: a+b, numbers, 10)
-
-print(result)
-```
-
-Jarayon
-
-```
-10 + 1 = 11
-11 + 2 = 13
-13 + 3 = 16
-```
-
-Natija
-
-```
-16
-```
-
----
-
-<br>
-<br>
-<br>
-<br>
-<br>
-
-# ⚡ `functools.partial` — Argumentlarni oldindan belgilash (fix arguments)
-
-Python’da **`functools.partial`** funksiyasi yordamida mavjud funksiyaning **ba’zi argumentlarini oldindan belgilab yangi funksiya yaratish** mumkin.
-
-> `partial()` → funksiyaning **ba’zi argumentlarini “muzlatib” (fix qilib)** yangi funksiya hosil qiladi.
-
-Bu **functional programming** da juda muhim tushuncha.
-
----
-
-# 🎯 1. `partial` import qilish
-
-`partial` **`functools`** modulida joylashgan.
-
-```python
-from functools import partial
-```
-
----
-
-# 🧠 2. `partial()` sintaksisi
-
-```python
-partial(function, arg1, arg2, ...)
-```
-
-📌 Ma’nosi:
-
-* `function` → asosiy funksiya
-* `arg` → oldindan beriladigan argument
-
-Natijada **yangi funksiya** hosil bo‘ladi.
-
----
-
-# 📦 3. Oddiy misol
-
-Oddiy funksiya:
-
-```python
-def power(base, exponent):
-    return base ** exponent
-```
-
-Endi `partial` bilan **kvadrat funksiyasi** yaratamiz.
-
-```python
-from functools import partial
-
-square = partial(power, exponent=2)
-
-print(square(5))
-```
-
-Natija
+### 📤 Output
 
 ```
 25
 ```
 
-📌 Bu aslida quyidagiga teng:
+---
+
+# 📌 7. Real Example (Plugin Pattern)
 
 ```python
-power(5, 2)
+def jpg_handler(file):
+    return "Processing JPG"
+
+def png_handler(file):
+    return "Processing PNG"
+
+handlers = {
+    "jpg": jpg_handler,
+    "png": png_handler
+}
+
+file_type = "png"
+
+print(handlers[file_type]("image.png"))
+```
+
+### 📤 Output
+
+```
+Processing PNG
 ```
 
 ---
 
-# ⚡ 4. Yangi funksiya yaratish
+# 📌 Muhim eslatma
 
-`partial` bilan bir nechta yangi funksiyalar yaratish mumkin.
+Funksiya **object sifatida uzatilganda qavs qo‘yilmaydi**.
 
-```python
-from functools import partial
-
-def power(base, exponent):
-    return base ** exponent
-```
+❌ noto‘g‘ri
 
 ```python
-square = partial(power, exponent=2)
-cube = partial(power, exponent=3)
-
-print(square(4))
-print(cube(4))
+execute_function(greet(), "Ali")
 ```
 
-Natija
-
-```
-16
-64
-```
-
-📌 Mapping
-
-```
-square(x) → x^2
-cube(x) → x^3
-```
-
----
-
-# 🔁 5. Birinchi argumentni fix qilish
+✔️ to‘g‘ri
 
 ```python
-from functools import partial
-
-def multiply(a, b):
-    return a * b
+execute_function(greet, "Ali")
 ```
 
-```python
-double = partial(multiply, 2)
-
-print(double(5))
-```
-
-Natija
+Sababi:
 
 ```
-10
+greet()
 ```
 
-Bu aslida:
+funksiyani **chaqiradi**
 
 ```
-multiply(2, 5)
+greet
 ```
 
----
-
-# 🧩 6. Real misol
-
-Narxga **10% soliq qo‘shish**.
-
-```python
-from functools import partial
-
-def add_tax(price, tax_rate):
-    return price + price * tax_rate
-```
-
-```python
-add_vat = partial(add_tax, tax_rate=0.10)
-
-print(add_vat(100))
-print(add_vat(200))
-```
-
-Natija
-
-```
-110
-220
-```
-
----
-
-# 🏗 7. `partial` qanday ishlaydi
-
-Asosiy funksiya
-
-```
-f(a, b, c)
-```
-
-`partial` bilan
-
-```
-g = partial(f, a)
-```
-
-Natija
-
-```
-g(b, c) → f(a, b, c)
-```
-
----
-
-# 📊 8. `partial` vs oddiy funksiya
-
-### Oddiy funksiya
-
-```python
-def double(x):
-    return multiply(2, x)
-```
-
-### `partial` bilan
-
-```python
-double = partial(multiply, 2)
-```
-
-📌 `partial` — **qisqa va functional style**.
-
----
-
-# 📌 9. Qachon ishlatiladi
-
-`partial()` ko‘pincha ishlatiladi:
-
-✔ callback funksiyalarda
-✔ functional programming’da
-✔ argumentlarni qayta ishlatishda
-✔ `map()` va `sorted()` bilan
-
----
-
-# 🧠 10. `map()` bilan misol
-
-```python
-from functools import partial
-
-def multiply(a, b):
-    return a * b
-```
-
-```python
-double = partial(multiply, 2)
-
-numbers = [1,2,3,4]
-
-result = list(map(double, numbers))
-
-print(result)
-```
-
-Natija
-
-```
-[2, 4, 6, 8]
-```
+esa **funksiya objectini beradi**
 
 ---
 
