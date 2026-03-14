@@ -1154,3 +1154,704 @@ aslida:
 <br>
 <br>
 
+# 🔍 `filter()` — Select Items from Iterable
+
+Python’da `filter()` funksiyasi **iterable ichidan ma'lum shartga mos keladigan elementlarni tanlab olish** uchun ishlatiladi.
+
+Agar `map()` **transform** qilsa,
+`filter()` esa **elementlarni saralab (select)** beradi.
+
+```
+iterable → condition check → filtered iterable
+```
+
+---
+
+# 📌 1. `filter()` sintaksisi
+
+```python
+filter(function, iterable)
+```
+
+| Qism       | Ma'nosi                             |
+| ---------- | ----------------------------------- |
+| `function` | har element uchun shart             |
+| `iterable` | list, tuple, set va boshqa iterable |
+
+Funksiya **True yoki False** qaytarishi kerak.
+
+```
+True  → element saqlanadi
+False → element chiqarib tashlanadi
+```
+
+Natija: **filter object (iterator)** qaytaradi.
+
+Shuning uchun ko‘pincha:
+
+```python
+list(filter(...))
+```
+
+ishlatiladi.
+
+---
+
+# 📌 2. Oddiy misol — Juft sonlarni tanlash
+
+### 💻 Oddiy usul
+
+```python
+numbers = [1,2,3,4,5,6]
+
+result = []
+
+for n in numbers:
+    if n % 2 == 0:
+        result.append(n)
+
+print(result)
+```
+
+### 📤 Output
+
+```
+[2, 4, 6]
+```
+
+---
+
+### 💻 `filter()` bilan
+
+```python
+numbers = [1,2,3,4,5,6]
+
+def is_even(x):
+    return x % 2 == 0
+
+result = list(filter(is_even, numbers))
+
+print(result)
+```
+
+### 📤 Output
+
+```
+[2, 4, 6]
+```
+
+---
+
+# 📌 3. Lambda bilan `filter()`
+
+Ko‘pincha `filter()` **lambda bilan ishlatiladi**.
+
+### 💻 Misol
+
+```python
+numbers = [1,2,3,4,5,6]
+
+result = list(filter(lambda x: x % 2 == 0, numbers))
+
+print(result)
+```
+
+### 📤 Output
+
+```
+[2, 4, 6]
+```
+
+---
+
+# 📌 4. Musbat sonlarni tanlash
+
+```python
+numbers = [-5, -2, 0, 3, 8, -1]
+
+result = list(filter(lambda x: x > 0, numbers))
+
+print(result)
+```
+
+### 📤 Output
+
+```
+[3, 8]
+```
+
+---
+
+# 📌 5. String uzunligi bo‘yicha filter
+
+### 💻 Misol
+
+```python
+words = ["apple", "hi", "banana", "ok"]
+
+result = list(filter(lambda w: len(w) > 3, words))
+
+print(result)
+```
+
+### 📤 Output
+
+```
+['apple', 'banana']
+```
+
+---
+
+# 📌 6. Dictionary list bilan ishlash
+
+### 💻 Misol
+
+```python
+users = [
+    {"name": "Ali", "age": 25},
+    {"name": "Vali", "age": 17},
+    {"name": "Hasan", "age": 30}
+]
+
+adults = list(filter(lambda u: u["age"] >= 18, users))
+
+print(adults)
+```
+
+### 📤 Output
+
+```
+[
+ {'name': 'Ali', 'age': 25},
+ {'name': 'Hasan', 'age': 30}
+]
+```
+
+---
+
+# 📌 7. `None` bilan ishlatish
+
+`filter(None, iterable)` **False qiymatlarni olib tashlaydi**.
+
+False qiymatlar:
+
+```
+0
+None
+''
+False
+[]
+{}
+```
+
+---
+
+### 💻 Misol
+
+```python
+data = [0, 1, "", "hello", None, 5]
+
+result = list(filter(None, data))
+
+print(result)
+```
+
+### 📤 Output
+
+```
+[1, 'hello', 5]
+```
+
+---
+
+# 📌 8. `filter()` iterator qaytaradi
+
+### 💻 Misol
+
+```python
+numbers = [1,2,3,4]
+
+result = filter(lambda x: x > 2, numbers)
+
+print(result)
+```
+
+### 📤 Output
+
+```
+<filter object at 0x...>
+```
+
+Shuning uchun ko‘pincha:
+
+```python
+list(filter(...))
+```
+
+ishlatiladi.
+
+---
+
+# 📌 9. `filter()` ishlash modeli
+
+`filter()` quyidagi prinsip asosida ishlaydi:
+
+```
+for element in iterable:
+    if function(element):
+        yield element
+```
+
+Masalan:
+
+```
+filter(f, [a,b,c])
+```
+
+aslida:
+
+```
+[a if f(a), b if f(b), c if f(c)]
+```
+
+---
+
+# 📌 10. `filter()` va list comprehension
+
+Ko‘pincha `filter()` o‘rniga **list comprehension** ishlatiladi.
+
+---
+
+### 💻 `filter()`
+
+```python
+numbers = [1,2,3,4,5,6]
+
+result = list(filter(lambda x: x % 2 == 0, numbers))
+```
+
+---
+
+### 💻 List comprehension
+
+```python
+numbers = [1,2,3,4,5,6]
+
+result = [x for x in numbers if x % 2 == 0]
+```
+
+Natija:
+
+```
+[2, 4, 6]
+```
+
+---
+
+### Qaysi biri yaxshi?
+
+| Usul          | Qachon ishlatiladi     |
+| ------------- | ---------------------- |
+| `filter()`    | functional programming |
+| comprehension | pythonic style         |
+
+---
+
+# 📌 11. Real Example — Email filter
+
+### 💻 Misol
+
+```python
+emails = [
+    "user@gmail.com",
+    "test@yahoo.com",
+    "admin@gmail.com"
+]
+
+gmail_users = list(filter(lambda e: "gmail" in e, emails))
+
+print(gmail_users)
+```
+
+### 📤 Output
+
+```
+['user@gmail.com', 'admin@gmail.com']
+```
+
+---
+
+# 📌 12. `map()` va `filter()` kombinatsiyasi
+
+### 💻 Misol
+
+```python
+numbers = [1,2,3,4,5,6]
+
+result = list(
+    map(lambda x: x**2,
+        filter(lambda x: x % 2 == 0, numbers)
+    )
+)
+
+print(result)
+```
+
+### 📤 Output
+
+```
+[4, 16, 36]
+```
+
+Jarayon:
+
+```
+filter → [2,4,6]
+map → [4,16,36]
+```
+
+---
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+# 📊 `reduce()` — Accumulate Values (from `functools`)
+
+Python’da `reduce()` funksiyasi **iterable ichidagi elementlarni ketma-ket birlashtirib bitta natija hosil qilish** uchun ishlatiladi.
+
+Bu jarayon **accumulate (yig‘ish)** deb ataladi.
+
+Masalan:
+
+```
+[1,2,3,4] → 1+2+3+4 → 10
+```
+
+`reduce()` **functional programming** konsepsiyasiga kiradi.
+
+---
+
+# 📌 1. `reduce()` qayerda joylashgan
+
+`reduce()` Python built-in emas.
+U **`functools` modulida** joylashgan.
+
+### Import qilish
+
+```python
+from functools import reduce
+```
+
+---
+
+# 📌 2. `reduce()` sintaksisi
+
+```python
+reduce(function, iterable)
+```
+
+yoki
+
+```python
+reduce(function, iterable, initializer)
+```
+
+| Qism          | Ma'nosi                                |
+| ------------- | -------------------------------------- |
+| `function`    | ikki argument qabul qiladigan funksiya |
+| `iterable`    | list, tuple va boshqa iterable         |
+| `initializer` | boshlang‘ich qiymat (ixtiyoriy)        |
+
+---
+
+# 📌 3. `reduce()` qanday ishlaydi
+
+Misol:
+
+```python
+reduce(lambda a, b: a + b, [1,2,3,4])
+```
+
+Jarayon:
+
+```
+1 + 2 → 3
+3 + 3 → 6
+6 + 4 → 10
+```
+
+Natija:
+
+```
+10
+```
+
+---
+
+# 📌 4. Oddiy misol — yig‘indi
+
+### 💻 Kod
+
+```python
+from functools import reduce
+
+numbers = [1,2,3,4]
+
+result = reduce(lambda a, b: a + b, numbers)
+
+print(result)
+```
+
+### 📤 Output
+
+```
+10
+```
+
+---
+
+# 📌 5. Ko‘paytma hisoblash
+
+### 💻 Misol
+
+```python
+from functools import reduce
+
+numbers = [1,2,3,4]
+
+result = reduce(lambda a, b: a * b, numbers)
+
+print(result)
+```
+
+### 📤 Output
+
+```
+24
+```
+
+Jarayon:
+
+```
+1*2 = 2
+2*3 = 6
+6*4 = 24
+```
+
+---
+
+# 📌 6. Maksimum qiymat topish
+
+```python
+from functools import reduce
+
+numbers = [3,7,2,9,5]
+
+result = reduce(lambda a, b: a if a > b else b, numbers)
+
+print(result)
+```
+
+### 📤 Output
+
+```
+9
+```
+
+---
+
+# 📌 7. Stringlarni birlashtirish
+
+### 💻 Misol
+
+```python
+from functools import reduce
+
+words = ["Python", "is", "awesome"]
+
+sentence = reduce(lambda a, b: a + " " + b, words)
+
+print(sentence)
+```
+
+### 📤 Output
+
+```
+Python is awesome
+```
+
+---
+
+# 📌 8. Initializer bilan ishlash
+
+`initializer` boshlang‘ich qiymat beradi.
+
+### 💻 Misol
+
+```python
+from functools import reduce
+
+numbers = [1,2,3]
+
+result = reduce(lambda a, b: a + b, numbers, 10)
+
+print(result)
+```
+
+### 📤 Output
+
+```
+16
+```
+
+Jarayon:
+
+```
+10 + 1 = 11
+11 + 2 = 13
+13 + 3 = 16
+```
+
+---
+
+# 📌 9. List elementlarini ko‘paytirish (Real Example)
+
+### 💻 Misol
+
+```python
+from functools import reduce
+
+prices = [100, 200, 300]
+
+total = reduce(lambda a, b: a + b, prices)
+
+print(total)
+```
+
+### 📤 Output
+
+```
+600
+```
+
+---
+
+# 📌 10. `reduce()` ishlash modeli
+
+`reduce()` quyidagi algoritm asosida ishlaydi:
+
+```python
+result = iterable[0]
+
+for element in iterable[1:]:
+    result = function(result, element)
+```
+
+Masalan:
+
+```
+reduce(f, [a,b,c,d])
+```
+
+aslida:
+
+```
+f(f(f(a,b),c),d)
+```
+
+---
+
+# 📌 11. `map`, `filter`, `reduce` farqi
+
+| Funksiya   | Vazifasi   |
+| ---------- | ---------- |
+| `map()`    | transform  |
+| `filter()` | select     |
+| `reduce()` | accumulate |
+
+Misol:
+
+```
+map → har elementni o‘zgartiradi
+filter → elementlarni saralaydi
+reduce → bitta natija chiqaradi
+```
+
+---
+
+# 📌 12. `reduce()` vs built-in funksiyalar
+
+Ko‘pincha `reduce()` o‘rniga Python built-in funksiyalari ishlatiladi.
+
+### ❌ reduce
+
+```python
+reduce(lambda a,b: a+b, numbers)
+```
+
+### ✔️ yaxshiroq
+
+```python
+sum(numbers)
+```
+
+---
+
+### ❌ reduce
+
+```python
+reduce(lambda a,b: a if a>b else b, numbers)
+```
+
+### ✔️ yaxshiroq
+
+```python
+max(numbers)
+```
+
+---
+
+# 📌 13. Qachon `reduce()` ishlatish kerak
+
+`reduce()` foydali bo‘ladi agar:
+
+* custom aggregation kerak bo‘lsa
+* murakkab accumulation bo‘lsa
+* functional programming yozilayotgan bo‘lsa
+
+---
+
+# 📌 14. Real Functional Pipeline
+
+```python
+from functools import reduce
+
+numbers = [1,2,3,4,5]
+
+result = reduce(
+    lambda a,b: a+b,
+    map(lambda x: x*2, numbers)
+)
+
+print(result)
+```
+
+Jarayon:
+
+```
+numbers → [1,2,3,4,5]
+map → [2,4,6,8,10]
+reduce → 30
+```
+
+---
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
