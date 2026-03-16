@@ -34,7 +34,8 @@
 # print(check(7))
 
 
-# ^ map()
+# ^ map() - map(function, iterable)
+# * Listdagi har bir elementga bir xil funksiya qo‘llaydi.
 
 # l = [2, 3, 4, 5, 6]
 
@@ -61,3 +62,66 @@
 # ------------------------------------------
 
 
+# ^ filter() - filter(function, iterable)
+# * List ichidan faqat shartga mos keladigan elementlarni qoldiradi.
+
+# l = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+
+
+# def juft_sonlar(a):
+#     return a % 2 == 0
+
+# map_natija = list(map(lambda x: x ** 2, l))
+# # filter_natija = list(filter(juft_sonlar, l))
+# filter_natija = list(filter(lambda x: x % 2 == 0, l))
+
+
+# print("Map:", map_natija)
+# print("Filter: ", filter_natija)
+
+# --------------------------------------------------------------
+
+# words = ["apple", "hi", "banana", "ok"]
+
+# result = list(filter(lambda w: len(w) > 3, words))  # funksiyada true bolsa saqlanadi, false bolsa saqlanmaydi
+
+# print(result)
+
+
+# --------------------------------------------------------------
+
+# data = [0, 1, "", "hello", None, 5]
+
+# result = list(filter(None, data))
+
+# print(result)
+
+
+# -----------------------------------------------------------------
+
+# numbers = [1, 2, 3, 4, 5, 6]
+
+# result = list(map(lambda x: x**2, filter(lambda x: x % 2 != 0, numbers)))
+
+# print(result)
+
+
+# ^ reduce() - reduce(function, iterable, initializer)
+# * Listdagi barcha elementlarni bitta natijaga yig‘adi.
+from functools import reduce
+
+# l = [1,2,3,4,5,6,71,8,9,10]
+
+# yigindi = reduce(lambda a, b: a + b, l, 2)
+# katta = reduce(lambda a, b: a if a > b else b, l)
+
+# print(f"Yig'indisi: {yigindi}")
+
+# print(f"Eng kattasi {katta}")
+
+
+# numbers = [1, 2, 3, 4, 5]
+
+# result = reduce(lambda a, b: a + b, numbers)
+
+# print(result)
