@@ -19,19 +19,19 @@
 # ===============================
 # numbers listidan faqat TOQ sonlarni filter() yordamida ajrating.
 
-numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+# numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
-toq_sonlar = list(filter(lambda x: x % 2 != 0, numbers))
-print("Toq sonlar:", toq_sonlar)
-
+# toq_sonlar = list(filter(lambda x: x % 2 != 0, numbers))
+# print("Toq sonlar:", toq_sonlar)
 
 # ===============================
 # 3 - TOPSHIRIQ
 # ===============================
 # numbers listidan 10 dan KATTA sonlarni filter qiling.
 
-# numbers = [4, 11, 25, 3, 9, 15, 8]
-
+numbers = [4, 11, 25, 3, 9, 15, 8]
+katta_sonlar = list(filter(lambda x: x > 10, numbers))
+print("10 dan katta sonlar:", katta_sonlar)
 
 # ===============================
 # 4 - TOPSHIRIQ
