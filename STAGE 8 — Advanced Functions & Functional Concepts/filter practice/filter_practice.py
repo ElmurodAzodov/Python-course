@@ -11,17 +11,18 @@
 
 # numbers = [3, 8, 15, 22, 7, 10, 33, 40]
 
-numbers = [3, 8, 15, 22, 7, 10, 33, 40]
-
-juft_sonlar = list(filter(lambda x: x % 2 == 0, numbers))
-print("Juft sonlar:", juft_sonlar)
+# juft_sonlar = list(filter(lambda x: x % 2 == 0, numbers))
+# print("Juft sonlar:", juft_sonlar)
 
 # ===============================
 # 2 - TOPSHIRIQ
 # ===============================
 # numbers listidan faqat TOQ sonlarni filter() yordamida ajrating.
 
-# numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+toq_sonlar = list(filter(lambda x: x % 2 != 0, numbers))
+print("Toq sonlar:", toq_sonlar)
 
 
 # ===============================
