@@ -11,6 +11,10 @@
 
 # numbers = [3, 8, 15, 22, 7, 10, 33, 40]
 
+numbers = [3, 8, 15, 22, 7, 10, 33, 40]
+
+juft_sonlar = list(filter(lambda x: x % 2 == 0, numbers))
+print("Juft sonlar:", juft_sonlar)
 
 # ===============================
 # 2 - TOPSHIRIQ
