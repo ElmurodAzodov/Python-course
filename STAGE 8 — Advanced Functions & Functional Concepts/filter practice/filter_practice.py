@@ -47,17 +47,18 @@
 # ===============================
 # names listidan faqat 'A' harfi bilan boshlanadigan ismlarni filter qiling.
 
-names = ["Ali", "Vali", "Aziza", "Bekzod", "Anvar", "Dilshod"]
-names_A = list(filter(lambda x: x.startswith('A'), names))
-print(names_A)
+# names = ["Ali", "Vali", "Aziza", "Bekzod", "Anvar", "Dilshod"]
+# names_A = list(filter(lambda x: x.startswith('A'), names))
+# print(names_A)
 
 # ===============================
 # 6 - TOPSHIRIQ
 # ===============================
 # numbers listidan faqat MUSBAT sonlarni filter qiling.
 
-# numbers = [-5, 10, -3, 7, 0, 25, -1]
-
+numbers = [-5, 10, -3, 7, 0, 25, -1]
+positive_numbers = list(filter(lambda x: x > 0, numbers))
+print(positive_numbers)
 
 # ===============================
 # 7 - TOPSHIRIQ
