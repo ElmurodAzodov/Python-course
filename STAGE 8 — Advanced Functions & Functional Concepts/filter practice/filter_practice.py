@@ -38,17 +38,18 @@
 # ===============================
 # words listidan uzunligi 5 dan katta bo‘lgan so‘zlarni ajrating.
 
-words = ["python", "code", "AI", "programming", "data", "filter"]
-uzun_sozlar = list(filter(lambda x: len(x) > 5, words))
-print(uzun_sozlar)
+# words = ["python", "code", "AI", "programming", "data", "filter"]
+# uzun_sozlar = list(filter(lambda x: len(x) > 5, words))
+# print(uzun_sozlar)
 
 # ===============================
 # 5 - TOPSHIRIQ
 # ===============================
 # names listidan faqat 'A' harfi bilan boshlanadigan ismlarni filter qiling.
 
-# names = ["Ali", "Vali", "Aziza", "Bekzod", "Anvar", "Dilshod"]
-
+names = ["Ali", "Vali", "Aziza", "Bekzod", "Anvar", "Dilshod"]
+names_A = list(filter(lambda x: x.startswith('A'), names))
+print(names_A)
 
 # ===============================
 # 6 - TOPSHIRIQ
