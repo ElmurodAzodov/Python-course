@@ -83,17 +83,18 @@
 # ===============================
 # numbers listidan faqat 2 xonali sonlarni filter qiling.
 
-numbers = [5, 12, 99, 7, 120, 45, 3]
-two_digit_numbers = list(filter(lambda x: 10 <= x <= 99, numbers))
-print(two_digit_numbers)
+# numbers = [5, 12, 99, 7, 120, 45, 3]
+# two_digit_numbers = list(filter(lambda x: 10 <= x <= 99, numbers))
+# print(two_digit_numbers)
 
 # ===============================
 # 10 - TOPSHIRIQ (QIYINROQ)
 # ===============================
 # numbers listidan kvadrati 100 dan katta bo‘ladigan sonlarni filter qiling.
 
-# numbers = [5, 8, 11, 3, 12, 4]
-
+numbers = [5, 8, 11, 3, 12, 4]
+square_greater_100 = list(filter(lambda x: x**2 > 100, numbers))
+print(square_greater_100)
 
 # ===============================
 # 11 - TOPSHIRIQ
