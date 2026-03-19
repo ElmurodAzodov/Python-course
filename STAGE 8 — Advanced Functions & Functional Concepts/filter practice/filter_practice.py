@@ -74,17 +74,18 @@
 # ===============================
 # words listidan ichida 'a' harfi bor so‘zlarni filter qiling.
 
-words = ["apple", "pear", "grape", "kiwi", "banana"]
-words_with_a = list(filter(lambda x: 'a' in x, words))
-print(words_with_a)
+# words = ["apple", "pear", "grape", "kiwi", "banana"]
+# words_with_a = list(filter(lambda x: 'a' in x, words))
+# print(words_with_a)
 
 # ===============================
 # 9 - TOPSHIRIQ
 # ===============================
 # numbers listidan faqat 2 xonali sonlarni filter qiling.
 
-# numbers = [5, 12, 99, 7, 120, 45, 3]
-
+numbers = [5, 12, 99, 7, 120, 45, 3]
+two_digit_numbers = list(filter(lambda x: 10 <= x <= 99, numbers))
+print(two_digit_numbers)
 
 # ===============================
 # 10 - TOPSHIRIQ (QIYINROQ)
