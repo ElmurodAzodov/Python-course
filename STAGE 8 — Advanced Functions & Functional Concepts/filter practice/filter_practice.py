@@ -65,17 +65,18 @@
 # ===============================
 # numbers listidan faqat 3 ga bo‘linadigan sonlarni filter qiling.
 
-numbers = [3, 7, 9, 12, 14, 18, 20]
-divisible_by_3 = list(filter(lambda x: x % 3 == 0, numbers))
-print(divisible_by_3)
+# numbers = [3, 7, 9, 12, 14, 18, 20]
+# divisible_by_3 = list(filter(lambda x: x % 3 == 0, numbers))
+# print(divisible_by_3)
 
 # ===============================
 # 8 - TOPSHIRIQ
 # ===============================
 # words listidan ichida 'a' harfi bor so‘zlarni filter qiling.
 
-# words = ["apple", "pear", "grape", "kiwi", "banana"]
-
+words = ["apple", "pear", "grape", "kiwi", "banana"]
+words_with_a = list(filter(lambda x: 'a' in x, words))
+print(words_with_a)
 
 # ===============================
 # 9 - TOPSHIRIQ
