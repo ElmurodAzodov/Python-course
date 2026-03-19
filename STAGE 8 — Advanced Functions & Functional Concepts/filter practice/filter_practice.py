@@ -56,17 +56,18 @@
 # ===============================
 # numbers listidan faqat MUSBAT sonlarni filter qiling.
 
-numbers = [-5, 10, -3, 7, 0, 25, -1]
-positive_numbers = list(filter(lambda x: x > 0, numbers))
-print(positive_numbers)
+# numbers = [-5, 10, -3, 7, 0, 25, -1]
+# positive_numbers = list(filter(lambda x: x > 0, numbers))
+# print(positive_numbers)
 
 # ===============================
 # 7 - TOPSHIRIQ
 # ===============================
 # numbers listidan faqat 3 ga bo‘linadigan sonlarni filter qiling.
 
-# numbers = [3, 7, 9, 12, 14, 18, 20]
-
+numbers = [3, 7, 9, 12, 14, 18, 20]
+divisible_by_3 = list(filter(lambda x: x % 3 == 0, numbers))
+print(divisible_by_3)
 
 # ===============================
 # 8 - TOPSHIRIQ
