@@ -92,22 +92,23 @@
 # ===============================
 # numbers listidan kvadrati 100 dan katta bo‘ladigan sonlarni filter qiling.
 
-numbers = [5, 8, 11, 3, 12, 4]
-square_greater_100 = list(filter(lambda x: x**2 > 100, numbers))
-print(square_greater_100)
+# numbers = [5, 8, 11, 3, 12, 4]
+# square_greater_100 = list(filter(lambda x: x**2 > 100, numbers))
+# print(square_greater_100)
 
 # ===============================
 # 11 - TOPSHIRIQ
 # ===============================
 # students listidan yoshi 18 dan katta bo‘lgan studentlarni filter qiling.
 
-# students = [
-#     {"name": "Ali", "age": 17},
-#     {"name": "Vali", "age": 20},
-#     {"name": "Aziza", "age": 19},
-#     {"name": "Bekzod", "age": 16},
-# ]
-
+students = [
+    {"name": "Ali", "age": 17},
+    {"name": "Vali", "age": 20},
+    {"name": "Aziza", "age": 19},
+    {"name": "Bekzod", "age": 16},
+]
+result = list(filter(lambda s: s["age"] > 18, students))
+print(result)
 
 # ===============================
 # 12 - TOPSHIRIQ
