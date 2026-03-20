@@ -146,9 +146,9 @@
 # ===============================
 # emails listidan faqat "@gmail.com" bilan tugaydigan email larni filter qiling.
 
-emails = ["user1@gmail.com", "test@yahoo.com", "dev@gmail.com", "admin@mail.ru"]
-result = list(filter(lambda e: e.endswith("@gmail.com"), emails))
-print(result)
+# emails = ["user1@gmail.com", "test@yahoo.com", "dev@gmail.com", "admin@mail.ru"]
+# result = list(filter(lambda e: e.endswith("@gmail.com"), emails))
+# print(result)
 
 # ===============================
 # 15 - TOPSHIRIQ (JUDA QIYIN)
@@ -156,8 +156,12 @@ print(result)
 # numbers listidan palindrom sonlarni filter qiling.
 # Masalan: 121, 343, 999
 
-# numbers = [121, 45, 343, 89, 999, 123]
+numbers = [121, 45, 343, 89, 999, 123]
+def is_palindrome(n):
+    return str(n) == str(n)[::-1]
 
+result = list(filter(is_palindrome, numbers))
+print(result)
 
 # ==================================================
 # ================= PROJECT TOPSHIRIQLAR =============
