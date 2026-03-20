@@ -156,12 +156,12 @@
 # numbers listidan palindrom sonlarni filter qiling.
 # Masalan: 121, 343, 999
 
-numbers = [121, 45, 343, 89, 999, 123]
-def is_palindrome(n):
-    return str(n) == str(n)[::-1]
+# numbers = [121, 45, 343, 89, 999, 123]
+# def is_palindrome(n):
+#     return str(n) == str(n)[::-1]
 
-result = list(filter(is_palindrome, numbers))
-print(result)
+# result = list(filter(is_palindrome, numbers))
+# print(result)
 
 # ==================================================
 # ================= PROJECT TOPSHIRIQLAR =============
@@ -175,13 +175,15 @@ print(result)
 # - age > 18
 # - country == "Uzbekistan"
 
-# users = [
-#     {"name": "Ali", "age": 22, "country": "Uzbekistan"},
-#     {"name": "John", "age": 17, "country": "USA"},
-#     {"name": "Aziza", "age": 25, "country": "Uzbekistan"},
-#     {"name": "Tom", "age": 30, "country": "UK"},
-# ]
+users = [
+    {"name": "Ali", "age": 22, "country": "Uzbekistan"},
+    {"name": "John", "age": 17, "country": "USA"},
+    {"name": "Aziza", "age": 25, "country": "Uzbekistan"},
+    {"name": "Tom", "age": 30, "country": "UK"},
+]
 
+result = list(filter(lambda u: u["age"] > 18 and u["country"] == "Uzbekistan", users))
+print(result)
 
 # =========================================
 # PROJECT 2: ONLINE SHOP FILTER
