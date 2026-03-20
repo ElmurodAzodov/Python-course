@@ -101,22 +101,31 @@
 # ===============================
 # students listidan yoshi 18 dan katta bo‘lgan studentlarni filter qiling.
 
-students = [
-    {"name": "Ali", "age": 17},
-    {"name": "Vali", "age": 20},
-    {"name": "Aziza", "age": 19},
-    {"name": "Bekzod", "age": 16},
-]
-result = list(filter(lambda s: s["age"] > 18, students))
-print(result)
+# students = [
+#     {"name": "Ali", "age": 17},
+#     {"name": "Vali", "age": 20},
+#     {"name": "Aziza", "age": 19},
+#     {"name": "Bekzod", "age": 16},
+# ]
+# result = list(filter(lambda s: s["age"] > 18, students))
+# print(result)
 
 # ===============================
 # 12 - TOPSHIRIQ
 # ===============================
 # numbers listidan tub sonlarni filter qiling.
 
-# numbers = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+numbers = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+def is_prime(n):
+    if n < 2:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
 
+result = list(filter(is_prime, numbers))
+print(result)
 
 # ===============================
 # 13 - TOPSHIRIQ (ANCHA QIYIN)
