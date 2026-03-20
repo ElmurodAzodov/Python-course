@@ -132,22 +132,23 @@
 # ===============================
 # products listidan narxi 100 dan katta bo‘lgan mahsulotlarni filter qiling.
 
-products = [
-    {"name": "Laptop", "price": 1200},
-    {"name": "Mouse", "price": 25},
-    {"name": "Keyboard", "price": 80},
-    {"name": "Phone", "price": 900},
-]
-result = list(filter(lambda p: p["price"] > 100, products))
-print(result)
+# products = [
+#     {"name": "Laptop", "price": 1200},
+#     {"name": "Mouse", "price": 25},
+#     {"name": "Keyboard", "price": 80},
+#     {"name": "Phone", "price": 900},
+# ]
+# result = list(filter(lambda p: p["price"] > 100, products))
+# print(result)
 
 # ===============================
 # 14 - TOPSHIRIQ
 # ===============================
 # emails listidan faqat "@gmail.com" bilan tugaydigan email larni filter qiling.
 
-# emails = ["user1@gmail.com", "test@yahoo.com", "dev@gmail.com", "admin@mail.ru"]
-
+emails = ["user1@gmail.com", "test@yahoo.com", "dev@gmail.com", "admin@mail.ru"]
+result = list(filter(lambda e: e.endswith("@gmail.com"), emails))
+print(result)
 
 # ===============================
 # 15 - TOPSHIRIQ (JUDA QIYIN)
