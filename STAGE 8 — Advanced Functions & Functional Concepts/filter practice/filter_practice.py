@@ -115,30 +115,31 @@
 # ===============================
 # numbers listidan tub sonlarni filter qiling.
 
-numbers = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
-def is_prime(n):
-    if n < 2:
-        return False
-    for i in range(2, int(n**0.5) + 1):
-        if n % i == 0:
-            return False
-    return True
+# numbers = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+# def is_prime(n):
+#     if n < 2:
+#         return False
+#     for i in range(2, int(n**0.5) + 1):
+#         if n % i == 0:
+#             return False
+#     return True
 
-result = list(filter(is_prime, numbers))
-print(result)
+# result = list(filter(is_prime, numbers))
+# print(result)
 
 # ===============================
 # 13 - TOPSHIRIQ (ANCHA QIYIN)
 # ===============================
 # products listidan narxi 100 dan katta bo‘lgan mahsulotlarni filter qiling.
 
-# products = [
-#     {"name": "Laptop", "price": 1200},
-#     {"name": "Mouse", "price": 25},
-#     {"name": "Keyboard", "price": 80},
-#     {"name": "Phone", "price": 900},
-# ]
-
+products = [
+    {"name": "Laptop", "price": 1200},
+    {"name": "Mouse", "price": 25},
+    {"name": "Keyboard", "price": 80},
+    {"name": "Phone", "price": 900},
+]
+result = list(filter(lambda p: p["price"] > 100, products))
+print(result)
 
 # ===============================
 # 14 - TOPSHIRIQ
