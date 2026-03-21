@@ -192,14 +192,14 @@
 # - price < 500
 # - rating >= 4
 
-products = [
-    {"name": "Laptop", "price": 1200, "rating": 4.8},
-    {"name": "Phone", "price": 400, "rating": 4.2},
-    {"name": "Headphones", "price": 150, "rating": 3.9},
-    {"name": "Monitor", "price": 300, "rating": 4.5},
-]
-result = list(filter(lambda x: x["price"] < 500 and x["rating"] >= 4, products))
-print(result)
+# products = [
+#     {"name": "Laptop", "price": 1200, "rating": 4.8},
+#     {"name": "Phone", "price": 400, "rating": 4.2},
+#     {"name": "Headphones", "price": 150, "rating": 3.9},
+#     {"name": "Monitor", "price": 300, "rating": 4.5},
+# ]
+# result = list(filter(lambda x: x["price"] < 500 and x["rating"] >= 4, products))
+# print(result)
 
 # =========================================
 # PROJECT 3: PASSWORD SECURITY FILTER
@@ -209,14 +209,18 @@ print(result)
 # - kamida 8 ta belgi
 # - kamida bitta raqam bor
 
-# passwords = [
-#     "abc123",
-#     "password",
-#     "Secure123",
-#     "hello",
-#     "Admin2024",
-# ]
+passwords = [
+    "abc123",
+    "password",
+    "Secure123",
+    "hello",
+    "Admin2024",
+]
+def is_strong(password):
+    return len(password) >= 8 and any(char.isdigit() for char in password)
 
+result = list(filter(is_strong, passwords ))
+print(result)
 
 # =========================================
 # PROJECT 4: FILE FILTER SYSTEM
