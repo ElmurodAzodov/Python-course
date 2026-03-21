@@ -175,15 +175,15 @@
 # - age > 18
 # - country == "Uzbekistan"
 
-users = [
-    {"name": "Ali", "age": 22, "country": "Uzbekistan"},
-    {"name": "John", "age": 17, "country": "USA"},
-    {"name": "Aziza", "age": 25, "country": "Uzbekistan"},
-    {"name": "Tom", "age": 30, "country": "UK"},
-]
+# users = [
+#     {"name": "Ali", "age": 22, "country": "Uzbekistan"},
+#     {"name": "John", "age": 17, "country": "USA"},
+#     {"name": "Aziza", "age": 25, "country": "Uzbekistan"},
+#     {"name": "Tom", "age": 30, "country": "UK"},
+# ]
 
-result = list(filter(lambda u: u["age"] > 18 and u["country"] == "Uzbekistan", users))
-print(result)
+# result = list(filter(lambda u: u["age"] > 18 and u["country"] == "Uzbekistan", users))
+# print(result)
 
 # =========================================
 # PROJECT 2: ONLINE SHOP FILTER
@@ -192,13 +192,14 @@ print(result)
 # - price < 500
 # - rating >= 4
 
-# products = [
-#     {"name": "Laptop", "price": 1200, "rating": 4.8},
-#     {"name": "Phone", "price": 400, "rating": 4.2},
-#     {"name": "Headphones", "price": 150, "rating": 3.9},
-#     {"name": "Monitor", "price": 300, "rating": 4.5},
-# ]
-
+products = [
+    {"name": "Laptop", "price": 1200, "rating": 4.8},
+    {"name": "Phone", "price": 400, "rating": 4.2},
+    {"name": "Headphones", "price": 150, "rating": 3.9},
+    {"name": "Monitor", "price": 300, "rating": 4.5},
+]
+result = list(filter(lambda x: x["price"] < 500 and x["rating"] >= 4, products))
+print(result)
 
 # =========================================
 # PROJECT 3: PASSWORD SECURITY FILTER
