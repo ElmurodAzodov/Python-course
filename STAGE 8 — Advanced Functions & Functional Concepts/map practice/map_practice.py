@@ -8,8 +8,9 @@ Har bir masalada map() ishlatish shart
 # ==============================
 # 1
 # List ichidagi barcha sonlarni 2 ga ko‘paytiring
-# nums = [1, 2, 3, 4, 5]
-
+nums = [1, 2, 3, 4, 5]
+result = list(map(lambda x: x * 2, nums))
+print(result)
 
 # ==============================
 # 2
