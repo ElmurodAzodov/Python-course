@@ -209,32 +209,33 @@
 # - kamida 8 ta belgi
 # - kamida bitta raqam bor
 
-passwords = [
-    "abc123",
-    "password",
-    "Secure123",
-    "hello",
-    "Admin2024",
-]
-def is_strong(password):
-    return len(password) >= 8 and any(char.isdigit() for char in password)
+# passwords = [
+#     "abc123",
+#     "password",
+#     "Secure123",
+#     "hello",
+#     "Admin2024",
+# ]
+# def is_strong(password):
+#     return len(password) >= 8 and any(char.isdigit() for char in password)
 
-result = list(filter(is_strong, passwords ))
-print(result)
+# result = list(filter(is_strong, passwords ))
+# print(result)
 
 # =========================================
 # PROJECT 4: FILE FILTER SYSTEM
 # =========================================
 # files listidan faqat ".py" fayllarni filter qiling.
 
-# files = [
-#     "main.py",
-#     "app.js",
-#     "index.html",
-#     "filter.py",
-#     "styles.css",
-# ]
-
+files = [
+    "main.py",
+    "app.js",
+    "index.html",
+    "filter.py",
+    "styles.css",
+]
+result = list(filter( lambda x: x.endswith(".py"), files))
+print(result)
 
 # =========================================
 # PROJECT 5 (KATTA PROJECT)
