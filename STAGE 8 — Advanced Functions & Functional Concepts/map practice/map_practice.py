@@ -8,15 +8,16 @@ Har bir masalada map() ishlatish shart
 # ==============================
 # 1
 # List ichidagi barcha sonlarni 2 ga ko‘paytiring
-nums = [1, 2, 3, 4, 5]
-result = list(map(lambda x: x * 2, nums))
-print(result)
+# nums = [1, 2, 3, 4, 5]
+# result = list(map(lambda x: x * 2, nums))
+# print(result)
 
 # ==============================
 # 2
 # List ichidagi sonlarni string ko‘rinishiga o‘tkazing
-# nums = [10, 20, 30, 40]
-
+nums = [10, 20, 30, 40]
+result = list(map(str, nums))
+print(result)
 
 # ==============================
 # 3
