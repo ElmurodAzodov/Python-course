@@ -227,15 +227,15 @@
 # =========================================
 # files listidan faqat ".py" fayllarni filter qiling.
 
-files = [
-    "main.py",
-    "app.js",
-    "index.html",
-    "filter.py",
-    "styles.css",
-]
-result = list(filter( lambda x: x.endswith(".py"), files))
-print(result)
+# files = [
+#     "main.py",
+#     "app.js",
+#     "index.html",
+#     "filter.py",
+#     "styles.css",
+# ]
+# result = list(filter( lambda x: x.endswith(".py"), files))
+# print(result)
 
 # =========================================
 # PROJECT 5 (KATTA PROJECT)
@@ -249,9 +249,20 @@ print(result)
 #
 # uchala shartni bajargan studentlarni chiqaring.
 
-# students = [
-#     {"name": "Ali", "age": 19, "score": 85, "city": "Tashkent"},
-#     {"name": "Vali", "age": 17, "score": 90, "city": "Samarkand"},
-#     {"name": "Aziza", "age": 20, "score": 88, "city": "Tashkent"},
-#     {"name": "Bekzod", "age": 22, "score": 70, "city": "Tashkent"},
-# ]
+students = [
+    {"name": "Ali", "age": 19, "score": 85, "city": "Tashkent"},
+    {"name": "Vali", "age": 17, "score": 90, "city": "Samarkand"},
+    {"name": "Aziza", "age": 20, "score": 88, "city": "Tashkent"},
+    {"name": "Bekzod", "age": 22, "score": 70, "city": "Tashkent"},
+]
+
+def is_valid(student):
+    return (
+        student["score"] > 80 and
+        student["age"] >= 18 and
+        student["city"] == "Tashkent"
+    )
+
+result = list(filter(is_valid, students))
+
+print(result)
