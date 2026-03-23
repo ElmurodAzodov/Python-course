@@ -108,7 +108,8 @@
 
 # ^ reduce() - reduce(function, iterable, initializer)
 # * Listdagi barcha elementlarni bitta natijaga yig‘adi.
-from functools import reduce
+
+# from functools import reduce
 
 # l = [1,2,3,4,5,6,71,8,9,10]
 
@@ -125,3 +126,44 @@ from functools import reduce
 # result = reduce(lambda a, b: a + b, numbers)
 
 # print(result)
+
+
+
+#* map(function, iterable), filter(function, iterable), reduce(function, iterable, initializer)
+
+#* Decorators
+
+# 8ta belgi, birinchi katta harf, raqam va simvol
+
+# Elmurod123.
+
+#! def password_generator():
+#!    pass
+
+#& password_generator()
+
+#& @password_generator()
+#& def new_password_generator():
+#&    pass:
+
+
+#! eng kami 2ta raqam bo'lsin
+
+
+def decorator(func):
+    def wrapper():
+        print("Boshlanish")
+        func()
+        print("Tugadi")
+    return wrapper
+
+def hello():
+    print("Salom")
+
+hello = decorator(hello)
+hello()
+
+
+@decorator
+def hello():
+    print("Salom")
