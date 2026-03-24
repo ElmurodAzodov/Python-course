@@ -36,15 +36,16 @@ Har bir masalada map() ishlatish shart
 # ==============================
 # 5
 # List ichidagi sonlarning kubini chiqaring
-nums = [1, 2, 3, 4, 5]
-kub = list(map(lambda x: x ** 3, nums))
-print(kub)
+# nums = [1, 2, 3, 4, 5]
+# kub = list(map(lambda x: x ** 3, nums))
+# print(kub)
 
 # ==============================
 # 6
 # String list ichidagi har bir element uzunligini aniqlang
-# words = ["apple", "banana", "cherry", "kiwi"]
-
+words = ["apple", "banana", "cherry", "kiwi"]
+uzunligi = list(map(lambda x: len(x), words))
+print(uzunligi)
 
 # ==============================
 # 7
