@@ -128,10 +128,9 @@
 # print(result)
 
 
+# * map(function, iterable), filter(function, iterable), reduce(function, iterable, initializer)
 
-#* map(function, iterable), filter(function, iterable), reduce(function, iterable, initializer)
-
-#* Decorators
+# * Decorators
 
 # 8ta belgi, birinchi katta harf, raqam va simvol
 
@@ -140,30 +139,58 @@
 #! def password_generator():
 #!    pass
 
-#& password_generator()
+# & password_generator()
 
-#& @password_generator()
-#& def new_password_generator():
-#&    pass:
+# & @password_generator()
+# & def new_password_generator():
+# &    pass:
 
 
 #! eng kami 2ta raqam bo'lsin
 
 
-def decorator(func):
-    def wrapper():
-        print("Boshlanish")
-        func()
-        print("Tugadi")
-    return wrapper
+# def decorator(func):
+#     def wrapper():
+#         print("Boshlanish")
+#         func()
+#         print("Tugadi")
+#     return wrapper
 
-def hello():
-    print("Salom")
+# def hello():
+#     print("Salom")
 
-hello = decorator(hello)
-hello()
+# hello = decorator(hello)
+# hello()
 
 
-@decorator
-def hello():
-    print("Salom")
+# @decorator
+# def hello():
+#     print("Salom")
+
+
+# ----------------------------------------------------
+
+# Asl ro'yxat
+sonlar = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+
+# 1. Decorator — bu funksiya boshqa funksiyani oladi va natijani o'zgartiradi
+def filtrator(asl_funk):
+    def ichki_funk():
+        # Asl funksiyani chaqiramiz
+        natija = asl_funk()
+        # Natijani filtrlaymiz — faqat juft sonlarni olamiz
+        faqat_juft = list(filter(lambda x: x % 2 == 0, natija))
+        return faqat_juft
+
+    return ichki_funk
+
+
+# 2. Bizning funksiya — har bir sonni kvadratga ko'taradi
+@filtrator  # decorator bu funksiyani o'zgartiradi
+def hisobla():
+    return [x**2 for x in sonlar]
+
+
+# 3. Natijani chiqaramiz
+print(hisobla())
