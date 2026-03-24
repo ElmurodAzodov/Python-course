@@ -15,15 +15,16 @@ Har bir masalada map() ishlatish shart
 # ==============================
 # 2
 # List ichidagi sonlarni string ko‘rinishiga o‘tkazing
-nums = [10, 20, 30, 40]
-result = list(map(str, nums))
-print(result)
+# nums = [10, 20, 30, 40]
+# result = list(map(str, nums))
+# print(result)
 
 # ==============================
 # 3
 # List ichidagi barcha stringlarni katta harfga (UPPER) o‘tkazing
-# words = ["python", "html", "css", "javascript"]
-
+words = ["python", "html", "css", "javascript"]
+katta_harf = list(map(lambda a: a.upper(), words))
+print(katta_harf)
 
 # ==============================
 # 4
