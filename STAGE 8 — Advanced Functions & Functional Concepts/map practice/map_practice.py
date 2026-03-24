@@ -22,15 +22,16 @@ Har bir masalada map() ishlatish shart
 # ==============================
 # 3
 # List ichidagi barcha stringlarni katta harfga (UPPER) o‘tkazing
-words = ["python", "html", "css", "javascript"]
-katta_harf = list(map(lambda a: a.upper(), words))
-print(katta_harf)
+# words = ["python", "html", "css", "javascript"]
+# katta_harf = list(map(lambda a: a.upper(), words))
+# print(katta_harf)
 
 # ==============================
 # 4
 # List ichidagi sonlarning kvadratini chiqaring
-# nums = [2, 4, 6, 8]
-
+nums = [2, 4, 6, 8]
+kv = list(map(lambda x: x ** 2, nums))
+print(kv)
 
 # ==============================
 # 5
