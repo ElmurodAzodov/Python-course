@@ -29,15 +29,16 @@ Har bir masalada map() ishlatish shart
 # ==============================
 # 4
 # List ichidagi sonlarning kvadratini chiqaring
-nums = [2, 4, 6, 8]
-kv = list(map(lambda x: x ** 2, nums))
-print(kv)
+# nums = [2, 4, 6, 8]
+# kv = list(map(lambda x: x ** 2, nums))
+# print(kv)
 
 # ==============================
 # 5
 # List ichidagi sonlarning kubini chiqaring
-# nums = [1, 2, 3, 4, 5]
-
+nums = [1, 2, 3, 4, 5]
+kub = list(map(lambda x: x ** 3, nums))
+print(kub)
 
 # ==============================
 # 6
