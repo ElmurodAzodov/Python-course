@@ -57,15 +57,16 @@ Har bir masalada map() ishlatish shart
 # ==============================
 # 8
 # List ichidagi barcha sonlarga 5 qo‘shing
-nums = [3, 6, 9, 12]
-nums_plus_5 = list(map(lambda x: x + 5, nums))
-print(nums_plus_5)
+# nums = [3, 6, 9, 12]
+# nums_plus_5 = list(map(lambda x: x + 5, nums))
+# print(nums_plus_5)
 
 # ==============================
 # 9
 # List ichidagi barcha sonlarni float ga aylantiring
-# nums = [1, 2, 3, 4, 5]
-
+nums = [1, 2, 3, 4, 5]
+nums_float = list(map(float, nums))
+print(nums_float)
 
 # ==============================
 # 10
