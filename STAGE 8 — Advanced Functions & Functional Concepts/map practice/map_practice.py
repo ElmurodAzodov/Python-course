@@ -43,15 +43,16 @@ Har bir masalada map() ishlatish shart
 # ==============================
 # 6
 # String list ichidagi har bir element uzunligini aniqlang
-words = ["apple", "banana", "cherry", "kiwi"]
-uzunligi = list(map(lambda x: len(x), words))
-print(uzunligi)
+# words = ["apple", "banana", "cherry", "kiwi"]
+# uzunligi = list(map(lambda x: len(x), words))
+# print(uzunligi)
 
 # ==============================
 # 7
 # String list ichidagi barcha elementlarni int ga aylantiring
-# numbers = ["10", "20", "30", "40"]
-
+numbers = ["10", "20", "30", "40"]
+numbers_int = list(map(int, numbers))
+print(numbers_int)
 
 # ==============================
 # 8
