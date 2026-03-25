@@ -50,15 +50,16 @@ Har bir masalada map() ishlatish shart
 # ==============================
 # 7
 # String list ichidagi barcha elementlarni int ga aylantiring
-numbers = ["10", "20", "30", "40"]
-numbers_int = list(map(int, numbers))
-print(numbers_int)
+# numbers = ["10", "20", "30", "40"]
+# numbers_int = list(map(int, numbers))
+# print(numbers_int)
 
 # ==============================
 # 8
 # List ichidagi barcha sonlarga 5 qo‘shing
-# nums = [3, 6, 9, 12]
-
+nums = [3, 6, 9, 12]
+nums_plus_5 = list(map(lambda x: x + 5, nums))
+print(nums_plus_5)
 
 # ==============================
 # 9
