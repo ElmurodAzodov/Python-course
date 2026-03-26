@@ -104,8 +104,9 @@ Har bir masalada map() ishlatish shart
 # ==============================
 # 15
 # List ichidagi stringlarni capitalize qiling
-# words = ["python", "java", "golang", "rust"]
-
+words = ["python", "java", "golang", "rust"]
+c = list(map(lambda x: x.capitalize(), words))
+print(c)
 
 # =========================================
 #              MINI PROJECTLAR
