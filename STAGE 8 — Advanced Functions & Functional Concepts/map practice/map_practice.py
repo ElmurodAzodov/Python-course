@@ -104,9 +104,9 @@ Har bir masalada map() ishlatish shart
 # ==============================
 # 15
 # List ichidagi stringlarni capitalize qiling
-words = ["python", "java", "golang", "rust"]
-c = list(map(lambda x: x.capitalize(), words))
-print(c)
+# words = ["python", "java", "golang", "rust"]
+# c = list(map(lambda x: x.capitalize(), words))
+# print(c)
 
 # =========================================
 #              MINI PROJECTLAR
@@ -118,8 +118,10 @@ print(c)
 # Foydalanuvchi kiritgan sonlar listini
 # kvadratga oshirib yangi list qaytaring
 
-# numbers = input("Sonlarni kiriting (bo'sh joy bilan): ").split()
-
+numbers = input("Sonlarni kiriting (bo'sh joy bilan): ").split()
+# squared_numbers = [int(num) ** 2 for num in numbers]
+squared_numbers = list(map(lambda num: int(num) ** 2, numbers))
+print("Natija:", squared_numbers)
 
 # ==============================
 # PROJECT 2
