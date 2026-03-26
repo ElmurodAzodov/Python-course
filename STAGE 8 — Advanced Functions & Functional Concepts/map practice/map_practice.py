@@ -78,9 +78,9 @@ Har bir masalada map() ishlatish shart
 # ==============================
 # 11
 # List ichidagi barcha stringlarni teskari qilib chiqaring
-words = ["python", "developer", "code"]
-teskari = list(map(lambda x: x[::-1], words))
-print(teskari)
+# words = ["python", "developer", "code"]
+# teskari = list(map(lambda x: x[::-1], words))
+# print(teskari)
 
 # ==============================
 # 12
