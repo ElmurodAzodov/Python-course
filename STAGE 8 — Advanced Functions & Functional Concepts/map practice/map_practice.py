@@ -118,18 +118,19 @@ Har bir masalada map() ishlatish shart
 # Foydalanuvchi kiritgan sonlar listini
 # kvadratga oshirib yangi list qaytaring
 
-numbers = input("Sonlarni kiriting (bo'sh joy bilan): ").split()
-# squared_numbers = [int(num) ** 2 for num in numbers]
-squared_numbers = list(map(lambda num: int(num) ** 2, numbers))
-print("Natija:", squared_numbers)
+# numbers = input("Sonlarni kiriting (bo'sh joy bilan): ").split()
+# # squared_numbers = [int(num) ** 2 for num in numbers]
+# squared_numbers = list(map(lambda num: int(num) ** 2, numbers))
+# print("Natija:", squared_numbers)
 
 # ==============================
 # PROJECT 2
 # Foydalanuvchi kiritgan ismlarni
 # katta harf bilan chiqaring
 
-# names = input("Ismlarni kiriting: ").split()
-
+names = input("Ismlarni kiriting: ").split()
+katta_harf = list(map(lambda ism: ism.upper(), names))
+print(katta_harf)
 
 # ==============================
 # PROJECT 3
