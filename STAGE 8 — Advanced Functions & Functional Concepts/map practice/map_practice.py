@@ -64,9 +64,9 @@ Har bir masalada map() ishlatish shart
 # ==============================
 # 9
 # List ichidagi barcha sonlarni float ga aylantiring
-nums = [1, 2, 3, 4, 5]
-nums_float = list(map(float, nums))
-print(nums_float)
+# nums = [1, 2, 3, 4, 5]
+# nums_float = list(map(float, nums))
+# print(nums_float)
 
 # ==============================
 # 10
@@ -78,8 +78,9 @@ print(nums_float)
 # ==============================
 # 11
 # List ichidagi barcha stringlarni teskari qilib chiqaring
-# words = ["python", "developer", "code"]
-
+words = ["python", "developer", "code"]
+teskari = list(map(lambda x: x[::-1], words))
+print(teskari)
 
 # ==============================
 # 12
