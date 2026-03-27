@@ -2,6 +2,7 @@
 # PYTHON PRACTICE PROJECTS (15 TA)
 # Mavzular: string, list, tuple, dict, set, functions, map, filter, reduce
 # ==============================
+from functools import reduce
 
 # 1. PROJECT: USERNAME ANALYZER
 # Foydalanuvchidan username qabul qiling.
@@ -10,6 +11,17 @@
 # - dictionaryga quyidagi info ni saqlang:
 #   {length, has_digit, has_upper, unique_count}
 # - function yozib, natijani chiroyli chiqarib bering
+
+# def analyze_username(username):
+#     info = {
+#         "length": len(username),
+#         "has_digit": any(map(str.isdigit, username)),
+#         "has_upper": any(map(str.isupper, username)),
+#         "unique_count": len(set(username)),
+#     }
+#     return info
+# print(analyze_username("Username123!"))
+
 
 
 # 2. PROJECT: EMAIL LIST CLEANER
