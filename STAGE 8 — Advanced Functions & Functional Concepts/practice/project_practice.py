@@ -73,6 +73,11 @@ print(product_func(products))
 # - set orqali unique belgilar soni
 # - function orqali "Weak", "Medium", "Strong" deb baholang
 
+def parol_tekshir(password):
+    pass
+
+
+print(parol_tekshir("Parol123!@"))
 
 # 6. PROJECT: STUDENT GRADE ANALYZER
 # Students dict:

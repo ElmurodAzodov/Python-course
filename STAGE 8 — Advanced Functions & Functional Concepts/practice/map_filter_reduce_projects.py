@@ -13,8 +13,10 @@ from functools import reduce
 # numbers listidagi barcha sonlarni kvadratga oshiring (map)
 # va faqat 50 dan katta bo‘lganlarini chiqaring (filter)
 
-# numbers = [2, 5, 8, 10, 12, 15]
-
+numbers = [2, 5, 8, 10, 12, 15]
+kvadrat = list(map(lambda x: x**2, numbers))
+natija = list(filter(lambda x: x > 50, kvadrat))
+print(natija)
 
 # ==================================================
 # 2 - TOPSHIRIQ
