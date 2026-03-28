@@ -13,10 +13,10 @@ from functools import reduce
 # numbers listidagi barcha sonlarni kvadratga oshiring (map)
 # va faqat 50 dan katta bo‘lganlarini chiqaring (filter)
 
-numbers = [2, 5, 8, 10, 12, 15]
-kvadrat = list(map(lambda x: x**2, numbers))
-natija = list(filter(lambda x: x > 50, kvadrat))
-print(natija)
+# numbers = [2, 5, 8, 10, 12, 15]
+# kvadrat = list(map(lambda x: x**2, numbers))
+# natija = list(filter(lambda x: x > 50, kvadrat))
+# print(natija)
 
 # ==================================================
 # 2 - TOPSHIRIQ
@@ -24,8 +24,10 @@ print(natija)
 # numbers listidagi barcha sonlarni 3 ga ko‘paytiring (map)
 # va faqat juft sonlarni qoldiring (filter)
 
-# numbers = [1, 4, 7, 10, 13, 16]
-
+numbers = [1, 4, 7, 10, 13, 16]
+kopaygan = list(map(lambda x: x * 3, numbers))
+natija = list(filter(lambda x: x % 2 == 0, kopaygan))
+print(natija)
 
 # ==================================================
 # 3 - TOPSHIRIQ
