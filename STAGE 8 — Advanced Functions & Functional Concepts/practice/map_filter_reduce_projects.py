@@ -35,10 +35,10 @@ from functools import reduce
 # words listidagi barcha so‘zlarni katta harfga o‘tkazing (map)
 # va uzunligi 5 dan katta bo‘lganlarini filter qiling.
 
-words = ["python", "ai", "data", "science", "ml"]
-katta = list(map(lambda x: x.upper(), words))
-natija = list(filter(lambda x: len(x) > 5, katta))
-print(natija)
+# words = ["python", "ai", "data", "science", "ml"]
+# katta = list(map(lambda x: x.upper(), words))
+# natija = list(filter(lambda x: len(x) > 5, katta))
+# print(natija)
 
 # ==================================================
 # 4 - TOPSHIRIQ
@@ -46,8 +46,10 @@ print(natija)
 # numbers listidagi barcha sonlarni kvadratga oshiring (map)
 # va ularning yig‘indisini toping (reduce)
 
-# numbers = [1, 2, 3, 4, 5]
-
+numbers = [1, 2, 3, 4, 5]
+kvadrat = list(map(lambda x: x**2, numbers))
+yigindi = reduce(lambda a, b: a + b, kvadrat)
+print(yigindi)
 
 # ==================================================
 # 5 - TOPSHIRIQ
