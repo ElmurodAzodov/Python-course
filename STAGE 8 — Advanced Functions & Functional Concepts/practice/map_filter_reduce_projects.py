@@ -24,10 +24,10 @@ from functools import reduce
 # numbers listidagi barcha sonlarni 3 ga ko‘paytiring (map)
 # va faqat juft sonlarni qoldiring (filter)
 
-numbers = [1, 4, 7, 10, 13, 16]
-kopaygan = list(map(lambda x: x * 3, numbers))
-natija = list(filter(lambda x: x % 2 == 0, kopaygan))
-print(natija)
+# numbers = [1, 4, 7, 10, 13, 16]
+# kopaygan = list(map(lambda x: x * 3, numbers))
+# natija = list(filter(lambda x: x % 2 == 0, kopaygan))
+# print(natija)
 
 # ==================================================
 # 3 - TOPSHIRIQ
@@ -35,8 +35,10 @@ print(natija)
 # words listidagi barcha so‘zlarni katta harfga o‘tkazing (map)
 # va uzunligi 5 dan katta bo‘lganlarini filter qiling.
 
-# words = ["python", "ai", "data", "science", "ml"]
-
+words = ["python", "ai", "data", "science", "ml"]
+katta = list(map(lambda x: x.upper(), words))
+natija = list(filter(lambda x: len(x) > 5, katta))
+print(natija)
 
 # ==================================================
 # 4 - TOPSHIRIQ
