@@ -46,10 +46,10 @@ from functools import reduce
 # numbers listidagi barcha sonlarni kvadratga oshiring (map)
 # va ularning yig‘indisini toping (reduce)
 
-numbers = [1, 2, 3, 4, 5]
-kvadrat = list(map(lambda x: x**2, numbers))
-yigindi = reduce(lambda a, b: a + b, kvadrat)
-print(yigindi)
+# numbers = [1, 2, 3, 4, 5]
+# kvadrat = list(map(lambda x: x**2, numbers))
+# yigindi = reduce(lambda a, b: a + b, kvadrat)
+# print(yigindi)
 
 # ==================================================
 # 5 - TOPSHIRIQ
@@ -57,8 +57,10 @@ print(yigindi)
 # numbers listidan faqat musbat sonlarni filter qiling
 # va ularni 2 ga ko‘paytiring (map)
 
-# numbers = [-5, 3, 10, -2, 7]
-
+numbers = [-5, 3, 10, -2, 7]
+musbat = list(filter(lambda x: x > 0, numbers))
+natija = list(map(lambda x: x * 2, musbat))
+print(natija)
 
 # ==================================================
 # 6 - TOPSHIRIQ
