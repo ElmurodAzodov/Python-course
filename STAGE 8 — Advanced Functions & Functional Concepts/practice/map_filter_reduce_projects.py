@@ -90,10 +90,10 @@ from functools import reduce
 # words listidagi barcha so‘zlarni uzunligiga aylantiring (map)
 # va eng katta uzunlikni toping (reduce)
 
-words = ["python", "developer", "AI", "code"]
-lengths = list(map(lambda w: len(w), words))
-max_length = reduce(lambda x, y: x if x > y else y, lengths)
-print(lengths, max_length)
+# words = ["python", "developer", "AI", "code"]
+# lengths = list(map(lambda w: len(w), words))
+# max_length = reduce(lambda x, y: x if x > y else y, lengths)
+# print(lengths, max_length)
 
 # ==================================================
 # 9 - TOPSHIRIQ
@@ -101,8 +101,10 @@ print(lengths, max_length)
 # numbers listidagi barcha sonlarni kvadratga oshiring
 # keyin 100 dan kichiklarini filter qiling
 
-# numbers = [5, 7, 9, 12]
-
+numbers = [5, 7, 9, 12]
+squares = list(map(lambda x: x**2, numbers))
+filtered = list(filter(lambda x: x < 100, squares))
+print(squares, filtered)
 
 # ==================================================
 # 10 - TOPSHIRIQ
