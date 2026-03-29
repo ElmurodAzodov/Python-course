@@ -68,10 +68,10 @@ from functools import reduce
 # words listidan faqat 'a' harfi bor so‘zlarni filter qiling
 # va ularning uzunligini chiqaring (map)
 
-words = ["apple", "kiwi", "banana", "pear", "grape"]
-filtered = list(filter(lambda w: 'a' in w, words))
-lengths = list(map(lambda w: len(w), filtered))
-print(filtered, lengths)
+# words = ["apple", "kiwi", "banana", "pear", "grape"]
+# filtered = list(filter(lambda w: 'a' in w, words))
+# lengths = list(map(lambda w: len(w), filtered))
+# print(filtered, lengths)
 
 # ==================================================
 # 7 - TOPSHIRIQ
@@ -79,8 +79,10 @@ print(filtered, lengths)
 # numbers listidan juft sonlarni filter qiling
 # va ularning ko‘paytmasini toping (reduce)
 
-# numbers = [2, 3, 4, 5, 6]
-
+numbers = [2, 3, 4, 5, 6]
+evens = list(filter(lambda x: x % 2 == 0, numbers))
+product = reduce(lambda x, y: x * y, evens)
+print(evens, product)
 
 # ==================================================
 # 8 - TOPSHIRIQ
