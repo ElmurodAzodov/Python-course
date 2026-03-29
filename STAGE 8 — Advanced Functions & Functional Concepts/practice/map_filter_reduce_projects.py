@@ -57,10 +57,10 @@ from functools import reduce
 # numbers listidan faqat musbat sonlarni filter qiling
 # va ularni 2 ga ko‘paytiring (map)
 
-numbers = [-5, 3, 10, -2, 7]
-musbat = list(filter(lambda x: x > 0, numbers))
-natija = list(map(lambda x: x * 2, musbat))
-print(natija)
+# numbers = [-5, 3, 10, -2, 7]
+# musbat = list(filter(lambda x: x > 0, numbers))
+# natija = list(map(lambda x: x * 2, musbat))
+# print(natija)
 
 # ==================================================
 # 6 - TOPSHIRIQ
@@ -68,8 +68,10 @@ print(natija)
 # words listidan faqat 'a' harfi bor so‘zlarni filter qiling
 # va ularning uzunligini chiqaring (map)
 
-# words = ["apple", "kiwi", "banana", "pear", "grape"]
-
+words = ["apple", "kiwi", "banana", "pear", "grape"]
+filtered = list(filter(lambda w: 'a' in w, words))
+lengths = list(map(lambda w: len(w), filtered))
+print(filtered, lengths)
 
 # ==================================================
 # 7 - TOPSHIRIQ
