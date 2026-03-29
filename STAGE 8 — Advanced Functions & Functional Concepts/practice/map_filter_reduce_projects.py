@@ -101,10 +101,10 @@ from functools import reduce
 # numbers listidagi barcha sonlarni kvadratga oshiring
 # keyin 100 dan kichiklarini filter qiling
 
-numbers = [5, 7, 9, 12]
-squares = list(map(lambda x: x**2, numbers))
-filtered = list(filter(lambda x: x < 100, squares))
-print(squares, filtered)
+# numbers = [5, 7, 9, 12]
+# squares = list(map(lambda x: x**2, numbers))
+# filtered = list(filter(lambda x: x < 100, squares))
+# print(squares, filtered)
 
 # ==================================================
 # 10 - TOPSHIRIQ
@@ -112,8 +112,10 @@ print(squares, filtered)
 # numbers listidagi barcha sonlarni 10 ga ko‘paytiring
 # keyin ularning yig‘indisini hisoblang
 
-# numbers = [1, 2, 3, 4]
-
+numbers = [1, 2, 3, 4]
+multiplied = list(map(lambda x: x * 10, numbers))
+total = reduce(lambda x, y: x + y, multiplied)
+print(multiplied, total)
 
 # ==================================================
 # 11 - TOPSHIRIQ
