@@ -79,10 +79,10 @@ from functools import reduce
 # numbers listidan juft sonlarni filter qiling
 # va ularning ko‘paytmasini toping (reduce)
 
-numbers = [2, 3, 4, 5, 6]
-evens = list(filter(lambda x: x % 2 == 0, numbers))
-product = reduce(lambda x, y: x * y, evens)
-print(evens, product)
+# numbers = [2, 3, 4, 5, 6]
+# evens = list(filter(lambda x: x % 2 == 0, numbers))
+# product = reduce(lambda x, y: x * y, evens)
+# print(evens, product)
 
 # ==================================================
 # 8 - TOPSHIRIQ
@@ -90,8 +90,10 @@ print(evens, product)
 # words listidagi barcha so‘zlarni uzunligiga aylantiring (map)
 # va eng katta uzunlikni toping (reduce)
 
-# words = ["python", "developer", "AI", "code"]
-
+words = ["python", "developer", "AI", "code"]
+lengths = list(map(lambda w: len(w), words))
+max_length = reduce(lambda x, y: x if x > y else y, lengths)
+print(lengths, max_length)
 
 # ==================================================
 # 9 - TOPSHIRIQ
