@@ -140,16 +140,16 @@ from functools import reduce
 # students listidagi barcha score larni oling (map)
 # va o‘rtacha ballni hisoblang (reduce)
 
-students = [
-    {"name": "Ali", "score": 80},
-    {"name": "Vali", "score": 95},
-    {"name": "Aziza", "score": 85},
-]
-scores = list(map(lambda student: student["score"], students))
-total_score = reduce(lambda a, b: a + b, scores)
-average_score = total_score / len(scores)
+# students = [
+#     {"name": "Ali", "score": 80},
+#     {"name": "Vali", "score": 95},
+#     {"name": "Aziza", "score": 85},
+# ]
+# scores = list(map(lambda student: student["score"], students))
+# total_score = reduce(lambda a, b: a + b, scores)
+# average_score = total_score / len(scores)
 
-print(average_score)
+# print(average_score)
 
 # ==================================================
 # 13 - TOPSHIRIQ
@@ -157,12 +157,15 @@ print(average_score)
 # products listidan price > 100 bo‘lgan mahsulotlarni filter qiling
 # va ularning narxlarini oling (map)
 
-# products = [
-#     {"name": "Laptop", "price": 1200},
-#     {"name": "Mouse", "price": 20},
-#     {"name": "Keyboard", "price": 80},
-# ]
+products = [
+    {"name": "Laptop", "price": 1200},
+    {"name": "Mouse", "price": 20},
+    {"name": "Keyboard", "price": 80},
+]
+expensive_products = filter(lambda product: product["price"] > 100, products)
+prices = list(map(lambda product: product["price"], expensive_products))
 
+print(prices)
 
 # ==================================================
 # 14 - TOPSHIRIQ
