@@ -173,15 +173,15 @@ from functools import reduce
 # products listidagi barcha price larni oling (map)
 # va umumiy narxni hisoblang (reduce)
 
-products = [
-    {"name": "Laptop", "price": 1200},
-    {"name": "Mouse", "price": 20},
-    {"name": "Keyboard", "price": 80},
-]
-prices = list(map(lambda product: product["price"], products))
-total_price = reduce(lambda a, b: a + b, prices)
+# products = [
+#     {"name": "Laptop", "price": 1200},
+#     {"name": "Mouse", "price": 20},
+#     {"name": "Keyboard", "price": 80},
+# ]
+# prices = list(map(lambda product: product["price"], products))
+# total_price = reduce(lambda a, b: a + b, prices)
 
-print(total_price)
+# print(total_price)
 
 # ==================================================
 # 15 - TOPSHIRIQ
@@ -189,12 +189,15 @@ print(total_price)
 # emails listidan faqat gmail email larni filter qiling
 # va domen qismini olib tashlang (map)
 
-# emails = [
-#     "ali@gmail.com",
-#     "user@yahoo.com",
-#     "dev@gmail.com",
-# ]
+emails = [
+    "ali@gmail.com",
+    "user@yahoo.com",
+    "dev@gmail.com",
+]
+gmail_emails = filter(lambda email: "@gmail.com" in email, emails)
+usernames = list(map(lambda email: email.replace("@gmail.com", ""), gmail_emails))
 
+print(usernames)
 
 # ==================================================
 # 16 - TOPSHIRIQ
