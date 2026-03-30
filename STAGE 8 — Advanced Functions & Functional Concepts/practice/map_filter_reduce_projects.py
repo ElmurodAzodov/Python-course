@@ -112,10 +112,10 @@ from functools import reduce
 # numbers listidagi barcha sonlarni 10 ga ko‘paytiring
 # keyin ularning yig‘indisini hisoblang
 
-numbers = [1, 2, 3, 4]
-multiplied = list(map(lambda x: x * 10, numbers))
-total = reduce(lambda x, y: x + y, multiplied)
-print(multiplied, total)
+# numbers = [1, 2, 3, 4]
+# multiplied = list(map(lambda x: x * 10, numbers))
+# total = reduce(lambda x, y: x + y, multiplied)
+# print(multiplied, total)
 
 # ==================================================
 # 11 - TOPSHIRIQ
@@ -123,11 +123,15 @@ print(multiplied, total)
 # students listidan score > 80 bo‘lgan studentlarni filter qiling
 # va ularning ismlarini chiqaring (map)
 
-# students = [
-#     {"name": "Ali", "score": 75},
-#     {"name": "Vali", "score": 90},
-#     {"name": "Aziza", "score": 85},
-# ]
+students = [
+    {"name": "Ali", "score": 75},
+    {"name": "Vali", "score": 90},
+    {"name": "Aziza", "score": 85},
+]
+filtered_students = filter(lambda student: student["score"] > 80, students)
+names = list(map(lambda student: student["name"], filtered_students))
+
+print(names)
 
 
 # ==================================================
