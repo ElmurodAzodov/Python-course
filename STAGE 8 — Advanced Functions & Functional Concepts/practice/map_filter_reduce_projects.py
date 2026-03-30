@@ -123,15 +123,15 @@ from functools import reduce
 # students listidan score > 80 bo‘lgan studentlarni filter qiling
 # va ularning ismlarini chiqaring (map)
 
-students = [
-    {"name": "Ali", "score": 75},
-    {"name": "Vali", "score": 90},
-    {"name": "Aziza", "score": 85},
-]
-filtered_students = filter(lambda student: student["score"] > 80, students)
-names = list(map(lambda student: student["name"], filtered_students))
+# students = [
+#     {"name": "Ali", "score": 75},
+#     {"name": "Vali", "score": 90},
+#     {"name": "Aziza", "score": 85},
+# ]
+# filtered_students = filter(lambda student: student["score"] > 80, students)
+# names = list(map(lambda student: student["name"], filtered_students))
 
-print(names)
+# print(names)
 
 
 # ==================================================
@@ -140,12 +140,16 @@ print(names)
 # students listidagi barcha score larni oling (map)
 # va o‘rtacha ballni hisoblang (reduce)
 
-# students = [
-#     {"name": "Ali", "score": 80},
-#     {"name": "Vali", "score": 95},
-#     {"name": "Aziza", "score": 85},
-# ]
+students = [
+    {"name": "Ali", "score": 80},
+    {"name": "Vali", "score": 95},
+    {"name": "Aziza", "score": 85},
+]
+scores = list(map(lambda student: student["score"], students))
+total_score = reduce(lambda a, b: a + b, scores)
+average_score = total_score / len(scores)
 
+print(average_score)
 
 # ==================================================
 # 13 - TOPSHIRIQ
