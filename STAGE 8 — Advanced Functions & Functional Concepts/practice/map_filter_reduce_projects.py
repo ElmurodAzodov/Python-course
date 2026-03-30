@@ -157,15 +157,15 @@ from functools import reduce
 # products listidan price > 100 bo‘lgan mahsulotlarni filter qiling
 # va ularning narxlarini oling (map)
 
-products = [
-    {"name": "Laptop", "price": 1200},
-    {"name": "Mouse", "price": 20},
-    {"name": "Keyboard", "price": 80},
-]
-expensive_products = filter(lambda product: product["price"] > 100, products)
-prices = list(map(lambda product: product["price"], expensive_products))
+# products = [
+#     {"name": "Laptop", "price": 1200},
+#     {"name": "Mouse", "price": 20},
+#     {"name": "Keyboard", "price": 80},
+# ]
+# expensive_products = filter(lambda product: product["price"] > 100, products)
+# prices = list(map(lambda product: product["price"], expensive_products))
 
-print(prices)
+# print(prices)
 
 # ==================================================
 # 14 - TOPSHIRIQ
@@ -173,12 +173,15 @@ print(prices)
 # products listidagi barcha price larni oling (map)
 # va umumiy narxni hisoblang (reduce)
 
-# products = [
-#     {"name": "Laptop", "price": 1200},
-#     {"name": "Mouse", "price": 20},
-#     {"name": "Keyboard", "price": 80},
-# ]
+products = [
+    {"name": "Laptop", "price": 1200},
+    {"name": "Mouse", "price": 20},
+    {"name": "Keyboard", "price": 80},
+]
+prices = list(map(lambda product: product["price"], products))
+total_price = reduce(lambda a, b: a + b, prices)
 
+print(total_price)
 
 # ==================================================
 # 15 - TOPSHIRIQ
