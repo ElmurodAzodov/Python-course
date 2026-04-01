@@ -42,19 +42,19 @@ from functools import reduce
 #   - quantity 0 bo'lganlarni filter qiling
 # - natijalarni chiqarish
 
-products = {
-    "apple": (2, 5),
-    "banana": (1, 0),
-    "laptop": (1000, 2)
-}
-# [("apple", (2, 5)), ("banana", (1, 0), ("laptop", (1000, 2))]
-def product_func(products):
-    qimmat_mahsulot = max(products.items(), key=lambda x: x[1][0])
-    umumiy_qiymat = reduce(lambda acc, x: acc + x[1][0], products.items(), 0)
-    nol = dict(filter(lambda x: x[1][1] > 0, products.items()))
+# products = {
+#     "apple": (2, 5),
+#     "banana": (1, 0),
+#     "laptop": (1000, 2)
+# }
+# # [("apple", (2, 5)), ("banana", (1, 0), ("laptop", (1000, 2))]
+# def product_func(products):
+#     qimmat_mahsulot = max(products.items(), key=lambda x: x[1][0])
+#     umumiy_qiymat = reduce(lambda acc, x: acc + x[1][0], products.items(), 0)
+#     nol = dict(filter(lambda x: x[1][1] > 0, products.items()))
 
-    return qimmat_mahsulot, umumiy_qiymat, nol
-print(product_func(products))
+#     return qimmat_mahsulot, umumiy_qiymat, nol
+# print(product_func(products))
 
 # 4. PROJECT: WORD FREQUENCY COUNTER
 # Matn berilgan (string).

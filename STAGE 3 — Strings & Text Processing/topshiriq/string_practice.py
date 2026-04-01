@@ -340,11 +340,23 @@ String Methods • Searching • Replacing
 
 # 43. Matnni snake_case ga o‘zgartir.
 
-matn3 = "Salom Dunyo Python Darsi"
-snake = matn3.lower().replace(" ", "_")
-print("snake_case:", snake)
+# matn3 = "Salom Dunyo Python Darsi"
+# snake = matn3.lower().replace(" ", "_")
+# print("snake_case:", snake)
 
 # 44. CamelCase formatga o‘zgartir.
+
+text = "hello world python developer"
+
+words = text.split()
+
+camel_case = words[0].lower()
+
+for word in words[1:]:
+    camel_case += word.capitalize()
+
+print(camel_case)
+
 # 45. Eng ko‘p takrorlangan harfni top.
 # 46. Har bir harf nechta marta takrorlanganini dictionary ko‘rinishida chiqar.
 # 47. Caesar cipher (shift=3) yoz.
