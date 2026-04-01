@@ -299,7 +299,7 @@ String Methods • Searching • Replacing
 # for i in list:
 #     text_update += i[0].upper() + i[1:] + " "
 # print(text_update)
-    
+
 # 39. So‘zlar tartibini teskariga o‘gir (harflarni emas).
 
 # text = "Python is great"
@@ -384,20 +384,33 @@ String Methods • Searching • Replacing
 
 # 47. Caesar cipher (shift=3) yoz.
 
-text = "hello"
-shift = 3
-natija = ""
+# text = "hello"
+# shift = 3
+# natija = ""
 
-for harf in text:
-    if harf.isalpha():
-        yangi_harf = chr(ord(harf) + shift)
-        natija += yangi_harf
-    else:
-        natija += harf
+# for harf in text:
+#     if harf.isalpha():
+#         yangi_harf = chr(ord(harf) + shift)
+#         natija += yangi_harf
+#     else:
+#         natija += harf
 
-print(natija)
+# print(natija)
 
 # 48. Matndan barcha palindrom so‘zlarni ajratib ol.
+
+text = "anna olma radar kitob level non civic"
+
+words = text.split()
+
+palindromlar = []
+
+for word in words:
+    if word == word[::-1]:
+        palindromlar.append(word)
+
+print(palindromlar)
+
 # 49. Mini template engine yoz:
 #     text = "Salom {name}, yoshingiz {age}"
 # 50. Katta matnda:
@@ -425,7 +438,7 @@ print(natija)
 # 52. Har 2-belgini ajrat.
 # 53. Birinchi harfni slicing bilan kichik qil (immutability).
 
- 
+
 # -----------------------
 # VALIDATION
 # -----------------------
