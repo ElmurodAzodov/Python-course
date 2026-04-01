@@ -373,16 +373,30 @@ String Methods • Searching • Replacing
 
 # 46. Har bir harf nechta marta takrorlanganini dictionary ko‘rinishida chiqar.
 
-text = "banana"
+# text = "banana"
 
-count_dict = {}
+# count_dict = {}
 
-for harf in text:
-    count_dict[harf] = count_dict.get(harf, 0) + 1
+# for harf in text:
+#     count_dict[harf] = count_dict.get(harf, 0) + 1
 
-print(count_dict)
+# print(count_dict)
 
 # 47. Caesar cipher (shift=3) yoz.
+
+text = "hello"
+shift = 3
+natija = ""
+
+for harf in text:
+    if harf.isalpha():
+        yangi_harf = chr(ord(harf) + shift)
+        natija += yangi_harf
+    else:
+        natija += harf
+
+print(natija)
+
 # 48. Matndan barcha palindrom so‘zlarni ajratib ol.
 # 49. Mini template engine yoz:
 #     text = "Salom {name}, yoshingiz {age}"
