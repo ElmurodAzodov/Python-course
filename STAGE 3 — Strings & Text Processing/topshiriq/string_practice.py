@@ -359,19 +359,29 @@ String Methods • Searching • Replacing
 
 # 45. Eng ko‘p takrorlangan harfni top.
 
-text = "programming"
+# text = "programming"
+
+# count_dict = {}
+
+# for harf in text:
+#     count_dict[harf] = count_dict.get(harf, 0) + 1
+
+# eng_kop_harf = max(count_dict, key=count_dict.get)
+
+# print("Eng ko'p takrorlangan harf:", eng_kop_harf)
+# print("Necha marta:", count_dict[eng_kop_harf])
+
+# 46. Har bir harf nechta marta takrorlanganini dictionary ko‘rinishida chiqar.
+
+text = "banana"
 
 count_dict = {}
 
 for harf in text:
     count_dict[harf] = count_dict.get(harf, 0) + 1
 
-eng_kop_harf = max(count_dict, key=count_dict.get)
+print(count_dict)
 
-print("Eng ko‘p takrorlangan harf:", eng_kop_harf)
-print("Necha marta:", count_dict[eng_kop_harf])
-
-# 46. Har bir harf nechta marta takrorlanganini dictionary ko‘rinishida chiqar.
 # 47. Caesar cipher (shift=3) yoz.
 # 48. Matndan barcha palindrom so‘zlarni ajratib ol.
 # 49. Mini template engine yoz:
