@@ -346,18 +346,31 @@ String Methods • Searching • Replacing
 
 # 44. CamelCase formatga o‘zgartir.
 
-text = "hello world python developer"
+# text = "hello world python developer"
 
-words = text.split()
+# words = text.split()
 
-camel_case = words[0].lower()
+# camel_case = words[0].lower()
 
-for word in words[1:]:
-    camel_case += word.capitalize()
+# for word in words[1:]:
+#     camel_case += word.capitalize()
 
-print(camel_case)
+# print(camel_case)
 
 # 45. Eng ko‘p takrorlangan harfni top.
+
+text = "programming"
+
+count_dict = {}
+
+for harf in text:
+    count_dict[harf] = count_dict.get(harf, 0) + 1
+
+eng_kop_harf = max(count_dict, key=count_dict.get)
+
+print("Eng ko‘p takrorlangan harf:", eng_kop_harf)
+print("Necha marta:", count_dict[eng_kop_harf])
+
 # 46. Har bir harf nechta marta takrorlanganini dictionary ko‘rinishida chiqar.
 # 47. Caesar cipher (shift=3) yoz.
 # 48. Matndan barcha palindrom so‘zlarni ajratib ol.
