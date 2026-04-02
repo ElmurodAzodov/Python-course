@@ -205,9 +205,9 @@ from functools import reduce
 # numbers listidan faqat 3 ga bo‘linadigan sonlarni filter qiling
 # va ularni kvadratga oshiring (map)
 
-numbers = [3, 6, 7, 9, 10, 12]
-result = list(map(lambda x: x ** 2, filter(lambda x: x % 3 == 0, numbers)))
-print(result)
+# numbers = [3, 6, 7, 9, 10, 12]
+# result = list(map(lambda x: x ** 2, filter(lambda x: x % 3 == 0, numbers)))
+# print(result)
 
 # ==================================================
 # 17 - TOPSHIRIQ
@@ -215,8 +215,12 @@ print(result)
 # words listidan uzunligi 4 dan katta so‘zlarni filter qiling
 # va ularning uzunliklari yig‘indisini hisoblang
 
-# words = ["AI", "python", "data", "science"]
+words = ["AI", "python", "data", "science"]
+filtered_words = list(filter(lambda word: len(word) > 4, words))
+length_sum = sum(map(len, filtered_words))
 
+print(filtered_words)
+print(length_sum)
 
 # ==================================================
 # 18 - TOPSHIRIQ
