@@ -215,12 +215,12 @@ from functools import reduce
 # words listidan uzunligi 4 dan katta so‘zlarni filter qiling
 # va ularning uzunliklari yig‘indisini hisoblang
 
-words = ["AI", "python", "data", "science"]
-filtered_words = list(filter(lambda word: len(word) > 4, words))
-length_sum = sum(map(len, filtered_words))
+# words = ["AI", "python", "data", "science"]
+# filtered_words = list(filter(lambda word: len(word) > 4, words))
+# length_sum = sum(map(len, filtered_words))
 
-print(filtered_words)
-print(length_sum)
+# print(filtered_words)
+# print(length_sum)
 
 # ==================================================
 # 18 - TOPSHIRIQ
@@ -228,8 +228,9 @@ print(length_sum)
 # numbers listidan toq sonlarni filter qiling
 # va ularni 5 ga ko‘paytiring
 
-# numbers = [1, 2, 3, 4, 5, 6]
-
+numbers = [1, 2, 3, 4, 5, 6]
+result = list(map(lambda x: x * 5, filter(lambda x: x % 2 != 0, numbers)))
+print(result)
 
 # ==================================================
 # 19 - TOPSHIRIQ
