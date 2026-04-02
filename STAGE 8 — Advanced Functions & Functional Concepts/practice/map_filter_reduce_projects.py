@@ -189,15 +189,15 @@ from functools import reduce
 # emails listidan faqat gmail email larni filter qiling
 # va domen qismini olib tashlang (map)
 
-emails = [
-    "ali@gmail.com",
-    "user@yahoo.com",
-    "dev@gmail.com",
-]
-gmail_emails = filter(lambda email: "@gmail.com" in email, emails)
-usernames = list(map(lambda email: email.replace("@gmail.com", ""), gmail_emails))
+# emails = [
+#     "ali@gmail.com",
+#     "user@yahoo.com",
+#     "dev@gmail.com",
+# ]
+# gmail_emails = filter(lambda email: "@gmail.com" in email, emails)
+# usernames = list(map(lambda email: email.replace("@gmail.com", ""), gmail_emails))
 
-print(usernames)
+# print(usernames)
 
 # ==================================================
 # 16 - TOPSHIRIQ
@@ -205,8 +205,9 @@ print(usernames)
 # numbers listidan faqat 3 ga bo‘linadigan sonlarni filter qiling
 # va ularni kvadratga oshiring (map)
 
-# numbers = [3, 6, 7, 9, 10, 12]
-
+numbers = [3, 6, 7, 9, 10, 12]
+result = list(map(lambda x: x ** 2, filter(lambda x: x % 3 == 0, numbers)))
+print(result)
 
 # ==================================================
 # 17 - TOPSHIRIQ
