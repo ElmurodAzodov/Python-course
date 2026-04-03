@@ -228,9 +228,9 @@ from functools import reduce
 # numbers listidan toq sonlarni filter qiling
 # va ularni 5 ga ko‘paytiring
 
-numbers = [1, 2, 3, 4, 5, 6]
-result = list(map(lambda x: x * 5, filter(lambda x: x % 2 != 0, numbers)))
-print(result)
+# numbers = [1, 2, 3, 4, 5, 6]
+# result = list(map(lambda x: x * 5, filter(lambda x: x % 2 != 0, numbers)))
+# print(result)
 
 # ==================================================
 # 19 - TOPSHIRIQ
@@ -238,8 +238,10 @@ print(result)
 # numbers listidagi barcha sonlarni string ga aylantiring
 # va ularni bitta stringga birlashtiring
 
-# numbers = [1, 2, 3, 4, 5]
+numbers = [1, 2, 3, 4, 5]
+result = ''.join(map(str, numbers))
 
+print(result)
 
 # ==================================================
 # 20 - TOPSHIRIQ
