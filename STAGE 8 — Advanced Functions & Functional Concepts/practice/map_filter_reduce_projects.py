@@ -279,12 +279,12 @@ from functools import reduce
 # transactions listidan faqat musbat qiymatlarni filter qiling
 # va umumiy daromadni hisoblang
 
-transactions = [100, -20, 50, -10, 200]
-positive_transactions = list(filter(lambda x: x > 0, transactions))
-total_income = sum(positive_transactions)
+# transactions = [100, -20, 50, -10, 200]
+# positive_transactions = list(filter(lambda x: x > 0, transactions))
+# total_income = sum(positive_transactions)
 
-print(positive_transactions)
-print(total_income)
+# print(positive_transactions)
+# print(total_income)
 
 # ==================================================
 # 23 - TOPSHIRIQ
@@ -294,8 +294,13 @@ print(total_income)
 
 import math
 
-# numbers = [4, 9, 16, 25, 36]
+numbers = [4, 9, 16, 25, 36]
 
+square_roots = list(map(math.sqrt, numbers))
+filtered_roots = list(filter(lambda x: x > 5, square_roots))
+
+print(square_roots)
+print(filtered_roots)
 
 # ==================================================
 # 24 - TOPSHIRIQ
