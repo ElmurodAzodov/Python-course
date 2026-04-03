@@ -238,10 +238,10 @@ from functools import reduce
 # numbers listidagi barcha sonlarni string ga aylantiring
 # va ularni bitta stringga birlashtiring
 
-numbers = [1, 2, 3, 4, 5]
-result = ''.join(map(str, numbers))
+# numbers = [1, 2, 3, 4, 5]
+# result = ''.join(map(str, numbers))
 
-print(result)
+# print(result)
 
 # ==================================================
 # 20 - TOPSHIRIQ
@@ -249,7 +249,12 @@ print(result)
 # numbers listidan musbat sonlarni filter qiling
 # va eng katta sonni toping
 
-# numbers = [-10, 5, 20, -3, 7]
+numbers = [-10, 5, 20, -3, 7]
+positive_numbers = list(filter(lambda x: x > 0, numbers))
+largest = max(positive_numbers)
+
+print(positive_numbers)
+print(largest)
 
 
 # ==================================================
