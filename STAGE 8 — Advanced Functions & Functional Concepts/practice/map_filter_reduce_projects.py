@@ -249,12 +249,12 @@ from functools import reduce
 # numbers listidan musbat sonlarni filter qiling
 # va eng katta sonni toping
 
-numbers = [-10, 5, 20, -3, 7]
-positive_numbers = list(filter(lambda x: x > 0, numbers))
-largest = max(positive_numbers)
+# numbers = [-10, 5, 20, -3, 7]
+# positive_numbers = list(filter(lambda x: x > 0, numbers))
+# largest = max(positive_numbers)
 
-print(positive_numbers)
-print(largest)
+# print(positive_numbers)
+# print(largest)
 
 
 # ==================================================
@@ -263,12 +263,15 @@ print(largest)
 # users listidan age > 18 bo‘lganlarni filter qiling
 # va ularning ismlarini katta harfga o‘tkazing
 
-# users = [
-#     {"name": "Ali", "age": 17},
-#     {"name": "Vali", "age": 25},
-#     {"name": "Aziza", "age": 22},
-# ]
+users = [
+    {"name": "Ali", "age": 17},
+    {"name": "Vali", "age": 25},
+    {"name": "Aziza", "age": 22},
+]
+filtered_users = filter(lambda user: user["age"] > 18, users)
+upper_names = list(map(lambda user: user["name"].upper(), filtered_users))
 
+print(upper_names)
 
 # ==================================================
 # 22 - TOPSHIRIQ
