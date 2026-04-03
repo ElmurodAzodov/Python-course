@@ -263,15 +263,15 @@ from functools import reduce
 # users listidan age > 18 bo‘lganlarni filter qiling
 # va ularning ismlarini katta harfga o‘tkazing
 
-users = [
-    {"name": "Ali", "age": 17},
-    {"name": "Vali", "age": 25},
-    {"name": "Aziza", "age": 22},
-]
-filtered_users = filter(lambda user: user["age"] > 18, users)
-upper_names = list(map(lambda user: user["name"].upper(), filtered_users))
+# users = [
+#     {"name": "Ali", "age": 17},
+#     {"name": "Vali", "age": 25},
+#     {"name": "Aziza", "age": 22},
+# ]
+# filtered_users = filter(lambda user: user["age"] > 18, users)
+# upper_names = list(map(lambda user: user["name"].upper(), filtered_users))
 
-print(upper_names)
+# print(upper_names)
 
 # ==================================================
 # 22 - TOPSHIRIQ
@@ -279,8 +279,12 @@ print(upper_names)
 # transactions listidan faqat musbat qiymatlarni filter qiling
 # va umumiy daromadni hisoblang
 
-# transactions = [100, -20, 50, -10, 200]
+transactions = [100, -20, 50, -10, 200]
+positive_transactions = list(filter(lambda x: x > 0, transactions))
+total_income = sum(positive_transactions)
 
+print(positive_transactions)
+print(total_income)
 
 # ==================================================
 # 23 - TOPSHIRIQ
