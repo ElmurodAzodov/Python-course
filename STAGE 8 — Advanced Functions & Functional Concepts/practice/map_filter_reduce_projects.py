@@ -295,10 +295,8 @@ from functools import reduce
 import math
 
 numbers = [4, 9, 16, 25, 36]
-
 square_roots = list(map(math.sqrt, numbers))
 filtered_roots = list(filter(lambda x: x > 5, square_roots))
-
 print(square_roots)
 print(filtered_roots)
 
