@@ -304,8 +304,9 @@ from functools import reduce
 # ==================================================
 # words listidan palindrom so‘zlarni filter qiling
 
-# words = ["level", "python", "madam", "code"]
-
+words = ["level", "python", "madam", "code"]
+palindromes = list(filter(lambda w: w == w[::-1], words))
+print(palindromes)
 
 # ==================================================
 # 25 - TOPSHIRIQ
