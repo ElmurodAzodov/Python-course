@@ -314,12 +314,15 @@ from functools import reduce
 # students listidan score > 70 bo‘lganlarni filter qiling
 # va eng yuqori ballni toping
 
-# students = [
-#     {"name": "Ali", "score": 60},
-#     {"name": "Vali", "score": 85},
-#     {"name": "Aziza", "score": 90},
-# ]
-
+students = [
+    {"name": "Ali", "score": 60},
+    {"name": "Vali", "score": 85},
+    {"name": "Aziza", "score": 90},
+]
+filtered_students = list(filter(lambda student: student["score"] > 70, students))
+highest_score = max(map(lambda student: student["score"], filtered_students))
+print(filtered_students)
+print(highest_score)
 
 # ==================================================
 # 26 - TOPSHIRIQ
