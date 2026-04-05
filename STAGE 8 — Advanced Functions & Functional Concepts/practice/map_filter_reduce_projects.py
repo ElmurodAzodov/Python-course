@@ -293,7 +293,6 @@ from functools import reduce
 # va 5 dan katta bo‘lganlarini filter qiling
 
 import math
-
 numbers = [4, 9, 16, 25, 36]
 square_roots = list(map(math.sqrt, numbers))
 filtered_roots = list(filter(lambda x: x > 5, square_roots))
