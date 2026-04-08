@@ -106,6 +106,8 @@ Full Stack  (21-25) ████████████░ 2 months
 - **💬 Comments** (# single, """ multi """)
 - **📄 Docstrings** (PEP 257)
 
+
+
 ---
 
 ## 🎯 STAGE 1 — Core Syntax & Expressions
