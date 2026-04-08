@@ -208,6 +208,7 @@ Full Stack  (21-25) ████████████░ 2 months
   - OR patterns (401 | 403)
   - Guard clauses (if condition)
 
+
 ---
 
 ## 🎯 STAGE 5 — Loops & Iteration
