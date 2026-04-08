@@ -134,7 +134,9 @@ Full Stack  (21-25) ████████████░ 2 months
 - **📝 Expressions** (evaluation)
 - **📊 Operator Precedence** (PEMDAS)
 
+
 ---
+
 
 ## 🎯 STAGE 2 — Python Object Model & Primitive Types
 **Goal**: Understand Python's object-based nature.
