@@ -154,7 +154,9 @@ Full Stack  (21-25) ████████████░ 2 months
 - **📏 Numeric Precision** (round(), Decimal)
 - **🔒 Immutability Concepts**
 
+
 ---
+
 
 ## 🎯 STAGE 3 — Strings & Text Processing
 **Goal**: Master text handling, a core Python skill.
