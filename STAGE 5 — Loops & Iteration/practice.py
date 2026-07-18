@@ -3,9 +3,9 @@
    KUNLIK MASHQLAR — O'ZGARUVCHILAR, IF/ELSE, FOR LOOP
 =======================================================
 Jami: 50 ta topshiriq
-  - 10 ta ODDIY     (⭐)
-  - 20 ta O'RTACHA   (⭐⭐)
-  - 20 ta QIYIN      (⭐⭐⭐)
+  - 10 ta ODDIY
+  - 20 ta O'RTACHA
+  - 20 ta QIYIN
 
 Qoidalar:
   1. Har bir topshiriqni o'zining raqami ostidagi bo'sh joyga yozing.
@@ -17,7 +17,7 @@ Qoidalar:
 
 
 # =======================================================
-# ⭐ ODDIY DARAJA (1-10)
+# ODDIY DARAJA (1-10)
 # =======================================================
 
 # 1-masala: Ism va yosh ma'lumotlarini o'zgaruvchilarga saqlang
@@ -61,7 +61,7 @@ Qoidalar:
 
 
 # =======================================================
-# ⭐⭐ O'RTACHA DARAJA (11-30)
+# O'RTACHA DARAJA (11-30)
 # =======================================================
 
 # 11-masala: Uchta son (a, b, c) orasidan eng kattasini if/else
@@ -148,7 +148,7 @@ Qoidalar:
 
 
 # =======================================================
-# ⭐⭐⭐ QIYIN DARAJA (31-50)
+# QIYIN DARAJA (31-50)
 # =======================================================
 
 # 31-masala: 1 dan 50 gacha bo'lgan barcha tub sonlarni (prime
