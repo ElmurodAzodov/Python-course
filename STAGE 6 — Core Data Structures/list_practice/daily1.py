@@ -1,14 +1,15 @@
 
-mevalar = ["olma", "anor", "uzum", "banan", "mandarin"]
+mevalar = ["olma", ["nashvati", "limon"], "anor", "uzum", "banan", "mandarin"]
 aralash = [1, 2, 3.4, 8/2, True, False, None, "birnarsa"]
 bosh_list = []
 ism = "Hurmatbek"
 ism_list = list(ism)
-
-print(mevalar[0])
-print(mevalar[4])
-print(mevalar[-5])
-
+# mevalar[0] = [i for i in range(10)]
+# print(mevalar)
+# print(mevalar[0])
+# print(mevalar[4])
+# print(mevalar[-5])
+print(mevalar[1][0])
 
 # sonlar = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 # sonlar1 = [i for i in range(1, 11) if i % 2 == 0]
