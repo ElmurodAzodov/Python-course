@@ -1,0 +1,33 @@
+
+mevalar = ["olma", "anor", "uzum", "banan", "mandarin"]
+aralash = [1, 2, 3.4, 8/2, True, False, None, "birnarsa"]
+bosh_list = []
+ism = "Hurmatbek"
+ism_list = list(ism)
+
+sonlar = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+sonlar1 = [i for i in range(1, 11) if i % 2 == 0]
+l = []
+for i in range(1, 11):
+    if i % 2 == 0:
+        l.append(i)
+
+print(sonlar1)
+print(l)
+
+# print(mevalar)
+# print(aralash)
+# print(ism_list)
+
+#* List comprehension usulida bajaring:
+
+#& 0dan 100gacha sonlarni chiqaring
+
+#& 0dan 100gacha bo'lgan sonlar orasidan juft sonlarni chiqaring
+
+#& 0dan 100gacha bo'lgan sonlar orasidan toq sonlarni chiqaring
+
+#& 0dan 100gacha bo'lgan sonlar orasidan 3 va 5 ga bo'linadigan sonlarni chiqaring
+
+#& 0dan 100gacha bo'lgan sonlar orasidan 7 va 3 ga bo'linadigan 
+#& sonlarning yig'indisini chiqaring
