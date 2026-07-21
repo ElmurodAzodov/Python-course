@@ -5,15 +5,20 @@ bosh_list = []
 ism = "Hurmatbek"
 ism_list = list(ism)
 
-sonlar = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-sonlar1 = [i for i in range(1, 11) if i % 2 == 0]
-l = []
-for i in range(1, 11):
-    if i % 2 == 0:
-        l.append(i)
+print(mevalar[0])
+print(mevalar[4])
+print(mevalar[-5])
 
-print(sonlar1)
-print(l)
+
+# sonlar = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+# sonlar1 = [i for i in range(1, 11) if i % 2 == 0]
+# l = []
+# for i in range(1, 11):
+#     if i % 2 == 0:
+#         l.append(i)
+
+# print(sonlar1)
+# print(l)
 
 # print(mevalar)
 # print(aralash)
