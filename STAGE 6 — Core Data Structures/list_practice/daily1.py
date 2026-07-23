@@ -27,6 +27,7 @@ print(mevalar[1][0])
 
 
 
+
 #* List comprehension usulida bajaring:
 
 #& 0dan 100gacha sonlarni chiqaring
