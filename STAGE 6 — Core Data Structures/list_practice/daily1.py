@@ -26,6 +26,7 @@ print(mevalar[1][0])
 # print(ism_list)
 
 
+
 #* List comprehension usulida bajaring:
 
 #& 0dan 100gacha sonlarni chiqaring
