@@ -48,15 +48,28 @@
 
 #* Methods
 
-oquvchilar = ["Dastonbek", "Jahongir", "Hurmatbek", "Abrorbek", "Shoxruzbek", "Boburjon", "Sherzodbek"]
+# oquvchilar = ["Dastonbek", "Jahongir", "Hurmatbek", "Abrorbek", "Shoxruzbek", "Boburjon", "Sherzodbek"]
 
-#^ .append() - oxiriga faqat bitta element qo'shadi
-oquvchilar.append("Behruz")
+# #^ .append() - oxiriga faqat bitta element qo'shadi
+# oquvchilar.append("Behruz")
 
-#^ .extend() - oxiriga bir nechta element qo'shadi, [] lar ichida yoziladi
-oquvchilar.extend(["Marjona", "Mohira", "Dilobar"])
+# #^ .extend() - oxiriga bir nechta element qo'shadi, [] lar ichida yoziladi
+# oquvchilar.extend(["Marjona", "Mohira", "Dilobar"])
 
-#^ .insert()
-oquvchilar.insert(0, "Nuraddin")
-oquvchilar[0] = "Nurbek"
-print(oquvchilar)
+# #^ .insert()
+# oquvchilar.insert(0, "Nuraddin")
+# oquvchilar[0] = "Nurbek"
+# print(oquvchilar)
+
+#* Slicing
+
+sonlar = [1, 2, 3, 4, 5, [6, 7, 8], 9, [10, 11, [12, 13, [14], 15], 16]]
+l = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+
+#& list_name[start:stop:step]
+print(l[1:5]) # 2, 3, 4, 5
+print(l[1:15:5]) # 2, 7, 12
+print(l[3:]) # 4, 5, 6, 7, 8, 9, 10, ...., 16
+print(l[:5]) # 1, 2, 3, 4, 5
+print(l[:]) # hammasi
+print(l[::]) # hammasi
