@@ -111,7 +111,9 @@
 # nums = [1,2,2,3,3,3,4,5,5]
 # Takroriy elementlarni aniqlang.
 # Unique elementlarni set yordamida ajrating.
-
+nums = [1,2,2,3,3,3,4,5,5]
+takroriy = {i for i in nums if nums.count(i) > 1}
+print(takroriy)
 
 # 18-topshiriq
 # text = "data science"
